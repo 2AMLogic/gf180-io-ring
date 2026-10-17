@@ -1,0 +1,13 @@
+{
+  "_comment": [
+    "Pinned toolchain, CHECKED by sim/check_env.sh before any run.",
+    "  open_pdks         exact open_pdks commit of the gf180mcu models. EXACT:",
+    "                    the hash is the device models.",
+    "  ngspice_min_major floor, not exact. 42 is what the dispatch workers run;",
+    "                    the sibling gf180-comparator floor of 46 would refuse them.",
+    "  python_min        floor, 'major.minor'."
+  ],
+  "open_pdks": "c6d73a35f524070e85faff4a6a9eef49553ebc2b",
+  "ngspice_min_major": 42,
+  "python_min": "3.9"
+}

@@ -1,0 +1,4 @@
+SMOKE id_nfet_03v3 = 0.00508444
+SMOKE id_nfet_06v0 = 0.00440722
+SMOKE id_diode_nd2ps_06v0 = -1.27619E-06
+SMOKE id_diode_pd2nw_06v0 = -1.40278E-06
