@@ -53,20 +53,12 @@ Read it before designing a clamp; adopt what fits or record why not.
   measured silicon. The foundry `gf180mcu_fd_io` library is the reference
   and comparison, not something this repo wraps or re-tiles.
 
-## Target specification (DRAFT — engineering to ratify, see issue #1)
+## Target specification
 
-Port parity: rows mirror the origin's draft and are re-derived for gf180mcu.
-All figures are targets.
-
-| Parameter | Target | Fallback | Stretch |
-|---|---|---|---|
-| I/O supply | 5 V ±10% | 3.3 V ±10% | selectable 3.3 V / 5 V |
-| Core interface | 3.3 V ±10%, level-shifted in the pad | — | — |
-| GPIO | bidirectional, output enable, input enable, pull-up/pull-down | output + input only | selectable drive strength, slew control |
-| Cell set | GPIO, I/O-supply pad, core-supply pad, corner, fillers | GPIO + one supply pair + corner | analog pass-through pad |
-| ESD | clamp network on every pad, simulated with the PDK's models; HBM target 2 kV as a design target only | — | — |
-| Ring | closed demonstration ring, supply rails continuous | one side + corner | — |
-| Signoff | DRC + LVS clean, latch-up and guard-ring rules clean, ring ERC clean | — | — |
+The ratified targets (target / fallback / stretch, with rationale) are in
+[`spec/io-ring.md`](spec/io-ring.md); what is inherited from the origin and
+what is re-derived is in [`spec/porting-plan.md`](spec/porting-plan.md). All
+figures are design targets.
 
 ESD robustness is a silicon property. Pre-silicon, this repo can show that
 the clamp network turns on and carries the intended current in simulation
@@ -74,7 +66,7 @@ and that the layout satisfies the ESD and latch-up rules — nothing more.
 
 Maturity ladder: porting plan recorded → spec ratified → GPIO cell simulated
 across PVT → cells DRC/LVS-clean → ring assembled, DRC/LVS/ERC-clean →
-shuttle seat → measured silicon. **Current position: pre-spec.**
+shuttle seat → measured silicon. **Current position: spec ratified (`spec/io-ring.md`); next is the PDK pin and smoke simulation.**
 
 ## Repo layout
 
