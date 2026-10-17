@@ -1,0 +1,37 @@
+# Block manifest and tier-verdict record
+
+This directory holds this block's `klt signoff` input and its committed
+output: the machine-readable gap-to-T1 checklist.
+
+## Files
+
+- **`gf180-io-ring.json`**: the block manifest (`block: gf180-io-ring`,
+  `kind: analog`). `evidence` is empty: no design artifact exists yet, so
+  every T1 item grades `unmet` / `no_evidence`. Evidence is cited here one
+  item at a time as it lands, each pinned to the cited artifact's
+  `content_hash`.
+- **`design-evidence-tiers.md`**: the T1-T4 checklist the grader parses.
+  Vendored **byte-identical** from
+  [`2AMLogic/klayout-tools@31a3e3c41c08bbd58719e0b99a3b6d19beb9be63`](https://github.com/2AMLogic/klayout-tools/blob/31a3e3c41c08bbd58719e0b99a3b6d19beb9be63/docs/design-evidence-tiers.md)
+  `docs/design-evidence-tiers.md` (upstream is MIT-licensed; this repo's
+  license does not relicense the vendored copy). When upstream moves,
+  re-vendor and regenerate the record in the same PR.
+- **`gf180-io-ring.signoff.json`**: the verdict of record, the committed
+  output of the command below. Never hand-edit it.
+
+## Regenerate
+
+```console
+uvx --from "klayout-tools==0.7.0" klt signoff \
+    --manifest manifests/gf180-io-ring.json \
+    --tiers-doc manifests/design-evidence-tiers.md \
+    --format json > manifests/gf180-io-ring.signoff.json
+```
+
+Exit `3` means at least one T1 item is `unmet` (a valid run); `0` means all
+are met. Any change that affects the verdict (new evidence, a manifest edit,
+a vendored-doc bump, a `klt` pin bump) regenerates and commits the record in
+the same PR.
+
+CI ([`.github/workflows/signoff.yml`](../.github/workflows/signoff.yml))
+re-runs this on every push and byte-compares against the committed record.

@@ -53,7 +53,7 @@ Read it before designing a clamp; adopt what fits or record why not.
   measured silicon. The foundry `gf180mcu_fd_io` library is the reference
   and comparison, not something this repo wraps or re-tiles.
 
-## Target specification (DRAFT — engineering to ratify, see issue #1)
+## Target specification (DRAFT — engineering to ratify, see issue #2)
 
 Port parity: rows mirror the origin's draft and are re-derived for gf180mcu.
 All figures are targets.
