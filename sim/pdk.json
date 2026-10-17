@@ -1,0 +1,13 @@
+{
+  "_comment": [
+    "Committed PDK defaults. Models are resolved from the PINNED revision",
+    "(sim/toolchain.json open_pdks), never from whatever 'current' points at:",
+    "this host carries a second store (~/.ciel) whose revision has no",
+    "libs.tech/ngspice at all.",
+    "  variant       gf180mcu flavor directory.",
+    "  search_roots  extra directories that CONTAIN a volare tree",
+    "                (<root>/volare/gf180mcu/versions/<rev>/<variant>), tried first."
+  ],
+  "variant": "gf180mcuD",
+  "search_roots": []
+}

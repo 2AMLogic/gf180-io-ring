@@ -1,0 +1,32 @@
+* gf180mcu model smoke: 3.3 V MOS, thick-oxide (06v0) MOS, diodes. Typical corner, 27 C.
+* Proves the model sections load and conduct. Picks NO pad devices (that is spec #2).
+* /home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice is substituted by run.sh with the pinned revision's libs.tech/ngspice.
+.include '/home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice/design.ngspice'
+.lib '/home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice' typical
+.lib '/home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice' diode_typical
+.temp 27
+
+* 3.3 V NMOS, Vgs=Vds=3.3 V
+Vd1 d1 0 3.3
+Vg1 g1 0 3.3
+Xn33 d1x g1 0 0 nfet_03v3 w=10u l=0.28u
+Vsn1 d1 d1x 0
+* thick-oxide NMOS, Vgs=Vds=5 V
+Vd2 d2 0 5
+Vg2 g2 0 5
+Xn60 d2x g2 0 0 nfet_06v0 w=10u l=0.7u
+Vsn2 d2 d2x 0
+* diodes forward biased at 0.7 V (anode driven)
+Va3 a3 0 0.7
+Dnd2ps a3 0 diode_nd2ps_06v0 area=1e-11 pj=14e-6
+Va4 a4 0 0.7
+Dpd2nw a4 0 diode_pd2nw_06v0 area=1e-11 pj=14e-6
+
+.control
+op
+echo SMOKE id_nfet_03v3 = $&i(vsn1)
+echo SMOKE id_nfet_06v0 = $&i(vsn2)
+echo SMOKE id_diode_nd2ps_06v0 = $&i(va3)
+echo SMOKE id_diode_pd2nw_06v0 = $&i(va4)
+.endc
+.end
