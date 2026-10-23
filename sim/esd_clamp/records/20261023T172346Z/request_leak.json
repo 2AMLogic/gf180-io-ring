@@ -1,0 +1,375 @@
+{
+ "netlist": "esd_clamp.spice",
+ "engine": "ngspice",
+ "models": {
+  "pdk": "gf180mcuD",
+  "lib": "libs.tech/ngspice/sm141064.ngspice"
+ },
+ "corners": {
+  "process": [
+   {
+    "name": "typical",
+    "sections": [
+     "diode_typical"
+    ]
+   },
+   {
+    "name": "ff",
+    "sections": [
+     "diode_ff"
+    ]
+   },
+   {
+    "name": "ss",
+    "sections": [
+     "diode_ss"
+    ]
+   }
+  ],
+  "temperature_c": [
+   -40,
+   25,
+   125
+  ]
+ },
+ "analysis": {
+  "kind": "dc",
+  "args": "Vr 0 5.5 0.5"
+ },
+ "measurements": [
+  {
+   "name": "i_nd_a00",
+   "spice": ".meas dc i_nd_a00 FIND i(vm_nd_a00) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a01",
+   "spice": ".meas dc i_nd_a01 FIND i(vm_nd_a01) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a02",
+   "spice": ".meas dc i_nd_a02 FIND i(vm_nd_a02) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a03",
+   "spice": ".meas dc i_nd_a03 FIND i(vm_nd_a03) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a04",
+   "spice": ".meas dc i_nd_a04 FIND i(vm_nd_a04) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a05",
+   "spice": ".meas dc i_nd_a05 FIND i(vm_nd_a05) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a06",
+   "spice": ".meas dc i_nd_a06 FIND i(vm_nd_a06) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a07",
+   "spice": ".meas dc i_nd_a07 FIND i(vm_nd_a07) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a08",
+   "spice": ".meas dc i_nd_a08 FIND i(vm_nd_a08) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a09",
+   "spice": ".meas dc i_nd_a09 FIND i(vm_nd_a09) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a10",
+   "spice": ".meas dc i_nd_a10 FIND i(vm_nd_a10) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a11",
+   "spice": ".meas dc i_nd_a11 FIND i(vm_nd_a11) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a12",
+   "spice": ".meas dc i_nd_a12 FIND i(vm_nd_a12) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a13",
+   "spice": ".meas dc i_nd_a13 FIND i(vm_nd_a13) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a14",
+   "spice": ".meas dc i_nd_a14 FIND i(vm_nd_a14) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a15",
+   "spice": ".meas dc i_nd_a15 FIND i(vm_nd_a15) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a16",
+   "spice": ".meas dc i_nd_a16 FIND i(vm_nd_a16) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a17",
+   "spice": ".meas dc i_nd_a17 FIND i(vm_nd_a17) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a18",
+   "spice": ".meas dc i_nd_a18 FIND i(vm_nd_a18) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a19",
+   "spice": ".meas dc i_nd_a19 FIND i(vm_nd_a19) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a20",
+   "spice": ".meas dc i_nd_a20 FIND i(vm_nd_a20) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a21",
+   "spice": ".meas dc i_nd_a21 FIND i(vm_nd_a21) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a22",
+   "spice": ".meas dc i_nd_a22 FIND i(vm_nd_a22) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a23",
+   "spice": ".meas dc i_nd_a23 FIND i(vm_nd_a23) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a24",
+   "spice": ".meas dc i_nd_a24 FIND i(vm_nd_a24) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a25",
+   "spice": ".meas dc i_nd_a25 FIND i(vm_nd_a25) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a26",
+   "spice": ".meas dc i_nd_a26 FIND i(vm_nd_a26) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a27",
+   "spice": ".meas dc i_nd_a27 FIND i(vm_nd_a27) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a28",
+   "spice": ".meas dc i_nd_a28 FIND i(vm_nd_a28) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a29",
+   "spice": ".meas dc i_nd_a29 FIND i(vm_nd_a29) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a30",
+   "spice": ".meas dc i_nd_a30 FIND i(vm_nd_a30) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a31",
+   "spice": ".meas dc i_nd_a31 FIND i(vm_nd_a31) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_nd_a32",
+   "spice": ".meas dc i_nd_a32 FIND i(vm_nd_a32) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a00",
+   "spice": ".meas dc i_pd_a00 FIND i(vm_pd_a00) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a01",
+   "spice": ".meas dc i_pd_a01 FIND i(vm_pd_a01) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a02",
+   "spice": ".meas dc i_pd_a02 FIND i(vm_pd_a02) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a03",
+   "spice": ".meas dc i_pd_a03 FIND i(vm_pd_a03) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a04",
+   "spice": ".meas dc i_pd_a04 FIND i(vm_pd_a04) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a05",
+   "spice": ".meas dc i_pd_a05 FIND i(vm_pd_a05) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a06",
+   "spice": ".meas dc i_pd_a06 FIND i(vm_pd_a06) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a07",
+   "spice": ".meas dc i_pd_a07 FIND i(vm_pd_a07) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a08",
+   "spice": ".meas dc i_pd_a08 FIND i(vm_pd_a08) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a09",
+   "spice": ".meas dc i_pd_a09 FIND i(vm_pd_a09) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a10",
+   "spice": ".meas dc i_pd_a10 FIND i(vm_pd_a10) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a11",
+   "spice": ".meas dc i_pd_a11 FIND i(vm_pd_a11) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a12",
+   "spice": ".meas dc i_pd_a12 FIND i(vm_pd_a12) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a13",
+   "spice": ".meas dc i_pd_a13 FIND i(vm_pd_a13) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a14",
+   "spice": ".meas dc i_pd_a14 FIND i(vm_pd_a14) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a15",
+   "spice": ".meas dc i_pd_a15 FIND i(vm_pd_a15) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a16",
+   "spice": ".meas dc i_pd_a16 FIND i(vm_pd_a16) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a17",
+   "spice": ".meas dc i_pd_a17 FIND i(vm_pd_a17) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a18",
+   "spice": ".meas dc i_pd_a18 FIND i(vm_pd_a18) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a19",
+   "spice": ".meas dc i_pd_a19 FIND i(vm_pd_a19) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a20",
+   "spice": ".meas dc i_pd_a20 FIND i(vm_pd_a20) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a21",
+   "spice": ".meas dc i_pd_a21 FIND i(vm_pd_a21) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a22",
+   "spice": ".meas dc i_pd_a22 FIND i(vm_pd_a22) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a23",
+   "spice": ".meas dc i_pd_a23 FIND i(vm_pd_a23) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a24",
+   "spice": ".meas dc i_pd_a24 FIND i(vm_pd_a24) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a25",
+   "spice": ".meas dc i_pd_a25 FIND i(vm_pd_a25) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a26",
+   "spice": ".meas dc i_pd_a26 FIND i(vm_pd_a26) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a27",
+   "spice": ".meas dc i_pd_a27 FIND i(vm_pd_a27) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a28",
+   "spice": ".meas dc i_pd_a28 FIND i(vm_pd_a28) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a29",
+   "spice": ".meas dc i_pd_a29 FIND i(vm_pd_a29) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a30",
+   "spice": ".meas dc i_pd_a30 FIND i(vm_pd_a30) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a31",
+   "spice": ".meas dc i_pd_a31 FIND i(vm_pd_a31) AT=5.5",
+   "unit": "A"
+  },
+  {
+   "name": "i_pd_a32",
+   "spice": ".meas dc i_pd_a32 FIND i(vm_pd_a32) AT=5.5",
+   "unit": "A"
+  }
+ ],
+ "options": {
+  "timeout_s": 1800,
+  "keep_artifacts": false
+ }
+}
