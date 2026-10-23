@@ -9,6 +9,10 @@ Pinned toolchain and the model smoke bench. Scope: see the repo README.
 - `smoke/` — typical-corner, 27 C, single operating point: 3.3 V NMOS,
   thick-oxide (`*_06v0`; this revision has no `*_05v0`) NMOS and two diodes.
 
+- `gpio-bi_t/` — foundry `gf180mcu_fd_io__bi_t` against the ratified GPIO electrical
+  targets across the PVT set (comparison anchor, reference values only); grid goes to
+  the batch fleet via `klt sim`. See its README.
+
 ## Cold start
 
     sim/smoke/run.sh                   # exit 0 = all sections loaded and conducting

@@ -1,0 +1,436 @@
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-eb1baa5dc2db submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-eb1baa5dc2db
+klt: batch job klt-sim-883e19cbf295 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-883e19cbf295
+klt: batch job klt-sim-915f000a4a5d submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-915f000a4a5d
+klt: batch job klt-sim-9e6c3dfd010c submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-9e6c3dfd010c
+klt sim: batch job klt-sim-915f000a4a5d: submitted
+klt sim: batch job klt-sim-eb1baa5dc2db: submitted
+klt sim: batch job klt-sim-9e6c3dfd010c: submitted
+klt sim: batch job klt-sim-883e19cbf295: submitted
+klt sim: batch job klt-sim-915f000a4a5d launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-915f000a4a5d`
+klt sim: batch job klt-sim-915f000a4a5d state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-eb1baa5dc2db launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-eb1baa5dc2db`
+klt sim: batch job klt-sim-eb1baa5dc2db state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-9e6c3dfd010c launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-9e6c3dfd010c`
+klt sim: batch job klt-sim-9e6c3dfd010c state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-915f000a4a5d: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-6b82624f42ac submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-6b82624f42ac
+klt sim: batch job klt-sim-883e19cbf295 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-883e19cbf295`
+klt sim: batch job klt-sim-eb1baa5dc2db: done
+klt sim: batch job klt-sim-883e19cbf295 state=no status.json yet elapsed=1s
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-d41e9eadbe2e submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-d41e9eadbe2e
+klt sim: batch job klt-sim-6b82624f42ac: submitted
+klt sim: batch job klt-sim-9e6c3dfd010c: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-8d85aebf098e submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-8d85aebf098e
+klt sim: batch job klt-sim-d41e9eadbe2e: submitted
+klt sim: batch job klt-sim-8d85aebf098e: submitted
+klt sim: batch job klt-sim-6b82624f42ac launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-6b82624f42ac`
+klt sim: batch job klt-sim-6b82624f42ac state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-d41e9eadbe2e launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-d41e9eadbe2e`
+klt sim: batch job klt-sim-d41e9eadbe2e state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-883e19cbf295: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-2aa4fd0c4d7f submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-2aa4fd0c4d7f
+klt sim: batch job klt-sim-2aa4fd0c4d7f: submitted
+klt sim: batch job klt-sim-8d85aebf098e launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-8d85aebf098e`
+klt sim: batch job klt-sim-8d85aebf098e state=no status.json yet elapsed=1s
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-083c9f961f42 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-083c9f961f42
+klt sim: batch job klt-sim-083c9f961f42: submitted
+klt sim: batch job klt-sim-6b82624f42ac: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-9eaffdd5b2f6 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-9eaffdd5b2f6
+klt sim: batch job klt-sim-d41e9eadbe2e: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-1bc8f9f8b485 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-1bc8f9f8b485
+klt sim: batch job klt-sim-9eaffdd5b2f6: submitted
+klt sim: batch job klt-sim-1bc8f9f8b485: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-e869721dfb50 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-e869721dfb50
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-cb9322d1d0a0 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-cb9322d1d0a0
+klt sim: batch job klt-sim-e869721dfb50: submitted
+klt sim: batch job klt-sim-8d85aebf098e: done
+klt sim: batch job klt-sim-cb9322d1d0a0: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-7d303f276914 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-7d303f276914
+klt sim: batch job klt-sim-7d303f276914: submitted
+klt sim: batch job klt-sim-1bc8f9f8b485 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-1bc8f9f8b485`
+klt sim: batch job klt-sim-1bc8f9f8b485 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-1bc8f9f8b485: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-90f61f87df4a submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-90f61f87df4a
+klt sim: batch job klt-sim-90f61f87df4a: submitted
+klt sim: batch job klt-sim-cb9322d1d0a0 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-cb9322d1d0a0`
+klt sim: batch job klt-sim-cb9322d1d0a0 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-7d303f276914 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-7d303f276914`
+klt sim: batch job klt-sim-7d303f276914 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-cb9322d1d0a0: running
+klt sim: batch job klt-sim-cb9322d1d0a0 state=running elapsed=32s
+klt sim: batch job klt-sim-e869721dfb50 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-e869721dfb50`
+klt sim: batch job klt-sim-e869721dfb50 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-90f61f87df4a launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-90f61f87df4a`
+klt sim: batch job klt-sim-90f61f87df4a state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-cb9322d1d0a0: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-e7faea48112c submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-e7faea48112c
+klt sim: batch job klt-sim-e7faea48112c: submitted
+klt sim: batch job klt-sim-7d303f276914: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-b052ef84d5d0 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-b052ef84d5d0
+klt sim: batch job klt-sim-90f61f87df4a: running
+klt sim: batch job klt-sim-90f61f87df4a state=running elapsed=32s
+klt sim: batch job klt-sim-b052ef84d5d0: submitted
+klt sim: batch job klt-sim-e7faea48112c launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-e7faea48112c`
+klt sim: batch job klt-sim-e7faea48112c state=no status.json yet elapsed=1s
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-ad8d9ed01c93 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-ad8d9ed01c93
+klt sim: batch job klt-sim-ad8d9ed01c93: submitted
+klt sim: batch job klt-sim-e869721dfb50: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-f215890ae83b submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-f215890ae83b
+klt sim: batch job klt-sim-f215890ae83b: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-84d3047b532f submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-84d3047b532f
+klt sim: batch job klt-sim-90f61f87df4a: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-663a4c214517 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-663a4c214517
+klt sim: batch job klt-sim-84d3047b532f: submitted
+klt sim: batch job klt-sim-663a4c214517: submitted
+klt sim: batch job klt-sim-f215890ae83b launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-f215890ae83b`
+klt sim: batch job klt-sim-f215890ae83b state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-84d3047b532f launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-84d3047b532f`
+klt sim: batch job klt-sim-84d3047b532f state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-663a4c214517 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-663a4c214517`
+klt sim: batch job klt-sim-663a4c214517 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-e7faea48112c: running
+klt sim: batch job klt-sim-e7faea48112c state=running elapsed=62s
+klt sim: batch job klt-sim-f215890ae83b: running
+klt sim: batch job klt-sim-f215890ae83b state=running elapsed=31s
+klt sim: batch job klt-sim-84d3047b532f: running
+klt sim: batch job klt-sim-84d3047b532f state=running elapsed=62s
+klt sim: batch job klt-sim-663a4c214517: running
+klt sim: batch job klt-sim-663a4c214517 state=running elapsed=62s
+klt sim: batch job klt-sim-f215890ae83b: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-8760795befd9 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-8760795befd9
+klt sim: batch job klt-sim-8760795befd9: submitted
+klt sim: batch job klt-sim-8760795befd9 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-8760795befd9`
+klt sim: batch job klt-sim-8760795befd9 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-84d3047b532f: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-ac7fbfaa9ce2 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-ac7fbfaa9ce2
+klt sim: batch job klt-sim-663a4c214517: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-370559f20d32 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-370559f20d32
+klt sim: batch job klt-sim-ac7fbfaa9ce2: submitted
+klt sim: batch job klt-sim-370559f20d32: submitted
+klt sim: batch job klt-sim-8760795befd9: running
+klt sim: batch job klt-sim-8760795befd9 state=running elapsed=32s
+klt sim: batch job klt-sim-ac7fbfaa9ce2 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-ac7fbfaa9ce2`
+klt sim: batch job klt-sim-ac7fbfaa9ce2 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-370559f20d32 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-370559f20d32`
+klt sim: batch job klt-sim-370559f20d32 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-ac7fbfaa9ce2: running
+klt sim: batch job klt-sim-ac7fbfaa9ce2 state=running elapsed=32s
+klt sim: batch job klt-sim-370559f20d32: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-724ab9477c19 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-724ab9477c19
+klt sim: batch job klt-sim-724ab9477c19: submitted
+klt sim: batch job klt-sim-e7faea48112c: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-cc6d3560d71a submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-cc6d3560d71a
+klt sim: batch job klt-sim-724ab9477c19 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-724ab9477c19`
+klt sim: batch job klt-sim-724ab9477c19 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-cc6d3560d71a: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-6fdf94685b1c submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-6fdf94685b1c
+klt sim: batch job klt-sim-6fdf94685b1c: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-1d35e7faad70 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-1d35e7faad70
+klt sim: batch job klt-sim-724ab9477c19: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-a4440b40b8e8 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-a4440b40b8e8
+klt sim: batch job klt-sim-1d35e7faad70: submitted
+klt sim: batch job klt-sim-a4440b40b8e8: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-9167103c6380 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-9167103c6380
+klt sim: batch job klt-sim-9167103c6380: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-ea7a901cb8a1 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-ea7a901cb8a1
+klt sim: batch job klt-sim-8760795befd9: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-af0094713d83 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-af0094713d83
+klt sim: batch job klt-sim-ea7a901cb8a1: submitted
+klt sim: batch job klt-sim-af0094713d83: submitted
+klt sim: batch job klt-sim-af0094713d83 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-af0094713d83`
+klt sim: batch job klt-sim-af0094713d83 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-9167103c6380 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-9167103c6380`
+klt sim: batch job klt-sim-9167103c6380 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-ea7a901cb8a1 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-ea7a901cb8a1`
+klt sim: batch job klt-sim-ea7a901cb8a1 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-af0094713d83: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-40e39fc9fd36 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-40e39fc9fd36
+klt sim: batch job klt-sim-40e39fc9fd36: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-8821ada50194 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-8821ada50194
+klt sim: batch job klt-sim-9167103c6380: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-e501ab67f748 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-e501ab67f748
+klt sim: batch job klt-sim-8821ada50194: submitted
+klt sim: batch job klt-sim-e501ab67f748: submitted
+klt sim: batch job klt-sim-ea7a901cb8a1: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-1d359954425d submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-1d359954425d
+klt sim: batch job klt-sim-1d359954425d: submitted
+klt sim: batch job klt-sim-8821ada50194 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-8821ada50194`
+klt sim: batch job klt-sim-8821ada50194 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-e501ab67f748 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-e501ab67f748`
+klt sim: batch job klt-sim-e501ab67f748 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-1d359954425d launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-1d359954425d`
+klt sim: batch job klt-sim-1d359954425d state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-ac7fbfaa9ce2: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-265bdd17f6ad submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-265bdd17f6ad
+klt sim: batch job klt-sim-265bdd17f6ad: submitted
+klt sim: batch job klt-sim-8821ada50194: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-a55ed6d0cfa4 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-a55ed6d0cfa4
+klt sim: batch job klt-sim-e501ab67f748: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-cffa0347a050 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-cffa0347a050
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-ba007df656f7 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-ba007df656f7
+klt sim: batch job klt-sim-a55ed6d0cfa4: submitted
+klt sim: batch job klt-sim-cffa0347a050: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-5ed7518b0b0d submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-5ed7518b0b0d
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-ebe69f821d65 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-ebe69f821d65
+klt sim: batch job klt-sim-1d359954425d: done
+klt sim: batch job klt-sim-ba007df656f7: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-6117b78c1356 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-6117b78c1356
+klt sim: batch job klt-sim-5ed7518b0b0d: submitted
+klt sim: batch job klt-sim-ebe69f821d65: submitted
+klt sim: batch job klt-sim-6117b78c1356: submitted
+klt sim: batch job klt-sim-ba007df656f7 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-ba007df656f7`
+klt sim: batch job klt-sim-ba007df656f7 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-5ed7518b0b0d launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-5ed7518b0b0d`
+klt sim: batch job klt-sim-5ed7518b0b0d state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-ebe69f821d65 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-ebe69f821d65`
+klt sim: batch job klt-sim-ebe69f821d65 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-6117b78c1356 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-6117b78c1356`
+klt sim: batch job klt-sim-6117b78c1356 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-ba007df656f7: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-0e62ea9baadb submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-0e62ea9baadb
+klt sim: batch job klt-sim-5ed7518b0b0d: done
+klt sim: batch job klt-sim-0e62ea9baadb: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-65f601e88715 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-65f601e88715
+klt sim: batch job klt-sim-ebe69f821d65: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-8c61b4d3dcb1 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-8c61b4d3dcb1
+klt sim: batch job klt-sim-65f601e88715: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: batch job klt-sim-8c61b4d3dcb1: submitted
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-44bc7e3bc453 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-44bc7e3bc453
+klt sim: batch job klt-sim-44bc7e3bc453: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-ff2b789cd54d submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-ff2b789cd54d
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-7eda33a21094 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-7eda33a21094
+klt sim: batch job klt-sim-6117b78c1356: done
+klt sim: batch job klt-sim-ff2b789cd54d: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-cd70c2744b61 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-cd70c2744b61
+klt sim: batch job klt-sim-7eda33a21094: submitted
+klt sim: batch job klt-sim-cd70c2744b61: submitted
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-9023f35ac10c submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-9023f35ac10c
+klt sim: batch job klt-sim-9023f35ac10c: submitted
+klt sim: batch job klt-sim-ff2b789cd54d launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-ff2b789cd54d`
+klt sim: batch job klt-sim-ff2b789cd54d state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-7eda33a21094 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-7eda33a21094`
+klt sim: batch job klt-sim-7eda33a21094 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-ff2b789cd54d: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-50c04cd4493f submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-50c04cd4493f
+klt sim: batch job klt-sim-cd70c2744b61 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-cd70c2744b61`
+klt sim: batch job klt-sim-50c04cd4493f: submitted
+klt sim: batch job klt-sim-cd70c2744b61 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-9023f35ac10c launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-9023f35ac10c`
+klt sim: batch job klt-sim-9023f35ac10c state=no status.json yet elapsed=1s
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-3df48f889203 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-3df48f889203
+klt sim: batch job klt-sim-3df48f889203: submitted
+klt sim: batch job klt-sim-cd70c2744b61: done
+klt sim: batch job klt-sim-3df48f889203 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-3df48f889203`
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-f7c76f328a5d submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-f7c76f328a5d
+klt sim: batch job klt-sim-9023f35ac10c: done
+klt sim: batch job klt-sim-3df48f889203 state=no status.json yet elapsed=1s
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-60648a3b44b2 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-60648a3b44b2
+klt sim: batch job klt-sim-f7c76f328a5d: submitted
+klt sim: batch job klt-sim-60648a3b44b2: submitted
+klt sim: batch job klt-sim-60648a3b44b2 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-60648a3b44b2`
+klt sim: batch job klt-sim-60648a3b44b2 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-f7c76f328a5d launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-f7c76f328a5d`
+klt sim: batch job klt-sim-f7c76f328a5d state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-3df48f889203: running
+klt sim: batch job klt-sim-3df48f889203 state=running elapsed=32s
+klt sim: batch job klt-sim-60648a3b44b2: running
+klt sim: batch job klt-sim-60648a3b44b2 state=running elapsed=32s
+klt sim: batch job klt-sim-f7c76f328a5d: running
+klt sim: batch job klt-sim-f7c76f328a5d state=running elapsed=32s
+klt sim: batch job klt-sim-3df48f889203: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-7191b8ffd7cb submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-7191b8ffd7cb
+klt sim: batch job klt-sim-7191b8ffd7cb: submitted
+klt sim: batch job klt-sim-7191b8ffd7cb launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-7191b8ffd7cb`
+klt sim: batch job klt-sim-7191b8ffd7cb state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-f7c76f328a5d: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-50a5eead13c9 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-50a5eead13c9
+klt sim: batch job klt-sim-50a5eead13c9: submitted
+klt sim: batch job klt-sim-50a5eead13c9 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-50a5eead13c9`
+klt sim: batch job klt-sim-50a5eead13c9 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-7191b8ffd7cb: running
+klt sim: batch job klt-sim-7191b8ffd7cb state=running elapsed=32s
+klt sim: batch job klt-sim-50a5eead13c9: running
+klt sim: batch job klt-sim-50a5eead13c9 state=running elapsed=32s
+klt sim: batch job klt-sim-7eda33a21094: running
+klt sim: batch job klt-sim-7eda33a21094 state=running elapsed=278s
+klt sim: batch job klt-sim-60648a3b44b2: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-1029d69fb750 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-1029d69fb750
+klt sim: batch job klt-sim-1029d69fb750: submitted
+klt sim: batch job klt-sim-1029d69fb750 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-1029d69fb750`
+klt sim: batch job klt-sim-1029d69fb750 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-7eda33a21094: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-cb29a70d1a5b submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-cb29a70d1a5b
+klt sim: batch job klt-sim-cb29a70d1a5b: submitted
+klt sim: batch job klt-sim-cb29a70d1a5b launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-cb29a70d1a5b`
+klt sim: batch job klt-sim-cb29a70d1a5b state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-1029d69fb750: running
+klt sim: batch job klt-sim-1029d69fb750 state=running elapsed=32s
+klt sim: batch job klt-sim-cb29a70d1a5b: running
+klt sim: batch job klt-sim-cb29a70d1a5b state=running elapsed=32s
+klt sim: batch job klt-sim-7191b8ffd7cb: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-a1a0104f8e63 submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-a1a0104f8e63
+klt sim: batch job klt-sim-a1a0104f8e63: submitted
+klt sim: batch job klt-sim-a1a0104f8e63 launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-a1a0104f8e63`
+klt sim: batch job klt-sim-a1a0104f8e63 state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-50a5eead13c9: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-28d19cec69ef submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-28d19cec69ef
+klt sim: batch job klt-sim-28d19cec69ef: submitted
+klt sim: batch job klt-sim-28d19cec69ef launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-28d19cec69ef`
+klt sim: batch job klt-sim-28d19cec69ef state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-a1a0104f8e63: running
+klt sim: batch job klt-sim-a1a0104f8e63 state=running elapsed=32s
+klt sim: batch job klt-sim-28d19cec69ef: running
+klt sim: batch job klt-sim-28d19cec69ef state=running elapsed=32s
+klt sim: batch job klt-sim-1029d69fb750: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-5e443ea9f85d submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-5e443ea9f85d
+klt sim: batch job klt-sim-5e443ea9f85d: submitted
+klt sim: batch job klt-sim-5e443ea9f85d launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-5e443ea9f85d`
+klt sim: batch job klt-sim-5e443ea9f85d state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-5e443ea9f85d: running
+klt sim: batch job klt-sim-5e443ea9f85d state=running elapsed=32s
+klt sim: batch job klt-sim-cb29a70d1a5b: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-f2240b17ccaf submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-f2240b17ccaf
+klt sim: batch job klt-sim-f2240b17ccaf: submitted
+klt sim: batch job klt-sim-f2240b17ccaf launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-f2240b17ccaf`
+klt sim: batch job klt-sim-f2240b17ccaf state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-f2240b17ccaf: running
+klt sim: batch job klt-sim-f2240b17ccaf state=running elapsed=32s
+klt sim: batch job klt-sim-a1a0104f8e63: done
+klt: warning: 2 installs provide PDK variant 'gf180mcuD'; read /home/ubuntu/.ciel (search root: ~/.ciel), skipped /home/ubuntu/.volare (search root: ~/.volare). Resolution is first-match-wins, so a pinned open_pdks build may not be the one this run read -- pin the root explicitly (--pdk-root, or a request's models.pdk_root) to disable the search and choose deliberately.
+klt sim: warning: batch job bound 9120s (options.timeout_s 600s x 15 units + 120s; a conservative fully-serial upper bound, not a runtime estimate) exceeds the fleet's whole-job ceiling of 3600s (max_job_seconds from fleet_config); a job still running at the ceiling is killed and every unit is reported batch_job_timeout. Set request.remote.hosts to at least 3 to run one job per shard of at most 5 units, each within the ceiling
+klt: batch job klt-sim-2c03a9834d7c submitting to s3://2am-batch-jobs-221082181346/jobs/klt-sim-2c03a9834d7c
+klt sim: batch job klt-sim-2c03a9834d7c: submitted
+klt sim: batch job klt-sim-2c03a9834d7c launched; re-attach with `klt sim <request> --backend batch --attach klt-sim-2c03a9834d7c`
+klt sim: batch job klt-sim-2c03a9834d7c state=no status.json yet elapsed=1s
+klt sim: batch job klt-sim-28d19cec69ef: done
+klt sim: batch job klt-sim-2c03a9834d7c: running
+klt sim: batch job klt-sim-2c03a9834d7c state=running elapsed=32s
+klt sim: batch job klt-sim-5e443ea9f85d: done
+klt sim: batch job klt-sim-f2240b17ccaf: done
+klt sim: batch job klt-sim-2c03a9834d7c: done

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "request_count": 2,
+  "max_in_flight": 2,
+  "submitted": 2,
+  "refused": 0,
+  "refused_codes": [],
+  "requests": [
+    {
+      "index": 0,
+      "request": "/home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-10/sim/gpio-bi_t/records/20261023T173526Z/requests/pulldown_3v3_2v97.json",
+      "status": "pass",
+      "exit_code": 0,
+      "job_id": "klt-sim-b6cd8486e72b",
+      "job_ids": [
+        "klt-sim-b6cd8486e72b"
+      ],
+      "report": "/home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-10/sim/gpio-bi_t/records/20261023T173526Z/klt/pulldown_3v3_2v97/report.json",
+      "error": null
+    },
+    {
+      "index": 1,
+      "request": "/home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-10/sim/gpio-bi_t/records/20261023T173526Z/requests/pulldown_3v3_3v30.json",
+      "status": "pass",
+      "exit_code": 0,
+      "job_id": "klt-sim-0b3ca637bde1",
+      "job_ids": [
+        "klt-sim-0b3ca637bde1"
+      ],
+      "report": "/home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-10/sim/gpio-bi_t/records/20261023T173526Z/klt/pulldown_3v3_3v30/report.json",
+      "error": null
+    }
+  ]
+}
