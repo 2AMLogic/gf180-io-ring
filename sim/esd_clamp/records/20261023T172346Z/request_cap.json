@@ -1,0 +1,381 @@
+{
+ "netlist": "esd_clamp.spice",
+ "engine": "ngspice",
+ "models": {
+  "pdk": "gf180mcuD",
+  "lib": "libs.tech/ngspice/sm141064.ngspice"
+ },
+ "corners": {
+  "process": [
+   {
+    "name": "typical",
+    "sections": [
+     "diode_typical"
+    ]
+   },
+   {
+    "name": "ff",
+    "sections": [
+     "diode_ff"
+    ]
+   },
+   {
+    "name": "ss",
+    "sections": [
+     "diode_ss"
+    ]
+   }
+  ],
+  "temperature_c": [
+   -40,
+   25,
+   125
+  ],
+  "supply_v": {
+   "vr": [
+    0,
+    5.5
+   ]
+  }
+ },
+ "analysis": {
+  "kind": "ac",
+  "args": "lin 3 500000 1.5e+06"
+ },
+ "measurements": [
+  {
+   "name": "c_nd_a00",
+   "spice": ".meas ac c_nd_a00 FIND vi(r_nd_a00) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a01",
+   "spice": ".meas ac c_nd_a01 FIND vi(r_nd_a01) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a02",
+   "spice": ".meas ac c_nd_a02 FIND vi(r_nd_a02) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a03",
+   "spice": ".meas ac c_nd_a03 FIND vi(r_nd_a03) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a04",
+   "spice": ".meas ac c_nd_a04 FIND vi(r_nd_a04) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a05",
+   "spice": ".meas ac c_nd_a05 FIND vi(r_nd_a05) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a06",
+   "spice": ".meas ac c_nd_a06 FIND vi(r_nd_a06) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a07",
+   "spice": ".meas ac c_nd_a07 FIND vi(r_nd_a07) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a08",
+   "spice": ".meas ac c_nd_a08 FIND vi(r_nd_a08) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a09",
+   "spice": ".meas ac c_nd_a09 FIND vi(r_nd_a09) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a10",
+   "spice": ".meas ac c_nd_a10 FIND vi(r_nd_a10) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a11",
+   "spice": ".meas ac c_nd_a11 FIND vi(r_nd_a11) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a12",
+   "spice": ".meas ac c_nd_a12 FIND vi(r_nd_a12) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a13",
+   "spice": ".meas ac c_nd_a13 FIND vi(r_nd_a13) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a14",
+   "spice": ".meas ac c_nd_a14 FIND vi(r_nd_a14) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a15",
+   "spice": ".meas ac c_nd_a15 FIND vi(r_nd_a15) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a16",
+   "spice": ".meas ac c_nd_a16 FIND vi(r_nd_a16) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a17",
+   "spice": ".meas ac c_nd_a17 FIND vi(r_nd_a17) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a18",
+   "spice": ".meas ac c_nd_a18 FIND vi(r_nd_a18) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a19",
+   "spice": ".meas ac c_nd_a19 FIND vi(r_nd_a19) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a20",
+   "spice": ".meas ac c_nd_a20 FIND vi(r_nd_a20) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a21",
+   "spice": ".meas ac c_nd_a21 FIND vi(r_nd_a21) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a22",
+   "spice": ".meas ac c_nd_a22 FIND vi(r_nd_a22) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a23",
+   "spice": ".meas ac c_nd_a23 FIND vi(r_nd_a23) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a24",
+   "spice": ".meas ac c_nd_a24 FIND vi(r_nd_a24) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a25",
+   "spice": ".meas ac c_nd_a25 FIND vi(r_nd_a25) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a26",
+   "spice": ".meas ac c_nd_a26 FIND vi(r_nd_a26) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a27",
+   "spice": ".meas ac c_nd_a27 FIND vi(r_nd_a27) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a28",
+   "spice": ".meas ac c_nd_a28 FIND vi(r_nd_a28) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a29",
+   "spice": ".meas ac c_nd_a29 FIND vi(r_nd_a29) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a30",
+   "spice": ".meas ac c_nd_a30 FIND vi(r_nd_a30) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a31",
+   "spice": ".meas ac c_nd_a31 FIND vi(r_nd_a31) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_nd_a32",
+   "spice": ".meas ac c_nd_a32 FIND vi(r_nd_a32) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a00",
+   "spice": ".meas ac c_pd_a00 FIND vi(r_pd_a00) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a01",
+   "spice": ".meas ac c_pd_a01 FIND vi(r_pd_a01) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a02",
+   "spice": ".meas ac c_pd_a02 FIND vi(r_pd_a02) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a03",
+   "spice": ".meas ac c_pd_a03 FIND vi(r_pd_a03) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a04",
+   "spice": ".meas ac c_pd_a04 FIND vi(r_pd_a04) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a05",
+   "spice": ".meas ac c_pd_a05 FIND vi(r_pd_a05) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a06",
+   "spice": ".meas ac c_pd_a06 FIND vi(r_pd_a06) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a07",
+   "spice": ".meas ac c_pd_a07 FIND vi(r_pd_a07) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a08",
+   "spice": ".meas ac c_pd_a08 FIND vi(r_pd_a08) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a09",
+   "spice": ".meas ac c_pd_a09 FIND vi(r_pd_a09) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a10",
+   "spice": ".meas ac c_pd_a10 FIND vi(r_pd_a10) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a11",
+   "spice": ".meas ac c_pd_a11 FIND vi(r_pd_a11) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a12",
+   "spice": ".meas ac c_pd_a12 FIND vi(r_pd_a12) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a13",
+   "spice": ".meas ac c_pd_a13 FIND vi(r_pd_a13) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a14",
+   "spice": ".meas ac c_pd_a14 FIND vi(r_pd_a14) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a15",
+   "spice": ".meas ac c_pd_a15 FIND vi(r_pd_a15) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a16",
+   "spice": ".meas ac c_pd_a16 FIND vi(r_pd_a16) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a17",
+   "spice": ".meas ac c_pd_a17 FIND vi(r_pd_a17) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a18",
+   "spice": ".meas ac c_pd_a18 FIND vi(r_pd_a18) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a19",
+   "spice": ".meas ac c_pd_a19 FIND vi(r_pd_a19) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a20",
+   "spice": ".meas ac c_pd_a20 FIND vi(r_pd_a20) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a21",
+   "spice": ".meas ac c_pd_a21 FIND vi(r_pd_a21) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a22",
+   "spice": ".meas ac c_pd_a22 FIND vi(r_pd_a22) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a23",
+   "spice": ".meas ac c_pd_a23 FIND vi(r_pd_a23) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a24",
+   "spice": ".meas ac c_pd_a24 FIND vi(r_pd_a24) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a25",
+   "spice": ".meas ac c_pd_a25 FIND vi(r_pd_a25) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a26",
+   "spice": ".meas ac c_pd_a26 FIND vi(r_pd_a26) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a27",
+   "spice": ".meas ac c_pd_a27 FIND vi(r_pd_a27) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a28",
+   "spice": ".meas ac c_pd_a28 FIND vi(r_pd_a28) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a29",
+   "spice": ".meas ac c_pd_a29 FIND vi(r_pd_a29) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a30",
+   "spice": ".meas ac c_pd_a30 FIND vi(r_pd_a30) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a31",
+   "spice": ".meas ac c_pd_a31 FIND vi(r_pd_a31) AT=1e+06",
+   "unit": "V"
+  },
+  {
+   "name": "c_pd_a32",
+   "spice": ".meas ac c_pd_a32 FIND vi(r_pd_a32) AT=1e+06",
+   "unit": "V"
+  }
+ ],
+ "options": {
+  "timeout_s": 1800,
+  "keep_artifacts": false
+ }
+}
