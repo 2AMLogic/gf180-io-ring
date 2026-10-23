@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "error": {
+    "command": "sim",
+    "message": "--batch-set cannot be combined with --wait-for-capacity"
+  }
+}

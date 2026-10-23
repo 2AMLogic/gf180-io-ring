@@ -1,0 +1,82 @@
+{
+  "netlist": "edges_3v3_2v97.sp",
+  "engine": "ngspice",
+  "models": {
+    "pdk": "gf180mcuD",
+    "lib": "/home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice"
+  },
+  "corners": {
+    "process": [
+      {
+        "name": "typical",
+        "sections": [
+          "typical",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "ff",
+        "sections": [
+          "ff",
+          "diode_ff",
+          "res_ff",
+          "moscap_ff"
+        ]
+      },
+      {
+        "name": "ss",
+        "sections": [
+          "ss",
+          "diode_ss",
+          "res_ss",
+          "moscap_ss"
+        ]
+      },
+      {
+        "name": "fs",
+        "sections": [
+          "fs",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "sf",
+        "sections": [
+          "sf",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      }
+    ],
+    "temperature_c": [
+      -40,
+      25,
+      125
+    ]
+  },
+  "analysis": {
+    "kind": "tran",
+    "args": "20p 90n 0 50p"
+  },
+  "measurements": [
+    {
+      "name": "t_rise",
+      "spice": ".meas tran t_rise TRIG v(pad) VAL='0.1*dvdd' RISE=1 TARG v(pad) VAL='0.9*dvdd' RISE=1",
+      "unit": "s"
+    },
+    {
+      "name": "t_fall",
+      "spice": ".meas tran t_fall TRIG v(pad) VAL='0.9*dvdd' FALL=1 TARG v(pad) VAL='0.1*dvdd' FALL=1",
+      "unit": "s"
+    }
+  ],
+  "options": {
+    "stage_model_inputs": true,
+    "timeout_s": 600
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "netlist": "voh_3v3_2v97.sp",
+  "engine": "ngspice",
+  "models": {
+    "pdk": "gf180mcuD",
+    "lib": "/home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice"
+  },
+  "corners": {
+    "process": [
+      {
+        "name": "typical",
+        "sections": [
+          "typical",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "ff",
+        "sections": [
+          "ff",
+          "diode_ff",
+          "res_ff",
+          "moscap_ff"
+        ]
+      },
+      {
+        "name": "ss",
+        "sections": [
+          "ss",
+          "diode_ss",
+          "res_ss",
+          "moscap_ss"
+        ]
+      },
+      {
+        "name": "fs",
+        "sections": [
+          "fs",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "sf",
+        "sections": [
+          "sf",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      }
+    ],
+    "temperature_c": [
+      -40,
+      25,
+      125
+    ]
+  },
+  "analysis": {
+    "kind": "op",
+    "args": ""
+  },
+  "measurements": [
+    {
+      "name": "voh",
+      "expr": "v(pad)",
+      "unit": "V"
+    },
+    {
+      "name": "voh_drop",
+      "expr": "v(dvdd)-v(pad)",
+      "unit": "V"
+    }
+  ],
+  "options": {
+    "stage_model_inputs": true,
+    "timeout_s": 600
+  }
+}

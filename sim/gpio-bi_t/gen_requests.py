@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+"""Write the `klt sim` corner requests (and their netlists) for the foundry bi_t bench.
+
+    python3 -I gen_requests.py <outdir> <modeldir> <bi_t.sp> [--probe KIND]
+
+One request per (deck, supply mode, DVDD value): 5 process x 3 T = 15 corners each, so
+8 decks x 2 modes x 3 DVDD = 48 requests and 720 PVT points. `klt sim` sends a
+multi-corner request to the batch fleet (KLT_SIM_BACKEND=batch); nothing here runs
+ngspice. The foundry convention VDD = DVDD is used throughout.
+
+DVDD and the load current are literals in each netlist's `.param` line, not a
+`corners.params` axis: the fleet's worker image predates that axis and `klt sim`
+refuses its result (params_unsupported_worker), so the supply axis is split over
+requests instead. The .meas thresholds are expressions of `dvdd`.
+
+--probe KIND writes ONE single-corner request (typical, 25 C, nominal DVDD) that
+carries a deliberate defect, for the negative controls in run.sh. A single corner
+is the one thing a dispatch host may run locally. KINDs: bad-include (the netlist
+includes a missing file), bad-model-path (models.lib does not exist), bad-load (a
+load current of 1 kA, far outside the model's range), bad-measure (the transient is
+stopped before the 10-90 % crossings happen, so the .meas cannot be evaluated).
+"""
+import json
+import os
+import shutil
+import sys
+
+MODES = {
+    # name: (DVDD low/nominal/high, load current at the spec VOL/VOH point)
+    "5v": ([4.5, 5.0, 5.5], 4e-3),
+    "3v3": ([2.97, 3.3, 3.63], 2e-3),
+}
+TEMPS = [-40, 25, 125]
+PASSIVES = ["diode_{}", "res_{}", "moscap_{}"]
+
+
+def process_axis():
+    """gf180mcu has no all-device corner section: each corner is a bundle. The 5/6 V
+    devices load their typical section in every one of them (spec 'PVT corners')."""
+    axis = []
+    for name, passive in (("typical", "typical"), ("ff", "ff"), ("ss", "ss"),
+                          ("fs", "typical"), ("sf", "typical")):
+        axis.append({"name": name,
+                     "sections": [name] + [p.format(passive) for p in PASSIVES]})
+    return axis
+
+
+# Pin biases are SPICE value strings; core-side pins are referenced to VDD = DVDD.
+BASE = {"a": "0", "oe": "{dvdd}", "ie": "0", "pu": "0", "pd": "0", "cs": "0", "sl": "0",
+        "pdrv0": "0", "pdrv1": "0"}
+
+DECKS = {
+    "vol": dict(
+        doc="VOL: A=0, OE=1; sink current from DVDD into PAD",
+        pins={}, extra="Iload dvdd pad DC {iload}",
+        analysis={"kind": "op", "args": ""},
+        meas=[{"name": "vol", "expr": "v(pad)", "unit": "V"}]),
+    "voh": dict(
+        doc="VOH: A=1, OE=1; source current from PAD to ground",
+        pins={"a": "{dvdd}"}, extra="Iload pad 0 DC {iload}",
+        analysis={"kind": "op", "args": ""},
+        meas=[{"name": "voh", "expr": "v(pad)", "unit": "V"},
+              {"name": "voh_drop", "expr": "v(dvdd)-v(pad)", "unit": "V"}]),
+    "edges": dict(
+        doc="10-90 % rise/fall into 15 pF; PDRV=00, SL=0",
+        pins={"a": "PULSE(0 {dvdd} 2n 0.1n 0.1n 40n 80n)"}, extra="Cl pad 0 15p",
+        analysis={"kind": "tran", "args": "20p 90n 0 50p"},
+        meas=[{"name": "t_rise", "spice": ".meas tran t_rise TRIG v(pad) VAL='0.1*dvdd' "
+               "RISE=1 TARG v(pad) VAL='0.9*dvdd' RISE=1", "unit": "s"},
+              {"name": "t_fall", "spice": ".meas tran t_fall TRIG v(pad) VAL='0.9*dvdd' "
+               "FALL=1 TARG v(pad) VAL='0.1*dvdd' FALL=1", "unit": "s"}]),
+    "pullup": dict(
+        doc="pull-up equivalent resistance, PAD held at DVDD/2, OE=IE=0, PU=1",
+        pins={"oe": "0", "pu": "{dvdd}"}, extra="Vpad pad 0 DC {0.5*dvdd}",
+        analysis={"kind": "op", "args": ""},
+        meas=[{"name": "r_pullup", "expr": "0.5*v(dvdd)/abs(i(vpad))", "unit": "ohm"}]),
+    "pulldown": dict(
+        doc="pull-down equivalent resistance, PAD held at DVDD/2, OE=IE=0, PD=1",
+        pins={"oe": "0", "pd": "{dvdd}"}, extra="Vpad pad 0 DC {0.5*dvdd}",
+        analysis={"kind": "op", "args": ""},
+        meas=[{"name": "r_pulldown", "expr": "0.5*v(dvdd)/abs(i(vpad))", "unit": "ohm"}]),
+    "cap": dict(
+        doc="PAD small-signal capacitance at 1 MHz, input mode, PAD biased at DVDD/2",
+        pins={"oe": "0", "ie": "{dvdd}"}, extra="Vpad pad 0 DC {0.5*dvdd} AC 1",
+        analysis={"kind": "ac", "args": "lin 1 1meg 1meg"},
+        meas=[{"name": "c_pad", "expr": "-imag(i(vpad))/(2*3.14159265358979*1e6)",
+               "unit": "F"}]),
+}
+for _cs in (0, 1):
+    DECKS[f"xfer_cs{_cs}"] = dict(
+        doc=f"input transfer curve, slow PAD ramp up then down, CS={_cs}",
+        pins={"oe": "0", "ie": "{dvdd}", "cs": "{dvdd}" if _cs else "0"},
+        extra="Vpad pad 0 PWL(0 0 100u {dvdd} 200u 0)",
+        analysis={"kind": "tran", "args": "0.2u 200u 0 0.2u"},
+        meas=[{"name": "vt_plus", "spice": ".meas tran vt_plus FIND v(pad) WHEN "
+               "v(y)='0.5*dvdd' RISE=1", "unit": "V"},
+              {"name": "vt_minus", "spice": ".meas tran vt_minus FIND v(pad) WHEN "
+               "v(y)='0.5*dvdd' FALL=1", "unit": "V"},
+              {"name": "hyst", "spice": ".meas tran hyst PARAM='vt_plus-vt_minus'",
+               "unit": "V"}])
+
+
+def vlabel(v):
+    return f"{v:.2f}".replace(".", "v")
+
+
+def netlist(deck, mode, d, dvdd, iload, modeldir):
+    pins = dict(BASE, **d["pins"])
+    lines = [f"* gf180mcu_fd_io__bi_t, deck {deck}, {mode} mode: {d['doc']}",
+             "* Generated by gen_requests.py; foundry convention VDD = DVDD.",
+             f".include {modeldir}/design.ngspice",
+             ".include bi_t.sp",
+             f".param dvdd={dvdd} iload={iload}",
+             "Vdvdd dvdd 0 {dvdd}", "Vvdd vdd 0 {dvdd}",
+             "Vvss vss 0 0", "Vdvss dvss 0 0"]
+    for p in ("a", "oe", "ie", "pu", "pd", "cs", "sl", "pdrv0", "pdrv1"):
+        lines.append(f"V{p} {p} 0 {pins[p]}")
+    lines.append(d["extra"])
+    lines.append("Xdut a cs dvdd dvss ie oe pad pd pdrv0 pdrv1 pu sl vdd vss y "
+                 "gf180mcu_fd_io__bi_t")
+    return "\n".join(lines) + "\n"
+
+
+PROBES = ("bad-include", "bad-model-path", "bad-load", "bad-measure")
+
+
+def write_probe(out, modeldir, kind):
+    deck = "edges" if kind == "bad-measure" else "vol"
+    dvdd, iload = MODES["5v"][0][1], MODES["5v"][1]
+    iload = 1e3 if kind == "bad-load" else iload
+    text = netlist(deck, "5v", DECKS[deck], dvdd, iload, modeldir)
+    if kind == "bad-include":
+        text = text.replace(".include bi_t.sp", ".include does-not-exist.sp")
+    lib = modeldir + ("/missing" if kind == "bad-model-path" else "") + "/sm141064.ngspice"
+    analysis = dict(DECKS[deck]["analysis"])
+    if kind == "bad-measure":
+        analysis["args"] = "20p 1n 0 50p"
+    with open(os.path.join(out, "probe.sp"), "w") as f:
+        f.write(text)
+    req = {"netlist": "probe.sp", "engine": "ngspice",
+           "models": {"pdk": "gf180mcuD", "lib": lib},
+           "corners": {"process": ["typical"], "temperature_c": [25]},
+           "analysis": analysis, "measurements": DECKS[deck]["meas"],
+           "options": {"stage_model_inputs": True, "timeout_s": 120}}
+    with open(os.path.join(out, "probe.json"), "w") as f:
+        json.dump(req, f, indent=2)
+        f.write("\n")
+    print("probe")
+
+
+def main():
+    args = sys.argv[1:]
+    kind = None
+    if len(args) == 5 and args[3] == "--probe" and args[4] in PROBES:
+        kind, args = args[4], args[:3]
+    if len(args) != 3:
+        sys.exit(__doc__)
+    out, modeldir, bi_t = args
+    os.makedirs(out, exist_ok=True)
+    shutil.copy(bi_t, os.path.join(out, "bi_t.sp"))
+    if kind:
+        return write_probe(out, modeldir, kind)
+    names = []
+    for deck, d in DECKS.items():
+        for mode, (dvdds, iload) in MODES.items():
+            for dvdd in dvdds:
+                stem = f"{deck}_{mode}_{vlabel(dvdd)}"
+                with open(os.path.join(out, stem + ".sp"), "w") as f:
+                    f.write(netlist(deck, mode, d, dvdd, iload, modeldir))
+                req = {
+                    "netlist": stem + ".sp",
+                    "engine": "ngspice",
+                    "models": {"pdk": "gf180mcuD", "lib": f"{modeldir}/sm141064.ngspice"},
+                    "corners": {"process": process_axis(), "temperature_c": TEMPS},
+                    "analysis": d["analysis"],
+                    "measurements": d["meas"],
+                    "options": {"stage_model_inputs": True, "timeout_s": 600},
+                }
+                with open(os.path.join(out, stem + ".json"), "w") as f:
+                    json.dump(req, f, indent=2)
+                    f.write("\n")
+                names.append(stem)
+    print("\n".join(names))
+
+
+if __name__ == "__main__":
+    main()

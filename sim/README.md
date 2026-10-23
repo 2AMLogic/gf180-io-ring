@@ -12,6 +12,10 @@ Pinned toolchain and the model smoke bench. Scope: see the repo README.
   diode process sections and −40/25/125 °C, through `klt sim`; derives the area
   that meets a forward-drop budget at the HBM design-target current. See its README.
 
+- `gpio-bi_t/` — foundry `gf180mcu_fd_io__bi_t` against the ratified GPIO electrical
+  targets across the PVT set (comparison anchor, reference values only); grid goes to
+  the batch fleet via `klt sim`. See its README.
+
 ## Cold start
 
     sim/smoke/run.sh                   # exit 0 = all sections loaded and conducting
