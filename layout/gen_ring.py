@@ -115,6 +115,7 @@ def tie_bar(cell, net, x_to, y):
 CT = 0.22        # contact
 SD = 0.62        # source/drain column width
 RING_W = 1.0     # tap ring width
+IMP_ENC = 0.4    # Nplus/Pplus extension beyond a device's comp and gate region
 
 
 def contacts(cell, x0, y0, x1, y1, enc=0.12):
@@ -135,6 +136,7 @@ def mos(cell, x, y, kind, w, l, nf, thick, rows=1):
     pitch = l + SD
     width = per_row * pitch + SD
     ytop = y
+    dg_y0 = dg_y1 = None
     for r in range(rows):
         y0 = ytop + 0.4
         y1 = y0 + wf
@@ -147,10 +149,15 @@ def mos(cell, x, y, kind, w, l, nf, thick, rows=1):
             contacts(cell, sx, y0, sx + SD, y1)
             box(cell, "M1", sx + 0.06, y0, sx + SD - 0.06, y1)
         imp = "NPLUS" if kind == "n" else "PPLUS"
-        box(cell, imp, x - 0.2, y0 - 0.2, x + width + 0.2, y1 + 0.2)
-        if thick:
-            box(cell, "DUALGATE", x - 0.4, y0 - 0.7, x + width + 0.4, y1 + 0.7)
+        # implant overlaps the gate region by IMP_ENC (deck: nplus/pplus
+        # enclosing poly2 and comp)
+        box(cell, imp, x - IMP_ENC, y0 - IMP_ENC, x + width + IMP_ENC, y1 + IMP_ENC)
+        dg_y0 = y0 if dg_y0 is None else dg_y0
+        dg_y1 = y1
         ytop = y1 + 1.4
+    if thick:
+        # one marker over all stacked rows, so no sub-minimum gap between rows
+        box(cell, "DUALGATE", x - 0.4, dg_y0 - 0.7, x + width + 0.4, dg_y1 + 0.7)
     return x + width, ytop - 0.4
 
 
@@ -246,7 +253,7 @@ def diode(cell, x, y, kind, area_w, area_h):
 def mos_cap(cell, x, y, w, h, thick):
     box(cell, "COMP", x, y, x + w, y + h)
     box(cell, "POLY", x + 1.0, y - 0.3, x + w - 1.0, y + h + 0.3)
-    box(cell, "NPLUS", x - 0.2, y - 0.2, x + w + 0.2, y + h + 0.2)
+    box(cell, "NPLUS", x - IMP_ENC, y - IMP_ENC, x + w + IMP_ENC, y + h + IMP_ENC)
     if thick:
         box(cell, "DUALGATE", x - 0.5, y - 0.5, x + w + 0.5, y + h + 0.5)
 
@@ -277,9 +284,9 @@ def build_gpio():
     by = {d["name"]: d for d in devs}
     # pad-side clamps (178 um^2 each, spec ESD network): D_dn then D_up
     diode(c, 6.0, 68.0, "n", 10.0, 17.8)
-    ring(c, 6.0, 68.0, 16.0, 85.8, "p", "DVSS")
+    ring(c, 4.5, 66.5, 17.5, 87.3, "p", "DVSS")  # 1.5 um clear of the diode
     diode(c, 46.0, 68.0, "p", 10.0, 17.8)
-    ring(c, 46.0, 68.0, 56.0, 85.8, "n", "DVDD")
+    ring(c, 44.5, 66.5, 57.5, 87.3, "n", "DVDD")
     # output driver devices: PMOS in Nwell + N+ ring, NMOS + P+ ring
     y = 98.0
     thick = [d for d in devs if classify(d)[1]]
