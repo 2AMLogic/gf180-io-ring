@@ -1,0 +1,7 @@
+** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/filler.sch
+.subckt filler DVDD VDD DVSS VSS
+*.iopin DVDD
+*.iopin DVSS
+*.iopin VDD
+*.iopin VSS
+.ends

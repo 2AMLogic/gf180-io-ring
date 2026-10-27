@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "kind": "generic",
+  "status": "pass",
+  "t1_item": 1,
+  "summary": "T1 item 1 (Design sources): 28/28 attestation checks passed (klt signoff --attest)",
+  "source": "design/item1-inventory.json",
+  "attestation": {
+    "producer": "klt signoff --attest",
+    "inventory_schema_version": 1,
+    "hash_algorithm": "sha256-raw-bytes",
+    "check_count": 28,
+    "passed_count": 28,
+    "checks": [
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/core_pad.sch",
+        "passed": true,
+        "content_hash": "sha256:6712cb7e7bdb899216833aa2f7dce1cd0200449f58f6343f5b29ee3b9d148c80"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/core_pad.sym",
+        "passed": true,
+        "content_hash": "sha256:8abeb0f5824fccedc87f03b2178b59c4bd0f83a2181a75bff4dd95578a469920"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/corner.sch",
+        "passed": true,
+        "content_hash": "sha256:aa8cb990f8a74a430cc13addb37fde77145180b54f61552ea1d8f92918205911"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/corner.sym",
+        "passed": true,
+        "content_hash": "sha256:8abeb0f5824fccedc87f03b2178b59c4bd0f83a2181a75bff4dd95578a469920"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/dvdd_pad.sch",
+        "passed": true,
+        "content_hash": "sha256:4b5a2e9e51489993e05824f20249699317f88a88f9b4b26c9a84d66ff6c8f85b"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/dvdd_pad.sym",
+        "passed": true,
+        "content_hash": "sha256:8abeb0f5824fccedc87f03b2178b59c4bd0f83a2181a75bff4dd95578a469920"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/dvss_pad.sch",
+        "passed": true,
+        "content_hash": "sha256:515929d64473863103ca808685b1600bade59744fbbfc65c6811a59a7b7ac476"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/dvss_pad.sym",
+        "passed": true,
+        "content_hash": "sha256:8abeb0f5824fccedc87f03b2178b59c4bd0f83a2181a75bff4dd95578a469920"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/filler.sch",
+        "passed": true,
+        "content_hash": "sha256:8aeece831fbbdc31ec475172d7f421ea847528939dca4c3bdca15d69b9a81a09"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/filler.sym",
+        "passed": true,
+        "content_hash": "sha256:8abeb0f5824fccedc87f03b2178b59c4bd0f83a2181a75bff4dd95578a469920"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/gpio.sch",
+        "passed": true,
+        "content_hash": "sha256:d6d707d10a86b117fb803fb4ca5a7a97c0f23070eddef3021cb8250317d7e9c2"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/gpio.sym",
+        "passed": true,
+        "content_hash": "sha256:e6267c480d01a956712b283104bb922eca95f802ac4d5933d4e77c93db089ab7"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/io_ring.sch",
+        "passed": true,
+        "content_hash": "sha256:cb222f39b671dbb1bdfc0765f96f1a79355ad2df25ec803b64afbd2a447f0fc9"
+      },
+      {
+        "check": "present",
+        "role": "source",
+        "path": "design/xschemrc",
+        "passed": true,
+        "content_hash": "sha256:85b4bc171162225388d3690d09d48218b37a94d0f7a24d21be48e957f63c664a"
+      },
+      {
+        "check": "present",
+        "role": "derived",
+        "path": "design/core_pad.spice",
+        "passed": true,
+        "content_hash": "sha256:8aca29e5a3c6516db28fb897638454df870ed6b457a4eb64738ff08e30f16bd6"
+      },
+      {
+        "check": "present",
+        "role": "derived",
+        "path": "design/corner.spice",
+        "passed": true,
+        "content_hash": "sha256:443e50c6c90cca195b33de19ec022a154c632827ffd0c7ecca9793deb8186e2d"
+      },
+      {
+        "check": "present",
+        "role": "derived",
+        "path": "design/dvdd_pad.spice",
+        "passed": true,
+        "content_hash": "sha256:12d3997f68421b06a9a8a36d4215c40be6c2317b64775818814620fd2effa011"
+      },
+      {
+        "check": "present",
+        "role": "derived",
+        "path": "design/dvss_pad.spice",
+        "passed": true,
+        "content_hash": "sha256:61ff27712beca6ea3102722a8de33301678e9446134152a0fb38f7b738c3a7af"
+      },
+      {
+        "check": "present",
+        "role": "derived",
+        "path": "design/filler.spice",
+        "passed": true,
+        "content_hash": "sha256:ef221af85edadb3ce2af1127f359f5d07f698a0a189e7735415ecb12925485a8"
+      },
+      {
+        "check": "present",
+        "role": "derived",
+        "path": "design/gpio.spice",
+        "passed": true,
+        "content_hash": "sha256:05a92974960ce3ae340a289c1f6990f9262ee191d24f1c57415bed0bfc60b9c3"
+      },
+      {
+        "check": "present",
+        "role": "derived",
+        "path": "design/io_ring.spice",
+        "passed": true,
+        "content_hash": "sha256:037b44a4b067e4bb4e875ee189707acb86e182939e0bff9abf176c10c0aac5de"
+      },
+      {
+        "check": "command",
+        "role": "freshness",
+        "target": "design/core_pad.spice",
+        "generator": "klt netlist",
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/core_pad.sch",
+          "-o",
+          "design/core_pad.spice"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "freshness",
+        "target": "design/corner.spice",
+        "generator": "klt netlist",
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/corner.sch",
+          "-o",
+          "design/corner.spice"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "freshness",
+        "target": "design/dvdd_pad.spice",
+        "generator": "klt netlist",
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/dvdd_pad.sch",
+          "-o",
+          "design/dvdd_pad.spice"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "freshness",
+        "target": "design/dvss_pad.spice",
+        "generator": "klt netlist",
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/dvss_pad.sch",
+          "-o",
+          "design/dvss_pad.spice"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "freshness",
+        "target": "design/filler.spice",
+        "generator": "klt netlist",
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/filler.sch",
+          "-o",
+          "design/filler.spice"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "freshness",
+        "target": "design/gpio.spice",
+        "generator": "klt netlist",
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/gpio.sch",
+          "-o",
+          "design/gpio.spice"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "freshness",
+        "target": "design/io_ring.spice",
+        "generator": "klt netlist",
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/io_ring.sch",
+          "-o",
+          "design/io_ring.spice"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      }
+    ]
+  },
+  "provenance": {
+    "klt_version": "0.8.0",
+    "klayout_version": null,
+    "pdk": null,
+    "deck": null,
+    "input": {
+      "path": {
+        "path": "design/item1-inventory.json",
+        "scope": "repo"
+      },
+      "content_hash": "sha256:ac7379d7bfdf14ccfcdbc9ae02136f7f6900ae54bdd20741215bafb4923a5d06"
+    }
+  }
+}
