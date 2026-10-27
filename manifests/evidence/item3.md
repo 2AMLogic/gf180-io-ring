@@ -8,7 +8,7 @@ the coverage quoted below).
 ## Reports
 
 One `klt drc --format json` envelope per top cell of `layout/gf180_io_ring.gds`
-(`input.content_hash` `sha256:1b853aeb0bfa967265dfbeb689dca08af221cf53a266a3a310e68d14bc583db9`, equal to
+(`input.content_hash` `sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56`, equal to
 `manifests/evidence/item2.json`). Each was produced with
 `uvx --from "klayout-tools==0.8.0" klt drc layout/gf180_io_ring.gds --deck gf180mcu --top <cell> --format json`
 (no `--waivers`, `--rules` subset or `--allow-deck-errors`) and passes
@@ -38,13 +38,13 @@ command above, never by editing an envelope.
 `coverage.layers_in_stream_without_rules`:
 
 ```json
-["0/0", "34/10", "36/10", "42/10", "46/10", "81/10"]
+["0/0", "34/10", "36/10", "42/10", "46/10", "81/10", "166/5"]
 ```
 
 `coverage.rules_skipped`:
 
 ```json
-["bjt.separation.comp.1", "cap_mk.ongrid.1", "comp.separation.guard_ring_mk.1", "diode_mk.ongrid.1", "dnwell.ongrid.1", "drc_bjt.ongrid.1", "efuse_mk.ongrid.1", "fusetop.ongrid.1", "metal1.enclosing.via1.1", "metal1.separation.guard_ring_mk.1", "metal2.enclosing.via1.1", "metal2.enclosing.via2.1", "metal2.separation.guard_ring_mk.1", "metal3.enclosing.via2.1", "metal3.separation.guard_ring_mk.1", "metal4.separation.guard_ring_mk.1", "metal5.separation.guard_ring_mk.1", "metaltop.ongrid.1", "metaltop.separation.guard_ring_mk.1", "metaltop.space.1", "metaltop.width.1", "mim.enclosing.fusetop.1", "mim.enclosing.via4.1", "mim.space.1", "mim_l_mk.ongrid.1", "nwell.separation.guard_ring_mk.1", "plfuse.ongrid.1", "poly2.enclosing.sab.1", "poly2.separation.guard_ring_mk.1", "res_mk.ongrid.1", "resistor.ongrid.1", "sab.ongrid.1", "sab.separation.contact.1", "sab.space.1", "sab.width.1", "via1.ongrid.1", "via1.space.1", "via1.width.1", "via2.ongrid.1", "via2.space.1", "via2.width.1"]
+["bjt.separation.comp.1", "cap_mk.ongrid.1", "comp.separation.guard_ring_mk.1", "dnwell.ongrid.1", "drc_bjt.ongrid.1", "efuse_mk.ongrid.1", "fusetop.ongrid.1", "metal1.separation.guard_ring_mk.1", "metal2.separation.guard_ring_mk.1", "metal3.separation.guard_ring_mk.1", "metal4.separation.guard_ring_mk.1", "metal5.separation.guard_ring_mk.1", "metaltop.ongrid.1", "metaltop.separation.guard_ring_mk.1", "metaltop.space.1", "metaltop.width.1", "mim.enclosing.fusetop.1", "mim.enclosing.via4.1", "mim.space.1", "mim_l_mk.ongrid.1", "nwell.separation.guard_ring_mk.1", "plfuse.ongrid.1", "poly2.enclosing.sab.1", "poly2.separation.guard_ring_mk.1", "res_mk.ongrid.1", "resistor.ongrid.1", "sab.ongrid.1", "sab.separation.contact.1", "sab.space.1", "sab.width.1"]
 ```
 
 `coverage.deck_scope`:
@@ -53,9 +53,12 @@ command above, never by editing an envelope.
 ["10.4.2 MIM Option B", "10.7 DRC_BJT Mark Layer", "7.12 Contact", "7.13 Metaln", "7.14 Vian", "7.15 MetalTop", "7.4 Nwell", "7.5 Comp", "7.7 Poly2", "7.8 Nplus", "7.9 Pplus", "9.1 Bond Pad", "ESD", "GR", "OFFGRID", "SB"]
 ```
 
-The layers without rules are the stream's boundary layer (`0/0`) and the
+The layers without rules are the stream's boundary layer (`0/0`), the
 Metal1-5 label layers (`34/10`, `36/10`, `42/10`, `46/10`, `81/10`), which carry
-only net names.
+only net names, and the MOS-capacitor recognition marker `MOS_CAP_MK` (`166/5`),
+which `klt lvs` needs (T1 item 4) and the deck has no rule for. The diode
+recognition marker `DIODE_MK` (`115/5`) is also drawn, over the 10 x 17.8 diode
+Comp.
 
 ## Gaps against `spec/io-ring.md` §klt coverage
 
@@ -75,10 +78,13 @@ decision record is the route if it should change. Still unchecked
 | Other Dualgate / 5-6 V rules | `DV.1`, `DV.3`, `DV.6`-`DV.9` and the `*_MV` columns are in `unmodeled_rules` |
 | 5/6 V latch-up taps | `comp.tap_distance.*.mv.1` is checked; LVPWELL rules and `latchup_mk` are not (`LPW.*_MV` in `unmodeled_rules`); the spec's 20 um stand-in applies |
 | Pad size and spacing | not public; only `pad.enclosing.metal5.1` is checked |
-| Via1/Via2, SAB, MetalTop | `via1.*`, `via2.*`, `sab.*`, `metaltop.*` are in `rules_skipped` |
+| SAB, MetalTop | `sab.*`, `metaltop.*` are in `rules_skipped`. `via1.*`, `via2.*` and their Metal enclosures are checked now that the stream draws Via1/Via2 |
 
-Also not covered: no signal routing, rail ties or corner turn are drawn
-(`layout/README.md`), so the rules that act on that geometry are vacuous here.
+The Metal2/3/4 wiring is drawn and is inside this clean result (Via1/Via2/Via3
+and Metal1-4 spacing, width and enclosure rules are checked). Metal2 gaps under
+0.28 um left by the router were closed in the generator (`Wiring.close_gaps`),
+not waived. MetalTop and SAB are not checked; connectivity is evidenced by
+`layout/check_connectivity.py` and `klt components`, not by the deck.
 
 ## Negative control
 
