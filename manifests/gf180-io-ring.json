@@ -8,11 +8,11 @@
     },
     "2": {
       "file": "manifests/evidence/item2.json",
-      "content_hash": "sha256:1b853aeb0bfa967265dfbeb689dca08af221cf53a266a3a310e68d14bc583db9"
+      "content_hash": "sha256:e6766e5da5ea2e9c58549c3fe2137bfda8cd7be1b729bc877ce352acba6c83ef"
     },
     "3": {
       "file": "manifests/evidence/item3/io_ring.json",
-      "content_hash": "sha256:1b853aeb0bfa967265dfbeb689dca08af221cf53a266a3a310e68d14bc583db9"
+      "content_hash": "sha256:e6766e5da5ea2e9c58549c3fe2137bfda8cd7be1b729bc877ce352acba6c83ef"
     },
     "9": {
       "file": "manifests/evidence/item9.json",
