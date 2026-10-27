@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Verify the drawn GPIO cell (design/gpio.spice) against the ratified spec rows over the PVT set.
-#   sim/gpio-corners/run.sh             cold start: 20 requests -> `klt sim` batch fleet; writes records/<UTC stamp>/
+#   sim/gpio-corners/run.sh             cold start: 21 requests -> `klt sim` batch fleet; writes records/<UTC stamp>/
+#   sim/gpio-corners/run.sh --only STEM  submit just one request (e.g. esd_rail_release) into a new record
 #   sim/gpio-corners/run.sh --dry-run   generate and `klt sim --dry-run` each request; no simulation
 #   sim/gpio-corners/run.sh --resume RECORD_DIR   resubmit only the requests without a report, then collect
 #   sim/gpio-corners/run.sh --probe     local single-corner debug probe of every deck (typical, 25 C)
@@ -20,6 +21,7 @@ MODE=run
 case "${1:-}" in
   "") ;;
   --dry-run) MODE=dry ;;
+  --only) MODE=run; ONLY="${2:-}"; [ -n "$ONLY" ] || { echo "gpio-corners: usage: --only needs a request name" >&2; exit 2; } ;;
   --probe) MODE=probe ;;
   --resume) MODE=resume; RESUME_DIR="${2:-}"
             [ -d "$RESUME_DIR/requests" ] || { echo "gpio-corners: usage: --resume needs an existing record dir" >&2; exit 2; } ;;
@@ -39,6 +41,10 @@ if [ "$MODE" != resume ]; then
   EXTRA=""; [ "$MODE" = probe ] && EXTRA="--probe"
   python3 -I "$HERE/gen_requests.py" "$REQ" "$PDK_MODELDIR" "$REPO/design" $EXTRA > "$OUT/requests.list" \
     || { echo "gpio-corners: FAIL: request generation" >&2; exit 1; }
+  if [ -n "${ONLY:-}" ]; then
+    grep -qx "$ONLY" "$OUT/requests.list" || { echo "gpio-corners: no request named $ONLY" >&2; exit 2; }
+    echo "$ONLY" > "$OUT/requests.list"
+  fi
 fi
 
 if [ "$MODE" = dry ]; then

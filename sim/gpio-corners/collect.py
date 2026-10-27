@@ -34,10 +34,13 @@ ROWS = {
     "vf_up_hbm": ("esd_pad_up", "pad clamp to DVDD, forward drop at the 1.33 A stress current", "V"),
     "vf_dn_hbm": ("esd_pad_dn", "pad clamp from DVSS, forward drop at the 1.33 A stress current", "V"),
     "v_peak": ("esd_rail", "DVDD-DVSS rail clamp, peak DVDD under a 1.33 A / 10 ns-rise pulse", "V"),
+    "rel_gio": ("esd_rail_release_gate", "DVDD-DVSS rail clamp, gate back below the threshold at the end of the tail", "V"),
+    "rel_dvdd": ("esd_rail_release_dvdd", "DVDD-DVSS rail clamp, DVDD back within tolerance of the 5 V supply at the end of the tail", "V"),
+    "rel_i": ("esd_rail_release_supply", "DVDD-DVSS rail clamp, supply current back to leakage level at the end of the tail", "A"),
 }
 # Report-only context measurements (no limit, listed in results.tsv and the record)
-CONTEXT = {"voh", "vf_up_1ma", "vf_dn_1ma", "v_end"}
-UNITS = {"s": (1e9, "ns"), "F": (1e12, "pF"), "ohm": (1e-3, "kohm"), "V": (1.0, "V")}
+CONTEXT = {"voh", "vf_up_1ma", "vf_dn_1ma", "v_end", "rel_gio_peak", "t_rel"}
+UNITS = {"A": (1e6, "uA"), "s": (1e9, "ns"), "F": (1e12, "pF"), "ohm": (1e-3, "kohm"), "V": (1.0, "V")}
 KEY = re.compile(r"^(?P<base>.+?)(_d(?P<i>\d)v(?P<j>\d))?$")
 
 

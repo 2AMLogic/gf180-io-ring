@@ -8,7 +8,8 @@ spec row is relaxed.
 
 ## Cold start
 
-    sim/gpio-corners/run.sh                    # 19 requests -> `klt sim` batch fleet
+    sim/gpio-corners/run.sh                    # 21 requests -> `klt sim` batch fleet
+    sim/gpio-corners/run.sh --only esd_rail_release   # one request into a new record
     sim/gpio-corners/run.sh --dry-run          # generate and validate every request; no simulation
     sim/gpio-corners/run.sh --resume RECORD    # resubmit only the requests without a report
     sim/gpio-corners/run.sh --probe            # local, ONE corner per deck (typical, 25 C): debug only

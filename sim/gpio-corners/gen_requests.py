@@ -43,6 +43,15 @@ PINS = ("a", "oe", "ie", "pu", "pd")
 I_HBM = 1.33
 VF_BUDGET = 3.0
 V_RAIL_BUDGET = 6.0
+# Release bench (esd_rail_release) assumptions, also not spec rows: the supply reaches DVDD through
+# R_SUPPLY (a stuck-on clamp then draws about 5 V / R_SUPPLY, far above leakage); the tail after
+# the pulse; the clamp gate must read below V_GATE_OFF (under the nfet_06v0 threshold); DVDD must
+# return within V_RECOVER_TOL of the 5 V supply; the supply current within I_LEAK_BUDGET.
+R_SUPPLY = 100
+T_TAIL_STOP = 30e-6
+V_GATE_OFF = 0.5
+V_RECOVER_TOL = 0.25
+I_LEAK_BUDGET = 100e-6
 
 
 def process_axis():
@@ -227,6 +236,27 @@ def esd_rail_netlist(modeldir):
     return "\n".join(lines) + "\n", {"kind": "tran", "args": "0.1n 130n 0 0.2n"}, meas
 
 
+def esd_rail_release_netlist(modeldir):
+    """Same pad cell and pulse as esd_rail, but powered: DVDD held at 5 V through R_SUPPLY, and a
+    tail after the pulse. Latching only exists with a supply present; unpowered, DVDD would
+    discharge through the clamp whether or not it stays on."""
+    lines = header("esd_rail_release", "-", "DVDD-DVSS rail clamp release after the ESD-like pulse, powered",
+                   modeldir, ("dvdd_pad.spice",))
+    lines += [".options itl4=1000 gmin=1e-9 reltol=0.01 abstol=1e-10 rshunt=1e12",
+              "Rleak dvdd 0 1Meg",  # same convergence aid as esd_rail
+              "Vsup sup 0 5.0", f"Rsup sup dvdd {R_SUPPLY}",
+              f"Ipulse 0 dvdd PULSE(0 {I_HBM} 1n 10n 10n 100n 1)",
+              "Xrail dvdd 0 0 0 dvdd_pad"]
+    t = f"{T_TAIL_STOP:.6g}"
+    meas = [mspice("rel_gio", f".meas tran rel_gio FIND v(xrail.gio) AT={t}", "V", lim(hi=V_GATE_OFF)),
+            mspice("rel_dvdd", f".meas tran rel_dvdd FIND v(dvdd) AT={t}", "V",
+                   lim(5.0 - V_RECOVER_TOL, 5.0 + V_RECOVER_TOL)),
+            mspice("rel_i", f".meas tran rel_i FIND i(vsup) AT={t}", "A", lim(-I_LEAK_BUDGET, I_LEAK_BUDGET)),
+            mspice("rel_gio_peak", ".meas tran rel_gio_peak MAX v(xrail.gio)", "V"),
+            mspice("t_rel", f".meas tran t_rel WHEN v(xrail.gio)={V_GATE_OFF} FALL=LAST", "s")]
+    return "\n".join(lines) + "\n", {"kind": "tran", "args": f"1n {t} 0 1n"}, meas
+
+
 def write(out, stem, text, req):
     with open(os.path.join(out, stem + ".sp"), "w") as f:
         f.write(text)
@@ -262,6 +292,9 @@ def main():
     text, analysis, meas = esd_rail_netlist(modeldir)
     write(out, "esd_rail", text, request("esd_rail.sp", modeldir, analysis, meas, cor, 900))
     names.append("esd_rail")
+    text, analysis, meas = esd_rail_release_netlist(modeldir)
+    write(out, "esd_rail_release", text, request("esd_rail_release.sp", modeldir, analysis, meas, cor, 1800))
+    names.append("esd_rail_release")
     if not probe:
         for deck in ("pullup", "pulldown"):
             for mode in MODES:
