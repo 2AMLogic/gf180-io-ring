@@ -11,10 +11,11 @@ corner passed, and every declared measurement is present and finite in every cor
 no blank or NaN row is ever written. The comparison against the spec targets is
 data; a target that is missed does not fail the run (these are reference values).
 """
-import json
-import math
 import os
 import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+from gpio_common import finite, limitation, load, vlabel  # noqa: E402
 
 DECKS = ["vol", "voh", "edges", "pullup", "pulldown", "cap", "xfer_cs0", "xfer_cs1"]
 MODES = ["5v", "3v3"]
@@ -26,10 +27,6 @@ EXPECT = {  # measurement names per deck
 POSITIVE = {"r_pullup", "r_pulldown", "c_pad", "t_rise", "t_fall", "vol"}
 CORNERS = 45
 DVDDS = {"5v": [4.5, 5.0, 5.5], "3v3": [2.97, 3.3, 3.63]}
-
-
-def vlabel(v):
-    return f"{v:.2f}".replace(".", "v")
 
 
 def merged(kltout, deck, mode):
@@ -48,17 +45,6 @@ def merged(kltout, deck, mode):
         out["environment"].setdefault("engine_version", e.get("engine_version"))
         out["_parts"].append((stem, (e.get("remote") or {}).get("job_id"), e.get("engine_host")))
     return out
-
-
-def load(path):
-    try:
-        return json.load(open(path))
-    except Exception as e:
-        return {"_unreadable": str(e)}
-
-
-def finite(v):
-    return isinstance(v, (int, float)) and math.isfinite(v)
 
 
 def check_report(rep, names, ncorners, tag):
@@ -83,14 +69,6 @@ def check_report(rep, names, ncorners, tag):
             elif n in POSITIVE and v <= 0:
                 bad.append(f"{tag} {cid}: measurement {n} = {v} not > 0")
     return bad
-
-
-def limitation(spec):
-    text = open(spec, encoding="utf-8").read()
-    i = text.find("**Known limitation, measured.**")
-    if i < 0:
-        sys.exit("collect: spec 'Known limitation, measured' paragraph not found")
-    return text[i:].split("\n\n", 1)[0].strip()
 
 
 def points(rep, name):
