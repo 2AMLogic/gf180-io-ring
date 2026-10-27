@@ -3,14 +3,14 @@
   "kind": "generic",
   "status": "pass",
   "t1_item": 9,
-  "summary": "T1 item 9 (Testbenches shipped): 12/12 attestation checks passed (klt signoff --attest)",
+  "summary": "T1 item 9 (Testbenches shipped): 16/16 attestation checks passed (klt signoff --attest)",
   "source": "attest/item9.json",
   "attestation": {
     "producer": "klt signoff --attest",
     "inventory_schema_version": 1,
     "hash_algorithm": "sha256-raw-bytes",
-    "check_count": 12,
-    "passed_count": 12,
+    "check_count": 16,
+    "passed_count": 16,
     "checks": [
       {
         "check": "present",
@@ -60,6 +60,34 @@
         "path": "sim/gpio-bi_t/run.sh",
         "passed": true,
         "content_hash": "sha256:0623e099ed24b6cf8fd11951e109f0104aa3adfe94bcf4dbb28aec5944c3b49f"
+      },
+      {
+        "check": "present",
+        "role": "testbench",
+        "path": "sim/gpio-corners/cite.py",
+        "passed": true,
+        "content_hash": "sha256:a0b015a842447a7bca1bb7c7316de1708ce08b77ad437aedfa9cbbc4409f2d7c"
+      },
+      {
+        "check": "present",
+        "role": "testbench",
+        "path": "sim/gpio-corners/collect.py",
+        "passed": true,
+        "content_hash": "sha256:d83a625a625fcce6a730861f8801ae663ba322241f8a18a9091208dd0e6af116"
+      },
+      {
+        "check": "present",
+        "role": "testbench",
+        "path": "sim/gpio-corners/gen_requests.py",
+        "passed": true,
+        "content_hash": "sha256:04d43c4bf1d0b7783ff7bd228ec6c289fba3c35acdf6db0f7749aa75a3d1588a"
+      },
+      {
+        "check": "present",
+        "role": "testbench",
+        "path": "sim/gpio-corners/run.sh",
+        "passed": true,
+        "content_hash": "sha256:55b1af8d18b907086904216fb042a0613bfdc3bedbca00025761b1012859257b"
       },
       {
         "check": "present",
@@ -116,7 +144,7 @@
         "path": "attest/item9.json",
         "scope": "repo"
       },
-      "content_hash": "sha256:a46405c4c6ac18f726ada0fffb0bacb1d2e9cd9914810fb758ea852e810c3255"
+      "content_hash": "sha256:9a6a87a98314f2c2fb5f1ce2a4e6cc01871f4f25abab52ea227a781bedf20c4f"
     }
   }
 }

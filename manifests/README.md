@@ -61,7 +61,7 @@ re-runs this on every push and byte-compares against the committed record.
 `attest/item9.json` inventories the committed testbenches, the cold-start
 command (`sim/smoke/run.sh`, `local_only`) and the PDK and tool pins.
 `evidence/item9.json` is its envelope. Re-attest whenever a listed bench or
-pin changes (the item 5/6 GPIO benches join the list as they land), then
+pin changes (the item 5 bench `sim/gpio-corners` is listed; the item 6 benches join as they land), then
 refresh the `content_hash` cited in the manifest and regenerate the record:
 
 ```console
@@ -72,3 +72,13 @@ uvx --from "klayout-tools==0.8.0" klt signoff --attest 9 \
 The cold start runs one local ngspice operating point, so attest from a
 host with the pinned PDK (`sim/check_env.sh`). CI runs the same command with
 `--check evidence/item9.json`; it does not run the local-only cold start.
+
+## Item 5 citations (corner verification)
+
+Item 5 cites a list of `klt sim` envelopes from one record under
+`sim/gpio-corners/records/`, each with the spec rows it covers, and declares the row set
+and the gaps under `spec_rows`. Cite a new record with
+`python3 -I sim/gpio-corners/cite.py <record> manifests/gf180-io-ring.json`, then
+regenerate the record above. The pin is each envelope's own `provenance.input.content_hash`.
+Row coverage is asserted by the manifest (the fleet-compatible client emits no `spec_row`
+tags). While any row misses its target or a gap is declared, item 5 stays `unmet`.
