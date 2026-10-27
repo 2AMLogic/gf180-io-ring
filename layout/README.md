@@ -40,6 +40,10 @@ used (the item-1 attestation pins the sim side to `c6d73a35…`; see
 filler; same mix as `design/io_ring.sch`). Cell and pin names follow
 `design/*.spice`. `filler_5`/`filler_1` are not instantiated in the ring.
 
+`m=` copies of a device are drawn as separate devices (`klt lvs` expands `m` into unit
+devices). The `DVDD`/`DVSS` pad clamp is 48 such copies in rows of 2 + 2 with a shared
+P+ tap bar between the pairs, so every NCOMP stays within the 5/6 V tap distance.
+
 ## Wiring
 
 `gen_ring.py` wires each cell from its `design/<cell>.spice`, not from a net

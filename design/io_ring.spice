@@ -1,4 +1,4 @@
-** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/io_ring.sch
+** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/io_ring.sch
 .subckt io_ring A0 OE0 IE0 PU0 PD0 A1 OE1 IE1 PU1 PD1 A2 OE2 IE2 PU2 PD2 A3 OE3 IE3 PU3 PD3 A4 OE4 IE4 PU4 PD4 A5 OE5 IE5 PU5
 + PD5 A6 OE6 IE6 PU6 PD6 A7 OE7 IE7 PU7 PD7 Y0 Y1 Y2 Y3 Y4 Y5 Y6 Y7 PAD0 PAD1 PAD2 PAD3 PAD4 PAD5 PAD6 PAD7 DVDD DVSS VDD VSS
 *.ipin A0
@@ -92,8 +92,8 @@ XFILL3 DVDD VDD DVSS VSS filler
 .ends
 
 * expanding   symbol:  corner.sym # of pins=4
-** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/corner.sym
-** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/corner.sch
+** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/corner.sym
+** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/corner.sch
 .subckt corner DVDD VDD DVSS VSS
 *.iopin DVDD
 *.iopin DVSS
@@ -103,8 +103,8 @@ XFILL3 DVDD VDD DVSS VSS filler
 
 
 * expanding   symbol:  gpio.sym # of pins=11
-** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/gpio.sym
-** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/gpio.sch
+** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/gpio.sym
+** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/gpio.sch
 .subckt gpio A OE IE PU PD Y PAD DVDD VDD DVSS VSS
 *.ipin A
 *.ipin OE
@@ -186,10 +186,10 @@ XMN_nor1 ng a_s DVSS DVSS nfet_06v0 L=0.7u W=4u nf=1 ad='int((nf+1)/2) * W/nf * 
 XMN_nor2 ng oe_sb DVSS DVSS nfet_06v0 L=0.7u W=4u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XMP_drv PAD pg DVDD DVDD pfet_06v0 L=0.55u W=80u nf=16 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=2
+XMN_drv PAD ng DVSS DVSS nfet_06v0 L=0.7u W=60u nf=12 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XMN_drv PAD ng DVSS DVSS nfet_06v0 L=0.7u W=40u nf=8 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XMP_pu PAD pu_sb DVDD DVDD pfet_06v0 L=8u W=1u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XMP_pu PAD pu_sb DVDD DVDD pfet_06v0 L=1.5u W=1u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XMN_pd PAD pd_s DVSS DVSS nfet_06v0 L=6u W=1u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
@@ -227,8 +227,8 @@ XMP_y2 Y yb VDD VDD pfet_03v3 L=0.28u W=4u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u
 
 
 * expanding   symbol:  dvdd_pad.sym # of pins=4
-** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/dvdd_pad.sym
-** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/dvdd_pad.sch
+** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/dvdd_pad.sym
+** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/dvdd_pad.sch
 .subckt dvdd_pad DVDD VDD DVSS VSS
 *.iopin DVDD
 *.iopin DVSS
@@ -238,17 +238,17 @@ XMP_rio tio DVSS DVDD DVDD pfet_06v0 L=20u W=1u nf=1 ad='int((nf+1)/2) * W/nf * 
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XC_tio tio DVSS cap_nmos_06v0 c_width=40u c_length=40u m=1
 XMP_iio gio tio DVDD DVDD pfet_06v0 L=0.55u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=10
 XMN_iio gio tio DVSS DVSS nfet_06v0 L=0.7u W=20u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XMN_clampio DVDD gio DVSS DVSS nfet_06v0 L=0.8u W=600u nf=60 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XMN_clampio DVDD gio DVSS DVSS nfet_06v0 L=0.8u W=100u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=48
 .ends
 
 
 * expanding   symbol:  dvss_pad.sym # of pins=4
-** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/dvss_pad.sym
-** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/dvss_pad.sch
+** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/dvss_pad.sym
+** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/dvss_pad.sch
 .subckt dvss_pad DVDD VDD DVSS VSS
 *.iopin DVDD
 *.iopin DVSS
@@ -258,17 +258,17 @@ XMP_rio tio DVSS DVDD DVDD pfet_06v0 L=20u W=1u nf=1 ad='int((nf+1)/2) * W/nf * 
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
 XC_tio tio DVSS cap_nmos_06v0 c_width=40u c_length=40u m=1
 XMP_iio gio tio DVDD DVDD pfet_06v0 L=0.55u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=10
 XMN_iio gio tio DVSS DVSS nfet_06v0 L=0.7u W=20u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
-XMN_clampio DVDD gio DVSS DVSS nfet_06v0 L=0.8u W=600u nf=60 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XMN_clampio DVDD gio DVSS DVSS nfet_06v0 L=0.8u W=100u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=48
 .ends
 
 
 * expanding   symbol:  core_pad.sym # of pins=4
-** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/core_pad.sym
-** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/core_pad.sch
+** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/core_pad.sym
+** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/core_pad.sch
 .subckt core_pad DVDD VDD DVSS VSS
 *.iopin DVDD
 *.iopin DVSS
@@ -287,8 +287,8 @@ XMN_clampco VDD gco VSS VSS nfet_03v3 L=0.8u W=400u nf=40 ad='int((nf+1)/2) * W/
 
 
 * expanding   symbol:  filler.sym # of pins=4
-** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/filler.sym
-** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-14/design/filler.sch
+** sym_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/filler.sym
+** sch_path: /home/ubuntu/GitHub/gf180-io-ring/.loom/worktrees/issue-38/design/filler.sch
 .subckt filler DVDD VDD DVSS VSS
 *.iopin DVDD
 *.iopin DVSS
