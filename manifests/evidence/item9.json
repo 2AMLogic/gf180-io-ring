@@ -3,14 +3,14 @@
   "kind": "generic",
   "status": "pass",
   "t1_item": 9,
-  "summary": "T1 item 9 (Testbenches shipped): 16/16 attestation checks passed (klt signoff --attest)",
+  "summary": "T1 item 9 (Testbenches shipped): 17/17 attestation checks passed (klt signoff --attest)",
   "source": "attest/item9.json",
   "attestation": {
     "producer": "klt signoff --attest",
     "inventory_schema_version": 1,
     "hash_algorithm": "sha256-raw-bytes",
-    "check_count": 16,
-    "passed_count": 16,
+    "check_count": 17,
+    "passed_count": 17,
     "checks": [
       {
         "check": "present",
@@ -45,14 +45,14 @@
         "role": "testbench",
         "path": "sim/gpio-bi_t/collect.py",
         "passed": true,
-        "content_hash": "sha256:377780cd81cb0337f2373e8d32d0d9bf1d378274cd75c723ec57f7a653d35fb5"
+        "content_hash": "sha256:88cacbc76e4d21e319f4d7446275eb0f82c5dc58851c3d58a5381468efc07d1b"
       },
       {
         "check": "present",
         "role": "testbench",
         "path": "sim/gpio-bi_t/gen_requests.py",
         "passed": true,
-        "content_hash": "sha256:1171dee80d7254a74c3dc8bfdd9f8e0d0d74597a9a7970ec0a84f0a006a805a5"
+        "content_hash": "sha256:af9847383d4c4245f7b5f24f7529c784bd8f663a75ad57c42f35b89b41fca994"
       },
       {
         "check": "present",
@@ -73,14 +73,14 @@
         "role": "testbench",
         "path": "sim/gpio-corners/collect.py",
         "passed": true,
-        "content_hash": "sha256:f20d9d62abfe59fc1042c7fb0f9dbbc55f31eae53aabc476ab84a5c182d3fc9b"
+        "content_hash": "sha256:4cdfc5c87b05d393dd3d31f17a6ac4ad7bd351ad69bba9ffa41661fd6c9caeb8"
       },
       {
         "check": "present",
         "role": "testbench",
         "path": "sim/gpio-corners/gen_requests.py",
         "passed": true,
-        "content_hash": "sha256:19fb19a99020f145e8d4c2be209a3fbbe2bd9e4e476fe8f620ef8cc1e0018658"
+        "content_hash": "sha256:060dcaeffba7cb34bcbede1719c2415d914802cd8d94fa7941365b0062eac37e"
       },
       {
         "check": "present",
@@ -88,6 +88,13 @@
         "path": "sim/gpio-corners/run.sh",
         "passed": true,
         "content_hash": "sha256:55b1af8d18b907086904216fb042a0613bfdc3bedbca00025761b1012859257b"
+      },
+      {
+        "check": "present",
+        "role": "testbench",
+        "path": "sim/gpio_common.py",
+        "passed": true,
+        "content_hash": "sha256:1c9bfb6aa60d6fec7a6a761d5817af3db75ed24b826aee28848fa556e71a8a80"
       },
       {
         "check": "present",
@@ -144,7 +151,7 @@
         "path": "attest/item9.json",
         "scope": "repo"
       },
-      "content_hash": "sha256:9a6a87a98314f2c2fb5f1ce2a4e6cc01871f4f25abab52ea227a781bedf20c4f"
+      "content_hash": "sha256:76d37e631a3b77f617427987d7d15764de32a90489fb8280aed74ca55a203950"
     }
   }
 }
