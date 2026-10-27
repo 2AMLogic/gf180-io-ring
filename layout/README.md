@@ -1,8 +1,10 @@
 # layout
 
 Generated layout of the 5 V I/O ring (T1 item 2). Nothing here is ESD-rated or
-qualified; the layout is **not** DRC-, LVS- or ERC-verified (issues #16, #17,
-#24). The wiring is drawn so that LVS can be attempted; it is not proof.
+qualified. The stream is `klt drc` clean against klt's open `gf180mcu` deck only
+(T1 item 3, `manifests/evidence/item3.md`, which lists what that deck does not
+check); it is **not** LVS- or ERC-verified (issues #17, #24). The wiring is
+drawn so that LVS can be attempted; it is not proof.
 
 ## Regenerate
 
@@ -71,13 +73,22 @@ Net labels sit on a Metal2 pad of every terminal, so `klt components` and
 What the drawing does not settle: `DVSS`-bulk and `VSS`-bulk NMOS groups sit on
 the one p-substrate (no deep-Nwell isolation is drawn), so the substrate taps of
 both domains share the substrate; whether LVS reads that as one net is for #17.
-Spacing, density and enclosure rules of the new Metal2/3/4 wiring are not
-checked here (#16).
+The Metal2/3/4 wiring is inside the `klt drc` run below (spacing, width and
+enclosure of Metal1-4 and Via1-3 are in the deck); density is not checked. The
+router leaves sub-minimum Metal2 gaps between shapes of one net, so each wired
+cell closes gaps under 0.3 µm on Metal2 (`Wiring.close_gaps`) after routing.
 
 Tap spacing for 5/6 V devices: the DRM value is not in the open PDK; the spec's
 20 µm stand-in applies and is not checked here.
 
 ## Checks run
+
+- `klt drc` (klt 0.8.0, deck `gf180mcu`) over `io_ring` and each of the eight
+  cells: `status: clean`; envelopes in `manifests/evidence/item3/`. Clean was
+  reached by geometry (Nplus/Pplus extension of 0.4 µm beyond comp and gate
+  region, diode tap rings 1.5 µm clear of the diode, one Dualgate marker over
+  stacked rows, Metal2 gap closing), not by waivers or rule subsets. This
+  covers the Metal2/3/4 wiring and its vias.
 
 - `klayout -b -r layout/check_connectivity.py`: for `gpio`, `dvdd_pad`,
   `dvss_pad`, `core_pad` and `corner`, no conductor carries two net labels, no

@@ -229,6 +229,17 @@ class Wiring:
                     self.occ[nd] = net
                 self.groups.setdefault(net, []).append(nodes)
 
+    def close_gaps(self, layer="M2", gap=0.15):
+        """Fill sub-minimum gaps between drawn Metal2 shapes (morphological
+        close). The deck's spacing rule is geometric, so a 0.1 um sliver
+        between two shapes of the same net is a violation; a gap this small
+        between two nets would be a short, which check_connectivity.py catches."""
+        shapes = self.cell.shapes(LI[layer])
+        reg = pya.Region(shapes)
+        closed = reg.sized(int(gap / layout.dbu), 2).sized(-int(gap / layout.dbu), 2)
+        shapes.clear()
+        shapes.insert(closed)
+
     def via23(self, l, x, y):
         """Via between routing layer l and l+1 with pads on both."""
         box(self.cell, VIA_AT[l], x - VIA / 2, y - VIA / 2, x + VIA / 2, y + VIA / 2)
@@ -359,6 +370,7 @@ class Wiring:
 CT = 0.22        # contact
 SD = 0.62        # source/drain column width
 RING_W = 1.0     # tap ring width
+IMP_ENC = 0.4    # Nplus/Pplus extension beyond a device's comp and gate region
 
 
 def contacts(cell, x0, y0, x1, y1, enc=0.12):
@@ -382,6 +394,7 @@ def mos(cell, x, y, kind, w, l, nf, thick, rows=1, nets=None, wr=None):
     pitch = l + SD
     width = per_row * pitch + SD
     ytop = y
+    dg_y0 = dg_y1 = None
     for r in range(rows):
         y0 = ytop + 0.4
         y1 = y0 + wf
@@ -394,9 +407,11 @@ def mos(cell, x, y, kind, w, l, nf, thick, rows=1, nets=None, wr=None):
             contacts(cell, sx, y0, sx + SD, y1)
             box(cell, "M1", sx + 0.06, y0, sx + SD - 0.06, y1)
         imp = "NPLUS" if kind == "n" else "PPLUS"
-        box(cell, imp, x - 0.2, y0 - 0.2, x + width + 0.2, y1 + 0.2)
-        if thick:
-            box(cell, "DUALGATE", x - 0.4, y0 - 0.7, x + width + 0.4, y1 + 0.7)
+        # implant overlaps the gate region by IMP_ENC (deck: nplus/pplus
+        # enclosing poly2 and comp)
+        box(cell, imp, x - IMP_ENC, y0 - IMP_ENC, x + width + IMP_ENC, y1 + IMP_ENC)
+        dg_y0 = y0 if dg_y0 is None else dg_y0
+        dg_y1 = y1
         if wr:
             drain, gate, source = nets
             for par, net, yv in ((0, source, y1 - 0.37), (1, drain, y0 + 0.37)):
@@ -410,6 +425,9 @@ def mos(cell, x, y, kind, w, l, nf, thick, rows=1, nets=None, wr=None):
             box(cell, "POLY", g0, y1 + 0.25, g1, y1 + 0.95)
             wr.poly_contact(gate, g0 + min(l, 1.0) / 2, y1 + 0.6)
         ytop = y1 + 1.4
+    if thick:
+        # one marker over all stacked rows, so no sub-minimum gap between rows
+        box(cell, "DUALGATE", x - 0.4, dg_y0 - 0.7, x + width + 0.4, dg_y1 + 0.7)
     return x + width, ytop - 0.4
 
 
@@ -513,7 +531,7 @@ def diode(cell, x, y, kind, area_w, area_h, net=None, wr=None):
 def mos_cap(cell, x, y, w, h, thick, gate=None, body=None, wr=None):
     box(cell, "COMP", x, y, x + w, y + h)
     box(cell, "POLY", x + 1.0, y - 0.3, x + w - 1.0, y + h + 0.3)
-    box(cell, "NPLUS", x - 0.2, y - 0.2, x + w + 0.2, y + h + 0.2)
+    box(cell, "NPLUS", x - IMP_ENC, y - IMP_ENC, x + w + IMP_ENC, y + h + IMP_ENC)
     if thick:
         box(cell, "DUALGATE", x - 0.5, y - 0.5, x + w + 0.5, y + h + 0.5)
     if wr:
@@ -570,6 +588,7 @@ def build_gpio():
     c, wr = new_cell("gpio")
     pad_landing(c, wr)
     devs, _ = parse_spice(os.path.join(ROOT, "design", "gpio.spice"))
+    by = {d["name"]: d for d in devs}
     # pad-side clamps (178 um^2 each, spec ESD network): D_dn then D_up, each in
     # its own tap ring (1.5 um clear of the diode): PAD is the N+ side of D_dn
     # and the P+ side of D_up
@@ -602,6 +621,7 @@ def build_gpio():
     for i, n in enumerate(("A", "OE", "IE", "PU", "PD", "Y")):
         pin(c, n, 12.0 + i * 10.0, 347.5, wr)
     assert not wr.route(), wr.unrouted
+    wr.close_gaps()
     return c
 
 
@@ -625,6 +645,7 @@ def build_supply(name, rail_dev_net, big_thick):
     box(c, "ESD", 3.0, y - 80.0, PITCH - 3.0, y)  # ESD implant over the clamp group
     assert y < 346, "%s overflows: %s" % (name, y)
     assert not wr.route(), wr.unrouted
+    wr.close_gaps()
     return c
 
 
@@ -645,6 +666,7 @@ def build_core_pad():
     y = place_group(c, clamp, y + 4.0, "n", False, "VSS", wr)
     assert y < 346, "core_pad overflows: %s" % y
     assert not wr.route(), wr.unrouted
+    wr.close_gaps()
     return c
 
 
