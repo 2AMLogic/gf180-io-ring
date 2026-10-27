@@ -6,10 +6,10 @@ output: the machine-readable gap-to-T1 checklist.
 ## Files
 
 - **`gf180-io-ring.json`**: the block manifest (`block: gf180-io-ring`,
-  `kind: analog`). `evidence` is empty: no design artifact exists yet, so
-  every T1 item grades `unmet` / `no_evidence`. Evidence is cited here one
-  item at a time as it lands, each pinned to the cited artifact's
-  `content_hash`.
+  `kind: analog`). Evidence is cited here one item at a time as it lands,
+  each pinned to the cited artifact's `content_hash`. Today only item 9
+  cites evidence (`evidence/item9.json`, produced from `attest/item9.json`);
+  every other T1 item grades `unmet` / `no_evidence`.
 - **`design-evidence-tiers.md`**: the T1-T4 checklist the grader parses.
   Vendored **byte-identical** from
   [`2AMLogic/klayout-tools@31a3e3c41c08bbd58719e0b99a3b6d19beb9be63`](https://github.com/2AMLogic/klayout-tools/blob/31a3e3c41c08bbd58719e0b99a3b6d19beb9be63/docs/design-evidence-tiers.md)
@@ -22,7 +22,7 @@ output: the machine-readable gap-to-T1 checklist.
 ## Regenerate
 
 ```console
-uvx --from "klayout-tools==0.7.0" klt signoff \
+uvx --from "klayout-tools==0.8.0" klt signoff \
     --manifest manifests/gf180-io-ring.json \
     --tiers-doc manifests/design-evidence-tiers.md \
     --format json > manifests/gf180-io-ring.signoff.json
@@ -35,3 +35,20 @@ the same PR.
 
 CI ([`.github/workflows/signoff.yml`](../.github/workflows/signoff.yml))
 re-runs this on every push and byte-compares against the committed record.
+
+## Item 9 attestation (testbenches shipped)
+
+`attest/item9.json` inventories the committed testbenches, the cold-start
+command (`sim/smoke/run.sh`, `local_only`) and the PDK and tool pins.
+`evidence/item9.json` is its envelope. Re-attest whenever a listed bench or
+pin changes (the item 5/6 GPIO benches join the list as they land), then
+refresh the `content_hash` cited in the manifest and regenerate the record:
+
+```console
+uvx --from "klayout-tools==0.8.0" klt signoff --attest 9 \
+    --inventory attest/item9.json -o evidence/item9.json
+```
+
+The cold start runs one local ngspice operating point, so attest from a
+host with the pinned PDK (`sim/check_env.sh`). CI runs the same command with
+`--check evidence/item9.json`; it does not run the local-only cold start.
