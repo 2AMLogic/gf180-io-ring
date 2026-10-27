@@ -8,7 +8,7 @@ not results for this block**, and carry no ESD claim.
 
     sim/gpio-bi_t/run.sh                          # full grid on the batch fleet
     sim/gpio-bi_t/run.sh --dry-run                # translate, generate, validate; no simulation
-    sim/gpio-bi_t/run.sh --negative bad-include   # must exit non-zero
+    sim/gpio-bi_t/run.sh --negative bad-include   # must exit non-zero (1 = failed as it must, 3 = did not fail: control failed)
                          # also: bad-model-path | bad-load | bad-measure
 
 A passing run exits 0 and writes `records/<UTC stamp>/` (append-only: never edit or delete

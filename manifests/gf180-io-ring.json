@@ -6,6 +6,14 @@
       "file": "manifests/evidence/item1.json",
       "content_hash": "sha256:ac7379d7bfdf14ccfcdbc9ae02136f7f6900ae54bdd20741215bafb4923a5d06"
     },
+    "2": {
+      "file": "manifests/evidence/item2.json",
+      "content_hash": "sha256:1b853aeb0bfa967265dfbeb689dca08af221cf53a266a3a310e68d14bc583db9"
+    },
+    "3": {
+      "file": "manifests/evidence/item3/io_ring.json",
+      "content_hash": "sha256:1b853aeb0bfa967265dfbeb689dca08af221cf53a266a3a310e68d14bc583db9"
+    },
     "9": {
       "file": "manifests/evidence/item9.json",
       "content_hash": "sha256:9a6a87a98314f2c2fb5f1ce2a4e6cc01871f4f25abab52ea227a781bedf20c4f"

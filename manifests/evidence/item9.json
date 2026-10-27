@@ -31,7 +31,7 @@
         "role": "testbench",
         "path": "sim/esd_clamp/run.sh",
         "passed": true,
-        "content_hash": "sha256:c2935aebe78df543bb4450aa9d7d49beb4a5f4572f0a8f3b8a93e15822b9454a"
+        "content_hash": "sha256:04e4d5e3f7e170b5b3224ad97259b5bba657df7af73f9b703a002607b542b567"
       },
       {
         "check": "present",
@@ -59,7 +59,7 @@
         "role": "testbench",
         "path": "sim/gpio-bi_t/run.sh",
         "passed": true,
-        "content_hash": "sha256:0623e099ed24b6cf8fd11951e109f0104aa3adfe94bcf4dbb28aec5944c3b49f"
+        "content_hash": "sha256:22540dfdee541418bb87f356d26cef172ec91e0a8b64411d555772c5601b0796"
       },
       {
         "check": "present",

@@ -8,12 +8,24 @@ output: the machine-readable gap-to-T1 checklist.
 - **`gf180-io-ring.json`**: the block manifest (`block: gf180-io-ring`,
   `kind: analog`). Evidence is cited here one item at a time as it lands, each
   pinned to the cited artifact's `content_hash`. Item 1 cites
-  `evidence/item1.json`, item 9 cites `evidence/item9.json` and item 10 cites
+  `evidence/item1.json`, item 2 cites `evidence/item2.json`, item 3 cites
+  `evidence/item3/io_ring.json`, item 9 cites `evidence/item9.json` and item 10 cites
   `item10-attestation.json`; every other item is still `unmet` / `no_evidence`.
 - **`evidence/item1.json`**: the item-1 attestation envelope, produced from
   `design/item1-inventory.json` (`klt signoff --attest 1`, needs `klt` >= 0.8.0,
   hence the pin). Regenerate it whenever a design source or netlist changes; see
   [`design/README.md`](../design/README.md).
+- **`evidence/item2.json`**: the item-2 (layout) envelope, pinning
+  `layout/gf180_io_ring.gds` by path and content hash, with a regeneration
+  claim (`klayout -b -r layout/gen_ring.py`). Hand-written by
+  `layout/regen.sh`: `klt signoff --attest` has no item-2 producer in 0.8.0
+  (tracked at klayout-tools#4188). The manifest cites the GDS hash.
+- **`evidence/item3/<cell>.json`**: one `klt drc --format json` envelope per
+  top cell of the ring stream (`klt drc layout/gf180_io_ring.gds --deck gf180mcu
+  --top <cell> --format json`, klt 0.8.0), all `status: clean`. The manifest
+  cites the `io_ring` envelope by the item-2 GDS hash. `evidence/item3.md` is
+  the claim: it quotes the coverage fields and the open-deck gaps. Rerun the
+  nine commands (and `klt drc --check <report>`) whenever the GDS changes.
 - **`evidence/item9.json`**: the item-9 (testbenches shipped) attestation
   envelope, produced from `attest/item9.json` (`klt signoff --attest 9`). CI
   re-attests it with `--check`; the cold start is `local_only`, so it is carried
