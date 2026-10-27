@@ -464,7 +464,7 @@ def parse_spice(path):
         model = next(t for t in tok if re.match(r"(nfet|pfet|cap_nmos)_", t))
         prm = {}
         for t in tok:
-            m = re.match(r"(L|W|nf|c_width|c_length)=([0-9.]+)u?$", t)
+            m = re.match(r"(L|W|nf|c_width|c_length|m)=([0-9.]+)u?$", t)
             if m:
                 prm[m.group(1)] = float(m.group(2))
         nets = tuple(tok[1:5]) if model.startswith(("nfet", "pfet")) else tuple(tok[1:3])
@@ -497,18 +497,53 @@ def place_group(cell, devs, y, kind, thick, net, wr=None):
             rows += 1
         wf = p["W"] / nf
         w_est = (nf // rows) * (p["L"] + SD) + SD
-        if cx + w_est > x0 + MAXW and not first:
-            cx, cy, rowh = x0, cy + rowh + 2.5, 0.0
-        ex, ey = mos(cell, cx, cy, kind, p["W"], p["L"], nf, thick, rows,
-                     d["n"][:3], wr)
-        label(cell, "M1_LBL", d["name"], cx, cy)
-        rowh = max(rowh, ey - cy)
-        xmax = max(xmax, ex)
-        cx = ex + 2.5
-        first = False
+        # `m=` copies are drawn as separate devices: klt lvs expands m into unit devices
+        for _ in range(int(p.get("m", 1))):
+            if cx + w_est > x0 + MAXW and not first:
+                cx, cy, rowh = x0, cy + rowh + 2.5, 0.0
+            ex, ey = mos(cell, cx, cy, kind, p["W"], p["L"], nf, thick, rows,
+                         d["n"][:3], wr)
+            label(cell, "M1_LBL", d["name"], cx, cy)
+            rowh = max(rowh, ey - cy)
+            xmax = max(xmax, ex)
+            cx = ex + 2.5
+            first = False
     gx1 = max(xmax, x0 + 10.0)
     gy1 = cy + rowh + 1.0
     ring(cell, x0 - 1.5, y + RING_W + 0.5, gx1 + 1.5, gy1 + 0.0, "p" if kind == "n" else "n", net, wr)
+    return gy1 + RING_W + 1.5
+
+
+def place_clamp_array(cell, d, y, net, wr):
+    """The `m=` copies of the clamp FET as rows of 2 + 2 devices, with a shared P+ tap bar
+    between the two pairs and the usual ring around: every NCOMP stays within the 5/6 V
+    substrate-tap distance (comp.tap_distance.psub.mv.1) of a ring side or the bar."""
+    p = d["p"]
+    nf = int(p["nf"])
+    x0 = RING_W + 1.5 + 1.0
+    cx, cy, rowh, xmax = x0, y + RING_W + 1.5, 0.0, x0
+    bar_x = None
+    for k in range(int(p["m"])):
+        if k % 4 == 0 and k:
+            cx, cy = x0, cy + rowh + 2.5
+        if k % 4 == 2:
+            bar_x = cx
+            cx += 1.0 + 1.5
+        ex, ey = mos(cell, cx, cy, "n", p["W"], p["L"], nf, True, 1, d["n"][:3], wr)
+        label(cell, "M1_LBL", d["name"], cx, cy)
+        rowh = ey - cy
+        xmax = max(xmax, ex)
+        cx = ex + 2.5 if k % 4 != 1 else ex + 1.5
+    gy1 = cy + rowh + 1.0
+    ring(cell, x0 - 1.5, y + RING_W + 0.5, xmax + 1.5, gy1, "p", net, wr)
+    bx0, bx1 = bar_x, bar_x + 1.0
+    by0, by1 = y + RING_W + 0.5, gy1
+    box(cell, "COMP", bx0, by0, bx1, by1)
+    box(cell, "PPLUS", bx0 - 0.16, by0 - 0.16, bx1 + 0.16, by1 + 0.16)
+    contacts(cell, bx0, by0, bx1, by1, enc=0.2)
+    box(cell, "M1", bx0, by0, bx1, by1)
+    wr.via1(net, bx0 + 0.5, (by0 + by1) / 2)
+    wr.terminal(net, bx0 + 0.5, (by0 + by1) / 2)
     return gy1 + RING_W + 1.5
 
 
@@ -643,8 +678,9 @@ def build_supply(name, rail_dev_net, big_thick):
     y = place_group(c, [d for d in sel if classify(d)[0] == "n"], y, "n", True, rail_dev_net[0], wr)
     y = place_group(c, [d for d in sel if classify(d)[0] == "p"], y, "p", True, rail_dev_net[1], wr)
     clamp = [d for d in bigs if d["name"] == "XMN_clampio"][0]
-    y = place_group(c, [clamp], y + 4.0, "n", True, rail_dev_net[0], wr)
-    box(c, "ESD", 3.0, y - 80.0, PITCH - 3.0, y)  # ESD implant over the clamp group
+    y0 = y + 4.0
+    y = place_clamp_array(c, clamp, y0, rail_dev_net[0], wr)
+    box(c, "ESD", 3.0, y0, 72.0, y)  # ESD implant over the clamp group
     assert y < 346, "%s overflows: %s" % (name, y)
     assert not wr.route(), wr.unrouted
     wr.close_gaps()

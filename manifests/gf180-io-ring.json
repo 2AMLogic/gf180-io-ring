@@ -8,15 +8,15 @@
     },
     "2": {
       "file": "manifests/evidence/item2.json",
-      "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56"
+      "content_hash": "sha256:7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332"
     },
     "3": {
       "file": "manifests/evidence/item3/io_ring.json",
-      "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56"
+      "content_hash": "sha256:7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332"
     },
     "4": {
       "file": "manifests/evidence/item4/io_ring.json",
-      "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56"
+      "content_hash": "sha256:7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332"
     },
     "9": {
       "file": "manifests/evidence/item9.json",
@@ -29,30 +29,30 @@
     "11": [
       {
         "file": "manifests/evidence/item11/io_ring.json",
-        "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56"
+        "content_hash": "sha256:7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332"
       },
       {
         "file": "manifests/evidence/item4/io_ring.json",
-        "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56"
+        "content_hash": "sha256:7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332"
       }
     ],
     "5": [
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/vol_5v.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
         "content_hash": "sha256:c36c9f23aeac39d44108adfe31314f556fe42853e8763a2b5484327c07f95cb9",
         "rows": [
           "vol_5v"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/voh_5v.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
         "content_hash": "sha256:93defc99e7e0c377d8039a714d0941c632c01c16f5581d7331839f05fa7c160b",
         "rows": [
           "voh_5v"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/edges_5v.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
         "content_hash": "sha256:01a8194db78dd1e0829109f51e463c91bbea59fd9ca41e216a9115e6172a1b2e",
         "rows": [
           "rise_5v",
@@ -60,7 +60,7 @@
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/xfer_5v.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
         "content_hash": "sha256:f6955f6c6c5dabf5d5839a45c0f04c979585c5fefeab4ed7e138e758df1afcf2",
         "rows": [
           "vil_5v",
@@ -69,42 +69,42 @@
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/cap_5v.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
         "content_hash": "sha256:7de7bacc864445edb5e63ab20c2d361f6d9d205c375aae08f3569fff54a49fc5",
         "rows": [
           "cap_5v"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/pullup_5v_nominal.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/pullup_5v_nominal.json",
         "content_hash": "sha256:0906523a94b37f35e35382efa6416b686317092aabb997756dd8adfdac79bdfb",
         "rows": [
           "pull_5v"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/pulldown_5v_nominal.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/pulldown_5v_nominal.json",
         "content_hash": "sha256:75729bfbbd8cec65cccb4c3e08295796b126e14a1ecb8c64f975edb472067216",
         "rows": [
           "pull_5v"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/vol_3v3.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
         "content_hash": "sha256:ac774477f293889b360908ea032d8ab53913792a83767bf007f605a79ce1d825",
         "rows": [
           "vol_3v3"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/voh_3v3.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
         "content_hash": "sha256:69c2ded1565914bd2ad3af259b7686eaf042f285f4fc966c0055426a15395b92",
         "rows": [
           "voh_3v3"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/edges_3v3.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
         "content_hash": "sha256:c4573a9c3d4f1a481e53d6610d018618e8c99abe7871181fcbc28712bc4bbd3f",
         "rows": [
           "rise_3v3",
@@ -112,7 +112,7 @@
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/xfer_3v3.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
         "content_hash": "sha256:e2eeec9f69262a78fa367660f93be34632c0561fb2bb1546b6daafdbd37372ba",
         "rows": [
           "vil_3v3",
@@ -121,31 +121,38 @@
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/cap_3v3.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
         "content_hash": "sha256:7c77d0e991979fe58e66e05c7a9e56859efbc02121f5c08d690bded7078d2789",
         "rows": [
           "cap_3v3"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/pullup_3v3_nominal.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/pullup_3v3_nominal.json",
         "content_hash": "sha256:f27a2e2150e00974855f81caf381c35a9fc2f051e795e87f7ce0396b200664de",
         "rows": [
           "pull_3v3"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/pulldown_3v3_nominal.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/pulldown_3v3_nominal.json",
         "content_hash": "sha256:4cede2445853bc15791a26930cc5101dea4f6ecb54bd0cd0171ab0f3dfafe086",
         "rows": [
           "pull_3v3"
         ]
       },
       {
-        "file": "sim/gpio-corners/records/20261027T030634Z/klt/esd_pad.json",
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/esd_pad.json",
         "content_hash": "sha256:e5d794a47099501c2efa7e6e9715d67bd6318dc4a4571482caf6d125a1fef6d8",
         "rows": [
           "esd_pad_clamp"
+        ]
+      },
+      {
+        "file": "sim/gpio-corners/records/20261027T091449Z/klt/esd_rail.json",
+        "content_hash": "sha256:ed0f0a49e7c3b08921e0e230f0c7b39249e1c6b948efc326ff978bf950412085",
+        "rows": [
+          "esd_rail_clamp"
         ]
       }
     ]
@@ -210,8 +217,7 @@
         "id": "esd_pad_clamp"
       },
       {
-        "id": "esd_rail_clamp",
-        "gap": "DVDD-DVSS rail clamp transient not evaluable on the batch fleet: its 600 um / 60-finger nfet_06v0 fails to bin under the fleet's ngspice-46 (see sim/gpio-corners/README.md)"
+        "id": "esd_rail_clamp"
       },
       {
         "id": "esd_core_rail_clamp",

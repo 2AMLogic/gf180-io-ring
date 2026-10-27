@@ -59,7 +59,7 @@ fleet" below): 135 points per row.
   only: no cell is ESD-rated or qualified. The fleet (ngspice-46) fails to bin any single
   instance wider than about 100 um (`could not find a valid modelname`, klayout-tools#1214; it is
   not reproducible on the host): a 600 um clamp FET and a 160 um driver both erred there, so
-  wide devices are drawn as `m=` copies of at most 100 um (clamp 6 x 100 um, `pfet` driver
+  wide devices are drawn as `m=` copies of at most 100 um (clamp 48 x 100 um since issue #38, `pfet` driver
   2 x 80 um). The ngspice-42 probe (about 11.7 V) of the earlier record is not evidence.
   The trigger `cap_nmos_06v0` makes the transient fragile ("timestep too small" at some
   corners), so the request carries `.options itl4=1000 gmin=1e-9 reltol=0.01 abstol=1e-10

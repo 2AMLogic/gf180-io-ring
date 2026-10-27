@@ -204,8 +204,9 @@ def esd_rail_netlist(modeldir):
     lines = header("esd_rail", "-", "DVDD-DVSS rail clamp, ESD-like current pulse", modeldir,
                    ("dvdd_pad.spice",))
     # Convergence aid: without it some corners (fs/125 C, ss/-40 C, ff/125 C) abort with
-    # "timestep too small" in the trigger moscap.
-    lines += [".options itl4=1000 gmin=1e-9 reltol=0.01 abstol=1e-10 rshunt=1e12", "Rleak dvdd 0 1G",
+    # "timestep too small" in the trigger moscap. The 1 Meg leak (6 uA at 6 V, against 1.33 A) is
+    # what converged ss/125 C and sf/125 C with the 4800 um clamp; at 1 G they erred at 0.5 ns.
+    lines += [".options itl4=1000 gmin=1e-9 reltol=0.01 abstol=1e-10 rshunt=1e12", "Rleak dvdd 0 1Meg",
               f"Ipulse 0 dvdd PULSE(0 {I_HBM} 1n 10n 10n 100n 1)",
               "Xrail dvdd 0 0 0 dvdd_pad"]
     meas = [mspice("v_peak", ".meas tran v_peak MAX v(dvdd)", "V", lim(hi=V_RAIL_BUDGET)),
@@ -243,8 +244,8 @@ def main():
     text, analysis, meas = esd_pad_netlist(modeldir)
     write(out, "esd_pad", text, request("esd_pad.sp", modeldir, analysis, meas, cor))
     names.append("esd_pad")
-    # The clamp FET of dvdd_pad.spice is 100 um x 10 fingers x m=6 (DR-0003 total 600 um): one
-    # 600 um instance failed to bin on the fleet ("could not find a valid modelname").
+    # The clamp FET of dvdd_pad.spice is 100 um x 10 fingers x m=48 (DR-0003 as amended: 4800 um): one
+    # wide instance failed to bin on the fleet ("could not find a valid modelname").
     text, analysis, meas = esd_rail_netlist(modeldir)
     write(out, "esd_rail", text, request("esd_rail.sp", modeldir, analysis, meas, cor, 900))
     names.append("esd_rail")

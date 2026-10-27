@@ -8,7 +8,7 @@ the coverage quoted below).
 ## Reports
 
 One `klt drc --format json` envelope per top cell of `layout/gf180_io_ring.gds`
-(`input.content_hash` `sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56`, equal to
+(`input.content_hash` `sha256:7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332`, equal to
 `manifests/evidence/item2.json`). Each was produced with
 `uvx --from "klayout-tools==0.8.0" klt drc layout/gf180_io_ring.gds --deck gf180mcu --top <cell> --format json`
 (no `--waivers`, `--rules` subset or `--allow-deck-errors`) and passes

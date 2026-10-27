@@ -63,16 +63,16 @@
     "finding_count": 0
   },
   "device_parameter_coverage": [],
-  "mismatch_count": 52,
-  "error_count": 51,
+  "mismatch_count": 56,
+  "error_count": 55,
   "category_counts": {
-    "device.unmatched": 34,
+    "device.unmatched": 38,
     "net.merged": 9,
     "net.split": 8,
     "topology": 1
   },
   "category_error_counts": {
-    "device.unmatched": 34,
+    "device.unmatched": 38,
     "net.merged": 9,
     "net.split": 8
   },
@@ -83,9 +83,9 @@
       "matched": 23
     },
     "devices": {
-      "layout": 76,
-      "reference": 76,
-      "matched": 42
+      "layout": 96,
+      "reference": 96,
+      "matched": 58
     },
     "pins": {
       "layout": 33,
@@ -118,8 +118,8 @@
     "engine": "klayout",
     "engine_version": "0.30.12",
     "netgen_binary": null,
-    "layout_sha256": "6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56",
-    "reference_sha256": "05a92974960ce3ae340a289c1f6990f9262ee191d24f1c57415bed0bfc60b9c3",
+    "layout_sha256": "7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332",
+    "reference_sha256": "238ca88261007cbb21f07d2ff7ee4568ab58661d1102e33bc2adbffd0d814a19",
     "extracted_netlist": null
   },
   "provenance": {
@@ -143,7 +143,7 @@
       "options_hash": "sha256:6a7dc7660a470994263c5ca8ace6d8ac8c605d77e6876a9c5490949de6e7cb05"
     },
     "input": {
-      "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56",
+      "content_hash": "sha256:7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332",
       "role": "layout"
     },
     "klayout_version_mismatch": false
@@ -174,7 +174,160 @@
       "net": null,
       "device": {
         "layout": "\\$100",
-        "reference": "N_ST2",
+        "reference": "N_DRV_F3",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$101",
+        "reference": "N_DRV_F4",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$102",
+        "reference": "N_DRV_F5",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$103",
+        "reference": "N_DRV_F7",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$104",
+        "reference": "N_DRV_F8",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$105",
+        "reference": "N_DRV_F9",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$106",
+        "reference": "N_DRV_F6",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$107",
+        "reference": "N_DRV_F10",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$108",
+        "reference": "N_DRV_F11",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$109",
+        "reference": "N_PD",
         "class": "nfet__06v0"
       },
       "property": null,
@@ -207,6 +360,176 @@
       "side": "reference",
       "net": null,
       "device": {
+        "layout": "\\$110",
+        "reference": "N_LSA1",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$111",
+        "reference": "N_LSPD1",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$112",
+        "reference": "N_LSOE1",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$113",
+        "reference": "N_LSA2",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$114",
+        "reference": "N_LSPU1",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$115",
+        "reference": "N_LSPU2",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$116",
+        "reference": "N_LSOE2",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$117",
+        "reference": "N_LSPD2",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$118",
+        "reference": "N_NOR1",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$119",
+        "reference": "N_NOR2",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
         "layout": "\\$12",
         "reference": "P_IPD",
         "class": "pfet"
@@ -224,7 +547,92 @@
       "side": "reference",
       "net": null,
       "device": {
-        "layout": "\\$133",
+        "layout": "\\$120",
+        "reference": "N_ST1",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$121",
+        "reference": "N_NAND1",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$122",
+        "reference": "N_NAND2",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$123",
+        "reference": "N_ST3",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$124",
+        "reference": "N_ST2",
+        "class": "nfet__06v0"
+      },
+      "property": null,
+      "details": null,
+      "circuit": null,
+      "instance": null,
+      "subcircuit": null
+    },
+    {
+      "category": "device.unmatched",
+      "severity": "error",
+      "description": "device has no counterpart on the other side",
+      "side": "reference",
+      "net": null,
+      "device": {
+        "layout": "\\$176",
         "reference": "P_ST3",
         "class": "pfet__06v0"
       },
@@ -292,247 +700,9 @@
       "side": "reference",
       "net": null,
       "device": {
-        "layout": "\\$75",
-        "reference": "_DN",
-        "class": "diode_nd2ps_06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$77",
-        "reference": "N_DRV_F0",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$78",
-        "reference": "N_DRV_F1",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$79",
-        "reference": "N_DRV_F2",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
         "layout": "\\$8",
         "reference": "P_IA",
         "class": "pfet"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$80",
-        "reference": "N_DRV_F3",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$81",
-        "reference": "N_DRV_F4",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$82",
-        "reference": "N_DRV_F5",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$83",
-        "reference": "N_DRV_F6",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$84",
-        "reference": "N_DRV_F7",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$85",
-        "reference": "N_PD",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$86",
-        "reference": "N_LSA1",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$87",
-        "reference": "N_LSPU2",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$88",
-        "reference": "N_LSOE1",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$89",
-        "reference": "N_LSOE2",
-        "class": "nfet__06v0"
       },
       "property": null,
       "details": null,
@@ -564,111 +734,9 @@
       "side": "reference",
       "net": null,
       "device": {
-        "layout": "\\$90",
-        "reference": "N_LSPU1",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$91",
-        "reference": "N_LSA2",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$92",
-        "reference": "N_LSPD1",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$93",
-        "reference": "N_LSPD2",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$94",
-        "reference": "N_NOR1",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
         "layout": "\\$95",
-        "reference": "N_NOR2",
-        "class": "nfet__06v0"
-      },
-      "property": null,
-      "details": null,
-      "circuit": null,
-      "instance": null,
-      "subcircuit": null
-    },
-    {
-      "category": "device.unmatched",
-      "severity": "error",
-      "description": "device has no counterpart on the other side",
-      "side": "reference",
-      "net": null,
-      "device": {
-        "layout": "\\$96",
-        "reference": "N_ST1",
-        "class": "nfet__06v0"
+        "reference": "_DN",
+        "class": "diode_nd2ps_06v0"
       },
       "property": null,
       "details": null,
@@ -684,7 +752,7 @@
       "net": null,
       "device": {
         "layout": "\\$97",
-        "reference": "N_NAND1",
+        "reference": "N_DRV_F0",
         "class": "nfet__06v0"
       },
       "property": null,
@@ -701,7 +769,7 @@
       "net": null,
       "device": {
         "layout": "\\$98",
-        "reference": "N_NAND2",
+        "reference": "N_DRV_F1",
         "class": "nfet__06v0"
       },
       "property": null,
@@ -718,7 +786,7 @@
       "net": null,
       "device": {
         "layout": "\\$99",
-        "reference": "N_ST3",
+        "reference": "N_DRV_F2",
         "class": "nfet__06v0"
       },
       "property": null,

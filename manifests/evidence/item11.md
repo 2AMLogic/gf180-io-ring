@@ -62,6 +62,8 @@ tie covers rests on the spec, not on a marker layer alone:
   by the same eight boxes, N+ taps, to `VDD`. `DUALGATE` cannot separate them
   from the `DVDD` wells, so the boxes were taken from the first run's
   `erc.missing_tie` findings and checked against the `M1` net labels in each.
+  The boxes follow the layout: when the `gpio` wells moved (the clamp resize, issue #38) they
+  were re-taken from the re-run's findings and re-checked against the `XMP_ds*` / `VDD` labels.
 - `p_substrate_taps`: P-substrate (complement of `NWELL`), P+ taps, to `DVSS`.
   Because `DVSS` and `VSS` are one substrate, this tie cannot distinguish a
   `DVSS` tap from a `VSS` tap, and does not claim to.
