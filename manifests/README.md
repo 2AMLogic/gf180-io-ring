@@ -6,8 +6,8 @@ output: the machine-readable gap-to-T1 checklist.
 ## Files
 
 - **`gf180-io-ring.json`**: the block manifest (`block: gf180-io-ring`,
-  `kind: analog`). `evidence` is empty: no design artifact exists yet, so
-  every T1 item grades `unmet` / `no_evidence`. Evidence is cited here one
+  `kind: analog`). `evidence` cites only item 10 (repo hygiene); every other
+  T1 item grades `unmet` / `no_evidence`. Evidence is cited here one
   item at a time as it lands, each pinned to the cited artifact's
   `content_hash`.
 - **`design-evidence-tiers.md`**: the T1-T4 checklist the grader parses.
@@ -16,16 +16,28 @@ output: the machine-readable gap-to-T1 checklist.
   `docs/design-evidence-tiers.md` (upstream is MIT-licensed; this repo's
   license does not relicense the vendored copy). When upstream moves,
   re-vendor and regenerate the record in the same PR.
+- **`item10-inventory.json`** / **`item10-attestation.json`**: the T1 item 10
+  (repo hygiene) attestation inventory and its committed envelope, cited by the
+  manifest. Regenerate the envelope with the command below.
 - **`gf180-io-ring.signoff.json`**: the verdict of record, the committed
   output of the command below. Never hand-edit it.
 
 ## Regenerate
 
 ```console
-uvx --from "klayout-tools==0.7.0" klt signoff \
+uvx --from "klayout-tools==0.8.0" klt signoff \
     --manifest manifests/gf180-io-ring.json \
     --tiers-doc manifests/design-evidence-tiers.md \
     --format json > manifests/gf180-io-ring.signoff.json
+```
+
+Attest item 10 (needs klt >= 0.8.0; run this first, then regenerate the record
+above, because the manifest cites the envelope's `content_hash`):
+
+```console
+uvx --from "klayout-tools==0.8.0" klt signoff --attest 10 \
+    --inventory manifests/item10-inventory.json \
+    -o manifests/item10-attestation.json
 ```
 
 Exit `3` means at least one T1 item is `unmet` (a valid run); `0` means all

@@ -35,7 +35,7 @@ jobs:
           python-version: "3.10"
 
       - name: Install pinned klt
-        run: pip install klayout-tools==0.7.0
+        run: pip install klayout-tools==0.8.0
 
       - name: Re-run klt signoff and compare against the committed record
         run: |
@@ -65,3 +65,9 @@ jobs:
           fi
           echo "Committed signoff record is fresh: it matches a fresh klt signoff run."
           python3 -c "import json; d=json.load(open('manifests/gf180-io-ring.signoff.json')); print('tier verdict of record:', d['tier'], '(T1 items met: %d/%d)' % (d['t1_met_count'], d['t1_item_count']))"
+
+      - name: Re-attest T1 item 10 against the committed envelope
+        run: |
+          klt signoff --attest 10 \
+              --inventory manifests/item10-inventory.json \
+              --check manifests/item10-attestation.json

@@ -1,1 +1,1 @@
-{"block": "gf180-io-ring", "kind": "analog", "evidence": {}}
+{"block": "gf180-io-ring", "kind": "analog", "evidence": {"10": {"file": "manifests/item10-attestation.json", "content_hash": "sha256:79d9736abd7e006cd6b5945250a059e958720e359f3cd0cbeee3d40a64bcafa3"}}}
