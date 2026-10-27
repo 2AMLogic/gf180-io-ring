@@ -216,7 +216,9 @@ def esd_rail_netlist(modeldir):
     into DVDD with DVSS, VDD, VSS grounded."""
     lines = header("esd_rail", "-", "DVDD-DVSS rail clamp, ESD-like current pulse", modeldir,
                    ("dvdd_pad.spice",))
-    lines += ["Rleak dvdd 0 1G",
+    # Convergence aid: without it some corners (fs/125 C, ss/-40 C, ff/125 C) abort with
+    # "timestep too small" in the trigger moscap.
+    lines += [".options itl4=1000 gmin=1e-9 reltol=0.01 abstol=1e-10 rshunt=1e12", "Rleak dvdd 0 1G",
               f"Ipulse 0 dvdd PULSE(0 {I_HBM} 1n 10n 10n 100n 1)",
               "Xrail dvdd 0 0 0 dvdd_pad"]
     meas = [mspice("v_peak", ".meas tran v_peak MAX v(dvdd)", "V", lim(hi=V_RAIL_BUDGET)),
@@ -254,12 +256,11 @@ def main():
     text, analysis, meas = esd_pad_netlist(modeldir)
     write(out, "esd_pad", text, request("esd_pad.sp", modeldir, analysis, meas, cor))
     names.append("esd_pad")
-    if os.environ.get("GPIO_CORNERS_RAIL") == "1" or probe:
-        # Off by default: on the fleet (ngspice-46) the 600 um / 60-finger clamp FET of
-        # dvdd_pad.spice fails to bin ("could not find a valid modelname"); see README.
-        text, analysis, meas = esd_rail_netlist(modeldir)
-        write(out, "esd_rail", text, request("esd_rail.sp", modeldir, analysis, meas, cor, 900))
-        names.append("esd_rail")
+    # The clamp FET of dvdd_pad.spice is 100 um x 10 fingers x m=6 (DR-0003 total 600 um): one
+    # 600 um instance failed to bin on the fleet ("could not find a valid modelname").
+    text, analysis, meas = esd_rail_netlist(modeldir)
+    write(out, "esd_rail", text, request("esd_rail.sp", modeldir, analysis, meas, cor, 900))
+    names.append("esd_rail")
     if not probe:
         for deck in ("pullup", "pulldown"):
             for mode in MODES:

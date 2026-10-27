@@ -1,0 +1,2793 @@
+{
+  "schema_version": 3,
+  "netlist": {
+    "path": "sim/gpio-corners/records/20261027T064449Z/requests/edges_5v.sp",
+    "scope": "repo"
+  },
+  "status": "pass",
+  "corner_count": 15,
+  "passed": 15,
+  "failed": 0,
+  "errored": 0,
+  "inconclusive": 0,
+  "diagnostic_counts": {
+    "by_code": {},
+    "by_severity": {},
+    "corners_with_diagnostics": 0
+  },
+  "metrics": {
+    "sim__corner__count": 15,
+    "sim__corner__passed_count": 15,
+    "sim__corner__failed_count": 0,
+    "sim__corner__errored_count": 0,
+    "sim__corner__inconclusive_count": 0
+  },
+  "environment": {
+    "engine": "ngspice",
+    "engine_version": "46",
+    "ngspice_binary": "/home/ubuntu/.local/bin/ngspice",
+    "models_lib": {
+      "path": null,
+      "scope": "external"
+    },
+    "models_lib_sha256": "6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+    "netlist_sha256": "01a8194db78dd1e0829109f51e463c91bbea59fd9ca41e216a9115e6172a1b2e",
+    "netlist_closure": [
+      {
+        "path": "sim/gpio-corners/records/20261027T064449Z/requests/edges_5v.sp",
+        "scope": "repo",
+        "sha256": "01a8194db78dd1e0829109f51e463c91bbea59fd9ca41e216a9115e6172a1b2e"
+      },
+      {
+        "path": null,
+        "scope": "external",
+        "sha256": "091cb530bf85160a1f07878fb81f789ca367d018991c8ab41a584cd1a85c6692"
+      },
+      {
+        "path": "sim/gpio-corners/records/20261027T064449Z/requests/gpio.spice",
+        "scope": "repo",
+        "sha256": "238ca88261007cbb21f07d2ff7ee4568ab58661d1102e33bc2adbffd0d814a19"
+      }
+    ],
+    "staged_model_inputs": [
+      {
+        "name": "sm141064.ngspice",
+        "field": "models.lib",
+        "kind": "library",
+        "sha256": "9e2f6679897eb8d8e65773d3b52536de2e6ce53d22293b881729ddc84d6b1957",
+        "rewritten": true
+      },
+      {
+        "name": "sm141064_mim.ngspice",
+        "field": "models.lib",
+        "kind": "dependency",
+        "sha256": "b7918b5ad4f4dad0ce5cb2fc08114e25b10ff5f9f827754334bb0bdfe2a89767",
+        "rewritten": false
+      }
+    ],
+    "remote": {
+      "provider": "aws-batch-fleet",
+      "job_id": "klt-sim-ff029e95cedd",
+      "bucket": "2am-batch-jobs-221082181346",
+      "region": "us-east-1",
+      "instance_id": "i-04b3947d4ada9241a",
+      "instance_type": "m7i.4xlarge",
+      "availability_zone": "us-east-1c",
+      "ami_id": "ami-0dda7bd225256d63c",
+      "lifecycle": "spot",
+      "spot": true,
+      "state": "done",
+      "exit_code": "0",
+      "concurrency": "1",
+      "physical_cores": "8",
+      "elapsed_seconds": 296,
+      "runner_klt_version": "0.7.0",
+      "client_klt_version": "0.7.0",
+      "runner_compatibility": "match"
+    }
+  },
+  "coverage": {
+    "corners_simulated": 15,
+    "measurements_declared": 18,
+    "measurements_with_limits": 18,
+    "unrecognized_limit_keys": [],
+    "schema_version": 1,
+    "known": true,
+    "checked": [
+      "limit:[0,\"typical/novdd/-40C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"t_rise_d2v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_fall_d0v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_fall_d0v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_fall_d0v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_fall_d1v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_fall_d1v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_fall_d1v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_fall_d2v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_fall_d2v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_fall_d2v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_rise_d0v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_rise_d0v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_rise_d0v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_rise_d1v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_rise_d1v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_rise_d1v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_rise_d2v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_rise_d2v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"t_rise_d2v2\",\"max\"]"
+    ],
+    "skipped": [],
+    "inapplicable": [],
+    "unknown": [],
+    "nothing_checked": false,
+    "nothing_checked_reasons": []
+  },
+  "provenance": {
+    "klt_version": "0.7.0",
+    "klayout_version": "0.30.12",
+    "pdk": {
+      "name": "gf180mcuD",
+      "source": "search root: ~/.ciel",
+      "version": "open_pdks f6eeac7dad085ffcc829ccfd721f7b4ce39edcf7",
+      "ambiguous_sources": [
+        "search root: ~/.volare"
+      ]
+    },
+    "deck": {
+      "name": "sm141064.ngspice",
+      "content_hash": "sha256:6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+      "released": false
+    },
+    "input": {
+      "content_hash": "sha256:01a8194db78dd1e0829109f51e463c91bbea59fd9ca41e216a9115e6172a1b2e",
+      "role": "netlist"
+    }
+  },
+  "measurements": [
+    {
+      "name": "t_rise_d0v0",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 4.15251e-09,
+        "margin": 8.474899999999999e-10
+      }
+    },
+    {
+      "name": "t_fall_d0v0",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 4.38423e-09,
+        "margin": 6.157699999999998e-10
+      }
+    },
+    {
+      "name": "t_rise_d0v1",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 4.15251e-09,
+        "margin": 8.474899999999999e-10
+      }
+    },
+    {
+      "name": "t_fall_d0v1",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 4.38402e-09,
+        "margin": 6.159799999999998e-10
+      }
+    },
+    {
+      "name": "t_rise_d0v2",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 4.1526e-09,
+        "margin": 8.474000000000002e-10
+      }
+    },
+    {
+      "name": "t_fall_d0v2",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 4.38399e-09,
+        "margin": 6.160100000000002e-10
+      }
+    },
+    {
+      "name": "t_rise_d1v0",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 3.7767e-09,
+        "margin": 1.2233000000000001e-09
+      }
+    },
+    {
+      "name": "t_fall_d1v0",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 4.11791e-09,
+        "margin": 8.820899999999998e-10
+      }
+    },
+    {
+      "name": "t_rise_d1v1",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 3.77666e-09,
+        "margin": 1.2233400000000005e-09
+      }
+    },
+    {
+      "name": "t_fall_d1v1",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 4.11768e-09,
+        "margin": 8.823200000000003e-10
+      }
+    },
+    {
+      "name": "t_rise_d1v2",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 3.7766e-09,
+        "margin": 1.2233999999999997e-09
+      }
+    },
+    {
+      "name": "t_fall_d1v2",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 4.11768e-09,
+        "margin": 8.823200000000003e-10
+      }
+    },
+    {
+      "name": "t_rise_d2v0",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 3.48318e-09,
+        "margin": 1.5168200000000001e-09
+      }
+    },
+    {
+      "name": "t_fall_d2v0",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 3.92017e-09,
+        "margin": 1.07983e-09
+      }
+    },
+    {
+      "name": "t_rise_d2v1",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 3.48304e-09,
+        "margin": 1.5169600000000001e-09
+      }
+    },
+    {
+      "name": "t_fall_d2v1",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 3.91996e-09,
+        "margin": 1.08004e-09
+      }
+    },
+    {
+      "name": "t_rise_d2v2",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 3.48295e-09,
+        "margin": 1.5170500000000003e-09
+      }
+    },
+    {
+      "name": "t_fall_d2v2",
+      "unit": "s",
+      "limits": {
+        "max": 5e-09
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 3.91985e-09,
+        "margin": 1.0801500000000002e-09
+      }
+    }
+  ],
+  "corners": [
+    {
+      "corner_id": "typical/novdd/-40C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 146.143,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 2.21292e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.7870800000000003e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 2.48733e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.51267e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 2.21293e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.78707e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 2.48747e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.5125300000000002e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 2.21293e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.78707e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 2.48761e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.5123900000000003e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 2.05494e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.94506e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 2.35825e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.64175e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 2.05487e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.94513e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 2.35812e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.64188e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 2.05496e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.94504e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 2.35843e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.64157e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 1.93495e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.0650500000000003e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.26226e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.73774e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 1.9347e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.0653e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.26229e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.73771e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 1.93454e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.0654600000000003e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.26209e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.73791e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "typical/novdd/25C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 136.7,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 2.6725e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.3275e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 2.89021e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.10979e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 2.67257e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.32743e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 2.89015e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.10985e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 2.67258e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.3274200000000002e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 2.89054e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.1094600000000003e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 2.47041e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.52959e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 2.73911e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.26089e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 2.47045e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.5295500000000002e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 2.73895e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.26105e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 2.47046e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.52954e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 2.73905e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.26095e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 2.31438e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.68562e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.62738e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.37262e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 2.31413e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.68587e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.62725e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.37275e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 2.31416e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.68584e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.62716e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.3728400000000003e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "typical/novdd/125C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 140.127,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 3.3169e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.6831000000000001e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 3.60283e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.39717e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 3.31692e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.68308e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 3.60277e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.3972300000000001e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 3.31693e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.68307e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 3.60244e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.3975600000000003e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 3.04463e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.95537e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 3.41598e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.58402e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 3.04477e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.95523e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 3.41591e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.58409e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 3.04481e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.95519e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 3.41565e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.5843500000000002e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 2.82924e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.17076e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 3.27871e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.72129e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 2.82927e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.17073e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 3.27853e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.7214700000000003e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 2.82926e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.1707400000000003e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 3.27834e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.72166e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/-40C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 139.166,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 1.8593e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.1407e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 2.07972e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.92028e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 1.85921e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.14079e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 2.07969e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.9203100000000002e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 1.85918e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.1408200000000003e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 2.0795e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.9205e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 1.74373e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.2562700000000004e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 1.98592e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.01408e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 1.74394e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.25606e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 1.98623e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.01377e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 1.74403e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.25597e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 1.98586e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.01414e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 1.65461e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.34539e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 1.91749e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.08251e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 1.65493e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.3450700000000003e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 1.91714e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.0828600000000003e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 1.65508e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.34492e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 1.91733e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.08267e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/25C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 147.059,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 2.23039e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.76961e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 2.4334e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.5666000000000002e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 2.23044e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.76956e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 2.43363e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.56637e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 2.23045e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.7695500000000002e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 2.4336e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.5664e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 2.08145e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.91855e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 2.32549e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.67451e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 2.08141e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.91859e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 2.32539e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.67461e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 2.08137e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.9186300000000003e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 2.32485e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.6751500000000002e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 1.96518e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.03482e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.2466e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.7534e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 1.96511e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.03489e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.24651e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.75349e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 1.96515e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.03485e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.24589e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.75411e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/125C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 140.935,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 2.74346e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.25654e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 3.05541e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.9445900000000002e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 2.74349e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.25651e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 3.05508e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.94492e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 2.74349e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.25651e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 3.05503e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.94497e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 2.53932e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.4606800000000002e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 2.92342e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.0765800000000003e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 2.53924e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.46076e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 2.92316e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.07684e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 2.53918e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.46082e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 2.92313e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.07687e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 2.37578e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.6242200000000003e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.82817e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.17183e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 2.3758e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.6242e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.82794e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.17206e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 2.37576e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.62424e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.82782e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.1721800000000002e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/-40C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 145.349,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 2.72119e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.27881e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 3.1041e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.8959e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 2.72119e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.27881e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 3.104e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.896e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 2.72117e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.27883e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 3.10408e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.8959200000000002e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 2.4989e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.5011e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 2.92225e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.07775e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 2.49865e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.5013500000000003e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 2.92218e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.07782e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 2.49843e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.50157e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 2.92216e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.07784e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 2.33099e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.66901e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.78714e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.21286e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 2.33109e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.66891e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.78707e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.21293e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 2.33117e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.66883e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.7871e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.2129e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/25C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 138.677,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 3.31245e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.68755e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 3.55882e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.4411800000000002e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 3.31239e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.6876100000000001e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 3.559e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.4410000000000003e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 3.31232e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.6876800000000001e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 3.55895e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.4410500000000001e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 3.02944e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.9705600000000003e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 3.34455e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.6554500000000001e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 3.02927e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.9707300000000003e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 3.34483e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.6551700000000002e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 3.02933e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.97067e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 3.34475e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.65525e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 2.81308e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.18692e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 3.18621e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.8137900000000002e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 2.81327e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.18673e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 3.18614e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.8138600000000002e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 2.81334e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.18666e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 3.18597e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.8140300000000002e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/125C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 126.884,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 4.15251e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 8.474899999999999e-10
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 4.38423e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 6.157699999999998e-10
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 4.15251e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 8.474899999999999e-10
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 4.38402e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 6.159799999999998e-10
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 4.1526e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 8.474000000000002e-10
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 4.38399e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 6.160100000000002e-10
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 3.7767e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.2233000000000001e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 4.11791e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 8.820899999999998e-10
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 3.77666e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.2233400000000005e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 4.11768e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 8.823200000000003e-10
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 3.7766e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.2233999999999997e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 4.11768e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 8.823200000000003e-10
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 3.48318e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.5168200000000001e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 3.92017e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.07983e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 3.48304e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.5169600000000001e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 3.91996e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.08004e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 3.48295e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.5170500000000003e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 3.91985e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.0801500000000002e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/-40C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 127.264,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 2.51007e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.48993e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 2.21751e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.78249e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 2.51004e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.48996e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 2.2172e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.7828e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 2.51003e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.4899700000000002e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 2.21746e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.78254e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 2.31448e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.68552e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 2.11152e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.88848e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 2.31458e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.68542e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 2.11115e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.88885e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 2.31464e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.68536e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 2.11171e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.88829e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 2.16651e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.83349e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.0336e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.9664e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 2.16653e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.83347e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.03341e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.96659e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 2.16652e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.83348e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.03334e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.96666e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/25C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 126.204,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 3.04346e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.95654e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 2.59618e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.40382e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 3.04352e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.9564800000000003e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 2.59577e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.40423e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 3.04356e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.95644e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 2.59584e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.40416e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 2.79429e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.2057100000000002e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 2.47173e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.52827e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 2.79431e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.20569e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 2.47154e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.52846e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 2.79431e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.20569e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 2.47152e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.52848e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 2.60328e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.39672e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.38087e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.6191300000000002e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 2.60343e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.39657e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.38064e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.61936e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 2.60351e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.3964900000000003e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.38075e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.61925e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/125C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 120.806,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 3.79549e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.20451e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 3.25847e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.7415300000000003e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 3.79551e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.2044900000000003e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 3.25839e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.7416100000000002e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 3.79549e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.20451e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 3.25815e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.7418500000000001e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 3.46374e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.5362600000000002e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 3.1051e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.8949e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 3.46373e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.5362700000000001e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 3.10486e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.89514e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 3.46372e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.53628e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 3.10505e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.89495e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 3.20323e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.7967700000000002e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.99389e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.0061100000000002e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 3.20326e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.7967400000000001e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.99337e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.00663e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 3.20325e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.79675e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.99345e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.0065500000000003e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/-40C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 123.856,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 1.98149e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.01851e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 2.8758e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.1242e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 1.98129e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.0187100000000002e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 2.87561e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.12439e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 1.98136e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.0186400000000002e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 2.87581e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.1241900000000003e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 1.85194e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.1480600000000004e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 2.71422e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.28578e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 1.85217e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.14783e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 2.71428e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.2857200000000003e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 1.85216e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.14784e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 2.71425e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.2857500000000003e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 1.75259e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.24741e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.59409e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.40591e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 1.75227e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.2477300000000003e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.5939e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.4061e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 1.75186e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 3.2481400000000003e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.59395e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.40605e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/25C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 120.704,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 2.38548e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.61452e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 3.30714e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.6928600000000003e-09
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 2.38531e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.61469e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 3.3069e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.6931000000000003e-09
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 2.38533e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.61467e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 3.30702e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.69298e-09
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 2.21848e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.78152e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 3.1177e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.8823e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 2.21821e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.78179e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 3.11778e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.88222e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 2.21831e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.78169e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 3.11773e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.88227e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 2.08857e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.91143e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 2.97751e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.02249e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 2.08823e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.91177e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 2.97756e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.0224400000000003e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 2.0881e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.9119000000000003e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 2.97753e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.02247e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/125C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 119.791,
+      "measurements": [
+        {
+          "name": "t_rise_d0v0",
+          "value": 2.94986e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.05014e-09
+        },
+        {
+          "name": "t_fall_d0v0",
+          "value": 4.08385e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 9.161500000000004e-10
+        },
+        {
+          "name": "t_rise_d0v1",
+          "value": 2.94951e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.05049e-09
+        },
+        {
+          "name": "t_fall_d0v1",
+          "value": 4.08396e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 9.160400000000001e-10
+        },
+        {
+          "name": "t_rise_d0v2",
+          "value": 2.94961e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.05039e-09
+        },
+        {
+          "name": "t_fall_d0v2",
+          "value": 4.0839e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 9.161000000000002e-10
+        },
+        {
+          "name": "t_rise_d1v0",
+          "value": 2.72192e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.27808e-09
+        },
+        {
+          "name": "t_fall_d1v0",
+          "value": 3.85007e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.1499300000000004e-09
+        },
+        {
+          "name": "t_rise_d1v1",
+          "value": 2.72187e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.2781300000000003e-09
+        },
+        {
+          "name": "t_fall_d1v1",
+          "value": 3.84961e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.1503899999999998e-09
+        },
+        {
+          "name": "t_rise_d1v2",
+          "value": 2.7217e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.2783000000000003e-09
+        },
+        {
+          "name": "t_fall_d1v2",
+          "value": 3.84969e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.15031e-09
+        },
+        {
+          "name": "t_rise_d2v0",
+          "value": 2.54011e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.4598900000000003e-09
+        },
+        {
+          "name": "t_fall_d2v0",
+          "value": 3.67656e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.3234400000000001e-09
+        },
+        {
+          "name": "t_rise_d2v1",
+          "value": 2.54012e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.45988e-09
+        },
+        {
+          "name": "t_fall_d2v1",
+          "value": 3.67632e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.3236800000000001e-09
+        },
+        {
+          "name": "t_rise_d2v2",
+          "value": 2.54039e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 2.45961e-09
+        },
+        {
+          "name": "t_fall_d2v2",
+          "value": 3.67635e-09,
+          "unit": "s",
+          "status": "pass",
+          "margin": 1.32365e-09
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    }
+  ]
+}

@@ -51,16 +51,19 @@ fleet" below): 135 points per row.
 - **ESD assumptions, not spec rows**: 1.33 A is 2 kV / 1.5 kohm HBM arithmetic and the 3.0 V
   forward-drop budget is the one recorded in `design/README.md`. The spec states no number
   for either. Turn-on (forward drop at 1 mA) is reported without a limit.
-- **Declared gaps** (manifest `spec_rows`): the `DVDD`-`DVSS` rail clamp transient (below),
-  the core `VDD`-`VSS` rail clamp (no spec'd voltage budget for 3.3 V devices) and the
-  `VDD`/`DVDD` coupling (not drawn). They keep item 5 unmet.
-- **Rail clamp on the fleet.** `gen_requests.py` can write the `esd_rail` request
-  (`GPIO_CORNERS_RAIL=1`; the `--probe` set always has it): a 1.33 A / 10 ns-rise pulse into
-  `dvdd_pad.spice`. On the batch fleet (ngspice-46) every corner errors with `could not find a
-  valid modelname` for the 600 um / 60-finger `nfet_06v0`; the same netlist runs under the
-  host's ngspice-42 against the same pinned models (peak about 11.7 V at typical, 25 C, a
-  single probe, not a recorded result). The errored fleet envelope is kept in the record as
-  `klt-esd_rail.fleet-error.json`.
+- **Declared gaps** (manifest `spec_rows`): the core `VDD`-`VSS` rail clamp (no spec'd voltage
+  budget for 3.3 V devices) and the `VDD`/`DVDD` coupling (not drawn). They keep item 5 unmet.
+- **Rail clamp on the fleet.** `gen_requests.py` always writes the `esd_rail` request: a 1.33 A /
+  10 ns-rise pulse into `dvdd_pad.spice`, peak `DVDD` against the 6 V budget (the `*_06v0`
+  device class of `design/README.md`; an assumption, not a spec row). Simulated clamp behaviour
+  only: no cell is ESD-rated or qualified. The fleet (ngspice-46) fails to bin any single
+  instance wider than about 100 um (`could not find a valid modelname`, klayout-tools#1214; it is
+  not reproducible on the host): a 600 um clamp FET and a 160 um driver both erred there, so
+  wide devices are drawn as `m=` copies of at most 100 um (clamp 6 x 100 um, `pfet` driver
+  2 x 80 um). The ngspice-42 probe (about 11.7 V) of the earlier record is not evidence.
+  The trigger `cap_nmos_06v0` makes the transient fragile ("timestep too small" at some
+  corners), so the request carries `.options itl4=1000 gmin=1e-9 reltol=0.01 abstol=1e-10
+  rshunt=1e12`; the earlier tighter sets are kept under the record's `superseded/`.
 
 ## Client and fleet
 

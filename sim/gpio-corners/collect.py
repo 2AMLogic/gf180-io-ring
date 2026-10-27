@@ -203,11 +203,11 @@ def main():
            "forward-drop number; the 3.0 V budget is the assumption recorded in design/README.md "
            "(half the 6.0 V device class) and is not a spec row. Turn-on voltage at 1 mA is reported "
            "(`vf_*_1ma`, results.tsv), without a limit.",
-           "- **ESD rail clamp (declared gap).** The `DVDD` pad cell (RC-triggered `nfet_06v0`, DR-0003) "
-           "is not evaluated: on the batch fleet its 600 um / 60-finger clamp FET fails to bin "
-           "(`could not find a valid modelname`, ngspice-46; the errored fleet envelope is kept next to "
-           "this record as `klt-esd_rail.fleet-error.json`). See README.md.",
-           "- **Not covered (declared gaps).** The `DVDD`-`DVSS` rail clamp above, the core `VDD`-`VSS` rail clamp (3.3 V devices; the spec "
+           "- **ESD rail clamp (simulated transient).** The `DVDD` pad cell (RC-triggered `nfet_06v0`, "
+           "DR-0003; 6 x 100 um via `m=6`, since one wider instance does not bin on the fleet) is unpowered; a "
+           "1.33 A / 10 ns-rise pulse is forced into `DVDD`. The 6 V peak limit is the `*_06v0` device class, "
+           "an assumption and not a spec row. Simulated clamp behaviour only: nothing here is an ESD rating.",
+           "- **Not covered (declared gaps).** The core `VDD`-`VSS` rail clamp (3.3 V devices; the spec "
            "gives no voltage budget for it) and the `VDD`/`DVDD` cross-domain coupling (spec: decision "
            "record to follow) are not simulated here.",
            "", "## Requests", "",
