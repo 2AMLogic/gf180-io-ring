@@ -21,3 +21,51 @@ claim beyond it.
 - **Caveats.** 1.33 A is far above the currents the model was characterized at
   (extrapolation, no self-heating); the diode sections do not say anything about
   thick-oxide MOS spread (DR-0002). Areas are on a 10^(1/8) grid, not interpolated.
+
+## Design sources (issue #14, T1 item 1)
+
+xschem schematics (`*.sch`), their symbols (`*.sym`) and the SPICE netlists derived
+from them (`*.spice`). Pre-silicon capture only: device sizes are starting points
+taken from the spec targets, not results, and no cell here is ESD-rated or
+qualified. A single-corner ngspice smoke run (typical, 25 C, 5 V / 3.3 V) loaded
+`gpio.spice` and showed the output driver, receiver and enable logic switching the
+right way; it is not a recorded result. Verification against the spec is #18, #19
+and #20.
+
+| Cell | Schematic | Ports (netlist order) | Content |
+|---|---|---|---|
+| GPIO pad | `gpio.sch` | `A OE IE PU PD Y PAD DVDD VDD DVSS VSS` | `nfet_06v0`/`pfet_06v0` driver (40 um / 80 um), Schmitt receiver, pad clamps `diode_pd2nw_06v0` to `DVDD` and `diode_nd2ps_06v0` to `DVSS` at 178 um^2 each (10 x 17.8 um), four 3.3 V to `DVDD` level shifters (`OE`, `A`, `PU`, `PD`), pull-up/pull-down; `*_03v3` input inverters and `Y` buffer |
+| `DVDD` pad | `dvdd_pad.sch` | `DVDD VDD DVSS VSS` | `DVDD`-`DVSS` RC-triggered `nfet_06v0` clamp |
+| `DVSS` pad | `dvss_pad.sch` | `DVDD VDD DVSS VSS` | same clamp as the `DVDD` pad |
+| core-supply pad | `core_pad.sch` | `DVDD VDD DVSS VSS` | `VDD`-`VSS` RC-triggered `nfet_03v3` clamp |
+| corner, filler | `corner.sch`, `filler.sch` | `DVDD VDD DVSS VSS` | rail-only, no devices |
+| ring | `io_ring.sch` | 8 GPIO (`A0`..`Y7`, `PAD0`..`PAD7`) plus the four rails | 4 corners, 8 GPIO, 4 `DVDD`, 4 `DVSS`, 4 core-supply and 4 filler cells; the core-side ports are left open for the (empty) core |
+
+Rail clamp devices: [DR-0003](../spec/decisions/0003-rail-clamp-devices.md). The cell
+set rows are still `pending: sky130-io-ring#2`; if the origin changes one, this
+table follows. The `VDD`/`DVDD` cross-domain coupling is not drawn (spec, ESD
+network; decision record to follow). Port names are identical in every cell so the
+layout and LVS issues (#15, #17) can bind to them. In the supply, corner and filler
+cells the rails are ports with no devices attached, standing for continuity by
+abutment.
+
+### Regenerate
+
+Netlisting goes through `klt netlist` only (never raw `xschem`). `design/xschemrc`
+adds the PDK symbols (`$PDK_ROOT/$PDK`, default `~/.ciel/gf180mcuD`). For each cell
+`<c>` in `gpio dvdd_pad dvss_pad core_pad corner filler io_ring`:
+
+    klt netlist --block --rcfile design/xschemrc --pdk gf180mcuD design/<c>.sch -o design/<c>.spice
+    klt netlist --check --block --rcfile design/xschemrc --pdk gf180mcuD design/<c>.sch -o design/<c>.spice   # exit 0 = match
+
+The `** sch_path:` header line holds the absolute path of the machine that ran
+xschem; `--check` ignores it. Then re-attest item 1 (needs `klt` >= 0.8.0) and
+regenerate the verdict of record as described in `manifests/README.md`:
+
+    klt signoff --attest 1 --inventory design/item1-inventory.json -o manifests/evidence/item1.json
+
+Device-family check. Pad side is `*_06v0`; core side is `*_03v3`, except the
+receiver's down-shift NOR (`MP_ds*`, `MN_ds*` in `gpio.sch`), which is `*_06v0`
+because its inputs swing to `DVDD` while it is supplied from `VDD`:
+
+    grep -ho 'nfet_[0-9a-z]*\|pfet_[0-9a-z]*\|diode_[0-9a-z_]*\|cap_[0-9a-z_]*' design/*.spice | sort | uniq -c

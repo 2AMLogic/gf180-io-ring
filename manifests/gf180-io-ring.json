@@ -1,1 +1,14 @@
-{"block": "gf180-io-ring", "kind": "analog", "evidence": {"9": {"file": "evidence/item9.json", "content_hash": "sha256:a46405c4c6ac18f726ada0fffb0bacb1d2e9cd9914810fb758ea852e810c3255"}}}
+{
+  "block": "gf180-io-ring",
+  "kind": "analog",
+  "evidence": {
+    "1": {
+      "file": "manifests/evidence/item1.json",
+      "content_hash": "sha256:ac7379d7bfdf14ccfcdbc9ae02136f7f6900ae54bdd20741215bafb4923a5d06"
+    },
+    "9": {
+      "file": "manifests/evidence/item9.json",
+      "content_hash": "sha256:a46405c4c6ac18f726ada0fffb0bacb1d2e9cd9914810fb758ea852e810c3255"
+    }
+  }
+}

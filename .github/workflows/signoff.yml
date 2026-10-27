@@ -75,4 +75,4 @@ jobs:
       - name: Check the item 9 testbench attestation
         run: |
           klt signoff --attest 9 --inventory attest/item9.json \
-                      --check evidence/item9.json --format json
+                      --check manifests/evidence/item9.json --format json
