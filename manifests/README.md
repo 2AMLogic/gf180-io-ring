@@ -6,10 +6,13 @@ output: the machine-readable gap-to-T1 checklist.
 ## Files
 
 - **`gf180-io-ring.json`**: the block manifest (`block: gf180-io-ring`,
-  `kind: analog`). `evidence` is empty: no design artifact exists yet, so
-  every T1 item grades `unmet` / `no_evidence`. Evidence is cited here one
-  item at a time as it lands, each pinned to the cited artifact's
-  `content_hash`.
+  `kind: analog`). Evidence is cited here one item at a time as it lands, each
+  pinned to the cited artifact's `content_hash`. Item 1 cites
+  `evidence/item1.json`; every other item is still `unmet` / `no_evidence`.
+- **`evidence/item1.json`**: the item-1 attestation envelope, produced from
+  `design/item1-inventory.json` (`klt signoff --attest 1`, needs `klt` >= 0.8.0,
+  hence the pin). Regenerate it whenever a design source or netlist changes; see
+  [`design/README.md`](../design/README.md).
 - **`design-evidence-tiers.md`**: the T1-T4 checklist the grader parses.
   Vendored **byte-identical** from
   [`2AMLogic/klayout-tools@31a3e3c41c08bbd58719e0b99a3b6d19beb9be63`](https://github.com/2AMLogic/klayout-tools/blob/31a3e3c41c08bbd58719e0b99a3b6d19beb9be63/docs/design-evidence-tiers.md)
@@ -22,7 +25,7 @@ output: the machine-readable gap-to-T1 checklist.
 ## Regenerate
 
 ```console
-uvx --from "klayout-tools==0.7.0" klt signoff \
+uvx --from "klayout-tools==0.8.0" klt signoff \
     --manifest manifests/gf180-io-ring.json \
     --tiers-doc manifests/design-evidence-tiers.md \
     --format json > manifests/gf180-io-ring.signoff.json

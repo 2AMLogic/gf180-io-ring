@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "kind": "t1-attestation-inventory",
+  "t1_item": 1,
+  "description": "Item 1 (design sources): xschem schematics and symbols for the GPIO, DVDD, DVSS and core-supply pads, corner, filler and the demonstration ring, with the netlists derived by klt netlist and their freshness checks.",
+  "sources": [
+    "design/gpio.sch",
+    "design/gpio.sym",
+    "design/dvdd_pad.sch",
+    "design/dvdd_pad.sym",
+    "design/dvss_pad.sch",
+    "design/dvss_pad.sym",
+    "design/core_pad.sch",
+    "design/core_pad.sym",
+    "design/corner.sch",
+    "design/corner.sym",
+    "design/filler.sch",
+    "design/filler.sym",
+    "design/io_ring.sch",
+    "design/xschemrc"
+  ],
+  "derived": [
+    {
+      "path": "design/gpio.spice",
+      "generator": "klt netlist",
+      "check": {
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/gpio.sch",
+          "-o",
+          "design/gpio.spice"
+        ]
+      }
+    },
+    {
+      "path": "design/dvdd_pad.spice",
+      "generator": "klt netlist",
+      "check": {
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/dvdd_pad.sch",
+          "-o",
+          "design/dvdd_pad.spice"
+        ]
+      }
+    },
+    {
+      "path": "design/dvss_pad.spice",
+      "generator": "klt netlist",
+      "check": {
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/dvss_pad.sch",
+          "-o",
+          "design/dvss_pad.spice"
+        ]
+      }
+    },
+    {
+      "path": "design/core_pad.spice",
+      "generator": "klt netlist",
+      "check": {
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/core_pad.sch",
+          "-o",
+          "design/core_pad.spice"
+        ]
+      }
+    },
+    {
+      "path": "design/corner.spice",
+      "generator": "klt netlist",
+      "check": {
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/corner.sch",
+          "-o",
+          "design/corner.spice"
+        ]
+      }
+    },
+    {
+      "path": "design/filler.spice",
+      "generator": "klt netlist",
+      "check": {
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/filler.sch",
+          "-o",
+          "design/filler.spice"
+        ]
+      }
+    },
+    {
+      "path": "design/io_ring.spice",
+      "generator": "klt netlist",
+      "check": {
+        "argv": [
+          "klt",
+          "netlist",
+          "--check",
+          "--block",
+          "--rcfile",
+          "design/xschemrc",
+          "--pdk",
+          "gf180mcuD",
+          "design/io_ring.sch",
+          "-o",
+          "design/io_ring.spice"
+        ]
+      }
+    }
+  ]
+}

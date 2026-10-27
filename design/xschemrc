@@ -1,0 +1,10 @@
+# Project-local xschem configuration, passed by `klt netlist --rcfile`.
+# Symbol search path: xschem devices (pin and label symbols), the gf180mcuD PDK
+# symbols (symbols/*.sym), and this directory (the cell symbols).
+# PDK_ROOT / PDK default to the dispatch-worker layout (~/.ciel, gf180mcuD).
+set XSCHEM_LIBRARY_PATH {}
+append XSCHEM_LIBRARY_PATH :${XSCHEM_SHAREDIR}/xschem_library
+if {![info exists env(PDK_ROOT)]} { set env(PDK_ROOT) $env(HOME)/.ciel }
+if {![info exists env(PDK)]} { set env(PDK) gf180mcuD }
+append XSCHEM_LIBRARY_PATH :$env(PDK_ROOT)/$env(PDK)/libs.tech/xschem
+append XSCHEM_LIBRARY_PATH :[file dirname [file normalize [info script]]]
