@@ -14,10 +14,12 @@ is data, not a failure of the run: it is reported, and the envelope itself is `f
 (which keeps T1 item 5 unmet). Nothing here relaxes a limit.
 """
 import json
-import math
 import os
 import re
 import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+from gpio_common import finite, limitation, load  # noqa: E402
 
 # measurement base name -> (row id prefix, label, unit)
 ROWS = {
@@ -39,25 +41,6 @@ ROWS = {
 CONTEXT = {"voh", "vf_up_1ma", "vf_dn_1ma", "v_end"}
 UNITS = {"s": (1e9, "ns"), "F": (1e12, "pF"), "ohm": (1e-3, "kohm"), "V": (1.0, "V")}
 KEY = re.compile(r"^(?P<base>.+?)(_d(?P<i>\d)v(?P<j>\d))?$")
-
-
-def load(path):
-    try:
-        return json.load(open(path))
-    except Exception as e:  # noqa: BLE001
-        return {"_unreadable": str(e)}
-
-
-def finite(v):
-    return isinstance(v, (int, float)) and math.isfinite(v)
-
-
-def limitation(spec):
-    text = open(spec, encoding="utf-8").read()
-    i = text.find("**Known limitation, measured.**")
-    if i < 0:
-        sys.exit("collect: spec 'Known limitation, measured' paragraph not found")
-    return text[i:].split("\n\n", 1)[0].strip()
 
 
 def fmt(v, unit):

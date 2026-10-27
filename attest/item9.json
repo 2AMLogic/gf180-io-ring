@@ -9,6 +9,7 @@
     "sim/smoke/run.sh",
     "sim/esd_clamp/esd_clamp.py",
     "sim/esd_clamp/run.sh",
+    "sim/gpio_common.py",
     "sim/gpio-bi_t/cdl2ngspice.py",
     "sim/gpio-bi_t/collect.py",
     "sim/gpio-bi_t/gen_requests.py",

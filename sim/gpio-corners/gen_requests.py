@@ -28,6 +28,9 @@ import os
 import shutil
 import sys
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+from gpio_common import process_axis  # noqa: E402
+
 # mode -> DVDD (low, nominal, high), load current at the spec VOL/VOH point, VOH drop limit,
 # rise/fall limit, hysteresis limit
 MODES = {
@@ -36,24 +39,12 @@ MODES = {
 }
 VDDS = [2.97, 3.3, 3.63]
 TEMPS = [-40, 25, 125]
-PASSIVES = ["diode_{}", "res_{}", "moscap_{}"]
 PINS = ("a", "oe", "ie", "pu", "pd")
 # ESD stress assumptions (design/README.md, "Pad clamp diode sizing"): HBM 2 kV / 1.5 kohm,
 # and a forward-drop budget of half the 6.0 V device class. Not spec rows.
 I_HBM = 1.33
 VF_BUDGET = 3.0
 V_RAIL_BUDGET = 6.0
-
-
-def process_axis():
-    """gf180mcu has no all-device corner section: each corner is a bundle. The 5/6 V
-    devices load their typical section in every one of them (DR-0002)."""
-    axis = []
-    for name, passive in (("typical", "typical"), ("ff", "ff"), ("ss", "ss"),
-                          ("fs", "typical"), ("sf", "typical")):
-        axis.append({"name": name,
-                     "sections": [name] + [p.format(passive) for p in PASSIVES]})
-    return axis
 
 
 def lim(lo=None, hi=None):
@@ -63,10 +54,6 @@ def lim(lo=None, hi=None):
     if hi is not None:
         out["max"] = hi
     return out
-
-
-def vl(v):
-    return f"{v:.2f}".replace(".", "v")
 
 
 def mexpr(name, expr, unit, limits=None):
