@@ -67,17 +67,13 @@ fleet" below): 135 points per row.
 
 ## Client and fleet
 
-The fleet runner image is klt 0.7.0 and refuses a 0.8.x client with
-`batch_runner_version_mismatch` (`runner_compatibility: mismatch`): the host's `klt` and
-the current release (0.8.0) cannot use the batch backend at all today. `run.sh` therefore
-submits through a throwaway `uvx --from klayout-tools==0.7.0 klt` (`KLT_CLIENT`
-overrides it). That client has no `--batch-set` or `--report-out`, so requests are
-submitted one at a time, and it **silently ignores `corners.params`** (it returns the one
-nominal corner), which is the second reason the supply axes are instances rather than a
-params axis. `sim` envelopes from it carry no `spec_row` tags, so item 5 row coverage is
-asserted by the manifest, not derived. Its provenance block reports the PDK found on the
-submitting host (`~/.ciel`, open_pdks `f6eeac7`); the models actually simulated are the ones
-`stage_model_inputs` ships from the pinned revision in `sim/toolchain.json`.
+The fleet runner image is klt 0.8.0 and `run.sh` submits through a throwaway
+`uvx --from klayout-tools==0.8.0 klt` (`KLT_CLIENT` overrides it), so the client and the
+runner match. Requests are still submitted one at a time and the supply axes are still
+instances rather than a `corners.params` axis; that design is unchanged here. Its
+provenance block reports the PDK found on the submitting host (`~/.ciel`, open_pdks
+`f6eeac7`); the models actually simulated are the ones `stage_model_inputs` ships from
+the pinned revision in `sim/toolchain.json`.
 
 Fleet note: a request normally returns in 1-5 minutes; one (`xfer_3v3`) produced no result
 for over an hour and was killed and resubmitted, after which it returned in minutes.

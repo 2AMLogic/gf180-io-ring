@@ -59,8 +59,8 @@ def netlist():
 
 
 def requests(pdk_root, backend, bad_lib):
-    """Three plain requests (dc forward, dc reverse, ac): only features a 0.7.0 fleet
-    runner understands (.meas cards, no analysis_steps/expr)."""
+    """Three plain requests (dc forward, dc reverse, ac): only plain features (.meas cards,
+    no analysis_steps/expr)."""
     lib = "libs.tech/ngspice/" + ("does-not-exist.ngspice" if bad_lib else "sm141064.ngspice")
     models = {"pdk": "gf180mcuD", "lib": lib}
     if pdk_root:
