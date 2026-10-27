@@ -23,10 +23,9 @@ for m in MODES:
     COVERS[f"pullup_{m}_nominal"] = [f"pull_{m}"]
     COVERS[f"pulldown_{m}_nominal"] = [f"pull_{m}"]
 COVERS["esd_pad"] = ["esd_pad_clamp"]
+COVERS["esd_rail"] = ["esd_rail_clamp"]
 
 GAPS = [
-    {"id": "esd_rail_clamp",
-     "gap": "DVDD-DVSS rail clamp transient not evaluable on the batch fleet: its 600 um / 60-finger nfet_06v0 fails to bin under the fleet's ngspice-46 (see sim/gpio-corners/README.md)"},
     {"id": "esd_core_rail_clamp",
      "gap": "core VDD-VSS rail clamp (3.3 V devices) not simulated: the spec gives no voltage budget for it"},
     {"id": "esd_vdd_dvdd_coupling",

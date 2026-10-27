@@ -22,7 +22,7 @@ C {devices/lab_pin.sym} 380 240 0 0 {name=l11 sig_type=std_logic lab=gio}
 C {devices/lab_pin.sym} 340 270 2 0 {name=l12 sig_type=std_logic lab=tio}
 C {devices/lab_pin.sym} 380 300 0 0 {name=l13 sig_type=std_logic lab=DVSS}
 C {devices/lab_pin.sym} 380 270 0 0 {name=l14 sig_type=std_logic lab=DVSS}
-C {symbols/nfet_06v0.sym} 520 195 0 0 {name=MN_clampio L=0.8u W=600u nf=60 m=1 model=nfet_06v0 spiceprefix=X}
+C {symbols/nfet_06v0.sym} 520 195 0 0 {name=MN_clampio L=0.8u W=100u nf=10 m=6 model=nfet_06v0 spiceprefix=X}
 C {devices/lab_pin.sym} 540 165 0 0 {name=l15 sig_type=std_logic lab=DVDD}
 C {devices/lab_pin.sym} 500 195 2 0 {name=l16 sig_type=std_logic lab=gio}
 C {devices/lab_pin.sym} 540 225 0 0 {name=l17 sig_type=std_logic lab=DVSS}
