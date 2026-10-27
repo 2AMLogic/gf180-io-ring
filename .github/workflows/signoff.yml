@@ -76,3 +76,9 @@ jobs:
         run: |
           klt signoff --attest 9 --inventory attest/item9.json \
                       --check manifests/evidence/item9.json --format json
+
+      - name: Re-attest T1 item 10 against the committed envelope
+        run: |
+          klt signoff --attest 10 \
+              --inventory manifests/item10-inventory.json \
+              --check manifests/item10-attestation.json

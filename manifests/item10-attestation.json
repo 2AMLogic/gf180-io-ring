@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "kind": "generic",
+  "status": "pass",
+  "t1_item": 10,
+  "summary": "T1 item 10 (Repo hygiene): 7/7 attestation checks passed (klt signoff --attest)",
+  "source": "manifests/item10-inventory.json",
+  "attestation": {
+    "producer": "klt signoff --attest",
+    "inventory_schema_version": 1,
+    "hash_algorithm": "sha256-raw-bytes",
+    "check_count": 7,
+    "passed_count": 7,
+    "checks": [
+      {
+        "check": "present",
+        "role": "hygiene",
+        "path": ".github/workflows/signoff.yml",
+        "passed": true,
+        "content_hash": "sha256:d828b9ccb0ef7749e4f5ac81386bcb2c31726eb64a13762b66d273d0a44bb846"
+      },
+      {
+        "check": "present",
+        "role": "hygiene",
+        "path": "LICENSE",
+        "passed": true,
+        "content_hash": "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      {
+        "check": "present",
+        "role": "hygiene",
+        "path": "README.md",
+        "passed": true,
+        "content_hash": "sha256:68cf720dd45b2f379ae15166f05860a59bead50b482140864202fa163696c285"
+      },
+      {
+        "check": "present",
+        "role": "hygiene",
+        "path": "manifests/README.md",
+        "passed": true,
+        "content_hash": "sha256:55fc582837e57997118c09a6908ab6b3e51b5749c7fca18c402d634d9d44b2a5"
+      },
+      {
+        "check": "command",
+        "role": "audit",
+        "name": "block manifest parses",
+        "argv": [
+          "python3",
+          "-I",
+          "-m",
+          "json.tool",
+          "manifests/gf180-io-ring.json"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "audit",
+        "name": "toolchain pin parses",
+        "argv": [
+          "python3",
+          "-I",
+          "-m",
+          "json.tool",
+          "sim/toolchain.json"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      },
+      {
+        "check": "command",
+        "role": "audit",
+        "name": "pdk pin parses",
+        "argv": [
+          "python3",
+          "-I",
+          "-m",
+          "json.tool",
+          "sim/pdk.json"
+        ],
+        "cwd": ".",
+        "exit_status": 0,
+        "passed": true
+      }
+    ]
+  },
+  "provenance": {
+    "klt_version": "0.8.0",
+    "klayout_version": null,
+    "pdk": null,
+    "deck": null,
+    "input": {
+      "path": {
+        "path": "manifests/item10-inventory.json",
+        "scope": "repo"
+      },
+      "content_hash": "sha256:79d9736abd7e006cd6b5945250a059e958720e359f3cd0cbeee3d40a64bcafa3"
+    }
+  }
+}

@@ -6,7 +6,9 @@ fillers, assembled into a closed ring — designed by AI agents driving
 [klayout-tools](https://github.com/2AMLogic/klayout-tools) and the
 open-source xschem + ngspice flow.
 
-**Status: just opened, specification phase.** Nothing is designed yet.
+**Status: specification ratified; pre-silicon evidence is simulation-only.** The spec is
+ratified, the PDK is pinned, and the smoke, ESD-clamp sizing and foundry `bi_t`
+characterization records are committed under `sim/*/records/`. No pad cell is drawn yet.
 
 **Built agent-native.** Every specification, decision record, testbench, and
 line of documentation here is produced by AI agents working from a ratified
@@ -58,7 +60,22 @@ Read it before designing a clamp; adopt what fits or record why not.
 The ratified targets (target / fallback / stretch, with rationale) are in
 [`spec/io-ring.md`](spec/io-ring.md); what is inherited from the origin and
 what is re-derived is in [`spec/porting-plan.md`](spec/porting-plan.md). All
-figures are design targets.
+figures are design targets, not results and not ratings. Summary of the target
+column (the spec is authoritative):
+
+| Parameter | Target |
+|---|---|
+| Cell set | GPIO, `DVDD` pad, `DVSS` pad, core-supply pad, corner, fillers |
+| I/O supply `DVDD` | 5 V ±10 % (fallback 3.3 V ±10 %) |
+| Core interface | 3.3 V ±10 % `VDD`, level-shifted in the pad |
+| Pad-side devices | 5/6 V thick-oxide (`nfet_06v0`, `pfet_06v0`, `diode_nd2ps_06v0`, `diode_pd2nw_06v0`) |
+| Output drive, 5 V | VOL ≤ 0.4 V at 4 mA sink; VOH ≥ `DVDD` − 0.5 V at 4 mA source |
+| Rise/fall (10–90 %) | ≤ 5 ns into 15 pF at 5 V; ≤ 8 ns at 3.3 V |
+| Input thresholds | VIL ≤ 0.3·`DVDD`, VIH ≥ 0.7·`DVDD`; hysteresis ≥ 0.4 V at 5 V |
+| Pad capacitance | ≤ 3 pF added by the pad, input mode |
+| Geometry | 75 µm pitch, 350 µm depth, 355 × 355 µm corner |
+| ESD network | pad diodes to `DVDD`/`DVSS` plus a rail clamp; HBM 2 kV is a design target only |
+| PVT | 5 process × −40/25/125 °C × `DVDD` ±10 %; 5/6 V devices have no process skew in the open models |
 
 ESD robustness is a silicon property. Pre-silicon, this repo can show that
 the clamp network turns on and carries the intended current in simulation
@@ -66,7 +83,27 @@ and that the layout satisfies the ESD and latch-up rules — nothing more.
 
 Maturity ladder: porting plan recorded → spec ratified → GPIO cell simulated
 across PVT → cells DRC/LVS-clean → ring assembled, DRC/LVS/ERC-clean →
-shuttle seat → measured silicon. **Current position: spec ratified (`spec/io-ring.md`); next is the PDK pin and smoke simulation.**
+shuttle seat → measured silicon. **Current position: spec ratified
+(`spec/io-ring.md`); smoke simulation, ESD-clamp sizing and the foundry `bi_t`
+comparison are recorded; the first drawn cell is next.**
+
+## Reproduce
+
+Every committed result regenerates from a cold start. Simulation records are
+append-only: a run adds a new `records/<UTC stamp>/`, it never edits one. On a
+dispatch worker the multi-corner grids go to the batch fleet.
+
+```console
+sim/smoke/run.sh                      # model smoke bench; --bad-model-path is its negative control
+sim/esd_clamp/run.sh                  # pad-clamp diode sizing; --bad-model-path is its negative control
+sim/gpio-bi_t/run.sh                  # foundry bi_t vs targets; --dry-run validates without simulating
+uvx --from "klayout-tools==0.8.0" klt signoff \
+    --manifest manifests/gf180-io-ring.json \
+    --tiers-doc manifests/design-evidence-tiers.md \
+    --format json > manifests/gf180-io-ring.signoff.json
+```
+
+See [`sim/README.md`](sim/README.md) and [`manifests/README.md`](manifests/README.md).
 
 ## Repo layout
 

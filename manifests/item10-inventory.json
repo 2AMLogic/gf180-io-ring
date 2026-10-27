@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "kind": "t1-attestation-inventory",
+  "t1_item": 10,
+  "hygiene": [
+    "README.md",
+    "LICENSE",
+    ".github/workflows/signoff.yml",
+    "manifests/README.md"
+  ],
+  "checks": [
+    {"name": "block manifest parses", "argv": ["python3", "-I", "-m", "json.tool", "manifests/gf180-io-ring.json"], "cwd": "."},
+    {"name": "toolchain pin parses", "argv": ["python3", "-I", "-m", "json.tool", "sim/toolchain.json"], "cwd": "."},
+    {"name": "pdk pin parses", "argv": ["python3", "-I", "-m", "json.tool", "sim/pdk.json"], "cwd": "."}
+  ]
+}
