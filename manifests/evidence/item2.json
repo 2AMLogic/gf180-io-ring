@@ -15,11 +15,11 @@
         "path": "layout/gf180_io_ring.gds",
         "scope": "repo"
       },
-      "content_hash": "sha256:e6766e5da5ea2e9c58549c3fe2137bfda8cd7be1b729bc877ce352acba6c83ef"
+      "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56"
     },
     "regeneration": {
       "generator": "klayout -b -r layout/gen_ring.py",
-      "regenerated_hash": "sha256:e6766e5da5ea2e9c58549c3fe2137bfda8cd7be1b729bc877ce352acba6c83ef"
+      "regenerated_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56"
     }
   }
 }
