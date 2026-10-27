@@ -38,7 +38,7 @@
         "role": "hygiene",
         "path": "manifests/README.md",
         "passed": true,
-        "content_hash": "sha256:d32e415d730c5c471b8dc6c9a10ba0849a352dfc6d624a9c893f06f9796946df"
+        "content_hash": "sha256:b19d65e00214de11e5ffdeb05f37241eeebe26ac4bd04e970c03762493fdf199"
       },
       {
         "check": "command",
