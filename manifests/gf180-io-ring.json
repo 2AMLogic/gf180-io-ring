@@ -8,7 +8,7 @@
     },
     "2": {
       "file": "manifests/evidence/item2.json",
-      "content_hash": "sha256:24e8f0ec7325264d699adcbf369f5677b7b904b87ad664a593bbca98e53f9c1e"
+      "content_hash": "sha256:e7bdc15e70e1e551f773de0c4ce0bd991400f174581287eafbbb30021147a8bb"
     },
     "9": {
       "file": "manifests/evidence/item9.json",
