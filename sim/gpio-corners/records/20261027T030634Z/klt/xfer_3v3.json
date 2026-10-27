@@ -1,0 +1,3990 @@
+{
+  "schema_version": 3,
+  "netlist": {
+    "path": "sim/gpio-corners/records/20261027T030634Z/requests/xfer_3v3.sp",
+    "scope": "repo"
+  },
+  "status": "pass",
+  "corner_count": 15,
+  "passed": 15,
+  "failed": 0,
+  "errored": 0,
+  "inconclusive": 0,
+  "diagnostic_counts": {
+    "by_code": {},
+    "by_severity": {},
+    "corners_with_diagnostics": 0
+  },
+  "metrics": {
+    "sim__corner__count": 15,
+    "sim__corner__passed_count": 15,
+    "sim__corner__failed_count": 0,
+    "sim__corner__errored_count": 0,
+    "sim__corner__inconclusive_count": 0
+  },
+  "environment": {
+    "engine": "ngspice",
+    "engine_version": "46",
+    "ngspice_binary": "/home/ubuntu/.local/bin/ngspice",
+    "models_lib": {
+      "path": null,
+      "scope": "external"
+    },
+    "models_lib_sha256": "6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+    "netlist_sha256": "e2eeec9f69262a78fa367660f93be34632c0561fb2bb1546b6daafdbd37372ba",
+    "netlist_closure": [
+      {
+        "path": "sim/gpio-corners/records/20261027T030634Z/requests/xfer_3v3.sp",
+        "scope": "repo",
+        "sha256": "e2eeec9f69262a78fa367660f93be34632c0561fb2bb1546b6daafdbd37372ba"
+      },
+      {
+        "path": null,
+        "scope": "external",
+        "sha256": "091cb530bf85160a1f07878fb81f789ca367d018991c8ab41a584cd1a85c6692"
+      },
+      {
+        "path": "sim/gpio-corners/records/20261027T030634Z/requests/gpio.spice",
+        "scope": "repo",
+        "sha256": "05a92974960ce3ae340a289c1f6990f9262ee191d24f1c57415bed0bfc60b9c3"
+      }
+    ],
+    "staged_model_inputs": [
+      {
+        "name": "sm141064.ngspice",
+        "field": "models.lib",
+        "kind": "library",
+        "sha256": "9e2f6679897eb8d8e65773d3b52536de2e6ce53d22293b881729ddc84d6b1957",
+        "rewritten": true
+      },
+      {
+        "name": "sm141064_mim.ngspice",
+        "field": "models.lib",
+        "kind": "dependency",
+        "sha256": "b7918b5ad4f4dad0ce5cb2fc08114e25b10ff5f9f827754334bb0bdfe2a89767",
+        "rewritten": false
+      }
+    ],
+    "remote": {
+      "provider": "aws-batch-fleet",
+      "job_id": "klt-sim-6d1c9dbbcd88",
+      "bucket": "2am-batch-jobs-221082181346",
+      "region": "us-east-1",
+      "instance_id": "i-042d09c83171d1210",
+      "instance_type": "m7i.4xlarge",
+      "availability_zone": "us-east-1c",
+      "ami_id": "ami-0dda7bd225256d63c",
+      "lifecycle": "spot",
+      "spot": true,
+      "state": "done",
+      "exit_code": "0",
+      "concurrency": "1",
+      "physical_cores": "8",
+      "elapsed_seconds": 526,
+      "runner_klt_version": "0.7.0",
+      "client_klt_version": "0.7.0",
+      "runner_compatibility": "match"
+    }
+  },
+  "coverage": {
+    "corners_simulated": 15,
+    "measurements_declared": 27,
+    "measurements_with_limits": 27,
+    "unrecognized_limit_keys": [],
+    "schema_version": 1,
+    "known": true,
+    "checked": [
+      "limit:[0,\"typical/novdd/-40C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vt_plus_d2v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vt_plus_d2v2\",\"max\"]"
+    ],
+    "skipped": [],
+    "inapplicable": [],
+    "unknown": [],
+    "nothing_checked": false,
+    "nothing_checked_reasons": []
+  },
+  "provenance": {
+    "klt_version": "0.7.0",
+    "klayout_version": "0.30.12",
+    "pdk": {
+      "name": "gf180mcuD",
+      "source": "search root: ~/.ciel",
+      "version": "open_pdks f6eeac7dad085ffcc829ccfd721f7b4ce39edcf7",
+      "ambiguous_sources": [
+        "search root: ~/.volare"
+      ]
+    },
+    "deck": {
+      "name": "sm141064.ngspice",
+      "content_hash": "sha256:6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+      "released": false
+    },
+    "input": {
+      "content_hash": "sha256:e2eeec9f69262a78fa367660f93be34632c0561fb2bb1546b6daafdbd37372ba",
+      "role": "netlist"
+    }
+  },
+  "measurements": [
+    {
+      "name": "vt_plus_d0v0",
+      "unit": "V",
+      "limits": {
+        "max": 2.079
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "sf/novdd/-40C",
+        "value": 1.76395,
+        "margin": 0.3150500000000003
+      }
+    },
+    {
+      "name": "vt_minus_d0v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.891
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "fs/novdd/-40C",
+        "value": 1.02356,
+        "margin": 0.13256
+      }
+    },
+    {
+      "name": "hyst_d0v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ff/novdd/125C",
+        "value": 0.451184,
+        "margin": 0.20118399999999997
+      }
+    },
+    {
+      "name": "vt_plus_d0v1",
+      "unit": "V",
+      "limits": {
+        "max": 2.079
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "sf/novdd/-40C",
+        "value": 1.76395,
+        "margin": 0.3150500000000003
+      }
+    },
+    {
+      "name": "vt_minus_d0v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.891
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "fs/novdd/-40C",
+        "value": 1.02356,
+        "margin": 0.13256
+      }
+    },
+    {
+      "name": "hyst_d0v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ff/novdd/125C",
+        "value": 0.451184,
+        "margin": 0.20118399999999997
+      }
+    },
+    {
+      "name": "vt_plus_d0v2",
+      "unit": "V",
+      "limits": {
+        "max": 2.079
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "sf/novdd/-40C",
+        "value": 1.76396,
+        "margin": 0.3150400000000002
+      }
+    },
+    {
+      "name": "vt_minus_d0v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.891
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "fs/novdd/-40C",
+        "value": 1.02356,
+        "margin": 0.13256
+      }
+    },
+    {
+      "name": "hyst_d0v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ff/novdd/125C",
+        "value": 0.451184,
+        "margin": 0.20118399999999997
+      }
+    },
+    {
+      "name": "vt_plus_d1v0",
+      "unit": "V",
+      "limits": {
+        "max": 2.31
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "sf/novdd/-40C",
+        "value": 1.92559,
+        "margin": 0.38441000000000014
+      }
+    },
+    {
+      "name": "vt_minus_d1v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.99
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "fs/novdd/-40C",
+        "value": 1.15683,
+        "margin": 0.16683000000000003
+      }
+    },
+    {
+      "name": "hyst_d1v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ff/novdd/125C",
+        "value": 0.476888,
+        "margin": 0.22688799999999998
+      }
+    },
+    {
+      "name": "vt_plus_d1v1",
+      "unit": "V",
+      "limits": {
+        "max": 2.31
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "sf/novdd/-40C",
+        "value": 1.92558,
+        "margin": 0.38442
+      }
+    },
+    {
+      "name": "vt_minus_d1v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.99
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "fs/novdd/-40C",
+        "value": 1.15683,
+        "margin": 0.16683000000000003
+      }
+    },
+    {
+      "name": "hyst_d1v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ff/novdd/125C",
+        "value": 0.476905,
+        "margin": 0.22690500000000002
+      }
+    },
+    {
+      "name": "vt_plus_d1v2",
+      "unit": "V",
+      "limits": {
+        "max": 2.31
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "sf/novdd/-40C",
+        "value": 1.92558,
+        "margin": 0.38442
+      }
+    },
+    {
+      "name": "vt_minus_d1v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.99
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "fs/novdd/-40C",
+        "value": 1.15683,
+        "margin": 0.16683000000000003
+      }
+    },
+    {
+      "name": "hyst_d1v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ff/novdd/125C",
+        "value": 0.476944,
+        "margin": 0.22694399999999998
+      }
+    },
+    {
+      "name": "vt_plus_d2v0",
+      "unit": "V",
+      "limits": {
+        "max": 2.541
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "sf/novdd/-40C",
+        "value": 2.09189,
+        "margin": 0.4491100000000001
+      }
+    },
+    {
+      "name": "vt_minus_d2v0",
+      "unit": "V",
+      "limits": {
+        "min": 1.089
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "fs/novdd/25C",
+        "value": 1.28502,
+        "margin": 0.19602000000000008
+      }
+    },
+    {
+      "name": "hyst_d2v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ff/novdd/125C",
+        "value": 0.504836,
+        "margin": 0.25483599999999995
+      }
+    },
+    {
+      "name": "vt_plus_d2v1",
+      "unit": "V",
+      "limits": {
+        "max": 2.541
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "sf/novdd/-40C",
+        "value": 2.09188,
+        "margin": 0.44911999999999974
+      }
+    },
+    {
+      "name": "vt_minus_d2v1",
+      "unit": "V",
+      "limits": {
+        "min": 1.089
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "fs/novdd/25C",
+        "value": 1.28502,
+        "margin": 0.19602000000000008
+      }
+    },
+    {
+      "name": "hyst_d2v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ff/novdd/125C",
+        "value": 0.504835,
+        "margin": 0.25483500000000003
+      }
+    },
+    {
+      "name": "vt_plus_d2v2",
+      "unit": "V",
+      "limits": {
+        "max": 2.541
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "sf/novdd/-40C",
+        "value": 2.09187,
+        "margin": 0.4491299999999998
+      }
+    },
+    {
+      "name": "vt_minus_d2v2",
+      "unit": "V",
+      "limits": {
+        "min": 1.089
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "fs/novdd/25C",
+        "value": 1.28502,
+        "margin": 0.19602000000000008
+      }
+    },
+    {
+      "name": "hyst_d2v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ff/novdd/125C",
+        "value": 0.504866,
+        "margin": 0.25486600000000004
+      }
+    }
+  ],
+  "corners": [
+    {
+      "corner_id": "typical/novdd/-40C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 311.806,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.69226,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3867400000000001
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.11088,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.21988000000000008
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.58138,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33138
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.69226,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3867400000000001
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.11088,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.21988000000000008
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.58138,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33138
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.69226,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3867400000000001
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.11088,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.21988000000000008
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.58138,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33138
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.84385,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.46615000000000006
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.25595,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2659499999999999
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.587905,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.337905
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.84384,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.46616000000000013
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.25595,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2659499999999999
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.587895,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33789499999999995
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.84384,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.46616000000000013
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.25595,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2659499999999999
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.587895,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33789499999999995
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.9984,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5426
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.39852,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30952
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.599883,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.34988300000000006
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.99839,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5426099999999998
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.39852,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30952
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.599874,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.349874
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.99839,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5426099999999998
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.39852,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30952
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.599874,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.349874
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "typical/novdd/25C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 225.314,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.67529,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.40371000000000024
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.12406,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23306000000000004
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.551228,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30122800000000005
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.67528,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4037200000000001
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.12406,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23306000000000004
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.551216,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30121600000000004
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.67531,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4036900000000001
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.12406,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23306000000000004
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.55125,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30125
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.8289,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4811000000000001
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.26464,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27464
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.564255,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31425499999999995
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.8289,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4811000000000001
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.26464,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27464
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.564255,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31425499999999995
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.8289,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4811000000000001
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.26464,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27464
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.564255,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31425499999999995
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.98764,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5533599999999999
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.40235,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31335
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.585289,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33528899999999995
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.98764,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5533599999999999
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.40235,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31335
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.585289,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33528899999999995
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.98764,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5533599999999999
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.40235,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31335
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.585289,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33528899999999995
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "typical/novdd/125C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 263.003,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.64631,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.43269000000000024
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.14194,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25093999999999994
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.504378,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.254378
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.64633,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4326700000000001
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.14194,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25093999999999994
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.504395,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25439500000000004
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.64638,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4326200000000002
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.14194,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25093999999999994
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.504445,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25444500000000003
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.80375,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5062500000000001
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.27811,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2881100000000001
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.525635,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27563499999999996
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.80374,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5062600000000002
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.27811,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2881100000000001
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.525634,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27563400000000005
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.80377,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.50623
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.27811,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2881100000000001
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.525662,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27566199999999996
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.96237,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.57863
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.41306,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32406
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.549309,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29930900000000005
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.96235,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5786499999999999
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.41306,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32406
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.549289,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.299289
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.96235,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5786499999999999
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.41305,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32404999999999995
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.5493,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2993
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/-40C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 323.098,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.64737,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4316300000000002
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.13456,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24356
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.512818,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.262818
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.64737,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4316300000000002
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.13456,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24356
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.512817,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26281699999999997
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.64741,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.43159000000000014
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.13456,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24356
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.512855,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26285499999999995
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.80453,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5054700000000001
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.27692,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.28692000000000006
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.527614,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.277614
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.80453,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5054700000000001
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.27692,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.28692000000000006
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.527614,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.277614
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.80453,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5054700000000001
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.27692,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.28692000000000006
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.527614,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.277614
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.96504,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.57596
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.41772,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3287200000000001
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.547322,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.297322
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.96503,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5759699999999999
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.41772,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3287200000000001
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.547318,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29731799999999997
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.96503,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5759699999999999
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.41772,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3287200000000001
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.547317,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29731700000000005
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/25C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 300.041,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.63184,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4471600000000002
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.1425,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25150000000000006
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.489337,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23933700000000002
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.63185,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.44715000000000016
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.1425,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25150000000000006
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.48935,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23935
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.6319,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4471000000000003
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.1425,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25150000000000006
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.489402,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.239402
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.79007,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.51993
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.28057,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29057
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.509502,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.259502
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.79007,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.51993
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.28057,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29057
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.509495,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25949500000000003
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.79009,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5199100000000001
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.28057,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29057
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.50952,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25952
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.95046,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5905399999999998
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.41767,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32867
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.532792,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.28279200000000004
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.95046,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5905399999999998
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.41767,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32867
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.532794,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.282794
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.95045,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5905499999999999
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.41766,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32865999999999995
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.532792,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.28279200000000004
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/125C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 262.024,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.60701,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.47199000000000013
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.15582,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26482000000000006
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.451184,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20118399999999997
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.60701,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.47199000000000013
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.15582,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26482000000000006
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.451184,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20118399999999997
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.60701,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.47199000000000013
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.15582,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26482000000000006
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.451184,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20118399999999997
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.76761,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5423900000000001
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.29072,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3007200000000001
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.476888,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.22688799999999998
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.76763,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.54237
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.29072,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3007200000000001
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.476905,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.22690500000000002
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.76767,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.54233
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.29072,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3007200000000001
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.476944,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.22694399999999998
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.9301,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.6109
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.42526,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33626
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.504836,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25483599999999995
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.9301,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.6109
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.42526,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33626
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.504835,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25483500000000003
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.93013,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.61087
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.42526,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33626
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.504866,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25486600000000004
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/-40C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 298.673,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.7349,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3441000000000001
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.08124,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19023999999999996
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.653665,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.40366500000000005
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.73489,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.34411000000000014
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.08124,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19023999999999996
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.653647,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.403647
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.73489,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.34411000000000014
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.08124,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19023999999999996
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.653646,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.40364599999999995
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.88587,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4241300000000001
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.22937,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23937000000000008
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.656495,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.40649500000000005
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.88586,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.42413999999999996
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.22937,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23937000000000008
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.656484,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.40648399999999996
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.88586,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.42413999999999996
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.22937,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23937000000000008
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.656483,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.40648300000000004
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 2.03527,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5057299999999998
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.37446,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.28546000000000005
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.660814,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.410814
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 2.03526,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5057399999999999
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.37446,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.28546000000000005
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.660795,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.410795
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 2.03524,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.50576
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.37444,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.28544000000000014
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.660799,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.410799
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/25C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 287.154,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.71777,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.36123000000000016
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.09989,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20889000000000002
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.617887,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.36788699999999996
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.71776,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3612400000000002
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.09989,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20889000000000002
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.617868,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.367868
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.71775,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.36125000000000007
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.09989,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20889000000000002
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.617867,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.36786700000000006
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.87028,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4397200000000001
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.24252,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2525200000000001
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.627769,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.377769
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.87028,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4397200000000001
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.2425,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25249999999999995
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.627777,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.37777700000000003
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.87026,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.43974
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.2425,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25249999999999995
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.627762,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.37776200000000004
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 2.02186,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5191399999999997
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.38261,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2936099999999999
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.639253,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.38925299999999996
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 2.02186,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5191399999999997
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.38261,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2936099999999999
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.63925,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.38925
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 2.02185,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5191499999999998
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.38261,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2936099999999999
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.639235,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.389235
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/125C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 236.715,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.6863,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.39270000000000027
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.1234,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23239999999999994
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.562898,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.312898
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.68629,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3927100000000001
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.1234,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23239999999999994
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.562897,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.312897
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.68633,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3926700000000001
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.1234,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23239999999999994
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.562935,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31293499999999996
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.84212,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4678800000000001
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.26083,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2708299999999999
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.581294,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.331294
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.8421,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4679
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.26083,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2708299999999999
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.58127,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33126999999999995
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.8421,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4679
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.26081,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27081
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.581289,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33128899999999994
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.9974,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5435999999999999
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.39672,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30772
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.600684,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.350684
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.9974,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5435999999999999
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.39672,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30772
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.600684,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.350684
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.9974,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5435999999999999
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.39672,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30772
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.600684,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.350684
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/-40C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 256.862,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.62182,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.45718000000000014
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.02356,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.13256
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.598256,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.348256
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.62181,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4571900000000002
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.02356,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.13256
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.598249,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.34824900000000003
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.62181,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4571900000000002
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.02356,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.13256
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.598258,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.34825799999999996
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.76689,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.54311
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.15683,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.16683000000000003
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.610067,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.360067
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.76689,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.54311
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.15683,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.16683000000000003
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.610059,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.360059
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.76688,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.54312
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.15683,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.16683000000000003
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.610054,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.360054
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.91238,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.62862
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.28816,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19916
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.624218,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.37421800000000005
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.91237,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.62863
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.28816,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19916
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.624214,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.37421400000000005
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.91237,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.62863
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.28816,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19916
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.624208,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.374208
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/25C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 227.65,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.60103,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.47797000000000023
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.02919,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.13819000000000004
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.571836,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.321836
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.60102,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.47798000000000007
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.02919,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.13819000000000004
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.571829,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32182900000000003
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.60103,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.47797000000000023
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.02919,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.13819000000000004
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.571836,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.321836
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.74775,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5622500000000001
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.15793,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.1679299999999999
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.589812,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.339812
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.74774,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.56226
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.15793,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.1679299999999999
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.589807,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33980699999999997
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.74773,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.56227
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.15793,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.1679299999999999
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.5898,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3398
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.89431,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.64669
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.28502,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19602000000000008
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.609292,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.35929199999999994
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.89431,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.64669
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.28502,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19602000000000008
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.609292,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.35929199999999994
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.89431,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.64669
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.28502,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19602000000000008
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.609292,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.35929199999999994
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/125C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 232.017,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.56459,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5144100000000003
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.036,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.14500000000000002
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.528585,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27858499999999997
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.56459,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5144100000000003
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.036,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.14500000000000002
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.528584,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27858400000000005
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.56466,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5143400000000002
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.036,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.14500000000000002
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.528653,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27865300000000004
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.71404,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.59596
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.16109,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.17108999999999996
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.552948,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.302948
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.71404,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.59596
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.16109,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.17108999999999996
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.552948,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.302948
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.71404,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.59596
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.16109,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.17108999999999996
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.552949,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.302949
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.86332,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.6776799999999998
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.2859,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19690000000000007
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.577426,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.327426
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.86332,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.6776799999999998
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.2859,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19690000000000007
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.577422,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.327422
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.86331,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.6776899999999999
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.2859,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19690000000000007
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.577411,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.327411
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/-40C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 220.416,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.76395,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3150500000000003
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.19064,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2996399999999999
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.57331,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32331
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.76395,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3150500000000003
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.19064,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2996399999999999
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.57331,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32331
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.76396,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3150400000000002
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.19064,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2996399999999999
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.57332,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32332000000000005
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.92559,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.38441000000000014
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.34822,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.35822
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.577364,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.327364
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.92558,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.38442
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.34822,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.35822
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.577355,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32735499999999995
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.92558,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.38442
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.34822,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.35822
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.577354,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32735400000000003
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 2.09189,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4491100000000001
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.50239,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4133899999999999
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.589491,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.339491
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 2.09188,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.44911999999999974
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.50239,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4133899999999999
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.58949,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33948999999999996
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 2.09187,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4491299999999998
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.50239,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4133899999999999
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.589479,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.339479
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/25C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 217.299,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.75245,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3265500000000001
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.21144,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32044000000000006
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.541011,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.291011
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.75245,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3265500000000001
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.21144,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32044000000000006
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.541011,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.291011
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.75249,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3265100000000001
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.21144,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32044000000000006
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.541053,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.291053
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.91815,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.39185000000000003
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.36319,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3731899999999999
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.55496,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30496
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.91815,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.39185000000000003
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.36319,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3731899999999999
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.554959,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.304959
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.91815,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.39185000000000003
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.36318,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.37318000000000007
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.554974,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30497399999999997
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 2.08366,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.45733999999999986
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.51272,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4237200000000001
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.570943,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.320943
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 2.08366,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.45733999999999986
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.51272,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4237200000000001
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.570943,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.320943
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 2.08365,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4573499999999999
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.51272,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4237200000000001
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.570926,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.32092600000000004
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/125C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 205.08,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.73386,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3451400000000002
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.24056,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3495600000000001
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.493295,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24329499999999998
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.73392,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3450800000000003
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.24056,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3495600000000001
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.493357,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.243357
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.73395,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3450500000000001
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.24056,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3495600000000001
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.493393,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24339300000000003
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.90237,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.40763000000000016
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.38778,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.39778
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.514588,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26458800000000005
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.90237,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.40763000000000016
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.38778,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.39778
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.514588,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26458800000000005
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.90244,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.40756000000000014
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.38776,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.3977600000000001
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.514681,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26468100000000006
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 2.07476,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.46624
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.5337,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4447000000000001
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.541062,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29106200000000004
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 2.07476,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.46624
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.5337,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4447000000000001
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.541062,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29106200000000004
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 2.07476,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.46624
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.5337,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4447000000000001
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.541062,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29106200000000004
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    }
+  ]
+}

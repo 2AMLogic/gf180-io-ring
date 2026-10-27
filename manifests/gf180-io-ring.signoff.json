@@ -204,9 +204,194 @@
         "Both require the spec table itself to be ratified \u2014 verdicts against a draft spec are provisional by construction."
       ],
       "status": "unmet",
-      "reason": "no_evidence",
+      "reason": "check_failed",
       "graded_by_build": true,
-      "citation": null
+      "citation": null,
+      "citations_graded": [
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/vol_5v.json",
+          "rows": [
+            "vol_5v"
+          ],
+          "status": "unmet",
+          "reason": "check_failed"
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/voh_5v.json",
+          "rows": [
+            "voh_5v"
+          ],
+          "status": "unmet",
+          "reason": "check_failed"
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/edges_5v.json",
+          "rows": [
+            "rise_5v",
+            "fall_5v"
+          ],
+          "status": "unmet",
+          "reason": "check_failed"
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/xfer_5v.json",
+          "rows": [
+            "vil_5v",
+            "vih_5v",
+            "hyst_5v"
+          ],
+          "status": "met",
+          "reason": null
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/cap_5v.json",
+          "rows": [
+            "cap_5v"
+          ],
+          "status": "met",
+          "reason": null
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/pullup_5v_nominal.json",
+          "rows": [
+            "pull_5v"
+          ],
+          "status": "unmet",
+          "reason": "check_failed"
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/pulldown_5v_nominal.json",
+          "rows": [
+            "pull_5v"
+          ],
+          "status": "met",
+          "reason": null
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/vol_3v3.json",
+          "rows": [
+            "vol_3v3"
+          ],
+          "status": "met",
+          "reason": null
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/voh_3v3.json",
+          "rows": [
+            "voh_3v3"
+          ],
+          "status": "unmet",
+          "reason": "check_failed"
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/edges_3v3.json",
+          "rows": [
+            "rise_3v3",
+            "fall_3v3"
+          ],
+          "status": "unmet",
+          "reason": "check_failed"
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/xfer_3v3.json",
+          "rows": [
+            "vil_3v3",
+            "vih_3v3",
+            "hyst_3v3"
+          ],
+          "status": "met",
+          "reason": null
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/cap_3v3.json",
+          "rows": [
+            "cap_3v3"
+          ],
+          "status": "met",
+          "reason": null
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/pullup_3v3_nominal.json",
+          "rows": [
+            "pull_3v3"
+          ],
+          "status": "unmet",
+          "reason": "check_failed"
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/pulldown_3v3_nominal.json",
+          "rows": [
+            "pull_3v3"
+          ],
+          "status": "met",
+          "reason": null
+        },
+        {
+          "citation": "sim/gpio-corners/records/20261027T030634Z/klt/esd_pad.json",
+          "rows": [
+            "esd_pad_clamp"
+          ],
+          "status": "met",
+          "reason": null
+        }
+      ],
+      "detail": {
+        "critical_metric_blockers": [
+          {
+            "metric": "sim__corner__failed_count",
+            "value": 2,
+            "higher_is_better": false
+          }
+        ],
+        "failed_citations": [
+          "sim/gpio-corners/records/20261027T030634Z/klt/vol_5v.json",
+          "sim/gpio-corners/records/20261027T030634Z/klt/voh_5v.json",
+          "sim/gpio-corners/records/20261027T030634Z/klt/edges_5v.json",
+          "sim/gpio-corners/records/20261027T030634Z/klt/pullup_5v_nominal.json",
+          "sim/gpio-corners/records/20261027T030634Z/klt/voh_3v3.json",
+          "sim/gpio-corners/records/20261027T030634Z/klt/edges_3v3.json",
+          "sim/gpio-corners/records/20261027T030634Z/klt/pullup_3v3_nominal.json"
+        ],
+        "failed_rows": [
+          "fall_3v3",
+          "fall_5v",
+          "rise_3v3",
+          "rise_5v",
+          "voh_3v3",
+          "voh_5v",
+          "vol_5v"
+        ],
+        "uncovered_rows": [],
+        "declared_gaps": [
+          {
+            "id": "esd_rail_clamp",
+            "gap": "DVDD-DVSS rail clamp transient not evaluable on the batch fleet: its 600 um / 60-finger nfet_06v0 fails to bin under the fleet's ngspice-46 (see sim/gpio-corners/README.md)"
+          },
+          {
+            "id": "esd_core_rail_clamp",
+            "gap": "core VDD-VSS rail clamp (3.3 V devices) not simulated: the spec gives no voltage budget for it"
+          },
+          {
+            "id": "esd_vdd_dvdd_coupling",
+            "gap": "VDD/DVDD cross-domain coupling is not drawn yet (spec: decision record to follow)"
+          }
+        ],
+        "unratified_rows": [],
+        "row_sources": {
+          "cap_3v3": "asserted",
+          "cap_5v": "asserted",
+          "esd_pad_clamp": "asserted",
+          "hyst_3v3": "asserted",
+          "hyst_5v": "asserted",
+          "pull_3v3": "asserted",
+          "pull_5v": "asserted",
+          "vih_3v3": "asserted",
+          "vih_5v": "asserted",
+          "vil_3v3": "asserted",
+          "vil_5v": "asserted",
+          "vol_3v3": "asserted"
+        }
+      }
     },
     {
       "tier": "T1",
@@ -261,7 +446,7 @@
         "command": null,
         "kind": "generic",
         "check_status": "pass",
-        "content_hash": "sha256:a46405c4c6ac18f726ada0fffb0bacb1d2e9cd9914810fb758ea852e810c3255",
+        "content_hash": "sha256:9a6a87a98314f2c2fb5f1ce2a4e6cc01871f4f25abab52ea227a781bedf20c4f",
         "input_verified": true,
         "exit_status": 0,
         "artifact_binding": {
@@ -270,15 +455,15 @@
             "path": "attest/item9.json",
             "scope": "repo"
           },
-          "content_hash": "sha256:a46405c4c6ac18f726ada0fffb0bacb1d2e9cd9914810fb758ea852e810c3255",
+          "content_hash": "sha256:9a6a87a98314f2c2fb5f1ce2a4e6cc01871f4f25abab52ea227a781bedf20c4f",
           "input_verified": true,
-          "summary": "T1 item 9 (Testbenches shipped): 12/12 attestation checks passed (klt signoff --attest)",
+          "summary": "T1 item 9 (Testbenches shipped): 16/16 attestation checks passed (klt signoff --attest)",
           "source": "attest/item9.json",
           "attestation": {
             "producer": "klt signoff --attest",
             "inventory_schema_version": 1,
-            "check_count": 12,
-            "passed_count": 12
+            "check_count": 16,
+            "passed_count": 16
           }
         }
       }
