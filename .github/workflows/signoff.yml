@@ -66,6 +66,17 @@ jobs:
           echo "Committed signoff record is fresh: it matches a fresh klt signoff run."
           python3 -c "import json; d=json.load(open('manifests/gf180-io-ring.signoff.json')); print('tier verdict of record:', d['tier'], '(T1 items met: %d/%d)' % (d['t1_met_count'], d['t1_item_count']))"
 
+      # T1 item 9 (testbenches shipped): re-attest the committed inventory
+      # and diff it against the committed envelope. A listed bench or pin
+      # that changed makes this exit 3, so the evidence cannot rot silently.
+      # The cold start is declared local_only (the runner has no ngspice or
+      # PDK), so it is carried from the committed envelope and listed under
+      # skipped_checks; presence and content-hash checks still run.
+      - name: Check the item 9 testbench attestation
+        run: |
+          klt signoff --attest 9 --inventory attest/item9.json \
+                      --check manifests/evidence/item9.json --format json
+
       - name: Re-attest T1 item 10 against the committed envelope
         run: |
           klt signoff --attest 10 \

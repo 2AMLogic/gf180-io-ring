@@ -6,6 +6,10 @@
       "file": "manifests/evidence/item1.json",
       "content_hash": "sha256:ac7379d7bfdf14ccfcdbc9ae02136f7f6900ae54bdd20741215bafb4923a5d06"
     },
+    "9": {
+      "file": "manifests/evidence/item9.json",
+      "content_hash": "sha256:a46405c4c6ac18f726ada0fffb0bacb1d2e9cd9914810fb758ea852e810c3255"
+    },
     "10": {
       "file": "manifests/item10-attestation.json",
       "content_hash": "sha256:79d9736abd7e006cd6b5945250a059e958720e359f3cd0cbeee3d40a64bcafa3"
