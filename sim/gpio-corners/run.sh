@@ -7,15 +7,15 @@
 # The grid is never run by looping ngspice here: each request is a `klt sim` corner matrix that the
 # batch backend sends to the Spot fleet, submitted one at a time. If a submit fails the run fails and
 # says so; there is no local fallback (only --probe, one corner per deck, runs locally).
-# KLT_CLIENT: command that runs a klt the fleet runner accepts. The runner image is klt 0.7.0 and
-# refuses a 0.8.x client (batch_runner_version_mismatch); the default is a throwaway uvx env.
+# KLT_CLIENT: command that runs a klt the fleet runner accepts. The runner image is klt 0.8.0, so
+# the default is a throwaway uvx env pinned to the same version, never the host-wide klt.
 # Exit 0 only if the env check passes and every request has every corner and measurement finite.
 # A spec row that misses its target does not fail the run: it is the result (see collect.py).
 set -u
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SIM="$(dirname "$HERE")"
 REPO="$(dirname "$SIM")"
-KLT_CLIENT="${KLT_CLIENT:-uvx --from klayout-tools==0.7.0 klt}"
+KLT_CLIENT="${KLT_CLIENT:-uvx --from klayout-tools==0.8.0 klt}"
 MODE=run
 case "${1:-}" in
   "") ;;

@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # ESD pad-clamp diode bench: 3 diode process sections x 3 temperatures, both clamp
 # diodes and 33 areas inside each unit. Three `klt sim` requests (forward dc, reverse dc,
-# ac capacitance at 0 V and 5.5 V; 9, 9 and 18 units), plain .meas cards only so an older
-# fleet runner accepts them.
+# ac capacitance at 0 V and 5.5 V; 9, 9 and 18 units), plain .meas cards only (no analysis_steps).
 #   sim/esd_clamp/run.sh                    run; on success write records/<UTC stamp>/
 #   sim/esd_clamp/run.sh --backend local    override the klt backend (default: klt's own,
 #                                           i.e. $KLT_SIM_BACKEND, so the batch fleet on a
