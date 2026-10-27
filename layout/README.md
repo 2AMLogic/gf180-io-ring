@@ -3,8 +3,9 @@
 Generated layout of the 5 V I/O ring (T1 item 2). Nothing here is ESD-rated or
 qualified. The stream is `klt drc` clean against klt's open `gf180mcu` deck only
 (T1 item 3, `manifests/evidence/item3.md`, which lists what that deck does not
-check); it is **not** LVS- or ERC-verified (issues #17, #24). The wiring is
-drawn so that LVS can be attempted; it is not proof.
+check); it is LVS-compared against the item-1 netlists with `klt lvs`
+(T1 item 4, `manifests/evidence/item4.md`, which states what that compare does
+and does not cover) and is **not** ERC-verified (issue #24).
 
 ## Regenerate
 
@@ -72,7 +73,9 @@ Net labels sit on a Metal2 pad of every terminal, so `klt components` and
 
 What the drawing does not settle: `DVSS`-bulk and `VSS`-bulk NMOS groups sit on
 the one p-substrate (no deep-Nwell isolation is drawn), so the substrate taps of
-both domains share the substrate; whether LVS reads that as one net is for #17.
+both domains share the substrate; LVS reads that as one net `DVSS|VSS`, so the
+item-4 compare declares `hints.short_nets` `DVSS`/`VSS` (see
+`manifests/evidence/item4.md`).
 The Metal2/3/4 wiring is inside the `klt drc` run below (spacing, width and
 enclosure of Metal1-4 and Via1-3 are in the deck); density is not checked. The
 router leaves sub-minimum Metal2 gaps between shapes of one net, so each wired

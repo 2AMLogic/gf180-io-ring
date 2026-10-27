@@ -34,7 +34,7 @@ L = {
     "NPLUS": (32, 0), "CONT": (33, 0), "M1": (34, 0), "V1": (35, 0),
     "M2": (36, 0), "V2": (38, 0), "M3": (42, 0), "V3": (40, 0),
     "M4": (46, 0), "V4": (41, 0), "M5": (81, 0), "PAD": (37, 0),
-    "DUALGATE": (55, 0), "ESD": (24, 0), "BNDRY": (0, 0),
+    "DUALGATE": (55, 0), "ESD": (24, 0), "DIODE_MK": (115, 5), "MOS_CAP_MK": (166, 5), "BNDRY": (0, 0),
     "M1_LBL": (34, 10), "M2_LBL": (36, 10), "M3_LBL": (42, 10),
     "M4_LBL": (46, 10), "M5_LBL": (81, 10),
 }
@@ -515,6 +515,7 @@ def place_group(cell, devs, y, kind, thick, net, wr=None):
 def diode(cell, x, y, kind, area_w, area_h, net=None, wr=None):
     """diode_nd2ps_06v0 (N+/Psub) or diode_pd2nw_06v0 (P+/Nwell), 10 x 17.8."""
     box(cell, "COMP", x, y, x + area_w, y + area_h)
+    box(cell, "DIODE_MK", x, y, x + area_w, y + area_h)
     box(cell, "DUALGATE", x - 0.5, y - 0.5, x + area_w + 0.5, y + area_h + 0.5)
     if kind == "n":
         box(cell, "NPLUS", x - 0.2, y - 0.2, x + area_w + 0.2, y + area_h + 0.2)
@@ -530,6 +531,7 @@ def diode(cell, x, y, kind, area_w, area_h, net=None, wr=None):
 
 def mos_cap(cell, x, y, w, h, thick, gate=None, body=None, wr=None):
     box(cell, "COMP", x, y, x + w, y + h)
+    box(cell, "MOS_CAP_MK", x, y, x + w, y + h)
     box(cell, "POLY", x + 1.0, y - 0.3, x + w - 1.0, y + h + 0.3)
     box(cell, "NPLUS", x - IMP_ENC, y - IMP_ENC, x + w + IMP_ENC, y + h + IMP_ENC)
     if thick:
