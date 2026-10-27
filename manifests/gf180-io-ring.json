@@ -26,6 +26,16 @@
       "file": "manifests/item10-attestation.json",
       "content_hash": "sha256:79d9736abd7e006cd6b5945250a059e958720e359f3cd0cbeee3d40a64bcafa3"
     },
+    "11": [
+      {
+        "file": "manifests/evidence/item11/io_ring.json",
+        "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56"
+      },
+      {
+        "file": "manifests/evidence/item4/io_ring.json",
+        "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56"
+      }
+    ],
     "5": [
       {
         "file": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",

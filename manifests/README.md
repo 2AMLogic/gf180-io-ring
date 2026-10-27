@@ -9,8 +9,8 @@ output: the machine-readable gap-to-T1 checklist.
   `kind: analog`). Evidence is cited here one item at a time as it lands, each
   pinned to the cited artifact's `content_hash`. Item 1 cites
   `evidence/item1.json`, item 2 cites `evidence/item2.json`, item 3 cites
-  `evidence/item3/io_ring.json`, item 4 cites `evidence/item4/io_ring.json`, item 9 cites `evidence/item9.json` and item 10 cites
-  `item10-attestation.json`; every other item is still `unmet` / `no_evidence`.
+  `evidence/item3/io_ring.json`, item 4 cites `evidence/item4/io_ring.json`, item 9 cites `evidence/item9.json`, item 10 cites
+  `item10-attestation.json` and item 11 cites `evidence/item11/io_ring.json` with item 4's report; every other item is still `unmet` / `no_evidence`.
 - **`evidence/item1.json`**: the item-1 attestation envelope, produced from
   `design/item1-inventory.json` (`klt signoff --attest 1`, needs `klt` >= 0.8.0,
   hence the pin). Regenerate it whenever a design source or netlist changes; see
@@ -34,6 +34,13 @@ output: the machine-readable gap-to-T1 checklist.
   the same compare without it. The manifest cites the `io_ring` report by the
   item-2 GDS hash. `evidence/item4.md` is the claim. Rerun `run.sh` (and
   `klt lvs --check <report>`) whenever the GDS or a netlist changes.
+- **`evidence/item11/io_ring.json`**: the `klt erc` supply report of the `io_ring`
+  top cell, run against `evidence/item11/erc-spec.json` (supply nets `DVDD`, `DVSS`,
+  `VDD`, `VSS`, Metal3-5 roles, three checked well/substrate tie classes) by
+  `evidence/item11/run.sh` (klt 0.8.0). The manifest cites it with item 4's `io_ring`
+  LVS report, both by the item-2 GDS hash. `evidence/item11.md` is the claim and
+  lists its limits. Rerun `run.sh` (and `klt erc --check <report>`) whenever the
+  GDS or the spec changes.
 - **`evidence/item9.json`**: the item-9 (testbenches shipped) attestation
   envelope, produced from `attest/item9.json` (`klt signoff --attest 9`). CI
   re-attests it with `--check`; the cold start is `local_only`, so it is carried

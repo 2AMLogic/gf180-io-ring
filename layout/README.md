@@ -5,7 +5,9 @@ qualified. The stream is `klt drc` clean against klt's open `gf180mcu` deck only
 (T1 item 3, `manifests/evidence/item3.md`, which lists what that deck does not
 check); it is LVS-compared against the item-1 netlists with `klt lvs`
 (T1 item 4, `manifests/evidence/item4.md`, which states what that compare does
-and does not cover) and is **not** ERC-verified (issue #24).
+and does not cover). The four supply rails are `klt erc` checked on the
+assembled ring (T1 item 11, `manifests/evidence/item11.md`, which states what
+that run does and does not cover).
 
 ## Regenerate
 
@@ -110,4 +112,4 @@ Tap spacing for 5/6 V devices: the DRM value is not in the open PDK; the spec's
 - Earlier pass (#15): `klt components` over Metal3/4/5 + Via3/Via4 showed every
   stub merged with its neighbour's across each abutment; the stubs of one net
   were then separate segments, now they are one conductor (above). This is
-  geometric continuity, not ERC (#24).
+  geometric continuity; the ERC run is item 11 (#24, `manifests/evidence/item11.md`).
