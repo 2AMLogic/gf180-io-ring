@@ -1,8 +1,9 @@
 # layout
 
 Generated layout of the 5 V I/O ring (T1 item 2). Nothing here is ESD-rated or
-qualified; the layout is **not** DRC-, LVS- or ERC-verified (issues #16, #17,
-#24).
+qualified. The stream is `klt drc` clean against klt's open `gf180mcu` deck only
+(T1 item 3, `manifests/evidence/item3.md`, which lists what that deck does not
+check); it is **not** LVS- or ERC-verified (issues #17, #24).
 
 ## Regenerate
 
@@ -50,7 +51,13 @@ filler; same mix as `design/io_ring.sch`). Cell and pin names follow
 Tap spacing for 5/6 V devices: the DRM value is not in the open PDK; the spec's
 20 µm stand-in applies and is not checked here.
 
-## Checks run (this PR)
+## Checks run
+
+- `klt drc` (klt 0.8.0, deck `gf180mcu`) over `io_ring` and each of the eight
+  cells: `status: clean`; envelopes in `manifests/evidence/item3/`. Clean was
+  reached by geometry (Nplus/Pplus extension of 0.4 µm beyond comp and gate
+  region, diode tap rings 1.5 µm clear of the diode, one Dualgate marker over
+  stacked rows), not by waivers or rule subsets.
 
 - `klt cells layout/gf180_io_ring.gds`: `io_ring` instantiates `core_pad`,
   `corner`, `dvdd_pad`, `dvss_pad`, `filler`, `gpio`; bboxes 75 × 350, 355 × 355,
