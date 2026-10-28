@@ -37,6 +37,10 @@ ROWS = {
     "vf_dn_hbm": ("esd_pad_dn", "pad clamp from DVSS, forward drop at the 1.33 A stress current", "V"),
     "v_peak": ("esd_rail", "DVDD-DVSS rail clamp, peak DVDD under a 1.33 A / 10 ns-rise pulse", "V"),
 }
+# (request, measurement) pairs whose row differs from the measurement's default row
+ROWS_BY_STEM = {
+    ("esd_core_rail", "v_peak"): ("esd_core_rail", "core VDD-VSS rail clamp, peak VDD under a 1.33 A / 10 ns-rise pulse", "V"),
+}
 # Report-only context measurements (no limit, listed in results.tsv and the record)
 CONTEXT = {"voh", "vf_up_1ma", "vf_dn_1ma", "v_end"}
 UNITS = {"s": (1e9, "ns"), "F": (1e12, "pF"), "ohm": (1e-3, "kohm"), "V": (1.0, "V")}
@@ -115,7 +119,7 @@ def main():
         rows.setdefault((p["stem"], p["base"]), []).append(p)
     out_rows, md_rows = {}, []
     for (stem, base), pts in sorted(rows.items()):
-        rid, label, unit = ROWS[base]
+        rid, label, unit = ROWS_BY_STEM.get((stem, base)) or ROWS[base]
         mode = "3v3" if "3v3" in stem else ("-" if stem.startswith("esd") else "5v")
         row_id = rid if mode == "-" else f"{rid}_{mode}"
         if stem.endswith("_nominal"):
@@ -190,9 +194,13 @@ def main():
            "DR-0003 as amended; 48 x 100 um via `m=48`, trigger-inverter `pfet` 10 x 10 um via `m=10`, since one wider instance does not bin on the fleet) is unpowered; a "
            "1.33 A / 10 ns-rise pulse is forced into `DVDD`. The 6 V peak limit is the `*_06v0` device class, "
            "an assumption and not a spec row. Simulated clamp behaviour only: nothing here is an ESD rating.",
-           "- **Not covered (declared gaps).** The core `VDD`-`VSS` rail clamp (3.3 V devices; the spec "
-           "gives no voltage budget for it) and the `VDD`/`DVDD` cross-domain coupling (spec: decision "
-           "record to follow) are not simulated here.",
+           "- **ESD core rail clamp (simulated transient).** The core-supply pad cell (RC-triggered "
+           "`nfet_03v3`, DR-0003 as amended twice; 56 x 100 um via `m=56`, trigger inverter `pfet` 8 x 50 um and "
+           "`nfet` 4 x 70 um) is unpowered; the same 1.33 A / 10 ns-rise pulse is forced into `VDD`. The 4.0 V "
+           "peak limit is the DR-0004 budget (Proposed): an assumption and not a spec row. Simulated clamp "
+           "behaviour only: nothing here is an ESD rating.",
+           "- **No declared gaps.** The `VDD`/`DVDD` coupling is the subject of DR-0005 (Proposed): no "
+           "dedicated cross-domain structure is drawn, so nothing is simulated for it here.",
            "", "## Requests", "",
            "| Request | Status | Job | Runner klt | ngspice |", "|---|---|---|---|---|"]
     for stem, st, job, rk, eng in envs:

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Verify the drawn GPIO cell (design/gpio.spice) against the ratified spec rows over the PVT set.
-#   sim/gpio-corners/run.sh             cold start: 20 requests -> `klt sim` batch fleet; writes records/<UTC stamp>/
+#   sim/gpio-corners/run.sh             cold start: 21 requests -> `klt sim` batch fleet; writes records/<UTC stamp>/
 #   sim/gpio-corners/run.sh --dry-run   generate and `klt sim --dry-run` each request; no simulation
 #   sim/gpio-corners/run.sh --resume RECORD_DIR   resubmit only the requests without a report, then collect
 #   sim/gpio-corners/run.sh --probe     local single-corner debug probe of every deck (typical, 25 C)
@@ -73,7 +73,7 @@ done < "$OUT/requests.list"
   echo "- open_pdks revision (pinned, sim/toolchain.json): \`$OPEN_PDKS\`, variant \`$VARIANT\`"
   echo "- ngspice on the submitting host: \`$NGSPICE_VERSION\` (the fleet's own is per request below)"
   echo "- klt client: \`$($KLT_CLIENT --version 2>&1 | tail -1)\`; backend: batch (one \`klt sim\` request at a time)"
-  echo "- repo commit: \`$(git -C "$REPO" rev-parse HEAD 2>/dev/null)\`; DUT: \`design/gpio.spice\`, \`design/dvdd_pad.spice\`"
+  echo "- repo commit: \`$(git -C "$REPO" rev-parse HEAD 2>/dev/null)\`; DUT: \`design/gpio.spice\`, \`design/dvdd_pad.spice\`, \`design/core_pad.spice\`"
   echo "- models staged with each job (\`stage_model_inputs\`): the pinned revision's sm141064.ngspice"
 } > "$OUT/meta.txt"
 

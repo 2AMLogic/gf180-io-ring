@@ -24,13 +24,11 @@ for m in MODES:
     COVERS[f"pulldown_{m}_nominal"] = [f"pull_{m}"]
 COVERS["esd_pad"] = ["esd_pad_clamp"]
 COVERS["esd_rail"] = ["esd_rail_clamp"]
+COVERS["esd_core_rail"] = ["esd_core_rail_clamp"]
 
-GAPS = [
-    {"id": "esd_core_rail_clamp",
-     "gap": "core VDD-VSS rail clamp (3.3 V devices) not simulated: the spec gives no voltage budget for it"},
-    {"id": "esd_vdd_dvdd_coupling",
-     "gap": "VDD/DVDD cross-domain coupling is not drawn yet (spec: decision record to follow)"},
-]
+# No declared gaps: DR-0004 budgets the core clamp (esd_core_rail_clamp, simulated) and DR-0005 retires the
+# VDD/DVDD coupling as not applicable (Proposed; the PR holds for ratification).
+GAPS = []
 
 
 def main():

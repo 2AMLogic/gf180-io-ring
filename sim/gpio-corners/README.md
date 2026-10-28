@@ -8,7 +8,7 @@ spec row is relaxed.
 
 ## Cold start
 
-    sim/gpio-corners/run.sh                    # 19 requests -> `klt sim` batch fleet
+    sim/gpio-corners/run.sh                    # 21 requests -> `klt sim` batch fleet
     sim/gpio-corners/run.sh --dry-run          # generate and validate every request; no simulation
     sim/gpio-corners/run.sh --resume RECORD    # resubmit only the requests without a report
     sim/gpio-corners/run.sh --probe            # local, ONE corner per deck (typical, 25 C): debug only
@@ -51,8 +51,13 @@ fleet" below): 135 points per row.
 - **ESD assumptions, not spec rows**: 1.33 A is 2 kV / 1.5 kohm HBM arithmetic and the 3.0 V
   forward-drop budget is the one recorded in `design/README.md`. The spec states no number
   for either. Turn-on (forward drop at 1 mA) is reported without a limit.
-- **Declared gaps** (manifest `spec_rows`): the core `VDD`-`VSS` rail clamp (no spec'd voltage
-  budget for 3.3 V devices) and the `VDD`/`DVDD` coupling (not drawn). They keep item 5 unmet.
+- **Declared gaps** (manifest `spec_rows`): none after DR-0004 and DR-0005, both **Proposed**
+  until the operator ratifies them. DR-0004 gives the core `VDD`-`VSS` clamp a 4.0 V peak budget
+  (an assumption, not a spec row) and the `esd_core_rail` request checks it; DR-0005 retires the
+  `VDD`/`DVDD` coupling as not applicable (argued from the merged substrate, not simulated).
+- **Core rail clamp.** `esd_core_rail`: the same 1.33 A / 10 ns-rise pulse into `VDD` of
+  `core_pad.spice`, peak `VDD` against 4.0 V, at the 15 corners. The clamp is 56 x 100 um via `m=56` and
+  the trigger inverter `pfet` 8 x 50 um, `nfet` 4 x 70 um (DR-0003 Amendment 2).
 - **Rail clamp on the fleet.** `gen_requests.py` always writes the `esd_rail` request: a 1.33 A /
   10 ns-rise pulse into `dvdd_pad.spice`, peak `DVDD` against the 6 V budget (the `*_06v0`
   device class of `design/README.md`; an assumption, not a spec row). Simulated clamp behaviour

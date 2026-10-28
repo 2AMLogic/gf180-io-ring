@@ -514,7 +514,7 @@ def place_group(cell, devs, y, kind, thick, net, wr=None):
     return gy1 + RING_W + 1.5
 
 
-def place_clamp_array(cell, d, y, net, wr):
+def place_clamp_array(cell, d, y, net, wr, thick=True):
     """The `m=` copies of the clamp FET as rows of 2 + 2 devices, with a shared P+ tap bar
     between the two pairs and the usual ring around: every NCOMP stays within the 5/6 V
     substrate-tap distance (comp.tap_distance.psub.mv.1) of a ring side or the bar."""
@@ -529,7 +529,7 @@ def place_clamp_array(cell, d, y, net, wr):
         if k % 4 == 2:
             bar_x = cx
             cx += 1.0 + 1.5
-        ex, ey = mos(cell, cx, cy, "n", p["W"], p["L"], nf, True, 1, d["n"][:3], wr)
+        ex, ey = mos(cell, cx, cy, "n", p["W"], p["L"], nf, thick, 1, d["n"][:3], wr)
         label(cell, "M1_LBL", d["name"], cx, cy)
         rowh = ey - cy
         xmax = max(xmax, ex)
@@ -697,11 +697,11 @@ def build_core_pad():
                 cp["n"][0], cp["n"][1], wr)
         y += p["c_length"] + 8.0
     mosd = [d for d in devs if d["model"].startswith(("nfet", "pfet"))]
-    clamp = [d for d in mosd if d["name"] == "XMN_clampco"]
+    clamp = [d for d in mosd if d["name"] == "XMN_clampco"][0]
     rest = [d for d in mosd if d["name"] != "XMN_clampco"]
     y = place_group(c, [d for d in rest if classify(d)[0] == "n"], y, "n", False, "VSS", wr)
     y = place_group(c, [d for d in rest if classify(d)[0] == "p"], y, "p", False, "VDD", wr)
-    y = place_group(c, clamp, y + 4.0, "n", False, "VSS", wr)
+    y = place_clamp_array(c, clamp, y + 4.0, "VSS", wr, False)
     assert y < 346, "core_pad overflows: %s" % y
     assert not wr.route(), wr.unrouted
     wr.close_gaps()
