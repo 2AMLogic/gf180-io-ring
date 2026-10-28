@@ -34,8 +34,8 @@ and #20.
 
 | Cell | Schematic | Ports (netlist order) | Content |
 |---|---|---|---|
-| GPIO pad | `gpio.sch` | `A OE IE PU PD Y PAD DVDD VDD DVSS VSS` | `nfet_06v0`/`pfet_06v0` driver (40 um / 80 um), Schmitt receiver, pad clamps `diode_pd2nw_06v0` to `DVDD` and `diode_nd2ps_06v0` to `DVSS` at 178 um^2 each (10 x 17.8 um), four 3.3 V to `DVDD` level shifters (`OE`, `A`, `PU`, `PD`), pull-up/pull-down; `*_03v3` input inverters and `Y` buffer |
-| `DVDD` pad | `dvdd_pad.sch` | `DVDD VDD DVSS VSS` | `DVDD`-`DVSS` RC-triggered `nfet_06v0` clamp |
+| GPIO pad | `gpio.sch` | `A OE IE PU PD Y PAD DVDD VDD DVSS VSS` | `nfet_06v0`/`pfet_06v0` driver (60 um nfet, 12 fingers / 160 um pfet as 2 x 80 um, `m=2`), Schmitt receiver, pad clamps `diode_pd2nw_06v0` to `DVDD` and `diode_nd2ps_06v0` to `DVSS` at 178 um^2 each (10 x 17.8 um), four 3.3 V to `DVDD` level shifters (`OE`, `A`, `PU`, `PD`), pull-up (`pfet_06v0` L = 1.5 um, W = 1 um) / pull-down (`nfet_06v0` L = 6 um, W = 1 um); `*_03v3` input inverters and `Y` buffer |
+| `DVDD` pad | `dvdd_pad.sch` | `DVDD VDD DVSS VSS` | `DVDD`-`DVSS` RC-triggered `nfet_06v0` clamp, 4800 um total as 48 x (100 um, 10 fingers) via `m=48`, trigger-inverter `pfet_06v0` 10 x (10 um) via `m=10` (DR-0003, amended) |
 | `DVSS` pad | `dvss_pad.sch` | `DVDD VDD DVSS VSS` | same clamp as the `DVDD` pad |
 | core-supply pad | `core_pad.sch` | `DVDD VDD DVSS VSS` | `VDD`-`VSS` RC-triggered `nfet_03v3` clamp |
 | corner, filler | `corner.sch`, `filler.sch` | `DVDD VDD DVSS VSS` | rail-only, no devices |

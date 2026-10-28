@@ -1,0 +1,2119 @@
+{
+  "schema_version": 3,
+  "netlist": {
+    "path": "sim/gpio-corners/records/20261027T064449Z/requests/pulldown_5v.sp",
+    "scope": "repo"
+  },
+  "status": "pass",
+  "corner_count": 15,
+  "passed": 15,
+  "failed": 0,
+  "errored": 0,
+  "inconclusive": 0,
+  "diagnostic_counts": {
+    "by_code": {},
+    "by_severity": {},
+    "corners_with_diagnostics": 0
+  },
+  "metrics": {
+    "sim__corner__count": 15,
+    "sim__corner__passed_count": 15,
+    "sim__corner__failed_count": 0,
+    "sim__corner__errored_count": 0,
+    "sim__corner__inconclusive_count": 0
+  },
+  "environment": {
+    "engine": "ngspice",
+    "engine_version": "46",
+    "ngspice_binary": "/home/ubuntu/.local/bin/ngspice",
+    "models_lib": {
+      "path": null,
+      "scope": "external"
+    },
+    "models_lib_sha256": "6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+    "netlist_sha256": "033458620b14f1ff1c88d543255be8719394ab8f9888474a9d72066bbf0d10dd",
+    "netlist_closure": [
+      {
+        "path": "sim/gpio-corners/records/20261027T064449Z/requests/pulldown_5v.sp",
+        "scope": "repo",
+        "sha256": "033458620b14f1ff1c88d543255be8719394ab8f9888474a9d72066bbf0d10dd"
+      },
+      {
+        "path": null,
+        "scope": "external",
+        "sha256": "091cb530bf85160a1f07878fb81f789ca367d018991c8ab41a584cd1a85c6692"
+      },
+      {
+        "path": "sim/gpio-corners/records/20261027T064449Z/requests/gpio.spice",
+        "scope": "repo",
+        "sha256": "238ca88261007cbb21f07d2ff7ee4568ab58661d1102e33bc2adbffd0d814a19"
+      }
+    ],
+    "staged_model_inputs": [
+      {
+        "name": "sm141064.ngspice",
+        "field": "models.lib",
+        "kind": "library",
+        "sha256": "9e2f6679897eb8d8e65773d3b52536de2e6ce53d22293b881729ddc84d6b1957",
+        "rewritten": true
+      },
+      {
+        "name": "sm141064_mim.ngspice",
+        "field": "models.lib",
+        "kind": "dependency",
+        "sha256": "b7918b5ad4f4dad0ce5cb2fc08114e25b10ff5f9f827754334bb0bdfe2a89767",
+        "rewritten": false
+      }
+    ],
+    "remote": {
+      "provider": "aws-batch-fleet",
+      "job_id": "klt-sim-08642a044e18",
+      "bucket": "2am-batch-jobs-221082181346",
+      "region": "us-east-1",
+      "instance_id": "i-0b5445ab3c468d6e9",
+      "instance_type": "m7i.4xlarge",
+      "availability_zone": "us-east-1d",
+      "ami_id": "ami-0dda7bd225256d63c",
+      "lifecycle": "spot",
+      "spot": true,
+      "state": "done",
+      "exit_code": "0",
+      "concurrency": "1",
+      "physical_cores": "8",
+      "elapsed_seconds": 7,
+      "runner_klt_version": "0.7.0",
+      "client_klt_version": "0.7.0",
+      "runner_compatibility": "match"
+    }
+  },
+  "coverage": {
+    "corners_simulated": 15,
+    "measurements_declared": 9,
+    "measurements_with_limits": 0,
+    "unrecognized_limit_keys": [],
+    "schema_version": 1,
+    "known": true,
+    "checked": [
+      "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d2v2\"]/observation",
+      "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d0v0\"]/observation",
+      "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d0v1\"]/observation",
+      "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d0v2\"]/observation",
+      "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d1v0\"]/observation",
+      "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d1v1\"]/observation",
+      "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d1v2\"]/observation",
+      "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d2v0\"]/observation",
+      "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d2v1\"]/observation",
+      "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d2v2\"]/observation"
+    ],
+    "skipped": [],
+    "inapplicable": [
+      {
+        "id": "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[0,\"typical/novdd/-40C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[1,\"typical/novdd/25C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[10,\"fs/novdd/25C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[11,\"fs/novdd/125C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[12,\"sf/novdd/-40C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[13,\"sf/novdd/25C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[14,\"sf/novdd/125C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[2,\"typical/novdd/125C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[3,\"ff/novdd/-40C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[4,\"ff/novdd/25C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[5,\"ff/novdd/125C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[6,\"ss/novdd/-40C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[7,\"ss/novdd/25C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[8,\"ss/novdd/125C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d0v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d0v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d0v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d1v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d1v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d1v2\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d2v0\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d2v1\"]/limits",
+        "reason": "characterization_without_limits"
+      },
+      {
+        "id": "measurement:[9,\"fs/novdd/-40C\",\"r_pulldown_d2v2\"]/limits",
+        "reason": "characterization_without_limits"
+      }
+    ],
+    "unknown": [],
+    "nothing_checked": false,
+    "nothing_checked_reasons": []
+  },
+  "provenance": {
+    "klt_version": "0.7.0",
+    "klayout_version": "0.30.12",
+    "pdk": {
+      "name": "gf180mcuD",
+      "source": "search root: ~/.ciel",
+      "version": "open_pdks f6eeac7dad085ffcc829ccfd721f7b4ce39edcf7",
+      "ambiguous_sources": [
+        "search root: ~/.volare"
+      ]
+    },
+    "deck": {
+      "name": "sm141064.ngspice",
+      "content_hash": "sha256:6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+      "released": false
+    },
+    "input": {
+      "content_hash": "sha256:033458620b14f1ff1c88d543255be8719394ab8f9888474a9d72066bbf0d10dd",
+      "role": "netlist"
+    }
+  },
+  "measurements": [
+    {
+      "name": "r_pulldown_d0v0",
+      "unit": "ohm",
+      "limits": null,
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/-40C",
+        "value": 22888.48,
+        "margin": null
+      }
+    },
+    {
+      "name": "r_pulldown_d0v1",
+      "unit": "ohm",
+      "limits": null,
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/-40C",
+        "value": 22888.48,
+        "margin": null
+      }
+    },
+    {
+      "name": "r_pulldown_d0v2",
+      "unit": "ohm",
+      "limits": null,
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/-40C",
+        "value": 22888.48,
+        "margin": null
+      }
+    },
+    {
+      "name": "r_pulldown_d1v0",
+      "unit": "ohm",
+      "limits": null,
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/-40C",
+        "value": 20929.78,
+        "margin": null
+      }
+    },
+    {
+      "name": "r_pulldown_d1v1",
+      "unit": "ohm",
+      "limits": null,
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/-40C",
+        "value": 20929.78,
+        "margin": null
+      }
+    },
+    {
+      "name": "r_pulldown_d1v2",
+      "unit": "ohm",
+      "limits": null,
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/-40C",
+        "value": 20929.78,
+        "margin": null
+      }
+    },
+    {
+      "name": "r_pulldown_d2v0",
+      "unit": "ohm",
+      "limits": null,
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/-40C",
+        "value": 19486.55,
+        "margin": null
+      }
+    },
+    {
+      "name": "r_pulldown_d2v1",
+      "unit": "ohm",
+      "limits": null,
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/-40C",
+        "value": 19486.55,
+        "margin": null
+      }
+    },
+    {
+      "name": "r_pulldown_d2v2",
+      "unit": "ohm",
+      "limits": null,
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/-40C",
+        "value": 19486.55,
+        "margin": null
+      }
+    }
+  ],
+  "corners": [
+    {
+      "corner_id": "typical/novdd/-40C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 1.386,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 22888.48,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 22888.48,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 22888.48,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 20929.78,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 20929.78,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 20929.78,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 19486.55,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 19486.55,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 19486.55,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "typical/novdd/25C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 1.436,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 31509.24,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 31509.24,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 31509.24,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 28921.55,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 28921.55,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 28921.55,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 26994.06,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 26994.06,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 26994.06,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "typical/novdd/125C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 1.395,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 46391.41,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 46391.41,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 46391.41,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 42846.43,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 42846.43,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 42846.43,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 40160.75,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 40160.75,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 40160.75,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/-40C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 1.488,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 19605.45,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 19605.45,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 19605.45,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 18127.0,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 18127.0,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 18127.0,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 17038.64,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 17038.64,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 17038.64,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/25C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 1.286,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 27027.67,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 27027.67,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 27027.67,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 25067.88,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 25067.88,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 25067.88,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 23609.89,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 23609.89,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 23609.89,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/125C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 1.229,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 39792.07,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 39792.07,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 39792.07,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 37097.9,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 37097.9,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 37097.9,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 35059.44,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 35059.44,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 35059.44,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/-40C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 1.476,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 26876.83,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 26876.83,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 26876.83,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 24319.06,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 24319.06,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 24319.06,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 22440.09,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 22440.09,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 22440.09,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/25C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 1.234,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 36948.85,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 36948.85,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 36948.85,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 33581.73,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 33581.73,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 33581.73,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 31079.88,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 31079.88,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 31079.88,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/125C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 0.32,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 54483.37,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 54483.37,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 54483.37,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 49884.66,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 49884.66,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 49884.66,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 46407.57,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 46407.57,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 46407.57,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/-40C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 0.271,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 20466.57,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 20466.57,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 20466.57,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 18871.26,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 18871.26,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 18871.26,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 17695.93,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 17695.93,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 17695.93,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/25C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 0.28,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 28204.95,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 28204.95,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 28204.95,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 26092.04,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 26092.04,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 26092.04,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 24518.78,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 24518.78,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 24518.78,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/125C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 0.221,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 41529.4,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 41529.4,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 41529.4,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 38627.17,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 38627.17,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 38627.17,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 36429.49,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 36429.49,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 36429.49,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/-40C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 0.22,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 25658.45,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 25658.45,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 25658.45,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 23277.55,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 23277.55,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 23277.55,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 21526.62,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 21526.62,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 21526.62,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/25C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 0.166,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 35286.5,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 35286.5,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 35286.5,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 32149.11,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 32149.11,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 32149.11,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 29815.81,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 29815.81,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 29815.81,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/125C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 0.166,
+      "measurements": [
+        {
+          "name": "r_pulldown_d0v0",
+          "value": 51989.71,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v1",
+          "value": 51989.71,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d0v2",
+          "value": 51989.71,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v0",
+          "value": 47701.83,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v1",
+          "value": 47701.83,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d1v2",
+          "value": 47701.83,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v0",
+          "value": 44457.37,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v1",
+          "value": 44457.37,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        },
+        {
+          "name": "r_pulldown_d2v2",
+          "value": 44457.37,
+          "unit": "ohm",
+          "status": "pass",
+          "margin": null
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    }
+  ]
+}

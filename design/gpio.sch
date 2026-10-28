@@ -174,17 +174,17 @@ C {devices/lab_pin.sym} 760 670 0 0 {name=l133 sig_type=std_logic lab=ng}
 C {devices/lab_pin.sym} 720 700 2 0 {name=l134 sig_type=std_logic lab=oe_sb}
 C {devices/lab_pin.sym} 760 730 0 0 {name=l135 sig_type=std_logic lab=DVSS}
 C {devices/lab_pin.sym} 760 700 0 0 {name=l136 sig_type=std_logic lab=DVSS}
-C {symbols/pfet_06v0.sym} 1060 550 0 0 {name=MP_drv L=0.55u W=80u nf=16 m=1 model=pfet_06v0 spiceprefix=X}
+C {symbols/pfet_06v0.sym} 1060 550 0 0 {name=MP_drv L=0.55u W=80u nf=16 m=2 model=pfet_06v0 spiceprefix=X}
 C {devices/lab_pin.sym} 1080 580 0 0 {name=l137 sig_type=std_logic lab=PAD}
 C {devices/lab_pin.sym} 1040 550 2 0 {name=l138 sig_type=std_logic lab=pg}
 C {devices/lab_pin.sym} 1080 520 0 0 {name=l139 sig_type=std_logic lab=DVDD}
 C {devices/lab_pin.sym} 1080 550 0 0 {name=l140 sig_type=std_logic lab=DVDD}
-C {symbols/nfet_06v0.sym} 1060 700 0 0 {name=MN_drv L=0.7u W=40u nf=8 m=1 model=nfet_06v0 spiceprefix=X}
+C {symbols/nfet_06v0.sym} 1060 700 0 0 {name=MN_drv L=0.7u W=60u nf=12 m=1 model=nfet_06v0 spiceprefix=X}
 C {devices/lab_pin.sym} 1080 670 0 0 {name=l141 sig_type=std_logic lab=PAD}
 C {devices/lab_pin.sym} 1040 700 2 0 {name=l142 sig_type=std_logic lab=ng}
 C {devices/lab_pin.sym} 1080 730 0 0 {name=l143 sig_type=std_logic lab=DVSS}
 C {devices/lab_pin.sym} 1080 700 0 0 {name=l144 sig_type=std_logic lab=DVSS}
-C {symbols/pfet_06v0.sym} 1220 550 0 0 {name=MP_pu L=8u W=1u nf=1 m=1 model=pfet_06v0 spiceprefix=X}
+C {symbols/pfet_06v0.sym} 1220 550 0 0 {name=MP_pu L=1.5u W=1u nf=1 m=1 model=pfet_06v0 spiceprefix=X}
 C {devices/lab_pin.sym} 1240 580 0 0 {name=l145 sig_type=std_logic lab=PAD}
 C {devices/lab_pin.sym} 1200 550 2 0 {name=l146 sig_type=std_logic lab=pu_sb}
 C {devices/lab_pin.sym} 1240 520 0 0 {name=l147 sig_type=std_logic lab=DVDD}

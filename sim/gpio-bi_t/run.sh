@@ -7,6 +7,8 @@
 #   sim/gpio-bi_t/run.sh --dry-run             translate, generate, `klt sim --dry-run` each request
 #   sim/gpio-bi_t/run.sh --negative KIND       negative control, must exit non-zero. KIND is one of
 #                                              bad-include | bad-model-path | bad-load | bad-measure
+#                                              1 = failed as it must; 3 = did not fail (the control
+#                                              failed); 2 = usage or environment error
 # The grid is never run by looping ngspice here: it is a `klt sim` request set, which goes to the
 # Spot fleet. Only the single-corner negative controls run locally (--backend local). If the batch
 # submit fails the run fails and says so; there is no local fallback.
@@ -52,7 +54,7 @@ if [ "$MODE" = neg ]; then
   if [ "$RC" -ne 0 ] || [ "$CRC" -ne 0 ]; then
     echo "bi_t: negative control $KIND failed as it must (klt rc=$RC, collect rc=$CRC)" >&2; exit 1
   fi
-  echo "bi_t: NEGATIVE CONTROL $KIND DID NOT FAIL" >&2; exit 0
+  echo "bi_t: NEGATIVE CONTROL $KIND DID NOT FAIL" >&2; exit 3
 fi
 
 if [ "$MODE" != resume ]; then

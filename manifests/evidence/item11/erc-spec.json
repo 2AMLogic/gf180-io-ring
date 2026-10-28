@@ -1,0 +1,268 @@
+{
+  "stackup": [
+    {
+      "name": "poly",
+      "layer": "30/0",
+      "active_layer": "22/0",
+      "role": "gate"
+    },
+    {
+      "name": "met1",
+      "layer": "34/0"
+    },
+    {
+      "name": "met2",
+      "layer": "36/0",
+      "label_layer": "36/10"
+    },
+    {
+      "name": "met3",
+      "layer": "42/0",
+      "label_layer": "42/10"
+    },
+    {
+      "name": "met4",
+      "layer": "46/0",
+      "label_layer": "46/10"
+    },
+    {
+      "name": "met5",
+      "layer": "81/0",
+      "label_layer": "81/10"
+    }
+  ],
+  "vias": [
+    {
+      "name": "contact",
+      "layer": "33/0",
+      "between": [
+        "poly",
+        "met1"
+      ]
+    },
+    {
+      "name": "via1",
+      "layer": "35/0",
+      "between": [
+        "met1",
+        "met2"
+      ]
+    },
+    {
+      "name": "via2",
+      "layer": "38/0",
+      "between": [
+        "met2",
+        "met3"
+      ]
+    },
+    {
+      "name": "via3",
+      "layer": "40/0",
+      "between": [
+        "met3",
+        "met4"
+      ]
+    },
+    {
+      "name": "via4",
+      "layer": "41/0",
+      "between": [
+        "met4",
+        "met5"
+      ]
+    }
+  ],
+  "nets": [
+    {
+      "name": "DVDD",
+      "kind": "supply",
+      "roles": [
+        "met3",
+        "met4",
+        "met5"
+      ]
+    },
+    {
+      "name": "DVSS",
+      "kind": "supply",
+      "roles": [
+        "met3",
+        "met4",
+        "met5"
+      ]
+    },
+    {
+      "name": "VDD",
+      "kind": "supply",
+      "roles": [
+        "met3",
+        "met4",
+        "met5"
+      ]
+    },
+    {
+      "name": "VSS",
+      "kind": "supply",
+      "roles": [
+        "met3",
+        "met4",
+        "met5"
+      ]
+    }
+  ],
+  "ties": [
+    {
+      "name": "dvdd_n_well_taps",
+      "well_layer": "21/0",
+      "well_requires": [
+        "55/0"
+      ],
+      "tap_layer": "22/0",
+      "tap_requires": [
+        "32/0"
+      ],
+      "connect_to": "met1",
+      "net": "DVDD",
+      "well_excludes_boxes": [
+        [
+          161.4,
+          573.4,
+          172.0,
+          589.6
+        ],
+        [
+          161.4,
+          723.4,
+          172.0,
+          739.6
+        ],
+        [
+          355.4,
+          161.4,
+          371.6,
+          172.0
+        ],
+        [
+          505.4,
+          161.4,
+          521.6,
+          172.0
+        ],
+        [
+          573.4,
+          923.0,
+          589.6,
+          933.6
+        ],
+        [
+          723.4,
+          923.0,
+          739.6,
+          933.6
+        ],
+        [
+          923.0,
+          355.4,
+          933.6,
+          371.6
+        ],
+        [
+          923.0,
+          505.4,
+          933.6,
+          521.6
+        ]
+      ]
+    },
+    {
+      "name": "vdd_n_well_taps",
+      "well_layer": "21/0",
+      "well_excludes": [
+        "55/0"
+      ],
+      "tap_layer": "22/0",
+      "tap_requires": [
+        "32/0"
+      ],
+      "connect_to": "met1",
+      "net": "VDD"
+    },
+    {
+      "name": "vdd_thick_n_well_taps",
+      "well_layer": "21/0",
+      "tap_layer": "22/0",
+      "tap_requires": [
+        "32/0"
+      ],
+      "connect_to": "met1",
+      "net": "VDD",
+      "well_requires": [
+        "55/0"
+      ],
+      "well_requires_boxes": [
+        [
+          161.4,
+          573.4,
+          172.0,
+          589.6
+        ],
+        [
+          161.4,
+          723.4,
+          172.0,
+          739.6
+        ],
+        [
+          355.4,
+          161.4,
+          371.6,
+          172.0
+        ],
+        [
+          505.4,
+          161.4,
+          521.6,
+          172.0
+        ],
+        [
+          573.4,
+          923.0,
+          589.6,
+          933.6
+        ],
+        [
+          723.4,
+          923.0,
+          739.6,
+          933.6
+        ],
+        [
+          923.0,
+          355.4,
+          933.6,
+          371.6
+        ],
+        [
+          923.0,
+          505.4,
+          933.6,
+          521.6
+        ]
+      ]
+    },
+    {
+      "name": "p_substrate_taps",
+      "well_layer": null,
+      "well_complement_of": [
+        "21/0"
+      ],
+      "tap_layer": "22/0",
+      "tap_requires": [
+        "31/0"
+      ],
+      "connect_to": "met1",
+      "net": "DVSS"
+    }
+  ]
+}

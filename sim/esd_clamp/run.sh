@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # ESD pad-clamp diode bench: 3 diode process sections x 3 temperatures, both clamp
 # diodes and 33 areas inside each unit. Three `klt sim` requests (forward dc, reverse dc,
-# ac capacitance at 0 V and 5.5 V; 9, 9 and 18 units), plain .meas cards only so an older
-# fleet runner accepts them.
+# ac capacitance at 0 V and 5.5 V; 9, 9 and 18 units), plain .meas cards only (no analysis_steps).
 #   sim/esd_clamp/run.sh                    run; on success write records/<UTC stamp>/
 #   sim/esd_clamp/run.sh --backend local    override the klt backend (default: klt's own,
 #                                           i.e. $KLT_SIM_BACKEND, so the batch fleet on a
 #                                           dispatch worker)
-#   sim/esd_clamp/run.sh --bad-model-path   negative control: must exit non-zero
+#   sim/esd_clamp/run.sh --bad-model-path   negative control: must exit non-zero. 1 = klt rejected
+#                                           the bad request (the control worked); 3 = klt accepted
+#                                           it (the control failed); 2 = usage or environment error
 # A failed unit, a failed submit or a failed wording check fails the run and writes
 # no record. There is no local-grid fallback for a failed batch submit.
 set -u
@@ -33,7 +34,7 @@ PDKROOT=""; case "$EFF" in local|local-parallel) PDKROOT="$(dirname "$(dirname "
 if [ "$BAD" = 1 ]; then
   $PY gen --out "$WORK" --pdk-root "$WORK/does-not-exist" --backend local --bad-lib || exit 2
   if klt sim "$WORK/request_fwd.json" --dry-run --format json >"$WORK/dry.json" 2>"$WORK/dry.err"; then
-    echo "esd_clamp: FAIL: negative control was accepted" >&2; exit 0
+    echo "esd_clamp: FAIL: negative control was accepted" >&2; exit 3
   fi
   echo "esd_clamp: negative control rejected as expected: $(head -c 200 "$WORK/dry.err")" >&2
   exit 1

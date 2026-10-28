@@ -25,24 +25,15 @@ import os
 import shutil
 import sys
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+from gpio_common import process_axis, vlabel  # noqa: E402
+
 MODES = {
     # name: (DVDD low/nominal/high, load current at the spec VOL/VOH point)
     "5v": ([4.5, 5.0, 5.5], 4e-3),
     "3v3": ([2.97, 3.3, 3.63], 2e-3),
 }
 TEMPS = [-40, 25, 125]
-PASSIVES = ["diode_{}", "res_{}", "moscap_{}"]
-
-
-def process_axis():
-    """gf180mcu has no all-device corner section: each corner is a bundle. The 5/6 V
-    devices load their typical section in every one of them (spec 'PVT corners')."""
-    axis = []
-    for name, passive in (("typical", "typical"), ("ff", "ff"), ("ss", "ss"),
-                          ("fs", "typical"), ("sf", "typical")):
-        axis.append({"name": name,
-                     "sections": [name] + [p.format(passive) for p in PASSIVES]})
-    return axis
 
 
 # Pin biases are SPICE value strings; core-side pins are referenced to VDD = DVDD.
@@ -98,10 +89,6 @@ for _cs in (0, 1):
                "v(y)='0.5*dvdd' FALL=1", "unit": "V"},
               {"name": "hyst", "spice": ".meas tran hyst PARAM='vt_plus-vt_minus'",
                "unit": "V"}])
-
-
-def vlabel(v):
-    return f"{v:.2f}".replace(".", "v")
 
 
 def netlist(deck, mode, d, dvdd, iload, modeldir):

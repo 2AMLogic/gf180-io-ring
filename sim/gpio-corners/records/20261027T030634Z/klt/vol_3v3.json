@@ -1,0 +1,1596 @@
+{
+  "schema_version": 3,
+  "netlist": {
+    "path": "sim/gpio-corners/records/20261027T030634Z/requests/vol_3v3.sp",
+    "scope": "repo"
+  },
+  "status": "pass",
+  "corner_count": 15,
+  "passed": 15,
+  "failed": 0,
+  "errored": 0,
+  "inconclusive": 0,
+  "diagnostic_counts": {
+    "by_code": {},
+    "by_severity": {},
+    "corners_with_diagnostics": 0
+  },
+  "metrics": {
+    "sim__corner__count": 15,
+    "sim__corner__passed_count": 15,
+    "sim__corner__failed_count": 0,
+    "sim__corner__errored_count": 0,
+    "sim__corner__inconclusive_count": 0
+  },
+  "environment": {
+    "engine": "ngspice",
+    "engine_version": "46",
+    "ngspice_binary": "/home/ubuntu/.local/bin/ngspice",
+    "models_lib": {
+      "path": null,
+      "scope": "external"
+    },
+    "models_lib_sha256": "6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+    "netlist_sha256": "ac774477f293889b360908ea032d8ab53913792a83767bf007f605a79ce1d825",
+    "netlist_closure": [
+      {
+        "path": "sim/gpio-corners/records/20261027T030634Z/requests/vol_3v3.sp",
+        "scope": "repo",
+        "sha256": "ac774477f293889b360908ea032d8ab53913792a83767bf007f605a79ce1d825"
+      },
+      {
+        "path": null,
+        "scope": "external",
+        "sha256": "091cb530bf85160a1f07878fb81f789ca367d018991c8ab41a584cd1a85c6692"
+      },
+      {
+        "path": "sim/gpio-corners/records/20261027T030634Z/requests/gpio.spice",
+        "scope": "repo",
+        "sha256": "05a92974960ce3ae340a289c1f6990f9262ee191d24f1c57415bed0bfc60b9c3"
+      }
+    ],
+    "staged_model_inputs": [
+      {
+        "name": "sm141064.ngspice",
+        "field": "models.lib",
+        "kind": "library",
+        "sha256": "9e2f6679897eb8d8e65773d3b52536de2e6ce53d22293b881729ddc84d6b1957",
+        "rewritten": true
+      },
+      {
+        "name": "sm141064_mim.ngspice",
+        "field": "models.lib",
+        "kind": "dependency",
+        "sha256": "b7918b5ad4f4dad0ce5cb2fc08114e25b10ff5f9f827754334bb0bdfe2a89767",
+        "rewritten": false
+      }
+    ],
+    "remote": {
+      "provider": "aws-batch-fleet",
+      "job_id": "klt-sim-9ccb51b7ba1d",
+      "bucket": "2am-batch-jobs-221082181346",
+      "region": "us-east-1",
+      "instance_id": "i-03264c15df9288f99",
+      "instance_type": "m7i.4xlarge",
+      "availability_zone": "us-east-1b",
+      "ami_id": "ami-0dda7bd225256d63c",
+      "lifecycle": "spot",
+      "spot": true,
+      "state": "done",
+      "exit_code": "0",
+      "concurrency": "1",
+      "physical_cores": "8",
+      "elapsed_seconds": 11,
+      "runner_klt_version": "0.7.0",
+      "client_klt_version": "0.7.0",
+      "runner_compatibility": "match"
+    }
+  },
+  "coverage": {
+    "corners_simulated": 15,
+    "measurements_declared": 9,
+    "measurements_with_limits": 9,
+    "unrecognized_limit_keys": [],
+    "schema_version": 1,
+    "known": true,
+    "checked": [
+      "limit:[0,\"typical/novdd/-40C\",\"vol_d0v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vol_d0v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vol_d0v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vol_d1v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vol_d1v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vol_d1v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vol_d2v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vol_d2v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/-40C\",\"vol_d2v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vol_d0v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vol_d0v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vol_d0v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vol_d1v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vol_d1v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vol_d1v2\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vol_d2v0\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vol_d2v1\",\"max\"]",
+      "limit:[1,\"typical/novdd/25C\",\"vol_d2v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vol_d0v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vol_d0v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vol_d0v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vol_d1v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vol_d1v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vol_d1v2\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vol_d2v0\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vol_d2v1\",\"max\"]",
+      "limit:[10,\"fs/novdd/25C\",\"vol_d2v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vol_d0v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vol_d0v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vol_d0v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vol_d1v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vol_d1v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vol_d1v2\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vol_d2v0\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vol_d2v1\",\"max\"]",
+      "limit:[11,\"fs/novdd/125C\",\"vol_d2v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vol_d0v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vol_d0v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vol_d0v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vol_d1v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vol_d1v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vol_d1v2\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vol_d2v0\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vol_d2v1\",\"max\"]",
+      "limit:[12,\"sf/novdd/-40C\",\"vol_d2v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vol_d0v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vol_d0v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vol_d0v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vol_d1v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vol_d1v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vol_d1v2\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vol_d2v0\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vol_d2v1\",\"max\"]",
+      "limit:[13,\"sf/novdd/25C\",\"vol_d2v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vol_d0v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vol_d0v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vol_d0v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vol_d1v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vol_d1v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vol_d1v2\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vol_d2v0\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vol_d2v1\",\"max\"]",
+      "limit:[14,\"sf/novdd/125C\",\"vol_d2v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vol_d0v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vol_d0v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vol_d0v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vol_d1v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vol_d1v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vol_d1v2\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vol_d2v0\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vol_d2v1\",\"max\"]",
+      "limit:[2,\"typical/novdd/125C\",\"vol_d2v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vol_d0v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vol_d0v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vol_d0v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vol_d1v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vol_d1v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vol_d1v2\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vol_d2v0\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vol_d2v1\",\"max\"]",
+      "limit:[3,\"ff/novdd/-40C\",\"vol_d2v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vol_d0v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vol_d0v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vol_d0v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vol_d1v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vol_d1v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vol_d1v2\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vol_d2v0\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vol_d2v1\",\"max\"]",
+      "limit:[4,\"ff/novdd/25C\",\"vol_d2v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vol_d0v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vol_d0v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vol_d0v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vol_d1v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vol_d1v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vol_d1v2\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vol_d2v0\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vol_d2v1\",\"max\"]",
+      "limit:[5,\"ff/novdd/125C\",\"vol_d2v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vol_d0v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vol_d0v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vol_d0v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vol_d1v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vol_d1v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vol_d1v2\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vol_d2v0\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vol_d2v1\",\"max\"]",
+      "limit:[6,\"ss/novdd/-40C\",\"vol_d2v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vol_d0v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vol_d0v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vol_d0v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vol_d1v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vol_d1v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vol_d1v2\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vol_d2v0\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vol_d2v1\",\"max\"]",
+      "limit:[7,\"ss/novdd/25C\",\"vol_d2v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vol_d0v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vol_d0v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vol_d0v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vol_d1v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vol_d1v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vol_d1v2\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vol_d2v0\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vol_d2v1\",\"max\"]",
+      "limit:[8,\"ss/novdd/125C\",\"vol_d2v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vol_d0v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vol_d0v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vol_d0v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vol_d1v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vol_d1v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vol_d1v2\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vol_d2v0\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vol_d2v1\",\"max\"]",
+      "limit:[9,\"fs/novdd/-40C\",\"vol_d2v2\",\"max\"]"
+    ],
+    "skipped": [],
+    "inapplicable": [],
+    "unknown": [],
+    "nothing_checked": false,
+    "nothing_checked_reasons": []
+  },
+  "provenance": {
+    "klt_version": "0.7.0",
+    "klayout_version": "0.30.12",
+    "pdk": {
+      "name": "gf180mcuD",
+      "source": "search root: ~/.ciel",
+      "version": "open_pdks f6eeac7dad085ffcc829ccfd721f7b4ce39edcf7",
+      "ambiguous_sources": [
+        "search root: ~/.volare"
+      ]
+    },
+    "deck": {
+      "name": "sm141064.ngspice",
+      "content_hash": "sha256:6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+      "released": false
+    },
+    "input": {
+      "content_hash": "sha256:ac774477f293889b360908ea032d8ab53913792a83767bf007f605a79ce1d825",
+      "role": "netlist"
+    }
+  },
+  "measurements": [
+    {
+      "name": "vol_d0v0",
+      "unit": "V",
+      "limits": {
+        "max": 0.4
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 0.3119291,
+        "margin": 0.08807090000000001
+      }
+    },
+    {
+      "name": "vol_d0v1",
+      "unit": "V",
+      "limits": {
+        "max": 0.4
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 0.3119291,
+        "margin": 0.08807090000000001
+      }
+    },
+    {
+      "name": "vol_d0v2",
+      "unit": "V",
+      "limits": {
+        "max": 0.4
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 0.3119291,
+        "margin": 0.08807090000000001
+      }
+    },
+    {
+      "name": "vol_d1v0",
+      "unit": "V",
+      "limits": {
+        "max": 0.4
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 0.273533,
+        "margin": 0.126467
+      }
+    },
+    {
+      "name": "vol_d1v1",
+      "unit": "V",
+      "limits": {
+        "max": 0.4
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 0.273533,
+        "margin": 0.126467
+      }
+    },
+    {
+      "name": "vol_d1v2",
+      "unit": "V",
+      "limits": {
+        "max": 0.4
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 0.273533,
+        "margin": 0.126467
+      }
+    },
+    {
+      "name": "vol_d2v0",
+      "unit": "V",
+      "limits": {
+        "max": 0.4
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 0.2466717,
+        "margin": 0.15332830000000003
+      }
+    },
+    {
+      "name": "vol_d2v1",
+      "unit": "V",
+      "limits": {
+        "max": 0.4
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 0.2466717,
+        "margin": 0.15332830000000003
+      }
+    },
+    {
+      "name": "vol_d2v2",
+      "unit": "V",
+      "limits": {
+        "max": 0.4
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "ss/novdd/125C",
+        "value": 0.2466717,
+        "margin": 0.15332830000000003
+      }
+    }
+  ],
+  "corners": [
+    {
+      "corner_id": "typical/novdd/-40C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 1.84,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.1351691,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26483090000000004
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.1351691,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26483090000000004
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.1351691,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26483090000000004
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.120545,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.279455
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.120545,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.279455
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.120545,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.279455
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.1098554,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29014460000000003
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.1098554,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29014460000000003
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.1098554,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.29014460000000003
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "typical/novdd/25C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 2.199,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.1748358,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2251642
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.1748358,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2251642
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.1748358,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2251642
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.15617,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24383000000000002
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.15617,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24383000000000002
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.15617,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24383000000000002
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.1425984,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2574016
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.1425984,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2574016
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.1425984,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2574016
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "typical/novdd/125C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 1.294,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.2435202,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.15647980000000003
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.2435202,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.15647980000000003
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.2435202,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.15647980000000003
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.2180757,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.1819243
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.2180757,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.1819243
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.2180757,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.1819243
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.199661,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20033900000000002
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.199661,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20033900000000002
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.199661,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20033900000000002
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/-40C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 2.153,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.1136768,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2863232
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.1136768,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2863232
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.1136768,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2863232
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.1028909,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2971091
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.1028909,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2971091
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.1028909,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2971091
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.09485046,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30514954000000005
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.09485046,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30514954000000005
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.09485046,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30514954000000005
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/25C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 1.745,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.1453329,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25466710000000004
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.1453329,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25466710000000004
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.1453329,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.25466710000000004
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.1318361,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2681639
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.1318361,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2681639
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.1318361,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2681639
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.1218298,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27817020000000003
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.1218298,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27817020000000003
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.1218298,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27817020000000003
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ff/novdd/125C",
+      "process": "ff",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 1.451,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.1999545,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20004550000000001
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.1999545,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20004550000000001
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.1999545,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20004550000000001
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.1819812,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2180188
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.1819812,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2180188
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.1819812,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2180188
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.1687076,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2312924
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.1687076,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2312924
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.1687076,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2312924
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/-40C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 3.607,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.1684207,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23157930000000002
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.1684207,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23157930000000002
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.1684207,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23157930000000002
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.1473703,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2526297
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.1473703,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2526297
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.1473703,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2526297
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.132432,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26756800000000003
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.132432,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26756800000000003
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.132432,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26756800000000003
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/25C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 3.556,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.2207575,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.17924250000000003
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.2207575,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.17924250000000003
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.2207575,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.17924250000000003
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.1933303,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2066697
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.1933303,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2066697
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.1933303,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2066697
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.1739894,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.22601060000000003
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.1739894,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.22601060000000003
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.1739894,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.22601060000000003
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "ss/novdd/125C",
+      "process": "ss",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 1.337,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.3119291,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.08807090000000001
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.3119291,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.08807090000000001
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.3119291,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.08807090000000001
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.273533,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.126467
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.273533,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.126467
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.273533,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.126467
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.2466717,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.15332830000000003
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.2466717,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.15332830000000003
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.2466717,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.15332830000000003
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/-40C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 1.635,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.1193518,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2806482
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.1193518,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2806482
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.1193518,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2806482
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.1076304,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2923696
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.1076304,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2923696
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.1076304,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2923696
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.09893343,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30106657000000003
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.09893343,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30106657000000003
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.09893343,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30106657000000003
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/25C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 1.067,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.1531328,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2468672
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.1531328,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2468672
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.1531328,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2468672
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.1383791,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26162090000000005
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.1383791,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26162090000000005
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.1383791,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.26162090000000005
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.1274906,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2725094
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.1274906,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2725094
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.1274906,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2725094
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "fs/novdd/125C",
+      "process": "fs",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 1.182,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.211474,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.18852600000000003
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.211474,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.18852600000000003
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.211474,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.18852600000000003
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.1916939,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20830610000000002
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.1916939,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20830610000000002
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.1916939,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.20830610000000002
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.1771526,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.22284740000000003
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.1771526,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.22284740000000003
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.1771526,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.22284740000000003
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/-40C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": -40,
+      "status": "pass",
+      "runtime_s": 1.423,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.1576855,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24231450000000002
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.1576855,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24231450000000002
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.1576855,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.24231450000000002
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.1387591,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2612409
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.1387591,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2612409
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.1387591,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2612409
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.1252022,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2747978
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.1252022,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2747978
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.1252022,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2747978
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/25C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 1.322,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.2059292,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19407080000000002
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.2059292,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19407080000000002
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.2059292,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.19407080000000002
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.181405,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.218595
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.181405,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.218595
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.181405,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.218595
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.1639419,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23605810000000002
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.1639419,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23605810000000002
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.1639419,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23605810000000002
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    },
+    {
+      "corner_id": "sf/novdd/125C",
+      "process": "sf",
+      "supply_v": {},
+      "temperature_c": 125,
+      "status": "pass",
+      "runtime_s": 0.878,
+      "measurements": [
+        {
+          "name": "vol_d0v0",
+          "value": 0.2897978,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.11020220000000003
+        },
+        {
+          "name": "vol_d0v1",
+          "value": 0.2897978,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.11020220000000003
+        },
+        {
+          "name": "vol_d0v2",
+          "value": 0.2897978,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.11020220000000003
+        },
+        {
+          "name": "vol_d1v0",
+          "value": 0.2557254,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.14427460000000003
+        },
+        {
+          "name": "vol_d1v1",
+          "value": 0.2557254,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.14427460000000003
+        },
+        {
+          "name": "vol_d1v2",
+          "value": 0.2557254,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.14427460000000003
+        },
+        {
+          "name": "vol_d2v0",
+          "value": 0.2316248,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.16837520000000003
+        },
+        {
+          "name": "vol_d2v1",
+          "value": 0.2316248,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.16837520000000003
+        },
+        {
+          "name": "vol_d2v2",
+          "value": 0.2316248,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.16837520000000003
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    }
+  ]
+}

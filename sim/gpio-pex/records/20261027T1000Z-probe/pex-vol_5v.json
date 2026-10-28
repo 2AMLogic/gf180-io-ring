@@ -1,0 +1,297 @@
+{
+  "schema_version": 2,
+  "status": "error",
+  "layout": {
+    "path": "layout/gf180_io_ring.gds",
+    "scope": "repo"
+  },
+  "netlist": {
+    "path": null,
+    "scope": "external"
+  },
+  "reference_netlist": {
+    "path": null,
+    "scope": "external"
+  },
+  "extraction": {
+    "deck": "gf180mcu",
+    "device_count": 76,
+    "net_count": 33,
+    "netlist_sha256": "6ae84326fcb2b4a8aa99790dd0658f6abbb60ea1a9ae3087896e0ad240dbbf75",
+    "model": {
+      "capacitance": "net-to-ground for every net's own (non-coupled) area/perimeter, plus net-to-net for the vertical-overlap coupling `coupling` describes below -- a coupled net pair gets a direct capacitor between their two hub nodes, not just capacitors to the deck's ground/substrate net",
+      "coupling": "vertical overlap (crossover) unconditionally -- where one net's conductor on an adjacent metal level sits directly over another *distinct* net's conductor, that overlap area is charged between the two nets instead of to ground (issue #760) -- plus lateral (same-layer, sidewall) coupling, but only for a net pair naming one of the caller's declared `--critical-net` nets (issue #976): facing-edge length within that layer's own minimum-spacing lookback is charged between the two nets, *additively* (not deducted from either net's substrate fringe term, unlike the vertical case -- a known simplification). Any same-layer pair with neither side named `--critical-net`, and fringe shielding in general, are still not modelled",
+      "resistance": "single lumped series resistance per net, distributed as a star across that net's device terminals (issue #592) -- not a per-segment, distributed RC ladder, *unless* `--distributed-rc` names this net via `--critical-net` (issue #977, Epic #709 Phase 2b): then the net's terminals are ordered along their approximate physical spread and its total R/C is broken into a chain of per-segment resistors (segment length proportional to inter-terminal distance) with a ground capacitor at each terminal node (proportional to its adjacent segment length/2), instead of one star hub -- still an approximation (terminal position is a device-placement proxy, not true per-segment routing geometry), but a strictly finer-grained one than the single-hub star",
+      "frequency": "quasi-static -- one frequency-independent R and C per net; no skin effect, no distributed transmission-line behavior"
+    },
+    "critical_nets": [],
+    "distributed_rc": false,
+    "mom_rlc_override": null,
+    "label_layers": null
+  },
+  "body_bias": {
+    "status": "biased",
+    "unbiased_device_count": 0,
+    "unbiased_nets": [],
+    "unbiased_pmos_body_nets": []
+  },
+  "measurement": {
+    "mode": "testbench",
+    "command": null,
+    "timeout_s": null,
+    "sides": null
+  },
+  "testbenches": [
+    {
+      "request": {
+        "path": null,
+        "scope": "external"
+      },
+      "schematic_netlist": {
+        "path": null,
+        "scope": "external"
+      },
+      "corner_count": 1,
+      "measurement_names": [
+        "vol_d0v0",
+        "vol_d0v1",
+        "vol_d0v2",
+        "vol_d1v0",
+        "vol_d1v1",
+        "vol_d1v2",
+        "vol_d2v0",
+        "vol_d2v1",
+        "vol_d2v2"
+      ]
+    }
+  ],
+  "corner_count": 1,
+  "delta": [
+    {
+      "spec_row": "vol_d0v0",
+      "corner_id": "typical/novdd/25C",
+      "schematic_value": 0.1633215,
+      "extracted_value": null,
+      "delta_pct": null,
+      "status": "error"
+    },
+    {
+      "spec_row": "vol_d0v1",
+      "corner_id": "typical/novdd/25C",
+      "schematic_value": 0.1633215,
+      "extracted_value": null,
+      "delta_pct": null,
+      "status": "error"
+    },
+    {
+      "spec_row": "vol_d0v2",
+      "corner_id": "typical/novdd/25C",
+      "schematic_value": 0.1633215,
+      "extracted_value": null,
+      "delta_pct": null,
+      "status": "error"
+    },
+    {
+      "spec_row": "vol_d1v0",
+      "corner_id": "typical/novdd/25C",
+      "schematic_value": 0.1523869,
+      "extracted_value": null,
+      "delta_pct": null,
+      "status": "error"
+    },
+    {
+      "spec_row": "vol_d1v1",
+      "corner_id": "typical/novdd/25C",
+      "schematic_value": 0.1523869,
+      "extracted_value": null,
+      "delta_pct": null,
+      "status": "error"
+    },
+    {
+      "spec_row": "vol_d1v2",
+      "corner_id": "typical/novdd/25C",
+      "schematic_value": 0.1523869,
+      "extracted_value": null,
+      "delta_pct": null,
+      "status": "error"
+    },
+    {
+      "spec_row": "vol_d2v0",
+      "corner_id": "typical/novdd/25C",
+      "schematic_value": 0.1445476,
+      "extracted_value": null,
+      "delta_pct": null,
+      "status": "error"
+    },
+    {
+      "spec_row": "vol_d2v1",
+      "corner_id": "typical/novdd/25C",
+      "schematic_value": 0.1445476,
+      "extracted_value": null,
+      "delta_pct": null,
+      "status": "error"
+    },
+    {
+      "spec_row": "vol_d2v2",
+      "corner_id": "typical/novdd/25C",
+      "schematic_value": 0.1445476,
+      "extracted_value": null,
+      "delta_pct": null,
+      "status": "error"
+    }
+  ],
+  "coverage": {
+    "testbenches": 1,
+    "delta_rows": 9,
+    "corners_compared": 1,
+    "schema_version": 1,
+    "known": true,
+    "checked": [],
+    "skipped": [
+      {
+        "id": "comparison:[0,\"typical/novdd/25C\",\"vol_d0v0\"]",
+        "reason": "unavailable_comparison"
+      },
+      {
+        "id": "comparison:[1,\"typical/novdd/25C\",\"vol_d0v1\"]",
+        "reason": "unavailable_comparison"
+      },
+      {
+        "id": "comparison:[2,\"typical/novdd/25C\",\"vol_d0v2\"]",
+        "reason": "unavailable_comparison"
+      },
+      {
+        "id": "comparison:[3,\"typical/novdd/25C\",\"vol_d1v0\"]",
+        "reason": "unavailable_comparison"
+      },
+      {
+        "id": "comparison:[4,\"typical/novdd/25C\",\"vol_d1v1\"]",
+        "reason": "unavailable_comparison"
+      },
+      {
+        "id": "comparison:[5,\"typical/novdd/25C\",\"vol_d1v2\"]",
+        "reason": "unavailable_comparison"
+      },
+      {
+        "id": "comparison:[6,\"typical/novdd/25C\",\"vol_d2v0\"]",
+        "reason": "unavailable_comparison"
+      },
+      {
+        "id": "comparison:[7,\"typical/novdd/25C\",\"vol_d2v1\"]",
+        "reason": "unavailable_comparison"
+      },
+      {
+        "id": "comparison:[8,\"typical/novdd/25C\",\"vol_d2v2\"]",
+        "reason": "unavailable_comparison"
+      }
+    ],
+    "inapplicable": [],
+    "unknown": [],
+    "nothing_checked": true,
+    "nothing_checked_reasons": [
+      "unavailable_comparison"
+    ]
+  },
+  "passed": 0,
+  "failed": 0,
+  "errored": 9,
+  "pin_count_mismatch": {
+    "subcircuit": "gpio",
+    "schematic": {
+      "netlist": "/tmp/tmp.Zext47QWhC/requests/gpio.spice",
+      "subcircuit": "gpio",
+      "pin_count": 11,
+      "pins": [
+        "A",
+        "OE",
+        "IE",
+        "PU",
+        "PD",
+        "Y",
+        "PAD",
+        "DVDD",
+        "VDD",
+        "DVSS",
+        "VSS"
+      ]
+    },
+    "extracted": {
+      "netlist": "/tmp/tmp.Zext47QWhC/pex/vol_5v.spice",
+      "subcircuit": "gpio",
+      "pin_count": 10,
+      "pins": [
+        "A",
+        "DVDD",
+        "DVSS|VSS",
+        "IE",
+        "OE",
+        "PAD",
+        "PD",
+        "PU",
+        "VDD",
+        "Y"
+      ]
+    },
+    "ngspice_message": null,
+    "detail": "the extracted netlist declares `.SUBCKT gpio` with 10 pins (A, DVDD, DVSS|VSS, IE, OE, PAD, PD, PU, VDD, Y) but the schematic DUT declares 11 (A, OE, IE, PU, PD, Y, PAD, DVDD, VDD, DVSS, VSS) -- klt pex re-runs the testbench's own unmodified subcircuit instantiation line against both, so ngspice refuses the extracted-side deck. Give the schematic subcircuit the same pin list as the extracted one (extraction promotes physical nets a schematic often does not model, e.g. a device-body/substrate-tap net), or extract with a `--top` cell whose interface matches"
+  },
+  "flat_dut_mismatch": null,
+  "model_mismatch": {
+    "reference_only": [
+      "'",
+      "W'"
+    ],
+    "extracted_only": [
+      "diode_nd2ps_06v0",
+      "diode_pd2nw_06v0",
+      "nfet_03v3",
+      "nfet_06v0",
+      "pfet_03v3",
+      "pfet_06v0"
+    ],
+    "counts": {
+      "reference": {
+        "'": 2,
+        "W'": 52
+      },
+      "extracted": {
+        "diode_nd2ps_06v0": 1,
+        "diode_pd2nw_06v0": 1,
+        "nfet_03v3": 7,
+        "nfet_06v0": 26,
+        "pfet_03v3": 7,
+        "pfet_06v0": 34
+      }
+    },
+    "detail": "the reference (schematic) and extracted netlists instantiate different device models/`.subckt`s, and the two sides may be electrically unrelated, so `delta[]` rows could compare two different physical devices rather than a parasitic effect. Only in the reference netlist: ', W'. Only in the extracted netlist: diode_nd2ps_06v0, diode_pd2nw_06v0, nfet_03v3, nfet_06v0, pfet_03v3, pfet_06v0. A common cause: the layout carries no voltage-domain marker geometry, so `klt extract --pdk` bound every MOS to the PDK family's default flavour while the reference netlist names a different one -- see docs/cli/pex.md's `model_mismatch` section"
+  },
+  "provenance": {
+    "klt_version": "0.7.0",
+    "klayout_version": "0.30.12",
+    "pdk": {
+      "name": "gf180mcuA",
+      "source": "--pdk-root flag",
+      "version": "open_pdks c6d73a35f524070e85faff4a6a9eef49553ebc2b"
+    },
+    "deck": {
+      "name": "gf180mcu",
+      "content_hash": "sha256:9babf6fd5d623fea50d380168ebf8f7c0f0f6e70eb7d89b221476dc47c7f6a85",
+      "released": true,
+      "options": {
+        "metal_top": "9K",
+        "mim_cap": "cap_mim_2f0_m4m5_noshield",
+        "poly_res": "1k"
+      },
+      "options_explicit": {
+        "metal_top": false,
+        "mim_cap": false,
+        "poly_res": false
+      },
+      "options_hash": "sha256:6a7dc7660a470994263c5ca8ace6d8ac8c605d77e6876a9c5490949de6e7cb05"
+    },
+    "input": {
+      "content_hash": "sha256:6f298d293f436b12c9908676fe8da8f980e24e7719ac4075fa0b534475a95e56",
+      "role": "layout"
+    }
+  }
+}

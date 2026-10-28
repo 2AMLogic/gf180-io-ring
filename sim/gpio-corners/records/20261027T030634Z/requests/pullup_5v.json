@@ -1,0 +1,117 @@
+{
+  "netlist": "pullup_5v.sp",
+  "engine": "ngspice",
+  "models": {
+    "pdk": "gf180mcuD",
+    "lib": "/home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice"
+  },
+  "corners": {
+    "process": [
+      {
+        "name": "typical",
+        "sections": [
+          "typical",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "ff",
+        "sections": [
+          "ff",
+          "diode_ff",
+          "res_ff",
+          "moscap_ff"
+        ]
+      },
+      {
+        "name": "ss",
+        "sections": [
+          "ss",
+          "diode_ss",
+          "res_ss",
+          "moscap_ss"
+        ]
+      },
+      {
+        "name": "fs",
+        "sections": [
+          "fs",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "sf",
+        "sections": [
+          "sf",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      }
+    ],
+    "temperature_c": [
+      -40,
+      25,
+      125
+    ]
+  },
+  "analysis": {
+    "kind": "op",
+    "args": ""
+  },
+  "measurements": [
+    {
+      "name": "r_pullup_d0v0",
+      "expr": "0.5*v(dvdd_d0v0)/abs(i(vpad_d0v0))",
+      "unit": "ohm"
+    },
+    {
+      "name": "r_pullup_d0v1",
+      "expr": "0.5*v(dvdd_d0v1)/abs(i(vpad_d0v1))",
+      "unit": "ohm"
+    },
+    {
+      "name": "r_pullup_d0v2",
+      "expr": "0.5*v(dvdd_d0v2)/abs(i(vpad_d0v2))",
+      "unit": "ohm"
+    },
+    {
+      "name": "r_pullup_d1v0",
+      "expr": "0.5*v(dvdd_d1v0)/abs(i(vpad_d1v0))",
+      "unit": "ohm"
+    },
+    {
+      "name": "r_pullup_d1v1",
+      "expr": "0.5*v(dvdd_d1v1)/abs(i(vpad_d1v1))",
+      "unit": "ohm"
+    },
+    {
+      "name": "r_pullup_d1v2",
+      "expr": "0.5*v(dvdd_d1v2)/abs(i(vpad_d1v2))",
+      "unit": "ohm"
+    },
+    {
+      "name": "r_pullup_d2v0",
+      "expr": "0.5*v(dvdd_d2v0)/abs(i(vpad_d2v0))",
+      "unit": "ohm"
+    },
+    {
+      "name": "r_pullup_d2v1",
+      "expr": "0.5*v(dvdd_d2v1)/abs(i(vpad_d2v1))",
+      "unit": "ohm"
+    },
+    {
+      "name": "r_pullup_d2v2",
+      "expr": "0.5*v(dvdd_d2v2)/abs(i(vpad_d2v2))",
+      "unit": "ohm"
+    }
+  ],
+  "options": {
+    "stage_model_inputs": true,
+    "timeout_s": 600
+  }
+}
