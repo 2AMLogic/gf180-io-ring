@@ -6,6 +6,194 @@
       "file": "manifests/evidence/item1.json",
       "content_hash": "sha256:ac7379d7bfdf14ccfcdbc9ae02136f7f6900ae54bdd20741215bafb4923a5d06"
     },
+    "6": [
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/pulldown_3v3_25C.json",
+        "rows": [
+          "pulldown_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/pulldown_3v3_25C.r_pulldown-control.json",
+        "rows": [
+          "pulldown_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/pulldown_5v_25C.json",
+        "rows": [
+          "pulldown_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/pulldown_5v_25C.r_pulldown-control.json",
+        "rows": [
+          "pulldown_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/pullup_3v3_25C.json",
+        "rows": [
+          "pullup_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/pullup_5v_25C.json",
+        "rows": [
+          "pullup_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/voh_3v3_125C.json",
+        "rows": [
+          "voh_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/voh_3v3_25C.json",
+        "rows": [
+          "voh_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/voh_3v3_m40C.json",
+        "rows": [
+          "voh_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/voh_5v_125C.json",
+        "rows": [
+          "voh_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/voh_5v_25C.json",
+        "rows": [
+          "voh_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/voh_5v_m40C.json",
+        "rows": [
+          "voh_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/vol_3v3_125C.json",
+        "rows": [
+          "vol_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/vol_3v3_25C.json",
+        "rows": [
+          "vol_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/vol_3v3_m40C.json",
+        "rows": [
+          "vol_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/vol_5v_125C.json",
+        "rows": [
+          "vol_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/vol_5v_25C.json",
+        "rows": [
+          "vol_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/vol_5v_m40C.json",
+        "rows": [
+          "vol_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_3v3_125C.hyst-control.json",
+        "rows": [
+          "hyst_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_3v3_125C.json",
+        "rows": [
+          "vil_3v3",
+          "vih_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_3v3_25C.hyst-control.json",
+        "rows": [
+          "hyst_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_3v3_25C.json",
+        "rows": [
+          "vil_3v3",
+          "vih_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_3v3_m40C.hyst-control.json",
+        "rows": [
+          "hyst_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_3v3_m40C.json",
+        "rows": [
+          "vil_3v3",
+          "vih_3v3"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_5v_125C.hyst-control.json",
+        "rows": [
+          "hyst_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_5v_125C.json",
+        "rows": [
+          "vil_5v",
+          "vih_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_5v_25C.hyst-control.json",
+        "rows": [
+          "hyst_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_5v_25C.json",
+        "rows": [
+          "vil_5v",
+          "vih_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_5v_m40C.hyst-control.json",
+        "rows": [
+          "hyst_5v"
+        ]
+      },
+      {
+        "file": "sim/mc/records/20261027T050850Z/yield/xfer_5v_m40C.json",
+        "rows": [
+          "vil_5v",
+          "vih_5v"
+        ]
+      }
+    ],
     "9": {
       "file": "manifests/evidence/item9.json",
       "content_hash": "sha256:a46405c4c6ac18f726ada0fffb0bacb1d2e9cd9914810fb758ea852e810c3255"
@@ -14,5 +202,51 @@
       "file": "manifests/item10-attestation.json",
       "content_hash": "sha256:79d9736abd7e006cd6b5945250a059e958720e359f3cd0cbeee3d40a64bcafa3"
     }
+  },
+  "spec_rows": {
+    "6": [
+      {
+        "id": "vil_5v"
+      },
+      {
+        "id": "vih_5v"
+      },
+      {
+        "id": "hyst_5v"
+      },
+      {
+        "id": "vol_5v"
+      },
+      {
+        "id": "voh_5v"
+      },
+      {
+        "id": "pullup_5v"
+      },
+      {
+        "id": "pulldown_5v"
+      },
+      {
+        "id": "vil_3v3"
+      },
+      {
+        "id": "vih_3v3"
+      },
+      {
+        "id": "hyst_3v3"
+      },
+      {
+        "id": "vol_3v3"
+      },
+      {
+        "id": "voh_3v3"
+      },
+      {
+        "id": "pullup_3v3"
+      },
+      {
+        "id": "pulldown_3v3"
+      }
+    ]
   }
 }

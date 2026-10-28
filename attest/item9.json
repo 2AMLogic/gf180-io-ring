@@ -2,7 +2,7 @@
   "schema_version": 1,
   "kind": "t1-attestation-inventory",
   "t1_item": 9,
-  "description": "Testbenches behind gf180-io-ring's claimed measurements. Cold start is the single-corner smoke bench; the clamp and GPIO benches submit grids to the batch fleet. Re-attest when the item 5/6 GPIO benches land (#18).",
+  "description": "Testbenches behind gf180-io-ring's claimed measurements. Cold start is the single-corner smoke bench; the clamp and GPIO benches submit grids to the batch fleet. The item 6 Monte Carlo bench (sim/mc, #19) batches to the fleet too. Re-attest when the item 5 GPIO benches land (#18).",
   "testbenches": [
     "sim/check_env.sh",
     "sim/smoke/smoke.spice",
@@ -12,7 +12,10 @@
     "sim/gpio-bi_t/cdl2ngspice.py",
     "sim/gpio-bi_t/collect.py",
     "sim/gpio-bi_t/gen_requests.py",
-    "sim/gpio-bi_t/run.sh"
+    "sim/gpio-bi_t/run.sh",
+    "sim/mc/collect.py",
+    "sim/mc/gen_requests.py",
+    "sim/mc/run.sh"
   ],
   "cold_start": {"argv": ["sim/smoke/run.sh"], "local_only": true},
   "pins": {

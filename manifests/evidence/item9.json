@@ -3,14 +3,14 @@
   "kind": "generic",
   "status": "pass",
   "t1_item": 9,
-  "summary": "T1 item 9 (Testbenches shipped): 12/12 attestation checks passed (klt signoff --attest)",
+  "summary": "T1 item 9 (Testbenches shipped): 15/15 attestation checks passed (klt signoff --attest)",
   "source": "attest/item9.json",
   "attestation": {
     "producer": "klt signoff --attest",
     "inventory_schema_version": 1,
     "hash_algorithm": "sha256-raw-bytes",
-    "check_count": 12,
-    "passed_count": 12,
+    "check_count": 15,
+    "passed_count": 15,
     "checks": [
       {
         "check": "present",
@@ -60,6 +60,27 @@
         "path": "sim/gpio-bi_t/run.sh",
         "passed": true,
         "content_hash": "sha256:0623e099ed24b6cf8fd11951e109f0104aa3adfe94bcf4dbb28aec5944c3b49f"
+      },
+      {
+        "check": "present",
+        "role": "testbench",
+        "path": "sim/mc/collect.py",
+        "passed": true,
+        "content_hash": "sha256:c68e00926a647fae7f95e7192ffed7de79f5b11d7c99caf47453d44492f9671c"
+      },
+      {
+        "check": "present",
+        "role": "testbench",
+        "path": "sim/mc/gen_requests.py",
+        "passed": true,
+        "content_hash": "sha256:805977d935a441f872099091adaa864c551d77baaa84293ff2620d1956d18346"
+      },
+      {
+        "check": "present",
+        "role": "testbench",
+        "path": "sim/mc/run.sh",
+        "passed": true,
+        "content_hash": "sha256:00284c455b7a989e574aefed6b1358470174a9030279ab569fb044191019a815"
       },
       {
         "check": "present",
@@ -116,7 +137,7 @@
         "path": "attest/item9.json",
         "scope": "repo"
       },
-      "content_hash": "sha256:a46405c4c6ac18f726ada0fffb0bacb1d2e9cd9914810fb758ea852e810c3255"
+      "content_hash": "sha256:cd89a647ef9149a785efb1eeef07d83fc05cc336cf103b999bf42c7e7bc12518"
     }
   }
 }

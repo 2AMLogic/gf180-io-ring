@@ -1,0 +1,66 @@
+{
+  "netlist": "xfer_5v_25C.sp",
+  "engine": "ngspice",
+  "models": {
+    "pdk": "gf180mcuD",
+    "lib": "/home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice"
+  },
+  "corners": {
+    "process": [
+      {
+        "name": "typical",
+        "sections": [
+          "typical",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      }
+    ],
+    "temperature_c": [
+      25
+    ]
+  },
+  "analysis": {
+    "kind": "tran",
+    "args": "0.1u 200u 0 0.1u"
+  },
+  "measurements": [
+    {
+      "name": "vt_plus",
+      "unit": "V",
+      "limits": {
+        "max": 3.5,
+        "target_yield": 0.98
+      },
+      "spice": ".meas tran vt_plus FIND v(pad) WHEN v(y)='0.5*vdd' RISE=1"
+    },
+    {
+      "name": "vt_minus",
+      "unit": "V",
+      "limits": {
+        "min": 1.5,
+        "target_yield": 0.98
+      },
+      "spice": ".meas tran vt_minus FIND v(pad) WHEN v(y)='0.5*vdd' FALL=1"
+    },
+    {
+      "name": "hyst",
+      "unit": "V",
+      "limits": {
+        "min": 0.4,
+        "target_yield": 0.98
+      },
+      "spice": ".meas tran hyst PARAM='vt_plus-vt_minus'"
+    }
+  ],
+  "options": {
+    "stage_model_inputs": true,
+    "timeout_s": 600
+  },
+  "monte_carlo": {
+    "n": 300,
+    "seed": 20261027,
+    "vary": "both"
+  }
+}

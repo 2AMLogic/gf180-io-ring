@@ -1,0 +1,124 @@
+{
+  "samples": "sim/mc/records/20261027T050850Z/klt/voh_5v_125C.json",
+  "limits": null,
+  "source": {
+    "kind": "sim-report",
+    "netlist": "sim/mc/records/20261027T050850Z/requests/voh_5v_125C.sp",
+    "monte_carlo": {
+      "n": 300,
+      "seed": 20261027,
+      "vary": "both",
+      "family_mismatch": [
+        {
+          "family": "other",
+          "active": null,
+          "note": "mismatch activity for the 'other' family is not independently verified for PDK family 'gf180mcu'; treat any sampled spread for it as unconfirmed."
+        }
+      ]
+    },
+    "sample_count": 300
+  },
+  "schema_version": 1,
+  "confidence": 0.95,
+  "target_ci_halfwidth": 0.01,
+  "min_samples": 2,
+  "status": "fail",
+  "measurement_count": 1,
+  "measurements": [
+    {
+      "name": "voh_drop",
+      "unit": "V",
+      "n": 300,
+      "errored": 0,
+      "failed_unmeasurable": 0,
+      "censored": 0,
+      "inconclusive": 0,
+      "limits": {
+        "max": 0.5,
+        "target_yield": 0.98
+      },
+      "source_corners": [
+        "typical/novdd/125C"
+      ],
+      "distribution": {
+        "model": "normal",
+        "mean": 0.5053499459999996,
+        "stddev": 0.0004359546642886726,
+        "min": 0.5040516,
+        "max": 0.5066951,
+        "median": 0.5053926,
+        "skewness": -0.09780943125601153,
+        "excess_kurtosis": 0.4961909286139994,
+        "normality": {
+          "test": "anderson-darling",
+          "statistic": 1.014500256789529,
+          "critical_value": 0.787,
+          "significance": 0.05,
+          "verdict": "rejected"
+        }
+      },
+      "yield": {
+        "empirical": {
+          "method": "clopper-pearson",
+          "estimate": 0.0,
+          "confidence": 0.95,
+          "confidence_interval": {
+            "low": 0.0,
+            "high": 0.012220974694292897
+          },
+          "n": 300
+        },
+        "normal": {
+          "method": "normal-delta",
+          "estimate": 6.418818697520569e-35,
+          "confidence": 0.95,
+          "confidence_interval": {
+            "low": 0.0,
+            "high": 8.478812425199734e-34
+          },
+          "n": 300
+        },
+        "variance_reduced": null
+      },
+      "capability": {
+        "cp": null,
+        "cpk": -4.090598127314354,
+        "cpk_confidence_interval": {
+          "low": -4.420617675984498,
+          "high": -3.7605785786442096
+        },
+        "sigma_to_spec": -12.27179438194306,
+        "sigma_to_spec_confidence_interval": {
+          "low": -13.261853027953492,
+          "high": -11.281735735932628
+        },
+        "limiting_side": "upper"
+      },
+      "sample_size": {
+        "n": 300,
+        "observed_ci_halfwidth": 0.006110487347146448,
+        "target_ci_halfwidth": 0.01,
+        "required_n": 183,
+        "required_n_for_target": null,
+        "verdict": "sufficient",
+        "method": "clopper-pearson-zero-failures",
+        "variance_reduced": null
+      },
+      "negative_control": null,
+      "analytic_cross_check": null,
+      "sampling": {
+        "strategy": "plain_random",
+        "replicates": null,
+        "effective_sample_size": null
+      },
+      "status": "fail",
+      "warnings": [
+        "measurement 'voh_drop': the sample set is not consistent with a normal distribution (Anderson-Darling A2* = 1.0145 > 0.787); treat the parametric yield estimate and Cpk as indicative only and prefer the empirical estimate",
+        "measurement 'voh_drop': the observed pass rate (0.000000) is at or below the 0.98 target, so no sample count can support the claim -- this is the design falling short, not the campaign"
+      ]
+    }
+  ],
+  "warnings": [
+    "no measurement declared a negative_control -- this campaign has no seeded, known-bad variant demonstrating that the statistics above can actually detect a degraded design; see docs/cli/yield.md#negative-control"
+  ]
+}
