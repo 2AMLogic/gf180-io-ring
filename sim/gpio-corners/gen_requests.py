@@ -222,10 +222,11 @@ def esd_core_rail_netlist(modeldir):
     current pulse as esd_rail into VDD with DVDD, DVSS, VSS grounded."""
     lines = header("esd_core_rail", "-", "VDD-VSS core rail clamp, ESD-like current pulse", modeldir,
                    ("core_pad.spice",))
-    # Same convergence aid as esd_rail (DR-0003 Amendment 1, item 4): a 1 Meg leak at VDD. With
-    # gmin=1e-9 the fs/125 C corner aborted on the fleet ("timestep too small", first attempt kept
-    # under the record's superseded/); gmin=1e-8 (40 nA at 4 V, against 1.33 A) converges it.
-    lines += [".options itl4=1000 gmin=1e-8 reltol=0.01 abstol=1e-9 rshunt=1e12", "Rleak vdd 0 1Meg",
+    # Same convergence aid as esd_rail (DR-0003 Amendment 1, item 4): a 1 Meg leak at VDD. The
+    # fleet's ngspice aborted fs/125 C (gmin=1e-9), then sf/125 C (gmin=1e-8), with "timestep too
+    # small" in the trigger moscap; both attempts are kept under the record's superseded/.
+    # gmin=1e-8 with cshunt=1e-14 (10 fF per node, against pF-scale devices) converged both.
+    lines += [".options itl4=1000 gmin=1e-8 reltol=0.01 abstol=1e-9 rshunt=1e12 cshunt=1e-14", "Rleak vdd 0 1Meg",
               f"Ipulse 0 vdd PULSE(0 {I_HBM} 1n 10n 10n 100n 1)",
               "Xcore 0 vdd 0 0 core_pad"]
     meas = [mspice("v_peak", ".meas tran v_peak MAX v(vdd)", "V", lim(hi=V_CORE_BUDGET)),
