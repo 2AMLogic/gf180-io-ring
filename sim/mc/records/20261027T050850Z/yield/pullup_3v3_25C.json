@@ -1,0 +1,124 @@
+{
+  "samples": "sim/mc/records/20261027T050850Z/klt/pullup_3v3_25C.json",
+  "limits": null,
+  "source": {
+    "kind": "sim-report",
+    "netlist": "sim/mc/records/20261027T050850Z/requests/pullup_3v3_25C.sp",
+    "monte_carlo": {
+      "n": 300,
+      "seed": 20261027,
+      "vary": "both",
+      "family_mismatch": [
+        {
+          "family": "other",
+          "active": null,
+          "note": "mismatch activity for the 'other' family is not independently verified for PDK family 'gf180mcu'; treat any sampled spread for it as unconfirmed."
+        }
+      ]
+    },
+    "sample_count": 300
+  },
+  "schema_version": 1,
+  "confidence": 0.95,
+  "target_ci_halfwidth": 0.01,
+  "min_samples": 2,
+  "status": "fail",
+  "measurement_count": 1,
+  "measurements": [
+    {
+      "name": "r_pullup",
+      "unit": "ohm",
+      "n": 300,
+      "errored": 0,
+      "failed_unmeasurable": 0,
+      "censored": 0,
+      "inconclusive": 0,
+      "limits": {
+        "min": 25000.0,
+        "max": 100000.0,
+        "target_yield": 0.98
+      },
+      "source_corners": [
+        "typical/novdd/25C"
+      ],
+      "distribution": {
+        "model": "normal",
+        "mean": 306822.8486666667,
+        "stddev": 677.1731282201775,
+        "min": 304691.2,
+        "max": 308667.5,
+        "median": 306801.19999999995,
+        "skewness": 0.07055647752566378,
+        "excess_kurtosis": 0.015483303415553262,
+        "normality": {
+          "test": "anderson-darling",
+          "statistic": 0.3528007068494794,
+          "critical_value": 0.787,
+          "significance": 0.05,
+          "verdict": "consistent"
+        }
+      },
+      "yield": {
+        "empirical": {
+          "method": "clopper-pearson",
+          "estimate": 0.0,
+          "confidence": 0.95,
+          "confidence_interval": {
+            "low": 0.0,
+            "high": 0.012220974694292897
+          },
+          "n": 300
+        },
+        "normal": {
+          "method": "normal-delta",
+          "estimate": 0.0,
+          "confidence": 0.95,
+          "confidence_interval": {
+            "low": 0.0,
+            "high": 0.0
+          },
+          "n": 300
+        },
+        "variance_reduced": null
+      },
+      "capability": {
+        "cp": 18.459090414372916,
+        "cpk": -101.80697768789781,
+        "cpk_confidence_interval": {
+          "low": -109.96678088003121,
+          "high": -93.64717449576442
+        },
+        "sigma_to_spec": -305.42093306369344,
+        "sigma_to_spec_confidence_interval": {
+          "low": -329.90034264009364,
+          "high": -280.94152348729324
+        },
+        "limiting_side": "upper"
+      },
+      "sample_size": {
+        "n": 300,
+        "observed_ci_halfwidth": 0.006110487347146448,
+        "target_ci_halfwidth": 0.01,
+        "required_n": 183,
+        "required_n_for_target": null,
+        "verdict": "sufficient",
+        "method": "clopper-pearson-zero-failures",
+        "variance_reduced": null
+      },
+      "negative_control": null,
+      "analytic_cross_check": null,
+      "sampling": {
+        "strategy": "plain_random",
+        "replicates": null,
+        "effective_sample_size": null
+      },
+      "status": "fail",
+      "warnings": [
+        "measurement 'r_pullup': the observed pass rate (0.000000) is at or below the 0.98 target, so no sample count can support the claim -- this is the design falling short, not the campaign"
+      ]
+    }
+  ],
+  "warnings": [
+    "no measurement declared a negative_control -- this campaign has no seeded, known-bad variant demonstrating that the statistics above can actually detect a degraded design; see docs/cli/yield.md#negative-control"
+  ]
+}
