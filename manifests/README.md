@@ -100,6 +100,13 @@ The cold start runs one local ngspice operating point, so attest from a
 host with the pinned PDK (`sim/check_env.sh`). CI runs the same command with
 `--check evidence/item9.json`; it does not run the local-only cold start.
 
+## Item 6 citations (Monte Carlo)
+
+Item 6 cites the `klt yield` reports (and the paired negative-control reports) of one record under
+`sim/mc/records/`, each with the spec rows it covers, and declares the row set under
+`spec_rows."6"`. See [`sim/mc/README.md`](../sim/mc/README.md) for the campaign and its limits.
+Re-cite after a new record, then regenerate the record above.
+
 ## Item 5 citations (corner verification)
 
 Item 5 cites a list of `klt sim` envelopes from one record under

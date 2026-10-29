@@ -124,9 +124,10 @@ def mis_size(text, kind):
             text, n = re.subn(rf"(?m)^({name} .*?\bW=)[0-9.]+u", r"\g<1>0.3u", text)
             assert n == 1, name
     else:
-        for name, old in (("XMP_pu", "8u"), ("XMN_pd", "6u")):
-            new = f"{float(old[:-1]) / 4:g}u"
-            text, n = re.subn(rf"(?m)^({name} .*?\bL=){old}", rf"\g<1>{new}", text)
+        for name in ("XMP_pu", "XMN_pd"):
+            # length / 4, floored at 0.7 um so the thick-oxide bin still resolves (an out-of-bin L fails the whole job)
+            text, n = re.subn(rf"(?m)^({name} .*?\bL=)([0-9.]+)u",
+                              lambda m: f"{m.group(1)}{max(float(m.group(2)) / 4, 0.7):g}u", text)
             assert n == 1, name
     return text
 

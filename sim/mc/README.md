@@ -49,7 +49,7 @@ Vt− ≥ 0.3·`DVDD`; VIH row = upper trip Vt+ ≤ 0.7·`DVDD`.
 
 ## Cold start
 
-    KLT_SIM=<klt matching the fleet runner> KLT_YIELD=<klt with klt_yield_native> sim/mc/run.sh
+    KLT_YIELD=<klt with klt_yield_native> sim/mc/run.sh      # KLT_SIM defaults to uvx klayout-tools==0.8.0
     sim/mc/run.sh --dry-run                  # generate, `klt sim --dry-run`, check seed determinism
     sim/mc/run.sh --negative rx|pull|nostat  # must exit non-zero
     sim/mc/run.sh --resume records/<stamp>   # resubmit only the requests without a report
@@ -58,29 +58,53 @@ Exit 0: all rows meet their target yield. Exit 3: data valid but a row misses it
 record says which; the spec is not relaxed). Exit 1: invalid data or a harness failure.
 Records under `records/<UTC stamp>/` are append-only.
 
-### Tool constraints met while building this (filed as friction)
+### Tool constraints met while building this
 
-- **Two klt installs.** The Spot fleet runner is klt 0.7.0 and refuses any newer client
-  (`batch_runner_version_mismatch`), so `KLT_SIM` must be a 0.7.0 client (no `--batch-set`, no
-  `mismatch_scale`). `klt yield` needs the `klt_yield_native` extension, which is not on PyPI
+- **Two klt installs.** The Spot fleet runner image is klt 0.8.0 and refuses a different client
+  (`batch_runner_version_mismatch`), so `KLT_SIM` defaults to a throwaway `uvx --from
+  klayout-tools==0.8.0 klt`. `klt yield` needs the `klt_yield_native` extension, which is not on PyPI
   (`klt-yield-native` unresolvable), so `KLT_YIELD` is a venv built from a klayout-tools checkout
-  with `maturin develop` (`native/yield`). Neither is installed on the host.
+  with `maturin develop` (`native/yield`; the record used `klt 0.8.1.dev61`). Neither is the host-wide klt.
 - **OpenMP oversubscription on the fleet.** The runner does not pin `OMP_NUM_THREADS`; with
   several units per instance a transient that takes 0.4 s alone takes minutes (8 identical units:
   all timed out at 100 s), while operating-point decks are unaffected. Each netlist carries
   `.control` / `set num_threads=1` / `.endc`, which restores 0.4 s per unit. (`.options
-  num_threads` and `options.threads_per_worker` had no effect on the 0.7.0 runner.)
+  num_threads` and `options.threads_per_worker` had no effect on the runner.)
 - **Fleet instance cap.** `BATCH_MAX_CONCURRENT_INSTANCES=8` is shared by every sweep; a refused
-  launch is retried by `run.sh` with a fixed backoff (the 0.7.0 client has no
-  `--wait-for-capacity`). Nothing falls back to local ngspice.
+  launch is retried by `run.sh` with a fixed backoff. Nothing falls back to local ngspice.
 
 ## Negative controls
 
 `--negative rx` shrinks the Schmitt feedback devices (`XMN_st3`/`XMP_st3`, `W` → 0.3 µm) and
-`--negative pull` cuts the pull channel lengths to 1/4, each with the **same seed** and request
+`--negative pull` cuts the pull channel lengths to 1/4 (floored at 0.7 µm), each with the **same seed** and request
 shape as the nominal campaign; `collect.py` pairs them with `klt yield-samples` and requires
-`negative_control.verdict = detected` for `hyst` and `r_pulldown`. The pull-up is nominally
-failing already (see Results), so its control is informational. `--negative nostat` leaves
+`negative_control.verdict = detected` for `hyst` and `r_pulldown`. The pull-up has no control of its own: the pull-down control exercises the same
+flow and the pull-up rows are graded against their limits directly. `--negative nostat` leaves
 `sw_stat_*` at 0 and must be refused for zero variance. Determinism: `--dry-run` shows
 identical per-sample seeds on regeneration and between nominal and known-bad requests, and
 each record resubmits `pulldown_5v_25C` and requires bit-identical values.
+- **Out-of-bin length fails the whole job.** A negative-control deck with `L` below the 06v0 model
+  bin (0.375 µm) made the fleet job fail at once with no per-unit result, so `--negative pull`
+  floors the shrunk length at 0.7 µm.
+
+## Results
+
+Record `records/20261028T232951Z/` (committed, append-only; `meta.txt` has the pins). Design under
+test: `design/gpio.spice` at repo commit `6db410d`; `gpio.spice.nominal` in the record is the exact
+netlist. `klt sim` client 0.8.0 on the batch fleet, `klt yield` over every report.
+
+- 22 requests × 300 samples, seed 20261027, `vary = both`, typical process, −40/25/125 °C for
+  thresholds, hysteresis, VOL and VOH, 25 °C for the pulls, at 5 V and 3.3 V `DVDD`.
+- All 34 measurement rows meet target yield 0.98 with `sample_size = sufficient` (Clopper-Pearson
+  lower bound 0.988 at zero failures); `table.md` lists mean, spread, Cpk per row.
+- Negative controls: the mis-sized receiver and the shortened pull devices, same seed, are
+  `detected` for hysteresis (6 corners) and r_pulldown (2 modes). `--negative nostat` is refused
+  for zero variance. Resubmitting `pulldown_5v_25C` gives bit-identical samples.
+- The earlier record `records/20261027T050850Z/` was run on the previous `gpio.spice` (pull-up
+  `L = 8 µm`, driver `W = 40 µm`), where the pull-up (183 kΩ at 5 V, 307 kΩ at 3.3 V) and the
+  5 V/125 °C VOH row missed their limits. The cell was resized on `main` afterwards; that record
+  is kept as history and is not cited.
+- Spread is small (σ of a few mV on thresholds, below the ~5 mV time-grid floor on some rows): the
+  library's 06v0 statistical hooks are narrow. That is the PDK's number, not an invented skew, and
+  no 5/6 V process-corner skew is applied (DR-0002 §3).
+- Pre-silicon simulation only: no ESD claim, and nothing here rates or qualifies a cell.

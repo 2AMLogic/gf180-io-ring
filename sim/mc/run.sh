@@ -8,8 +8,8 @@
 #   sim/mc/run.sh --dry-run             generate, `klt sim --dry-run` each request, check seed determinism
 #   sim/mc/run.sh --negative KIND       negative control, must exit non-zero. KIND: rx | pull | nostat
 # Two klt installs are needed (see README.md): KLT_SIM must match the fleet runner's klt version
-# (a newer client is refused with batch_runner_version_mismatch) and KLT_YIELD must carry the
-# klt_yield_native extension. Neither defaults to anything but `klt`. The grid is never run by looping
+# (the runner image is klt 0.8.0, so it defaults to a throwaway uvx env pinned to it) and KLT_YIELD
+# must carry the klt_yield_native extension (defaults to `klt`). The grid is never run by looping
 # ngspice here: every request goes to the Spot fleet with `--backend batch`. If a submit fails the run
 # fails and says so; there is no local fallback.
 # Exit 0: data valid and every row meets its target yield. Exit 3: data valid, a row misses its limit
@@ -18,7 +18,7 @@ set -u
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SIM="$(dirname "$HERE")"
 REPO="$(dirname "$SIM")"
-KLT_SIM="${KLT_SIM:-klt}"; KLT_YIELD="${KLT_YIELD:-klt}"
+KLT_SIM="${KLT_SIM:-uvx --from klayout-tools==0.8.0 klt}"; KLT_YIELD="${KLT_YIELD:-klt}"
 MODE=run; KIND=""
 case "${1:-}" in
   "") ;;
@@ -54,7 +54,7 @@ gen() {  # gen DIR [generator flags]: write requests, print the stems
 submit() {  # submit REQDIR STEM REPORT: one request to the fleet, report to REPORT
   local rc try
   [ -s "$3" ] && python3 -I -c "import json,sys; json.load(open(sys.argv[1]))" "$3" 2>/dev/null && return 0
-  # the 0.7.0 client has no --wait-for-capacity: a launch refused at the fleet's instance cap
+  # without --wait-for-capacity: a launch refused at the fleet's instance cap
   # (BATCH_MAX_CONCURRENT_INSTANCES) is retried with a fixed backoff, up to 60 tries; nothing runs locally
   for try in $(seq 1 60); do
     (cd "$1" && $KLT_SIM sim "$2.json" --backend batch --format json -o "$OUT/art/$2" > "$3" 2> "${3%.json}.stderr"); rc=$?
