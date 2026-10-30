@@ -88,3 +88,48 @@ fleet). The earlier record `20261027T064449Z` (600 µm, peak 10.5–13.5 V again
 6. **Still open.** The core `VDD`↔`VSS` clamp (3.3 V devices, 400 µm) and the
    `VDD`/`DVDD` coupling are unchanged and unsimulated; the bench still declares them
    as gaps.
+
+## Amendment 2 (issue #48): core `VDD`↔`VSS` clamp sizing against the DR-0004 budget
+
+Appended; decision items 1–4 and Amendment 1 are left as written. Evidence:
+`sim/gpio-corners/records/20261028T182957Z/` (`esd_core_rail`, 15 PVT corners, batch
+fleet). The budget is DR-0004's 4.0 V, **Proposed** and an assumption, not a spec row.
+
+1. **The captured clamp could not be simulated as drawn.** Item 2's 400 µm as one
+   `nf=40` instance does not bin on the fleet (`could not find a valid modelname`, as in
+   Amendment 1 item 2). As four 100 µm copies, a host probe (ngspice-42, typical, 25 °C,
+   not a record) peaks at 13.7 V under the 1.33 A / 10 ns-rise pulse. No fleet record of
+   the 400 µm clamp exists.
+2. **Sizing.** The clamp `nfet_03v3` is 5600 µm total: 56 × (100 µm, 10 fingers,
+   L = 0.8 µm) via `m=56`. The trigger inverter is `pfet_03v3` 8 × (50 µm, 10 fingers,
+   L = 0.28 µm), up from one 5 µm device, and `nfet_03v3` 4 × (70 µm, 14 fingers,
+   L = 0.28 µm), up from one 8 µm device. The RC trigger (20 µm-long `pfet` resistor,
+   30 × 30 µm `cap_nmos_03v3`) is unchanged, so decision item 2's topology stands.
+   `design/core_pad.*`, `design/io_ring.spice` and the layout carry the change.
+3. **Why this size.** As in Amendment 1, width alone does not meet the budget: the peak
+   falls at the end of the 10 ns rise, before the gate is driven, so the inverter drive
+   matters as much. Host probes at `ss`/125 °C (not records) peaked at 4.2 V (4800 µm, inverter
+   `pfet` 200 µm and `nfet` 160 µm), 4.4 V (6400 µm, the same inverter) and 3.6 V (6400 µm,
+   inverter `pfet` 400 µm and `nfet` 320 µm). The peak is not monotone in clamp width. 5600 µm is
+   the largest clamp group the 350 µm cell holds: 64 copies overflow `build_core_pad`'s
+   346 µm limit, and the inverter `nfet` was made 14-finger so 56 copies fit.
+4. **Result (simulated clamp behaviour, not a rating).** Peak `VDD` under the 1.33 A /
+   10 ns-rise pulse is at most 3.88 V (`ss`/125 °C, worst of 15) against the 4.0 V
+   budget, 15/15 corners within it. `v_end` (`VDD` at 110 ns, inside the 100 ns plateau)
+   is 2.75–3.87 V. The margin to the budget at the binding corner is 0.12 V, so a budget
+   below about 3.9 V would send the clamp back for another resize. **Not evaluated:**
+   release after the pulse and absence of latching (the bench ends at 130 ns; #45),
+   normal-operation leakage of the wider device, and the `ss`/`ff` spread of the
+   5/6 V devices (DR-0002); the pad-side latch-up rules stay a klt gap (#3793).
+5. **Request.** The `esd_core_rail` bench carries a 1 MΩ leak at `VDD` and
+   `.options itl4=1000 gmin=1e-8 reltol=0.01 abstol=1e-9 rshunt=1e12 cshunt=1e-14`. With
+   `gmin=1e-9` the fleet aborted `fs`/125 °C ("timestep too small" in the trigger
+   moscap); with `gmin=1e-8` it aborted `sf`/125 °C. Both attempts are kept under the
+   record's `superseded/`, with the first submit that the shared fleet refused
+   (`batch_concurrency_cap`) and the retries that followed. Convergence aids do not
+   change a limit.
+6. **Cost.** The core-supply pad cell's clamp group grows to fill the cell: the generator
+   draws each `m=` copy, as for the `DVDD` clamp, and `build_core_pad` asserts the rows
+   stay under 346 µm of the 350 µm depth. Normal-operation leakage is not simulated.
+7. **Still open.** The `VDD`/`DVDD` coupling: DR-0005 (Proposed) records it as not
+   applicable.

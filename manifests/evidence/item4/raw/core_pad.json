@@ -100,9 +100,9 @@
       "matched": 6
     },
     "devices": {
-      "layout": 44,
-      "reference": 44,
-      "matched": 44
+      "layout": 698,
+      "reference": 698,
+      "matched": 698
     },
     "pins": {
       "layout": 6,
@@ -135,8 +135,8 @@
     "engine": "klayout",
     "engine_version": "0.30.12",
     "netgen_binary": null,
-    "layout_sha256": "7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332",
-    "reference_sha256": "8aca29e5a3c6516db28fb897638454df870ed6b457a4eb64738ff08e30f16bd6",
+    "layout_sha256": "2a489f66af9318f50e40ed391aebc6b7da2b66d1ebe5fbc39a0c27e76d735904",
+    "reference_sha256": "a611e7abab90ed19ec477a172e6a0f6d74ff2a4386f8e185a786666f30560ed9",
     "extracted_netlist": null
   },
   "provenance": {
@@ -160,7 +160,7 @@
       "options_hash": "sha256:6a7dc7660a470994263c5ca8ace6d8ac8c605d77e6876a9c5490949de6e7cb05"
     },
     "input": {
-      "content_hash": "sha256:7e83c8f65378af65201414d4b12395bd2df5feaf63786c36164e44893bef2332",
+      "content_hash": "sha256:2a489f66af9318f50e40ed391aebc6b7da2b66d1ebe5fbc39a0c27e76d735904",
       "role": "layout"
     },
     "klayout_version_mismatch": false
