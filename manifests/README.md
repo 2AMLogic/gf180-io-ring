@@ -88,7 +88,7 @@ re-runs this on every push and byte-compares against the committed record.
 `attest/item9.json` inventories the committed testbenches, the cold-start
 command (`sim/smoke/run.sh`, `local_only`) and the PDK and tool pins.
 `evidence/item9.json` is its envelope. Re-attest whenever a listed bench or
-pin changes (the item 5 bench `sim/gpio-corners` is listed; the item 6 benches join as they land), then
+pin changes (the item 5 bench `sim/gpio-corners` is listed; the item 6 bench `sim/mc` is listed too), then
 refresh the `content_hash` cited in the manifest and regenerate the record:
 
 ```console
@@ -99,6 +99,13 @@ uvx --from "klayout-tools==0.8.0" klt signoff --attest 9 \
 The cold start runs one local ngspice operating point, so attest from a
 host with the pinned PDK (`sim/check_env.sh`). CI runs the same command with
 `--check evidence/item9.json`; it does not run the local-only cold start.
+
+## Item 6 citations (Monte Carlo)
+
+Item 6 cites the `klt yield` reports (and the paired negative-control reports) of one record under
+`sim/mc/records/`, each with the spec rows it covers, and declares the row set under
+`spec_rows."6"`. See [`sim/mc/README.md`](../sim/mc/README.md) for the campaign and its limits.
+Re-cite after a new record, then regenerate the record above.
 
 ## Item 5 citations (corner verification)
 
