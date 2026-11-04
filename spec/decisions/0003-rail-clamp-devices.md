@@ -106,9 +106,14 @@ fleet). The budget is DR-0004's 4.0 V, **Proposed** and an assumption, not a spe
    L = 0.28 µm), up from one 8 µm device. The RC trigger (20 µm-long `pfet` resistor,
    30 × 30 µm `cap_nmos_03v3`) is unchanged, so decision item 2's topology stands.
    `design/core_pad.*`, `design/io_ring.spice` and the layout carry the change.
-3. **Why this size.** As in Amendment 1, width alone does not meet the budget: the peak
-   falls at the end of the 10 ns rise, before the gate is driven, so the inverter drive
-   matters as much. Host probes at `ss`/125 °C (not records) peaked at 4.2 V (4800 µm, inverter
+3. **Why this size.** As in Amendment 1, width alone does not meet the budget; the
+   inverter drive matters as much. Where the peak falls depends on temperature. At
+   -40 °C it falls at the end of the 10 ns rise, before the gate is driven (`ss`:
+   `v_peak` 3.205 V, `v_end` 3.035 V). At 125 °C, including the binding `ss`/125 °C
+   corner, `v_peak` - `v_end` is at most 0.011 V (3.881 V vs 3.870 V), so the binding
+   corner is set by the clamp on-resistance on the plateau, Ron(T), not by the edge
+   transient. The 0.12 V margin is therefore a hot-corner Ron figure. Self-heating is
+   not modelled (about 5 W for 100 ns at that corner). Host probes at `ss`/125 °C (not records) peaked at 4.2 V (4800 µm, inverter
    `pfet` 200 µm and `nfet` 160 µm), 4.4 V (6400 µm, the same inverter) and 3.6 V (6400 µm,
    inverter `pfet` 400 µm and `nfet` 320 µm). The peak is not monotone in clamp width. 5600 µm is
    the largest clamp group the 350 µm cell holds: 64 copies overflow `build_core_pad`'s
