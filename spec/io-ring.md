@@ -135,7 +135,7 @@ issue and judged only by simulation plus rule-clean layout):
 | `DVDD` ↔ `DVSS` | rail clamp |
 | GPIO ↔ GPIO | pad diode to a rail, rail clamp, second pad diode (no direct path is drawn) |
 | core `VDD` ↔ `VSS` | core rail clamp |
-| core rails ↔ I/O rails | shared p-substrate between `DVSS` and `VSS`; `VDD`/`DVDD` coupled by a clamp or diode pair, decision record to follow |
+| core rails ↔ I/O rails | shared p-substrate between `DVSS` and `VSS`; `VDD`/`DVDD` coupled by a clamp or diode pair, the `DVSS`/`VSS` join is recorded in DR-0004 |
 | GPIO → core `VDD`/`VSS` | through the I/O rails and the cross-domain coupling above; never a direct drawn path |
 
 ### ESD evidence
