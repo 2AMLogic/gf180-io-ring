@@ -14,8 +14,9 @@ Monte Carlo (6), testbenches (9), repo hygiene (10) and structural power deliver
 corner, fillers), with the DRC, LVS and ERC evidence under `manifests/evidence/`. Open:
 
 - **Item 5, corner verification: `partial_coverage`.** The GPIO rows are cited; two declared
-  ESD gaps remain, the core `VDD`-`VSS` rail clamp budget (#48) and the rail clamp release after
-  the pulse (#45).
+  ESD gaps remain, the core `VDD`-`VSS` rail clamp (not simulated, no voltage budget in the spec)
+  and the `VDD`/`DVDD` cross-domain coupling (not drawn yet), both tracked in #48. The rail clamp
+  release after the pulse (#45) is a related open evaluation, not a declared gap.
 - **Item 7, post-layout verification: `no_evidence`.** Tracked in #20, with #40 and #53 blocking
   the extracted-cell binding.
 - **Item 8, characterization report: `no_evidence`.** Tracked in #21.
@@ -98,7 +99,7 @@ Maturity ladder: porting plan recorded → spec ratified → GPIO cell simulated
 across PVT → cells DRC/LVS-clean → ring assembled, DRC/LVS/ERC-clean →
 shuttle seat → measured silicon. **Current position: ring assembled and DRC/LVS/ERC-clean
 (items 2 to 4 and 11 `met`); GPIO simulated across PVT with item 5 at `partial_coverage` (open
-ESD gaps #48, #45); post-layout (item 7) and characterization (item 8) evidence open; no shuttle
+ESD gaps, both in #48); post-layout (item 7) and characterization (item 8) evidence open; no shuttle
 seat, no silicon.**
 
 ## Reproduce
