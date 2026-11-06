@@ -29,4 +29,9 @@ subckt had 10 pins against the 11 declared in `design/gpio.spice`, and every
 - Pex is blind to a `DVSS`-`VSS` defect, because the tie makes the two names one
   net by construction. That is not a pex check and this record does not claim it
   is; the substrate join itself is item-4 evidence.
+- The tie also hides the real substrate resistance between the `DVSS` and `VSS`
+  tap rings: the join is a resistive path, not a short, and the 1 µΩ tie removes
+  it, along with any ground-bounce coupling across it. Every current bench puts
+  both grounds at node 0, so no delta row is affected. If a later bench separates
+  them, klt's `--substrate-tie-ohms` is the knob to revisit.
 - No spec row is relaxed. This record makes no ESD claim.
