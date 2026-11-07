@@ -44,7 +44,9 @@ filler; same mix as `design/io_ring.sch`). Cell and pin names follow
 
 `m=` copies of a device are drawn as separate devices (`klt lvs` expands `m` into unit
 devices). The `DVDD`/`DVSS` pad clamp is 48 such copies in rows of 2 + 2 with a shared
-P+ tap bar between the pairs, so every NCOMP stays within the 5/6 V tap distance.
+P+ tap bar between the pairs, so every NCOMP stays within the 5/6 V tap distance. The
+core-supply pad clamp is 56 copies drawn the same way (3.3 V devices, no ESD marker); its
+rows fit under the generator's 346 µm limit (an assertion in `build_core_pad`).
 
 ## Wiring
 

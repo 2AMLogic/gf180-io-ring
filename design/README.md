@@ -37,14 +37,14 @@ and #20.
 | GPIO pad | `gpio.sch` | `A OE IE PU PD Y PAD DVDD VDD DVSS VSS` | `nfet_06v0`/`pfet_06v0` driver (60 um nfet, 12 fingers / 160 um pfet as 2 x 80 um, `m=2`), Schmitt receiver, pad clamps `diode_pd2nw_06v0` to `DVDD` and `diode_nd2ps_06v0` to `DVSS` at 178 um^2 each (10 x 17.8 um), four 3.3 V to `DVDD` level shifters (`OE`, `A`, `PU`, `PD`), pull-up (`pfet_06v0` L = 1.5 um, W = 1 um) / pull-down (`nfet_06v0` L = 6 um, W = 1 um); `*_03v3` input inverters and `Y` buffer |
 | `DVDD` pad | `dvdd_pad.sch` | `DVDD VDD DVSS VSS` | `DVDD`-`DVSS` RC-triggered `nfet_06v0` clamp, 4800 um total as 48 x (100 um, 10 fingers) via `m=48`, trigger-inverter `pfet_06v0` 10 x (10 um) via `m=10` (DR-0003, amended) |
 | `DVSS` pad | `dvss_pad.sch` | `DVDD VDD DVSS VSS` | same clamp as the `DVDD` pad |
-| core-supply pad | `core_pad.sch` | `DVDD VDD DVSS VSS` | `VDD`-`VSS` RC-triggered `nfet_03v3` clamp |
+| core-supply pad | `core_pad.sch` | `DVDD VDD DVSS VSS` | `VDD`-`VSS` RC-triggered `nfet_03v3` clamp, 5600 um total as 56 x (100 um, 10 fingers) via `m=56`, trigger-inverter `pfet_03v3` 8 x (50 um, 10 fingers), `nfet_03v3` 4 x (70 um, 14 fingers) (DR-0003, amended twice) |
 | corner, filler | `corner.sch`, `filler.sch` | `DVDD VDD DVSS VSS` | rail-only, no devices |
 | ring | `io_ring.sch` | 8 GPIO (`A0`..`Y7`, `PAD0`..`PAD7`) plus the four rails | 4 corners, 8 GPIO, 4 `DVDD`, 4 `DVSS`, 4 core-supply and 4 filler cells; the core-side ports are left open for the (empty) core |
 
 Rail clamp devices: [DR-0003](../spec/decisions/0003-rail-clamp-devices.md). The cell
 set rows are still `pending: sky130-io-ring#2`; if the origin changes one, this
-table follows. The `VDD`/`DVDD` cross-domain coupling is not drawn (spec, ESD
-network; decision record to follow). Port names are identical in every cell so the
+table follows. The `VDD`/`DVDD` cross-domain coupling is not drawn: DR-0005 (Proposed)
+records it as not applicable. Port names are identical in every cell so the
 layout and LVS issues (#15, #17) can bind to them. In the supply, corner and filler
 cells the rails are ports with no devices attached, standing for continuity by
 abutment.
