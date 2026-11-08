@@ -6,9 +6,23 @@ fillers, assembled into a closed ring — designed by AI agents driving
 [klayout-tools](https://github.com/2AMLogic/klayout-tools) and the
 open-source xschem + ngspice flow.
 
-**Status: specification ratified; pre-silicon evidence is simulation-only.** The spec is
-ratified, the PDK is pinned, and the smoke, ESD-clamp sizing and foundry `bi_t`
-characterization records are committed under `sim/*/records/`. No pad cell is drawn yet.
+**Status: all ring cells drawn and rule-clean; pre-silicon evidence only, nothing is ESD-rated.**
+The verdict of record, [`manifests/gf180-io-ring.signoff.json`](manifests/gf180-io-ring.signoff.json),
+grades 8 of the 11 tier-1 items `met`: design sources (1), layout (2), DRC (3), LVS (4),
+Monte Carlo (6), testbenches (9), repo hygiene (10) and structural power delivery (11).
+`layout/gf180_io_ring.gds` holds every ring cell (GPIO, `DVDD`, `DVSS` and core-supply pads,
+corner, fillers), with the DRC, LVS and ERC evidence under `manifests/evidence/`. Open:
+
+- **Item 5, corner verification: `partial_coverage`.** The GPIO rows are cited; two declared
+  ESD gaps remain, the core `VDD`-`VSS` rail clamp (not simulated, no voltage budget in the spec)
+  and the `VDD`/`DVDD` cross-domain coupling (not drawn yet), both tracked in #48. The rail clamp
+  release after the pulse (#45) is a related open evaluation, not a declared gap.
+- **Item 7, post-layout verification: `no_evidence`.** Tracked in #20, with #40 and #53 blocking
+  the extracted-cell binding.
+- **Item 8, characterization report: `no_evidence`.** Tracked in #21.
+
+The upper tiers (T2 to T4) are not supported by this build. ESD robustness is not claimed:
+the evidence is simulated clamp behaviour plus rule-clean layout.
 
 **Built agent-native.** Every specification, decision record, testbench, and
 line of documentation here is produced by AI agents working from a ratified
@@ -83,9 +97,10 @@ and that the layout satisfies the ESD and latch-up rules — nothing more.
 
 Maturity ladder: porting plan recorded → spec ratified → GPIO cell simulated
 across PVT → cells DRC/LVS-clean → ring assembled, DRC/LVS/ERC-clean →
-shuttle seat → measured silicon. **Current position: spec ratified
-(`spec/io-ring.md`); smoke simulation, ESD-clamp sizing and the foundry `bi_t`
-comparison are recorded; the first drawn cell is next.**
+shuttle seat → measured silicon. **Current position: ring assembled and DRC/LVS/ERC-clean
+(items 2 to 4 and 11 `met`); GPIO simulated across PVT with item 5 at `partial_coverage` (open
+ESD gaps, both in #48); post-layout (item 7) and characterization (item 8) evidence open; no shuttle
+seat, no silicon.**
 
 ## Reproduce
 
@@ -97,11 +112,27 @@ dispatch worker the multi-corner grids go to the batch fleet.
 sim/smoke/run.sh                      # model smoke bench; --bad-model-path is its negative control
 sim/esd_clamp/run.sh                  # pad-clamp diode sizing; --bad-model-path is its negative control
 sim/gpio-bi_t/run.sh                  # foundry bi_t vs targets; --dry-run validates without simulating
+sim/gpio-corners/run.sh               # item 5: 19 requests -> `klt sim` batch fleet
+sim/gpio-corners/run.sh --dry-run     # generate and validate every request; no simulation
+sim/gpio-corners/run.sh --probe       # local, ONE corner per deck: debug only
+sim/mc/run.sh                         # item 6: Monte Carlo, 22 requests via `klt sim --backend batch`
+sim/mc/run.sh --dry-run               # generate, `klt sim --dry-run`, check seed determinism
+sim/gpio-pex/run.sh                   # item 7 bench: 19 requests, each `klt pex --backend batch`
+sim/gpio-pex/run.sh --probe           # one corner of one deck, local, for debugging
+layout/regen.sh                       # regenerate the ring GDS twice, assert equal bytes, rewrite the item-2 envelope
+layout/regen.sh --check               # regenerate and compare to the committed stream
+uvx --from "klayout-tools==0.8.0" klt signoff --attest 10 \
+    --inventory manifests/item10-inventory.json \
+    -o manifests/item10-attestation.json       # re-attest item 10 first
 uvx --from "klayout-tools==0.8.0" klt signoff \
     --manifest manifests/gf180-io-ring.json \
     --tiers-doc manifests/design-evidence-tiers.md \
     --format json > manifests/gf180-io-ring.signoff.json
 ```
+
+The `sim/gpio-corners`, `sim/mc` and `sim/gpio-pex` grids run on the Spot batch fleet only, with no
+local fallback; `--probe` is the single-corner local exception. DRC, LVS and ERC regeneration
+commands are in [`manifests/README.md`](manifests/README.md).
 
 See [`sim/README.md`](sim/README.md) and [`manifests/README.md`](manifests/README.md).
 
@@ -109,9 +140,10 @@ See [`sim/README.md`](sim/README.md) and [`manifests/README.md`](manifests/READM
 
 ```
 spec/          ratified spec, porting plan + decision records
-design/        pad cell schematics (xschem): driver, receiver, level shifter, ESD
+design/        pad cell schematics (xschem) and netlists: gpio, supply pads, corner, filler, ring
 sim/           testbenches + PVT corner results (ngspice)
-layout/        cell and ring GDS + DRC/LVS/ERC reports
+layout/        ring generator, regen script and ring GDS
+manifests/     block manifest, signoff verdict of record, evidence/ (DRC, LVS, ERC reports)
 measurements/  silicon characterization (empty until tape-out)
 ```
 

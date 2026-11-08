@@ -13,3 +13,8 @@ sim/gpio-pex/run.sh --probe   # one corner of one deck, local, for debugging
 the PDK switch-parameter include, because `klt pex` swaps exactly one `.include`, the DUT. `esd_rail`
 is dropped: its DUT is `dvdd_pad`, not `gpio`. The client is klt 0.9.0, matching the fleet runner image; `--tie-declared-pins` binds the merged `DVSS`/`VSS` net to both declared pins (DR-0004).
 Records under `records/` are append-only. Do not edit the layout or netlists from here.
+
+`run.sh` passes `--pdk "$VARIANT"` (the `sim/pdk.json` variant, `gf180mcuD`) next to `--pdk-root`
+and fails if a report's `provenance.pdk.name` differs. Without `--pdk`, klt picks a variant from
+the shared `<rev>` directory (it picked `gf180mcuA` in `records/20261027T1000Z-probe/`). Pex figures
+are citable only from records whose `provenance.pdk.name` is `gf180mcuD`.
