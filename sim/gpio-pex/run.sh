@@ -32,7 +32,7 @@ STATUS=0
 while read -r stem; do
   # rc 0 pass, 4 = a failing or errored unit; the envelope is on stdout either way.
   $KLT_CLIENT pex --deck gf180mcu --top gpio --pins "$PINS" \
-    --pdk-root "$(dirname "$(dirname "$(dirname "$PDK_MODELDIR")")")" \
+    --pdk "$VARIANT" --pdk-root "$(dirname "$(dirname "$(dirname "$PDK_MODELDIR")")")" \
     -o "$OUT/pex/$stem.spice" --outdir "$OUT/pex/$stem" --backend "$BACKEND" --format json \
     "$REPO/layout/gf180_io_ring.gds" "$REQ/$stem.json" > "$OUT/pex/$stem.json" 2> "$OUT/pex/$stem.stderr"
   RC=$?
@@ -42,8 +42,12 @@ while read -r stem; do
 import json, sys
 d = json.load(open(sys.argv[1])); rows = d.get('delta') or []
 bad = [r for r in rows if r.get('status') == 'error']
-print('gpio-pex: %s: %d rows, %d errored; body_bias %s' % (sys.argv[2], len(rows), len(bad), (d.get('body_bias') or {}).get('status')))
-sys.exit(1 if bad else 0)" "$OUT/pex/$stem.json" "$stem" || STATUS=1
+pdk = ((d.get('provenance') or {}).get('pdk') or {}).get('name')
+if pdk != sys.argv[3]:
+    print('gpio-pex: %s: FAIL: provenance.pdk.name %r != pinned variant %r' % (sys.argv[2], pdk, sys.argv[3]))
+    sys.exit(1)
+print('gpio-pex: %s: pdk %s; %d rows, %d errored; body_bias %s' % (sys.argv[2], pdk, len(rows), len(bad), (d.get('body_bias') or {}).get('status')))
+sys.exit(1 if bad else 0)" "$OUT/pex/$stem.json" "$stem" "$VARIANT" || STATUS=1
 done < "$OUT/requests.list"
 echo "gpio-pex: output in $OUT"
 exit $STATUS
