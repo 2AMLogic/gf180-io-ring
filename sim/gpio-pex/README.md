@@ -3,6 +3,7 @@
 T1 item 7 (post-layout verification): the item-5 GPIO spec suite re-run on the netlist extracted
 from `layout/gf180_io_ring.gds`, reported by `klt pex` as a per-corner, per-row
 schematic-vs-extracted delta. **Status: not met.** See the latest record's `record.md`.
+Blocker (`records/20261109T2000Z-probe-diode-params/`): klt writes diodes with `A=`/`P=`, which ngspice rejects; tracked at 2AMLogic/klayout-tools#5178.
 
 ```console
 sim/gpio-pex/run.sh           # 19 requests, each a `klt pex --backend batch` (fleet only; no local fallback)
