@@ -20,3 +20,10 @@ Records under `records/` are append-only. Do not edit the layout or netlists fro
 and fails if a report's `provenance.pdk.name` differs. Without `--pdk`, klt picks a variant from
 the shared `<rev>` directory (it picked `gf180mcuA` in `records/20261027T1000Z-probe/`). Pex figures
 are citable only from records whose `provenance.pdk.name` is `gf180mcuD`.
+
+## Extracted-leg diode parameters (#61)
+
+klt 0.9.0 (the pinned client and the fleet runner image) writes diodes with `A=`/`P=`, which ngspice rejects
+(`ngspice_fatal` on every extracted leg). klayout-tools PR #5184 fixes it; with a newer client
+(`KLT_CLIENT="uvx --from klayout-tools klt" sim/gpio-pex/run.sh --probe`) the extracted leg runs.
+See `records/20261109T2200Z-probe-klt-diode-fix/record.md`. The batch run needs a runner image with the fix.
