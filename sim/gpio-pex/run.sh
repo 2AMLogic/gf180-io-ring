@@ -5,13 +5,14 @@
 # The grid is the item-5 grid (sim/gpio-corners/gen_requests.py, reused, not copied); every request
 # is a multi-corner `klt pex` whose schematic and extracted legs both go to the Spot fleet. A failed
 # submit fails the run; there is no local fallback (only --probe runs locally, one corner).
-# KLT_CLIENT: the fleet runner image is klt 0.8.0, so the default is a throwaway uvx env at 0.8.0.
+# KLT_CLIENT: the fleet runner image is klt 0.9.0, so the default is a throwaway uvx env at 0.9.0.
+# --tie-declared-pins: DVSS and VSS are one extracted net through the shared p-substrate (DR-0004).
 # Exit 0 only if every request reports status pass/fail with no errored delta row.
 set -u
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SIM="$(dirname "$HERE")"
 REPO="$(dirname "$SIM")"
-KLT_CLIENT="${KLT_CLIENT:-uvx --from klayout-tools==0.8.0 klt}"
+KLT_CLIENT="${KLT_CLIENT:-uvx --from klayout-tools==0.9.0 klt}"
 PINS="A,OE,IE,PU,PD,Y,PAD,DVDD,VDD,DVSS,VSS"
 MODE=run
 case "${1:-}" in "") ;; --probe) MODE=probe ;; *) echo "usage: run.sh [--probe]" >&2; exit 2 ;; esac
@@ -31,7 +32,7 @@ BACKEND=batch; [ "$MODE" = probe ] && BACKEND=local
 STATUS=0
 while read -r stem; do
   # rc 0 pass, 4 = a failing or errored unit; the envelope is on stdout either way.
-  $KLT_CLIENT pex --deck gf180mcu --top gpio --pins "$PINS" \
+  $KLT_CLIENT pex --deck gf180mcu --top gpio --pins "$PINS" --tie-declared-pins \
     --pdk "$VARIANT" --pdk-root "$(dirname "$(dirname "$(dirname "$PDK_MODELDIR")")")" \
     -o "$OUT/pex/$stem.spice" --outdir "$OUT/pex/$stem" --backend "$BACKEND" --format json \
     "$REPO/layout/gf180_io_ring.gds" "$REQ/$stem.json" > "$OUT/pex/$stem.json" 2> "$OUT/pex/$stem.stderr"
