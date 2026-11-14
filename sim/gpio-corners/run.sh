@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Verify the drawn GPIO cell (design/gpio.spice) against the ratified spec rows over the PVT set.
-#   sim/gpio-corners/run.sh             cold start: 20 requests -> `klt sim` batch fleet; writes records/<UTC stamp>/
+#   sim/gpio-corners/run.sh             cold start: 21 requests -> `klt sim` batch fleet; writes records/<UTC stamp>/
 #   sim/gpio-corners/run.sh --dry-run   generate and `klt sim --dry-run` each request; no simulation
 #   sim/gpio-corners/run.sh --resume RECORD_DIR   resubmit only the requests without a report, then collect
-#   sim/gpio-corners/run.sh --probe     local single-corner debug probe of every deck (typical, 25 C)
+#   sim/gpio-corners/run.sh --probe     local single-corner debug probe of every deck (typical, 25 C);
+#                                       writes records/<UTC stamp>/ with result=PROBE. NOT evidence:
+#                                       one corner, host ngspice and host klt, and cite.py refuses it.
 # The grid is never run by looping ngspice here: each request is a `klt sim` corner matrix that the
 # batch backend sends to the Spot fleet, submitted one at a time. If a submit fails the run fails and
 # says so; there is no local fallback (only --probe, one corner per deck, runs locally).
@@ -30,7 +32,7 @@ ENVOUT="$("$SIM/check_env.sh")" || { echo "$ENVOUT"; exit 2; }
 eval "$(printf '%s\n' "$ENVOUT" | sed "s/^\([A-Z_]*\)=\(.*\)$/\1='\2'/")"
 
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
-if [ "$MODE" = run ]; then OUT="$HERE/records/$STAMP"; mkdir -p "$OUT"
+if [ "$MODE" = run ] || [ "$MODE" = probe ]; then OUT="$HERE/records/$STAMP"; mkdir -p "$OUT"
 elif [ "$MODE" = resume ]; then OUT="$(cd "$RESUME_DIR" && pwd)"; STAMP="$(sed -n 's/^date_utc=//p' "$OUT/record.txt")"
 else OUT="$(mktemp -d)"; fi
 REQ="$OUT/requests"; KLTOUT="$OUT/klt"; mkdir -p "$REQ" "$KLTOUT"
@@ -52,11 +54,37 @@ if [ "$MODE" = dry ]; then
 fi
 
 if [ "$MODE" = probe ]; then
+  # One local corner per deck, then the same collect/record pair a run writes -- so the probe
+  # leaves a whole, reproducible record rather than a temp dir. The record is marked
+  # result=PROBE and cite.py refuses it: one corner on the host's own ngspice and klt is not
+  # evidence for any spec row.
+  PRC=0
   while read -r stem; do
     klt sim --backend local --format json "$REQ/$stem.json" > "$KLTOUT/$stem.json" 2> "$OUT/$stem.stderr"
-    echo "probe $stem: klt rc=$?"
+    RC=$?
+    echo "gpio-corners: probe $stem: klt rc=$RC"
+    # rc 0 pass, 4 = a unit failed or errored; the envelope is on stdout either way.
+    case "$RC" in 0|3|4) ;; *) PRC=1; echo "gpio-corners: probe $stem: klt rc=$RC (see $OUT/$stem.stderr)" >&2 ;; esac
   done < "$OUT/requests.list"
-  echo "gpio-corners: probe reports in $KLTOUT"; exit 0
+  { echo "- date (UTC): $STAMP"
+    echo "- **probe: one corner (typical, 25 C), run locally. NOT the PVT result and not citable evidence.**"
+    echo "- probe=true"
+    echo "- open_pdks revision (pinned, sim/toolchain.json): \`$OPEN_PDKS\`, variant \`$VARIANT\`"
+    echo "- ngspice on this host: \`$NGSPICE_VERSION\` -- the fleet runner image's own is ngspice-46, so this is not the engine a batch record is made with"
+    echo "- klt client: \`$(klt --version 2>&1 | tail -1)\` (the host klt, NOT the \`$KLT_CLIENT\` the fleet runner matches); backend: local"
+    echo "- repo commit: \`$(git -C "$REPO" rev-parse HEAD 2>/dev/null)\`; DUT: \`design/gpio.spice\`, \`design/dvdd_pad.spice\`"
+    echo "- models: read from the host PDK install, NOT staged per job (\`stage_model_inputs\` is a batch-backend step). Compare each envelope's own \`provenance.pdk\` and \`provenance.deck.content_hash\` against a batch record's before reading any number here as comparable."
+  } > "$OUT/meta.txt"
+  python3 -I "$HERE/collect.py" --probe "$OUT" "$REPO/spec/io-ring.md" "$OUT/meta.txt"; CRC=$?
+  { echo "date_utc=$STAMP"; echo "open_pdks=$OPEN_PDKS"; echo "variant=$VARIANT"
+    echo "ngspice=$NGSPICE_VERSION"; echo "probe_rc=$PRC"; echo "collect_rc=$CRC"
+    echo "result=PROBE"; } > "$OUT/record.txt"
+  # A probe never fails the pass: it is a debug aid, and a deck that errs locally is itself the
+  # thing being debugged. record.txt carries both rcs so the record says so rather than looking
+  # clean, and record.md is absent if collect refused the reports.
+  [ "$CRC" = 0 ] || echo "gpio-corners: probe: collect exited $CRC, so this record has no record.md (see record.txt)" >&2
+  [ "$PRC" = 0 ] || echo "gpio-corners: probe: at least one deck errored locally (see record.txt)" >&2
+  echo "record: $OUT"; echo "gpio-corners: PROBE (one corner, local; not evidence)"; exit 0
 fi
 
 SUBRC=0

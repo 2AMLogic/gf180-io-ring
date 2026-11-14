@@ -82,3 +82,12 @@ jobs:
           klt signoff --attest 10 \
               --inventory manifests/item10-inventory.json \
               --check manifests/item10-attestation.json
+
+      # The per-spec-row characterization report (sim/characterization/) is
+      # generated from the same manifest and the same cited evidence, so it
+      # rots for exactly the reasons the signoff record above does: a new
+      # citation, a re-pointed record, or a declared gap closed or added. Same
+      # defence, same PR-time byte-compare. Needs python3 only -- no klt, no
+      # PDK, no ngspice -- so it costs nothing to run here.
+      - name: Check the committed characterization report is fresh
+        run: sim/characterization/run.sh --check

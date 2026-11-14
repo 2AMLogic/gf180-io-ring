@@ -7,9 +7,14 @@ Sets evidence["5"] to one citation per `klt sim` envelope of the record (file pa
 the repo root, the envelope's own provenance.input.content_hash, the spec rows it covers) and declares the row set and
 the gaps under spec_rows["5"]. Everything else in the manifest is left as is. Regenerate
 manifests/gf180-io-ring.signoff.json afterwards (manifests/README.md).
+
+A record written by `run.sh --probe` is REFUSED: it is one local corner on the host's own
+ngspice and klt, not the PVT grid on the fleet runner, so it is a debug aid and never item 5
+evidence. The manifest is left untouched in that case.
 """
 import json
 import os
+import re
 import sys
 
 MODES = ("5v", "3v3")
@@ -33,10 +38,26 @@ GAPS = [
 ]
 
 
+def refuse_probe(rec):
+    """Exit rather than cite a --probe record. Structurally a probe record looks citable (it has
+    the same klt/<stem>.json envelopes), so the refusal is a check and not a path convention."""
+    txt = ""
+    for name in ("record.txt", "meta.txt"):
+        try:
+            txt += open(os.path.join(rec, name), encoding="utf-8").read()
+        except OSError:
+            pass
+    if re.search(r"^result=PROBE\s*$", txt, re.M) or re.search(r"^[-\s]*probe=true\s*$", txt, re.M):
+        sys.exit(f"cite: refusing {rec}: this is a run.sh --probe record (result=PROBE). One local "
+                 "corner on the host's ngspice and klt is not item 5 evidence for any spec row; "
+                 "cite a batch record written by run.sh. The manifest was not modified.")
+
+
 def main():
     if len(sys.argv) != 3:
         sys.exit(__doc__)
     rec, manifest = os.path.abspath(sys.argv[1]), sys.argv[2]
+    refuse_probe(rec)
     root = os.path.dirname(os.path.dirname(os.path.abspath(manifest)))
     cites = []
     for stem, rows in COVERS.items():

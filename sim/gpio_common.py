@@ -80,7 +80,8 @@ def finite(v):
 
 # Display scaling for the record tables. Shared so the design record and the foundry
 # comparison table cannot print the same quantity on two different scales.
-UNITS = {"s": (1e9, "ns"), "F": (1e12, "pF"), "ohm": (1e-3, "kohm"), "V": (1.0, "V")}
+UNITS = {"s": (1e9, "ns"), "F": (1e12, "pF"), "ohm": (1e-3, "kohm"), "V": (1.0, "V"),
+         "A": (1e3, "mA")}
 
 
 def fmt(v, unit):

@@ -16,6 +16,13 @@ Pinned toolchain and the model smoke bench. Scope: see the repo README.
   targets across the PVT set (comparison anchor, reference values only); grid goes to
   the batch fleet via `klt sim`. See its README.
 
+- `characterization/` — aggregates the evidence `manifests/gf180-io-ring.json` cites
+  for T1 items 5 and 6 into one per-spec-row report (`report.md` plus a `report.json`
+  twin), limit and worst value and binding corner and Monte Carlo yield per row, with
+  a link to the record behind each number. Runs no simulation (`python3` only);
+  `run.sh --check` fails if the committed report is stale, and runs on every PR.
+  See its README.
+
 ## Cold start
 
     sim/smoke/run.sh                   # exit 0 = all sections loaded and conducting
