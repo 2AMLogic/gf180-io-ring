@@ -1,0 +1,2574 @@
+{
+  "alias_map": {
+    "esd_pad_dn": "esd_pad_clamp",
+    "esd_pad_up": "esd_pad_clamp",
+    "esd_rail": "esd_rail_clamp",
+    "pulldown_3v3": "pull_3v3",
+    "pulldown_5v": "pull_5v",
+    "pullup_3v3": "pull_3v3",
+    "pullup_5v": "pull_5v"
+  },
+  "block": "gf180-io-ring",
+  "evidence_file_count": {
+    "5": 16,
+    "6": 30
+  },
+  "kind": "analog",
+  "manifest": "manifests/gf180-io-ring.json",
+  "rows": [
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "vol_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+            "status": "pass",
+            "value": 0.2793278
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+            "status": "pass",
+            "value": 0.2793278
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+            "status": "pass",
+            "value": 0.2793278
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+            "status": "pass",
+            "value": 0.2581025
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+            "status": "pass",
+            "value": 0.2581025
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+            "status": "pass",
+            "value": 0.2581025
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+            "status": "pass",
+            "value": 0.2429308
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+            "status": "pass",
+            "value": 0.2429308
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+            "status": "pass",
+            "value": 0.2429308
+          }
+        ],
+        "label": "VOL at the spec load",
+        "limits": {
+          "max": 0.4
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_5v.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 0.2793278
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": {
+        "binding_measurement": "vol",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": false,
+        "limits": {
+          "max": 0.4
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/vol_5v_125C.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/vol_5v_125C.json",
+          "sim/mc/records/20261028T232951Z/yield/vol_5v_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/vol_5v_m40C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "VOL at the spec load",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "vol_5v",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "voh_drop_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.5
+            },
+            "measurement": "voh_drop_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+            "status": "pass",
+            "value": 0.3293884
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.5
+            },
+            "measurement": "voh_drop_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+            "status": "pass",
+            "value": 0.3293884
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.5
+            },
+            "measurement": "voh_drop_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+            "status": "pass",
+            "value": 0.3293884
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.5
+            },
+            "measurement": "voh_drop_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+            "status": "pass",
+            "value": 0.2967982
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.5
+            },
+            "measurement": "voh_drop_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+            "status": "pass",
+            "value": 0.2967982
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.5
+            },
+            "measurement": "voh_drop_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+            "status": "pass",
+            "value": 0.2967982
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.5
+            },
+            "measurement": "voh_drop_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+            "status": "pass",
+            "value": 0.2717598
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.5
+            },
+            "measurement": "voh_drop_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+            "status": "pass",
+            "value": 0.2717598
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.5
+            },
+            "measurement": "voh_drop_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+            "status": "pass",
+            "value": 0.2717598
+          }
+        ],
+        "label": "VOH drop, DVDD - VOH, at the spec load",
+        "limits": {
+          "max": 0.5
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_5v.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 0.3293884
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": {
+        "binding_measurement": "voh_drop",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": false,
+        "limits": {
+          "max": 0.5
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/voh_5v_125C.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/voh_5v_125C.json",
+          "sim/mc/records/20261028T232951Z/yield/voh_5v_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/voh_5v_m40C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "VOH drop, DVDD - VOH, at the spec load",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "voh_5v",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "t_rise_d0v2",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_rise_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 4.15251e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_rise_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 4.15251e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_rise_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 4.1526e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_rise_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 3.7767e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_rise_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 3.77666e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_rise_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 3.7766e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_rise_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 3.48318e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_rise_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 3.48304e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_rise_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 3.48295e-09
+          }
+        ],
+        "label": "rise 10-90 % into 15 pF",
+        "limits": {
+          "max": 5e-09
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+        "status": "pass",
+        "unit": "s",
+        "worst_value": 4.1526e-09
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "rise 10-90 % into 15 pF",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "rise_5v",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "t_fall_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_fall_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 4.38423e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_fall_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 4.38402e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_fall_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 4.38399e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_fall_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 4.11791e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_fall_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 4.11768e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_fall_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 4.11768e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_fall_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 3.92017e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_fall_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 3.91996e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 5e-09
+            },
+            "measurement": "t_fall_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+            "status": "pass",
+            "value": 3.91985e-09
+          }
+        ],
+        "label": "fall 90-10 % into 15 pF",
+        "limits": {
+          "max": 5e-09
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_5v.json",
+        "status": "pass",
+        "unit": "s",
+        "worst_value": 4.38423e-09
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "fall 90-10 % into 15 pF",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "fall_5v",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "fs/novdd/125C",
+        "binding_measurement": "vt_minus_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "fs/novdd/125C",
+            "limits": {
+              "min": 1.35
+            },
+            "measurement": "vt_minus_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 1.61468
+          },
+          {
+            "binding_corner": "fs/novdd/125C",
+            "limits": {
+              "min": 1.35
+            },
+            "measurement": "vt_minus_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 1.61468
+          },
+          {
+            "binding_corner": "fs/novdd/125C",
+            "limits": {
+              "min": 1.35
+            },
+            "measurement": "vt_minus_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 1.61468
+          },
+          {
+            "binding_corner": "fs/novdd/125C",
+            "limits": {
+              "min": 1.5
+            },
+            "measurement": "vt_minus_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 1.80441
+          },
+          {
+            "binding_corner": "fs/novdd/125C",
+            "limits": {
+              "min": 1.5
+            },
+            "measurement": "vt_minus_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 1.80441
+          },
+          {
+            "binding_corner": "fs/novdd/125C",
+            "limits": {
+              "min": 1.5
+            },
+            "measurement": "vt_minus_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 1.80441
+          },
+          {
+            "binding_corner": "fs/novdd/125C",
+            "limits": {
+              "min": 1.65
+            },
+            "measurement": "vt_minus_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 1.991
+          },
+          {
+            "binding_corner": "fs/novdd/125C",
+            "limits": {
+              "min": 1.65
+            },
+            "measurement": "vt_minus_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 1.991
+          },
+          {
+            "binding_corner": "fs/novdd/125C",
+            "limits": {
+              "min": 1.65
+            },
+            "measurement": "vt_minus_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 1.991
+          }
+        ],
+        "label": "VIL as lower trip Vt- (reads low up to the limit)",
+        "limits": {
+          "min": 1.35
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 1.61468
+      },
+      "declared_gap": null,
+      "mc_limits_differ": true,
+      "monte_carlo": {
+        "binding_measurement": "vt_minus",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": false,
+        "limits": {
+          "min": 1.5
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/xfer_5v_125C.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/xfer_5v_125C.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_5v_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_5v_m40C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "VIL as lower trip Vt- (reads low up to the limit)",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "vil_5v",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "sf/novdd/-40C",
+        "binding_measurement": "vt_plus_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.15
+            },
+            "measurement": "vt_plus_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 2.54692
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.15
+            },
+            "measurement": "vt_plus_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 2.54691
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.15
+            },
+            "measurement": "vt_plus_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 2.54688
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.5
+            },
+            "measurement": "vt_plus_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 2.81565
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.5
+            },
+            "measurement": "vt_plus_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 2.81563
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.5
+            },
+            "measurement": "vt_plus_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 2.81561
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.85
+            },
+            "measurement": "vt_plus_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 3.08803
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.85
+            },
+            "measurement": "vt_plus_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 3.08802
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.85
+            },
+            "measurement": "vt_plus_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 3.08799
+          }
+        ],
+        "label": "VIH as upper trip Vt+ (reads high from the limit)",
+        "limits": {
+          "max": 3.15
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 2.54692
+      },
+      "declared_gap": null,
+      "mc_limits_differ": true,
+      "monte_carlo": {
+        "binding_measurement": "vt_plus",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": false,
+        "limits": {
+          "max": 3.5
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/xfer_5v_125C.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/xfer_5v_125C.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_5v_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_5v_m40C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "VIH as upper trip Vt+ (reads high from the limit)",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "vih_5v",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ff/novdd/125C",
+        "binding_measurement": "hyst_d0v2",
+        "contributions": [
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.4
+            },
+            "measurement": "hyst_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 0.584665
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.4
+            },
+            "measurement": "hyst_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 0.584656
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.4
+            },
+            "measurement": "hyst_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 0.584651
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.4
+            },
+            "measurement": "hyst_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 0.633169
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.4
+            },
+            "measurement": "hyst_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 0.633169
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.4
+            },
+            "measurement": "hyst_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 0.633169
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.4
+            },
+            "measurement": "hyst_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 0.682355
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.4
+            },
+            "measurement": "hyst_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 0.682318
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.4
+            },
+            "measurement": "hyst_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+            "status": "pass",
+            "value": 0.682308
+          }
+        ],
+        "label": "hysteresis Vt+ - Vt-",
+        "limits": {
+          "min": 0.4
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_5v.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 0.584651
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": {
+        "binding_measurement": "hyst",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": true,
+        "limits": {
+          "min": 0.4
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/xfer_5v_125C.hyst-control.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/xfer_5v_125C.hyst-control.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_5v_25C.hyst-control.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_5v_m40C.hyst-control.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "hysteresis Vt+ - Vt-",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "hyst_5v",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "c_pad_d2v0",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+            "status": "pass",
+            "value": 4.005024e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+            "status": "pass",
+            "value": 4.005024e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+            "status": "pass",
+            "value": 4.005024e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+            "status": "pass",
+            "value": 4.04447e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+            "status": "pass",
+            "value": 4.04447e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+            "status": "pass",
+            "value": 4.04447e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+            "status": "pass",
+            "value": 4.050878e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+            "status": "pass",
+            "value": 4.050878e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+            "status": "pass",
+            "value": 4.050878e-13
+          }
+        ],
+        "label": "PAD capacitance, input mode, 1 MHz",
+        "limits": {
+          "max": 3e-12
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_5v.json",
+        "status": "pass",
+        "unit": "F",
+        "worst_value": 4.050878e-13
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "PAD capacitance, input mode, 1 MHz",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "cap_5v",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "typical/novdd/25C",
+        "binding_measurement": "r_pulldown_d1v1",
+        "contributions": [
+          {
+            "binding_corner": "typical/novdd/25C",
+            "limits": {
+              "max": 100000.0,
+              "min": 25000.0
+            },
+            "measurement": "r_pulldown_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/pulldown_5v_nominal.json",
+            "status": "pass",
+            "value": 28921.55
+          },
+          {
+            "binding_corner": "typical/novdd/25C",
+            "limits": {
+              "max": 100000.0,
+              "min": 25000.0
+            },
+            "measurement": "r_pullup_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/pullup_5v_nominal.json",
+            "status": "pass",
+            "value": 34776.38
+          }
+        ],
+        "label": "pull-down equivalent R, PAD at DVDD/2; pull-up equivalent R, PAD at DVDD/2",
+        "limits": {
+          "max": 100000.0,
+          "min": 25000.0
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/pulldown_5v_nominal.json",
+        "status": "pass",
+        "unit": "ohm",
+        "worst_value": 28921.55
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": {
+        "binding_measurement": "r_pulldown",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": true,
+        "limits": {
+          "max": 100000.0,
+          "min": 25000.0
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/pulldown_5v_25C.json",
+        "source_corners": [
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/pulldown_5v_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/pulldown_5v_25C.r_pulldown-control.json",
+          "sim/mc/records/20261028T232951Z/yield/pullup_5v_25C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "25C"
+        ],
+        "unit": "ohm"
+      },
+      "parameter": "pull-down equivalent R, PAD at DVDD/2; pull-up equivalent R, PAD at DVDD/2",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "pull_5v",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "vol_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+            "status": "pass",
+            "value": 0.1956404
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+            "status": "pass",
+            "value": 0.1956404
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+            "status": "pass",
+            "value": 0.1956404
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+            "status": "pass",
+            "value": 0.1739747
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+            "status": "pass",
+            "value": 0.1739747
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+            "status": "pass",
+            "value": 0.1739747
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+            "status": "pass",
+            "value": 0.1582814
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+            "status": "pass",
+            "value": 0.1582814
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "vol_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+            "status": "pass",
+            "value": 0.1582814
+          }
+        ],
+        "label": "VOL at the spec load",
+        "limits": {
+          "max": 0.4
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/vol_3v3.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 0.1956404
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": {
+        "binding_measurement": "vol",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": false,
+        "limits": {
+          "max": 0.4
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/vol_3v3_125C.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/vol_3v3_125C.json",
+          "sim/mc/records/20261028T232951Z/yield/vol_3v3_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/vol_3v3_m40C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "VOL at the spec load",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "vol_3v3",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "voh_drop_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "voh_drop_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+            "status": "pass",
+            "value": 0.2516783
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "voh_drop_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+            "status": "pass",
+            "value": 0.2516783
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "voh_drop_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+            "status": "pass",
+            "value": 0.2516783
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "voh_drop_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+            "status": "pass",
+            "value": 0.2205117
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "voh_drop_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+            "status": "pass",
+            "value": 0.2205117
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "voh_drop_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+            "status": "pass",
+            "value": 0.2205117
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "voh_drop_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+            "status": "pass",
+            "value": 0.1977445
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "voh_drop_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+            "status": "pass",
+            "value": 0.1977445
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 0.4
+            },
+            "measurement": "voh_drop_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+            "status": "pass",
+            "value": 0.1977445
+          }
+        ],
+        "label": "VOH drop, DVDD - VOH, at the spec load",
+        "limits": {
+          "max": 0.4
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/voh_3v3.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 0.2516783
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": {
+        "binding_measurement": "voh_drop",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": false,
+        "limits": {
+          "max": 0.4
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/voh_3v3_125C.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/voh_3v3_125C.json",
+          "sim/mc/records/20261028T232951Z/yield/voh_3v3_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/voh_3v3_m40C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "VOH drop, DVDD - VOH, at the spec load",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "voh_3v3",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "t_rise_d0v1",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_rise_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 6.48513e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_rise_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 6.48517e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_rise_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 6.48517e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_rise_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.71809e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_rise_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.7181e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_rise_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.71811e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_rise_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.14499e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_rise_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.14501e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_rise_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.14498e-09
+          }
+        ],
+        "label": "rise 10-90 % into 15 pF",
+        "limits": {
+          "max": 8e-09
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+        "status": "pass",
+        "unit": "s",
+        "worst_value": 6.48517e-09
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "rise 10-90 % into 15 pF",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "rise_3v3",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "t_fall_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_fall_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 6.14608e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_fall_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 6.14598e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_fall_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 6.14599e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_fall_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.55998e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_fall_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.55998e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_fall_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.55978e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_fall_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.12328e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_fall_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.12332e-09
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 8e-09
+            },
+            "measurement": "t_fall_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+            "status": "pass",
+            "value": 5.12322e-09
+          }
+        ],
+        "label": "fall 90-10 % into 15 pF",
+        "limits": {
+          "max": 8e-09
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/edges_3v3.json",
+        "status": "pass",
+        "unit": "s",
+        "worst_value": 6.14608e-09
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "fall 90-10 % into 15 pF",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "fall_3v3",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "fs/novdd/-40C",
+        "binding_measurement": "vt_minus_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "fs/novdd/-40C",
+            "limits": {
+              "min": 0.891
+            },
+            "measurement": "vt_minus_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.02356
+          },
+          {
+            "binding_corner": "fs/novdd/-40C",
+            "limits": {
+              "min": 0.891
+            },
+            "measurement": "vt_minus_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.02356
+          },
+          {
+            "binding_corner": "fs/novdd/-40C",
+            "limits": {
+              "min": 0.891
+            },
+            "measurement": "vt_minus_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.02356
+          },
+          {
+            "binding_corner": "fs/novdd/-40C",
+            "limits": {
+              "min": 0.99
+            },
+            "measurement": "vt_minus_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.15683
+          },
+          {
+            "binding_corner": "fs/novdd/-40C",
+            "limits": {
+              "min": 0.99
+            },
+            "measurement": "vt_minus_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.15683
+          },
+          {
+            "binding_corner": "fs/novdd/-40C",
+            "limits": {
+              "min": 0.99
+            },
+            "measurement": "vt_minus_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.15683
+          },
+          {
+            "binding_corner": "fs/novdd/25C",
+            "limits": {
+              "min": 1.089
+            },
+            "measurement": "vt_minus_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.28502
+          },
+          {
+            "binding_corner": "fs/novdd/25C",
+            "limits": {
+              "min": 1.089
+            },
+            "measurement": "vt_minus_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.28502
+          },
+          {
+            "binding_corner": "fs/novdd/25C",
+            "limits": {
+              "min": 1.089
+            },
+            "measurement": "vt_minus_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.28502
+          }
+        ],
+        "label": "VIL as lower trip Vt- (reads low up to the limit)",
+        "limits": {
+          "min": 0.891
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 1.02356
+      },
+      "declared_gap": null,
+      "mc_limits_differ": true,
+      "monte_carlo": {
+        "binding_measurement": "vt_minus",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": false,
+        "limits": {
+          "min": 0.99
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/xfer_3v3_125C.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/xfer_3v3_125C.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_3v3_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_3v3_m40C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "VIL as lower trip Vt- (reads low up to the limit)",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "vil_3v3",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "sf/novdd/-40C",
+        "binding_measurement": "vt_plus_d0v2",
+        "contributions": [
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 2.079
+            },
+            "measurement": "vt_plus_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.76395
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 2.079
+            },
+            "measurement": "vt_plus_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.76395
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 2.079
+            },
+            "measurement": "vt_plus_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.76396
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 2.31
+            },
+            "measurement": "vt_plus_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.92559
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 2.31
+            },
+            "measurement": "vt_plus_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.92558
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 2.31
+            },
+            "measurement": "vt_plus_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 1.92558
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 2.541
+            },
+            "measurement": "vt_plus_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 2.09189
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 2.541
+            },
+            "measurement": "vt_plus_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 2.09188
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 2.541
+            },
+            "measurement": "vt_plus_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 2.09187
+          }
+        ],
+        "label": "VIH as upper trip Vt+ (reads high from the limit)",
+        "limits": {
+          "max": 2.079
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 1.76396
+      },
+      "declared_gap": null,
+      "mc_limits_differ": true,
+      "monte_carlo": {
+        "binding_measurement": "vt_plus",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": false,
+        "limits": {
+          "max": 2.3099999999999996
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/xfer_3v3_125C.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/xfer_3v3_125C.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_3v3_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_3v3_m40C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "VIH as upper trip Vt+ (reads high from the limit)",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "vih_3v3",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ff/novdd/125C",
+        "binding_measurement": "hyst_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.25
+            },
+            "measurement": "hyst_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 0.451199
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.25
+            },
+            "measurement": "hyst_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 0.451199
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.25
+            },
+            "measurement": "hyst_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 0.451199
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.25
+            },
+            "measurement": "hyst_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 0.476907
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.25
+            },
+            "measurement": "hyst_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 0.476924
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.25
+            },
+            "measurement": "hyst_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 0.476963
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.25
+            },
+            "measurement": "hyst_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 0.504839
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.25
+            },
+            "measurement": "hyst_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 0.504839
+          },
+          {
+            "binding_corner": "ff/novdd/125C",
+            "limits": {
+              "min": 0.25
+            },
+            "measurement": "hyst_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+            "status": "pass",
+            "value": 0.504869
+          }
+        ],
+        "label": "hysteresis Vt+ - Vt-",
+        "limits": {
+          "min": 0.25
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/xfer_3v3.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 0.451199
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": {
+        "binding_measurement": "hyst",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": true,
+        "limits": {
+          "min": 0.25
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/xfer_3v3_125C.hyst-control.json",
+        "source_corners": [
+          "typical/novdd/-40C",
+          "typical/novdd/125C",
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/xfer_3v3_125C.hyst-control.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_3v3_25C.hyst-control.json",
+          "sim/mc/records/20261028T232951Z/yield/xfer_3v3_m40C.hyst-control.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "-40C",
+          "25C",
+          "125C"
+        ],
+        "unit": "V"
+      },
+      "parameter": "hysteresis Vt+ - Vt-",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "hyst_3v3",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "c_pad_d0v0",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d0v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+            "status": "pass",
+            "value": 4.265827e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d0v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+            "status": "pass",
+            "value": 4.265827e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d0v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+            "status": "pass",
+            "value": 4.265827e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d1v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+            "status": "pass",
+            "value": 4.181148e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+            "status": "pass",
+            "value": 4.181148e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d1v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+            "status": "pass",
+            "value": 4.181148e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d2v0",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+            "status": "pass",
+            "value": 4.106047e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d2v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+            "status": "pass",
+            "value": 4.106047e-13
+          },
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 3e-12
+            },
+            "measurement": "c_pad_d2v2",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+            "status": "pass",
+            "value": 4.106047e-13
+          }
+        ],
+        "label": "PAD capacitance, input mode, 1 MHz",
+        "limits": {
+          "max": 3e-12
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/cap_3v3.json",
+        "status": "pass",
+        "unit": "F",
+        "worst_value": 4.265827e-13
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "PAD capacitance, input mode, 1 MHz",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "cap_3v3",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "typical/novdd/25C",
+        "binding_measurement": "r_pullup_d1v1",
+        "contributions": [
+          {
+            "binding_corner": "typical/novdd/25C",
+            "limits": {
+              "max": 100000.0,
+              "min": 25000.0
+            },
+            "measurement": "r_pulldown_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/pulldown_3v3_nominal.json",
+            "status": "pass",
+            "value": 42996.32
+          },
+          {
+            "binding_corner": "typical/novdd/25C",
+            "limits": {
+              "max": 100000.0,
+              "min": 25000.0
+            },
+            "measurement": "r_pullup_d1v1",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/pullup_3v3_nominal.json",
+            "status": "pass",
+            "value": 55338.57
+          }
+        ],
+        "label": "pull-down equivalent R, PAD at DVDD/2; pull-up equivalent R, PAD at DVDD/2",
+        "limits": {
+          "max": 100000.0,
+          "min": 25000.0
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/pullup_3v3_nominal.json",
+        "status": "pass",
+        "unit": "ohm",
+        "worst_value": 55338.57
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": {
+        "binding_measurement": "r_pulldown",
+        "ci_high": 1.0,
+        "ci_low": 0.987779025305707,
+        "confidence": 0.95,
+        "estimate": 1.0,
+        "has_negative_control": true,
+        "limits": {
+          "max": 100000.0,
+          "min": 25000.0
+        },
+        "method": "clopper-pearson",
+        "n": 300,
+        "processes": [
+          "typical"
+        ],
+        "source": "sim/mc/records/20261028T232951Z/yield/pulldown_3v3_25C.json",
+        "source_corners": [
+          "typical/novdd/25C"
+        ],
+        "sources": [
+          "sim/mc/records/20261028T232951Z/yield/pulldown_3v3_25C.json",
+          "sim/mc/records/20261028T232951Z/yield/pulldown_3v3_25C.r_pulldown-control.json",
+          "sim/mc/records/20261028T232951Z/yield/pullup_3v3_25C.json"
+        ],
+        "status": "pass",
+        "target_yield": 0.98,
+        "temperatures": [
+          "25C"
+        ],
+        "unit": "ohm"
+      },
+      "parameter": "pull-down equivalent R, PAD at DVDD/2; pull-up equivalent R, PAD at DVDD/2",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "pull_3v3",
+      "spec": {
+        "anchor": "gpio-electrical-targets",
+        "section": "GPIO electrical targets"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/-40C",
+        "binding_measurement": "vf_dn_hbm",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/-40C",
+            "limits": {
+              "max": 3.0
+            },
+            "measurement": "vf_dn_hbm",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/esd_pad.json",
+            "status": "pass",
+            "value": 1.282563
+          },
+          {
+            "binding_corner": "sf/novdd/-40C",
+            "limits": {
+              "max": 3.0
+            },
+            "measurement": "vf_up_hbm",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/esd_pad.json",
+            "status": "pass",
+            "value": 1.148948
+          }
+        ],
+        "label": "pad clamp from DVSS, forward drop at the 1.33 A stress current; pad clamp to DVDD, forward drop at the 1.33 A stress current",
+        "limits": {
+          "max": 3.0
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/esd_pad.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 1.282563
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "pad clamp from DVSS, forward drop at the 1.33 A stress current; pad clamp to DVDD, forward drop at the 1.33 A stress current",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "esd_pad_clamp",
+      "spec": {
+        "anchor": "esd-network",
+        "section": "ESD network"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": {
+        "binding_corner": "ss/novdd/125C",
+        "binding_measurement": "v_peak",
+        "contributions": [
+          {
+            "binding_corner": "ss/novdd/125C",
+            "limits": {
+              "max": 6.0
+            },
+            "measurement": "v_peak",
+            "source": "sim/gpio-corners/records/20261027T091449Z/klt/esd_rail.json",
+            "status": "pass",
+            "value": 5.38995
+          }
+        ],
+        "label": "DVDD-DVSS rail clamp, peak DVDD under a 1.33 A / 10 ns-rise pulse",
+        "limits": {
+          "max": 6.0
+        },
+        "source": "sim/gpio-corners/records/20261027T091449Z/klt/esd_rail.json",
+        "status": "pass",
+        "unit": "V",
+        "worst_value": 5.38995
+      },
+      "declared_gap": null,
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "DVDD-DVSS rail clamp, peak DVDD under a 1.33 A / 10 ns-rise pulse",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "esd_rail_clamp",
+      "spec": {
+        "anchor": "esd-network",
+        "section": "ESD network"
+      },
+      "status": "pass"
+    },
+    {
+      "corner": null,
+      "declared_gap": "core VDD-VSS rail clamp (3.3 V devices) not simulated: the spec gives no voltage budget for it",
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "core VDD-VSS rail clamp (3.3 V devices) not simulated: the spec gives no voltage budget for it",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "esd_core_rail_clamp",
+      "spec": {
+        "anchor": "esd-network",
+        "section": "ESD network"
+      },
+      "status": "no_evidence"
+    },
+    {
+      "corner": null,
+      "declared_gap": "VDD/DVDD cross-domain coupling is not drawn yet (spec: decision record to follow)",
+      "mc_limits_differ": false,
+      "monte_carlo": null,
+      "parameter": "VDD/DVDD cross-domain coupling is not drawn yet (spec: decision record to follow)",
+      "post_layout": {
+        "note": "T1 item 7 (post-layout extraction) cites no evidence in the manifest; tracked in issue #21",
+        "status": "no_evidence"
+      },
+      "row": "esd_vdd_dvdd_coupling",
+      "spec": {
+        "anchor": "esd-network",
+        "section": "ESD network"
+      },
+      "status": "no_evidence"
+    }
+  ],
+  "schema_version": 1,
+  "spine": "manifests/gf180-io-ring.json spec_rows[\"5\"]"
+}
