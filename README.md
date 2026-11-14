@@ -17,8 +17,11 @@ corner, fillers), with the DRC, LVS and ERC evidence under `manifests/evidence/`
   ESD gaps remain, the core `VDD`-`VSS` rail clamp (not simulated, no voltage budget in the spec)
   and the `VDD`/`DVDD` cross-domain coupling (not drawn yet), both tracked in #48. The rail clamp
   release after the pulse (#45) is a related open evaluation, not a declared gap.
-- **Item 7, post-layout verification: `no_evidence`.** Tracked in #20, with #40 and #53 blocking
-  the extracted-cell binding.
+- **Item 7, post-layout verification: `no_evidence`.** Tracked in #20. The extracted-cell binding
+  blockers are resolved; the remaining blocker (#61) is that the batch run needs a runner image
+  whose klt carries the diode `area=`/`pj=` fix
+  ([klayout-tools PR #5184](https://github.com/2AMLogic/klayout-tools/pull/5184)). A one-corner
+  local probe with a newer client runs; one corner is not item-7 evidence.
 - **Item 8, characterization report: `no_evidence`.** Tracked in #21.
 
 The upper tiers (T2 to T4) are not supported by this build. ESD robustness is not claimed:
