@@ -3,6 +3,18 @@
 Chronological record of merged PRs and closed issues, maintained by the Guide
 triage role. Newest first.
 
+### 2026-11-14
+
+- **PR #83**: feat(sim): add a powered-rail esd_rail_release deck and make --probe write a record
+- **Issue #73** (closed): esd_rail_release request: powered deck, dry-run validation and a one-corner probe (first slice of #45)
+- **PR #81**: feat(sim): aggregate cited item-5/item-6 evidence into a per-spec-row report
+- **Issue #72** (closed): Characterization report generator for the item-5 and item-6 rows (first slice of #21)
+- **PR #74**: refactor(layout): drop dead tie_bar(), STUB_X and stub_stack text= flag
+- **Issue #68** (closed): Remove born-dead code in layout/gen_ring.py: tie_bar(), STUB_X, stub_stack text= parameter
+- **PR #77**: docs: point item-7 blocker at the runner-image rebake, not closed #40/#53
+- **Issue #71** (closed): Correct stale item-7 blocker references in README.md and sim/gpio-pex/README.md
+- **PR #70**: docs: roadmap as of 2026-11-13
+
 ### 2026-11-12
 
 - **PR #64**: Bump Repo Skills 0.25.10 -> 0.26.1

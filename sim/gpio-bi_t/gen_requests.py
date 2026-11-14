@@ -26,14 +26,12 @@ import shutil
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-from gpio_common import process_axis, vlabel  # noqa: E402
+from gpio_common import DVDD, ILOAD, TEMPS, dvdd_nominal, process_axis, vlabel  # noqa: E402
 
-MODES = {
-    # name: (DVDD low/nominal/high, load current at the spec VOL/VOH point)
-    "5v": ([4.5, 5.0, 5.5], 4e-3),
-    "3v3": ([2.97, 3.3, 3.63], 2e-3),
-}
-TEMPS = [-40, 25, 125]
+# name: (DVDD low/nominal/high, load current at the spec VOL/VOH point). Both are ratified
+# spec rows, defined once in sim/gpio_common.py; this bench takes the axis without the
+# limits (the foundry cell is a reference, so its measurements carry no `limits`).
+MODES = {m: (DVDD[m], ILOAD[m]) for m in DVDD}
 
 
 # Pin biases are SPICE value strings; core-side pins are referenced to VDD = DVDD.
@@ -113,7 +111,7 @@ PROBES = ("bad-include", "bad-model-path", "bad-load", "bad-measure")
 
 def write_probe(out, modeldir, kind):
     deck = "edges" if kind == "bad-measure" else "vol"
-    dvdd, iload = MODES["5v"][0][1], MODES["5v"][1]
+    dvdd, iload = dvdd_nominal("5v"), ILOAD["5v"]
     iload = 1e3 if kind == "bad-load" else iload
     text = netlist(deck, "5v", DECKS[deck], dvdd, iload, modeldir)
     if kind == "bad-include":

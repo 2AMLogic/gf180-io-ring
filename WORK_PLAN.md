@@ -14,7 +14,7 @@ _None._
 
 `loom:very-important` (one counts per workspace); every stage takes these first.
 
-_None._
+- **#72**: Characterization report generator for the item-5 and item-6 rows (first slice of #21)
 
 ## Important
 
@@ -22,24 +22,27 @@ _None._
 
 - **#20**: T1 item 7 (post-layout verification): klt pex delta of the GPIO spec suite against the extracted ring cell
 - **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60)
+- **#73**: esd_rail_release request: powered deck, dry-run validation and a one-corner probe (first slice of #45)
 
 ## Ready
 
 Human-approved issues ready for implementation (`loom:issue`).
 
-_None._
+- **#72**: Characterization report generator for the item-5 and item-6 rows (first slice of #21)
 
 ## In Progress
 
 Issues currently being built (`loom:building`).
 
 - **#48**: T1 item 5 (corner verification): close the two declared ESD gaps (core VDD-VSS rail clamp budget, VDD/DVDD coupling DR) holding item 5 at partial_coverage
+- **#69**: Share the ratified spec limits via sim/gpio_common.py instead of five literal copies
 
 ## PRs Awaiting Review
 
 PRs waiting on Judge (`loom:review-requested`).
 
 - **#50**: feat: simulate the core VDD-VSS clamp against a proposed budget and propose no VDD/DVDD coupling
+- **#78**: refactor: define the ratified GPIO spec limits once in sim/gpio_common.py
 
 ## Approved (Awaiting Merge)
 
@@ -55,10 +58,13 @@ Issues carrying `loom:curated`.
 - **#45**: Evaluate DVDD/DVSS rail clamp release after the pulse (no-latch) in the esd_rail bench *(curated)*
 - **#48**: T1 item 5 (corner verification): close the two declared ESD gaps (core VDD-VSS rail clamp budget, VDD/DVDD coupling DR) holding item 5 at partial_coverage *(curated)*
 - **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60) *(curated)*
+- **#72**: Characterization report generator for the item-5 and item-6 rows (first slice of #21) *(curated)*
+- **#73**: esd_rail_release request: powered deck, dry-run validation and a one-corner probe (first slice of #45) *(curated)*
+- **#75**: Delete the never-read ROW map in sim/mc/collect.py and correct its stale docstring *(curated)*
 
 ## Proposed (Architect / Hermit)
 
-_None._
+- **#75**: Delete the never-read ROW map in sim/mc/collect.py and correct its stale docstring *(hermit)*
 
 ## Epics
 
@@ -69,13 +75,13 @@ _None._
 | Bucket | Count |
 |------|-------|
 | Operator merge-risk holds | 0 |
-| Very important | 0 |
-| Important | 2 |
-| Ready (`loom:issue`) | 0 |
-| In Progress (`loom:building`) | 1 |
-| PRs awaiting review | 1 |
+| Very important | 1 |
+| Important | 3 |
+| Ready (`loom:issue`) | 1 |
+| In Progress (`loom:building`) | 2 |
+| PRs awaiting review | 2 |
 | Approved PRs awaiting merge | 0 |
-| Curated | 4 |
-| Architect / Hermit proposals | 0 |
+| Curated | 7 |
+| Architect / Hermit proposals | 1 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->
