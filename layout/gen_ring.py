@@ -74,7 +74,6 @@ STUBS = [
     ("DVSS", 264.0, 279.0), ("DVDD", 280.0, 295.0), ("VDD", 310.0, 317.0),
     ("VSS", 318.0, 325.0), ("DVDD", 326.0, 341.0), ("DVSS", 342.4, 348.4),
 ]
-STUB_X = [(0.0, 1.0), (PITCH - 1.0, PITCH)]
 RAIL_LAYERS = ["M3", "M4", "M5"]
 
 
@@ -90,7 +89,7 @@ def check_stubs():
         assert b0 < a1, "stub overlap %s %s" % ((a0, b0), (a1, b1))
 
 
-def stub_stack(cell, x0, x1, y0, y1, net, text=True):
+def stub_stack(cell, x0, x1, y0, y1, net):
     for lyr in RAIL_LAYERS:
         box(cell, lyr, x0, y0, x1, y1)
     # one column of Via3/Via4 at 0.56 um pitch joins the three layers
@@ -100,22 +99,14 @@ def stub_stack(cell, x0, x1, y0, y1, net, text=True):
         for v in ("V3", "V4"):
             box(cell, v, xc - 0.13, y, xc + 0.13, y + 0.26)
         y += 0.56
-    if text:
-        for lyr in ("M3_LBL", "M4_LBL", "M5_LBL"):
-            label(cell, lyr, net, xc, (y0 + y1) / 2.0)
+    for lyr in ("M3_LBL", "M4_LBL", "M5_LBL"):
+        label(cell, lyr, net, xc, (y0 + y1) / 2.0)
 
 
 def rails(cell, width=PITCH, height=DEPTH):
     for net, a, b in STUBS:
         for x0, x1 in ((0.0, 1.0), (width - 1.0, width)):
             stub_stack(cell, x0, x1, a, b, net)
-
-
-def tie_bar(cell, net, x_to, y):
-    """M3 bar from the left-edge stub segment of `net` at height y to x_to."""
-    seg = [s for s in STUBS if s[0] == net and s[1] <= y <= s[2]]
-    assert seg, "no %s stub at y=%s" % (net, y)
-    box(cell, "M3", 0.0, y - 0.25, x_to, y + 0.25)
 
 
 # --- wiring: terminals, rail trunks, grid router -------------------------------
