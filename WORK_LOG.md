@@ -3,6 +3,14 @@
 Chronological record of merged PRs and closed issues, maintained by the Guide
 triage role. Newest first.
 
+### 2026-11-14
+
+- **PR #74**: refactor(layout): drop dead tie_bar(), STUB_X and stub_stack text= flag
+- **Issue #68** (closed): Remove born-dead code in layout/gen_ring.py: tie_bar(), STUB_X, stub_stack text= parameter
+- **PR #77**: docs: point item-7 blocker at the runner-image rebake, not closed #40/#53
+- **Issue #71** (closed): Correct stale item-7 blocker references in README.md and sim/gpio-pex/README.md
+- **PR #70**: docs: roadmap as of 2026-11-13
+
 ### 2026-11-12
 
 - **PR #64**: Bump Repo Skills 0.25.10 -> 0.26.1
