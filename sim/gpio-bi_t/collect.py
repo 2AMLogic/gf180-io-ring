@@ -15,7 +15,8 @@ import os
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-from gpio_common import finite, limitation, load, vlabel  # noqa: E402
+from gpio_common import (DVDD, EDGE_MAX, HYST_MIN, ILOAD, R_PULL, VOH_DROP_MAX,  # noqa: E402
+                         VOL_MAX, dvdd_nominal, finite, fmt, limitation, load, vlabel)
 
 DECKS = ["vol", "voh", "edges", "pullup", "pulldown", "cap", "xfer_cs0", "xfer_cs1"]
 MODES = ["5v", "3v3"]
@@ -26,13 +27,12 @@ EXPECT = {  # measurement names per deck
 }
 POSITIVE = {"r_pullup", "r_pulldown", "c_pad", "t_rise", "t_fall", "vol"}
 CORNERS = 45
-DVDDS = {"5v": [4.5, 5.0, 5.5], "3v3": [2.97, 3.3, 3.63]}
 
 
 def merged(kltout, deck, mode):
     """The three per-DVDD requests of (deck, mode) as one report with 45 corners."""
     out = {"corners": [], "environment": {}, "_parts": []}
-    for v in DVDDS[mode]:
+    for v in DVDD[mode]:
         stem = f"{deck}_{mode}_{vlabel(v)}"
         rep = load(os.path.join(kltout, stem, "report.json"))
         if "_unreadable" in rep:
@@ -87,29 +87,20 @@ def worst(rep, name, key=lambda p: p[2], high=True):
 
 def nominal(rep, name):
     for cid, dvdd, v in points(rep, name):
-        if cid.startswith("typical/") and cid.endswith("/25C") and abs(dvdd - NOMINAL[rep["_mode"]]) < 1e-9:
+        if cid.startswith("typical/") and cid.endswith("/25C") and abs(dvdd - dvdd_nominal(rep["_mode"])) < 1e-9:
             return cid, v
     sys.exit(f"collect: no nominal point for {name}")
-
-
-NOMINAL = {"5v": 5.0, "3v3": 3.3}
-
-
-def fmt(v, unit):
-    scale = {"s": (1e9, "ns"), "F": (1e12, "pF"), "ohm": (1e-3, "kohm"), "V": (1, "V")}[unit]
-    return f"{v * scale[0]:.4g} {scale[1]}"
 
 
 def table(reps):
     """One row per spec parameter and mode: foundry value at its binding corner."""
     rows = []
     for mode in MODES:
-        nom = NOMINAL[mode]
-        iload = "4 mA" if mode == "5v" else "2 mA"
-        vol_lim = 0.4
-        voh_lim = 0.5 if mode == "5v" else 0.4
-        rise_lim = 5e-9 if mode == "5v" else 8e-9
-        hyst_lim = 0.4 if mode == "5v" else 0.25
+        iload = f"{ILOAD[mode] * 1e3:g} mA"
+        vol_lim = VOL_MAX
+        voh_lim = VOH_DROP_MAX[mode]
+        rise_lim = EDGE_MAX[mode]
+        hyst_lim = HYST_MIN[mode]
         r = {d: reps[(d, mode)] for d in DECKS}
         for d in DECKS:
             r[d]["_mode"] = mode
@@ -141,9 +132,10 @@ def table(reps):
             ncid, nv = nominal(r[d], name)
             lo = worst(r[d], name, high=False)
             hi = worst(r[d], name)
-            rows.append((mode, f"{label} equivalent R (PAD at DVDD/2)", "25-100 kohm at nominal",
+            rows.append((mode, f"{label} equivalent R (PAD at DVDD/2)",
+                         f"{R_PULL[0] * 1e-3:g}-{R_PULL[1] * 1e-3:g} kohm at nominal",
                          f"{fmt(nv, 'ohm')} nominal; {fmt(lo[2], 'ohm')} .. {fmt(hi[2], 'ohm')} over the grid",
-                         "nominal", ncid, 25e3 <= nv <= 100e3))
+                         "nominal", ncid, R_PULL[0] <= nv <= R_PULL[1]))
         cid, _, v = worst(r["cap"], "c_pad")
         rows.append((mode, "PAD capacitance, input mode, 1 MHz", "<= 3 pF", fmt(v, "F"), "max", cid, v <= 3e-12))
     return rows

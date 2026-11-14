@@ -31,17 +31,20 @@ local sanity check in run.sh --dry-run.
 import json
 import os
 import re
-import shutil
 import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+from gpio_common import (DVDD, HYST_MIN, ILOAD, R_PULL, TEMPS, VOH_DROP_MAX,  # noqa: E402
+                         VOL_MAX, dvdd_nominal, vdd_core_nominal)
 
 MC_N = 300
 MC_SEED = 20261027
-MODES = {  # name: (DVDD, load current at the spec VOL/VOH point, hysteresis limit, VOH drop limit)
-    "5v": (5.0, 4e-3, 0.4, 0.5),
-    "3v3": (3.3, 2e-3, 0.25, 0.4),
-}
-VDD_CORE = 3.3
-TEMPS = [-40, 25, 125]
+# name: (DVDD, load current at the spec VOL/VOH point, hysteresis limit, VOH drop limit).
+# Every value is a ratified spec row, defined once in sim/gpio_common.py. The reduced
+# campaign (README.md) runs the nominal supply point only, so this selects the nominal
+# point of the shared DVDD axis rather than carrying its own number.
+MODES = {m: (dvdd_nominal(m), ILOAD[m], HYST_MIN[m], VOH_DROP_MAX[m]) for m in DVDD}
+VDD_CORE = vdd_core_nominal()  # scalar: the campaign holds core VDD at its nominal point
 TARGET_YIELD = 0.98
 
 # gf180mcu has no all-device corner section: a bundle loads the MOS section plus the diode
@@ -74,7 +77,7 @@ def decks(mode):
             doc="VOL: A=0, OE=1; sink current from DVDD into PAD",
             temps=TEMPS, pins={"oe": "{vdd}"}, extra="Iload dvdd pad DC {iload}",
             analysis={"kind": "op", "args": ""},
-            meas=[{"name": "vol", "expr": "v(pad)", "unit": "V", "limits": lim(max=0.4)}]),
+            meas=[{"name": "vol", "expr": "v(pad)", "unit": "V", "limits": lim(max=VOL_MAX)}]),
         "voh": dict(
             doc="VOH: A=1, OE=1; source current from PAD to ground",
             temps=TEMPS, pins={"a": "{vdd}", "oe": "{vdd}"}, extra="Iload pad 0 DC {iload}",
@@ -86,17 +89,17 @@ def decks(mode):
             temps=[25], pins={"pu": "{vdd}"}, extra="Vpad pad 0 DC {0.5*dvdd}",
             analysis={"kind": "op", "args": ""},
             meas=[{"name": "r_pullup", "expr": "0.5*v(dvdd)/abs(i(vpad))", "unit": "ohm",
-                   "limits": lim(min=25e3, max=100e3)}]),
+                   "limits": lim(min=R_PULL[0], max=R_PULL[1])}]),
         "pulldown": dict(
             doc="pull-down equivalent resistance, PAD held at DVDD/2, OE=IE=0, PD=1",
             temps=[25], pins={"pd": "{vdd}"}, extra="Vpad pad 0 DC {0.5*dvdd}",
             analysis={"kind": "op", "args": ""},
             meas=[{"name": "r_pulldown", "expr": "0.5*v(dvdd)/abs(i(vpad))", "unit": "ohm",
-                   "limits": lim(min=25e3, max=100e3)}]),
+                   "limits": lim(min=R_PULL[0], max=R_PULL[1])}]),
     }
 
 
-def netlist(deck, mode, d, modeldir, stem, stat=1):
+def netlist(deck, mode, d, modeldir, stat=1):
     dvdd, iload = MODES[mode][:2]
     pins = dict(BASE, **d["pins"])
     lines = [f"* own-design gpio, deck {deck}, {mode} mode: {d['doc']}",
@@ -166,7 +169,7 @@ def main():
                     continue
                 stem = f"{deck}_{mode}_{'m' if t < 0 else ''}{abs(t)}C"
                 with open(os.path.join(out, stem + ".sp"), "w") as f:
-                    f.write(netlist(deck, mode, d, modeldir, stem, 0 if nostat else 1))
+                    f.write(netlist(deck, mode, d, modeldir, 0 if nostat else 1))
                 req = {
                     "netlist": stem + ".sp", "engine": "ngspice",
                     "models": {"pdk": "gf180mcuD", "lib": f"{modeldir}/sm141064.ngspice"},

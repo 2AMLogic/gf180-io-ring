@@ -19,7 +19,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-from gpio_common import finite, limitation, load  # noqa: E402
+from gpio_common import DVDD, VDD_CORE, finite, fmt, limitation, load  # noqa: E402
 
 # measurement base name -> (row id prefix, label, unit)
 ROWS = {
@@ -39,21 +39,13 @@ ROWS = {
 }
 # Report-only context measurements (no limit, listed in results.tsv and the record)
 CONTEXT = {"voh", "vf_up_1ma", "vf_dn_1ma", "v_end"}
-UNITS = {"s": (1e9, "ns"), "F": (1e12, "pF"), "ohm": (1e-3, "kohm"), "V": (1.0, "V")}
 KEY = re.compile(r"^(?P<base>.+?)(_d(?P<i>\d)v(?P<j>\d))?$")
-
-
-def fmt(v, unit):
-    s, u = UNITS[unit]
-    return f"{v * s:.4g} {u}"
 
 
 def supply(stem, base, i, j):
     """(DVDD, VDD) of instance (i, j) for the request `stem`."""
-    dvdd = {"5v": [4.5, 5.0, 5.5], "3v3": [2.97, 3.3, 3.63]}
     mode = "3v3" if "3v3" in stem else "5v"
-    vdd = [2.97, 3.3, 3.63]
-    return dvdd[mode][i], vdd[j]
+    return DVDD[mode][i], VDD_CORE[j]
 
 
 def main():
