@@ -29,16 +29,14 @@ import shutil
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-from gpio_common import process_axis  # noqa: E402
+from gpio_common import (DVDD, EDGE_MAX, HYST_MIN, ILOAD, R_PULL, TEMPS,  # noqa: E402
+                         VDD_CORE, VOH_DROP_MAX, VOL_MAX, process_axis)
 
 # mode -> DVDD (low, nominal, high), load current at the spec VOL/VOH point, VOH drop limit,
-# rise/fall limit, hysteresis limit
-MODES = {
-    "5v": dict(dvdd=[4.5, 5.0, 5.5], iload=4e-3, voh_drop=0.5, edge=5e-9, hyst=0.4),
-    "3v3": dict(dvdd=[2.97, 3.3, 3.63], iload=2e-3, voh_drop=0.4, edge=8e-9, hyst=0.25),
-}
-VDDS = [2.97, 3.3, 3.63]
-TEMPS = [-40, 25, 125]
+# rise/fall limit, hysteresis limit. Every value is a ratified spec row, defined once in
+# sim/gpio_common.py; this only selects the shape this bench needs.
+MODES = {m: dict(dvdd=DVDD[m], iload=ILOAD[m], voh_drop=VOH_DROP_MAX[m], edge=EDGE_MAX[m],
+                 hyst=HYST_MIN[m]) for m in DVDD}
 PINS = ("a", "oe", "ie", "pu", "pd")
 # ESD stress assumptions (design/README.md, "Pad clamp diode sizing"): HBM 2 kV / 1.5 kohm,
 # and a forward-drop budget of half the 6.0 V device class. Not spec rows.
@@ -74,7 +72,7 @@ def mspice(name, card, unit, limits=None):
 # suffix k, supplies dvdd/vdd (literals) and the mode's constants.
 def d_vol(k, dvdd, vdd, M):
     return ({"oe": vdd}, [f"Iload{k} dvdd{k} pad{k} DC {M['iload']}"],
-            [mexpr(f"vol{k}", f"v(pad{k})", "V", lim(hi=0.4))])
+            [mexpr(f"vol{k}", f"v(pad{k})", "V", lim(hi=VOL_MAX))])
 
 
 def d_voh(k, dvdd, vdd, M):
@@ -172,7 +170,7 @@ def build_deck(deck, mode, modeldir, only_nominal=False):
     lines = header(deck, mode, doc, modeldir)
     meas = []
     for i, dvdd in enumerate(M["dvdd"]):
-        for j, vdd in enumerate(VDDS):
+        for j, vdd in enumerate(VDD_CORE):
             if only_nominal and not (i == 1 and j == 1):
                 continue
             k = f"_d{i}v{j}"
@@ -254,7 +252,7 @@ def main():
             for mode in MODES:
                 text, analysis, meas = build_deck(deck, mode, modeldir, only_nominal=True)
                 for m in meas:
-                    m["limits"] = lim(25e3, 100e3)
+                    m["limits"] = lim(*R_PULL)
                 stem = f"{deck}_{mode}_nominal"
                 write(out, stem, text, request(stem + ".sp", modeldir, analysis, meas, nominal_corners()))
                 names.append(stem)
