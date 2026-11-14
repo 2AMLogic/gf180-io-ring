@@ -45,6 +45,9 @@ PINS = ("a", "oe", "ie", "pu", "pd")
 I_HBM = 1.33
 VF_BUDGET = 3.0
 V_RAIL_BUDGET = 6.0
+# Core VDD-VSS clamp budget (DR-0004, Proposed): the DVDD headroom ratio (6.0 V budget over 5.0 V
+# nominal) applied to the 3.3 V nominal, rounded. An assumption, not a spec row.
+V_CORE_BUDGET = 4.0
 
 
 def lim(lo=None, hi=None):
@@ -214,6 +217,23 @@ def esd_rail_netlist(modeldir):
     return "\n".join(lines) + "\n", {"kind": "tran", "args": "0.1n 130n 0 0.2n"}, meas
 
 
+def esd_core_rail_netlist(modeldir):
+    """Core-supply pad cell (RC-triggered 3.3 V clamp, DR-0003) unpowered; the same 10 ns-rise
+    current pulse as esd_rail into VDD with DVDD, DVSS, VSS grounded."""
+    lines = header("esd_core_rail", "-", "VDD-VSS core rail clamp, ESD-like current pulse", modeldir,
+                   ("core_pad.spice",))
+    # Same convergence aid as esd_rail (DR-0003 Amendment 1, item 4): a 1 Meg leak at VDD. The
+    # fleet's ngspice aborted fs/125 C (gmin=1e-9), then sf/125 C (gmin=1e-8), with "timestep too
+    # small" in the trigger moscap; both attempts are kept under the record's superseded/.
+    # gmin=1e-8 with cshunt=1e-14 (10 fF per node, against pF-scale devices) converged both.
+    lines += [".options itl4=1000 gmin=1e-8 reltol=0.01 abstol=1e-9 rshunt=1e12 cshunt=1e-14", "Rleak vdd 0 1Meg",
+              f"Ipulse 0 vdd PULSE(0 {I_HBM} 1n 10n 10n 100n 1)",
+              "Xcore 0 vdd 0 0 core_pad"]
+    meas = [mspice("v_peak", ".meas tran v_peak MAX v(vdd)", "V", lim(hi=V_CORE_BUDGET)),
+            mspice("v_end", ".meas tran v_end FIND v(vdd) AT=110n", "V")]
+    return "\n".join(lines) + "\n", {"kind": "tran", "args": "0.1n 130n 0 0.2n"}, meas
+
+
 def write(out, stem, text, req):
     with open(os.path.join(out, stem + ".sp"), "w") as f:
         f.write(text)
@@ -231,7 +251,7 @@ def main():
         sys.exit(__doc__)
     out, modeldir, designdir = args
     os.makedirs(out, exist_ok=True)
-    for f in ("gpio.spice", "dvdd_pad.spice"):
+    for f in ("gpio.spice", "dvdd_pad.spice", "core_pad.spice"):
         shutil.copy(os.path.join(designdir, f), os.path.join(out, f))
     cor = nominal_corners() if probe else grid_corners()
     names = []
@@ -249,6 +269,9 @@ def main():
     text, analysis, meas = esd_rail_netlist(modeldir)
     write(out, "esd_rail", text, request("esd_rail.sp", modeldir, analysis, meas, cor, 900))
     names.append("esd_rail")
+    text, analysis, meas = esd_core_rail_netlist(modeldir)
+    write(out, "esd_core_rail", text, request("esd_core_rail.sp", modeldir, analysis, meas, cor, 900))
+    names.append("esd_core_rail")
     if not probe:
         for deck in ("pullup", "pulldown"):
             for mode in MODES:

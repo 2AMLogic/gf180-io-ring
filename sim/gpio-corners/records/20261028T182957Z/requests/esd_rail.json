@@ -1,0 +1,85 @@
+{
+  "netlist": "esd_rail.sp",
+  "engine": "ngspice",
+  "models": {
+    "pdk": "gf180mcuD",
+    "lib": "/home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice"
+  },
+  "corners": {
+    "process": [
+      {
+        "name": "typical",
+        "sections": [
+          "typical",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "ff",
+        "sections": [
+          "ff",
+          "diode_ff",
+          "res_ff",
+          "moscap_ff"
+        ]
+      },
+      {
+        "name": "ss",
+        "sections": [
+          "ss",
+          "diode_ss",
+          "res_ss",
+          "moscap_ss"
+        ]
+      },
+      {
+        "name": "fs",
+        "sections": [
+          "fs",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "sf",
+        "sections": [
+          "sf",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      }
+    ],
+    "temperature_c": [
+      -40,
+      25,
+      125
+    ]
+  },
+  "analysis": {
+    "kind": "tran",
+    "args": "0.1n 130n 0 0.2n"
+  },
+  "measurements": [
+    {
+      "name": "v_peak",
+      "spice": ".meas tran v_peak MAX v(dvdd)",
+      "unit": "V",
+      "limits": {
+        "max": 6.0
+      }
+    },
+    {
+      "name": "v_end",
+      "spice": ".meas tran v_end FIND v(dvdd) AT=110n",
+      "unit": "V"
+    }
+  ],
+  "options": {
+    "stage_model_inputs": true,
+    "timeout_s": 900
+  }
+}

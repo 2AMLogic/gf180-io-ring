@@ -1,0 +1,216 @@
+{
+  "netlist": "edges_3v3.sp",
+  "engine": "ngspice",
+  "models": {
+    "pdk": "gf180mcuD",
+    "lib": "/home/ubuntu/.volare/volare/gf180mcu/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice"
+  },
+  "corners": {
+    "process": [
+      {
+        "name": "typical",
+        "sections": [
+          "typical",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "ff",
+        "sections": [
+          "ff",
+          "diode_ff",
+          "res_ff",
+          "moscap_ff"
+        ]
+      },
+      {
+        "name": "ss",
+        "sections": [
+          "ss",
+          "diode_ss",
+          "res_ss",
+          "moscap_ss"
+        ]
+      },
+      {
+        "name": "fs",
+        "sections": [
+          "fs",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      },
+      {
+        "name": "sf",
+        "sections": [
+          "sf",
+          "diode_typical",
+          "res_typical",
+          "moscap_typical"
+        ]
+      }
+    ],
+    "temperature_c": [
+      -40,
+      25,
+      125
+    ]
+  },
+  "analysis": {
+    "kind": "tran",
+    "args": "20p 90n 0 50p"
+  },
+  "measurements": [
+    {
+      "name": "t_rise_d0v0",
+      "spice": ".meas tran t_rise_d0v0 TRIG v(pad_d0v0) VAL=0.297 RISE=1 TARG v(pad_d0v0) VAL=2.673 RISE=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_fall_d0v0",
+      "spice": ".meas tran t_fall_d0v0 TRIG v(pad_d0v0) VAL=2.673 FALL=1 TARG v(pad_d0v0) VAL=0.297 FALL=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_rise_d0v1",
+      "spice": ".meas tran t_rise_d0v1 TRIG v(pad_d0v1) VAL=0.297 RISE=1 TARG v(pad_d0v1) VAL=2.673 RISE=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_fall_d0v1",
+      "spice": ".meas tran t_fall_d0v1 TRIG v(pad_d0v1) VAL=2.673 FALL=1 TARG v(pad_d0v1) VAL=0.297 FALL=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_rise_d0v2",
+      "spice": ".meas tran t_rise_d0v2 TRIG v(pad_d0v2) VAL=0.297 RISE=1 TARG v(pad_d0v2) VAL=2.673 RISE=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_fall_d0v2",
+      "spice": ".meas tran t_fall_d0v2 TRIG v(pad_d0v2) VAL=2.673 FALL=1 TARG v(pad_d0v2) VAL=0.297 FALL=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_rise_d1v0",
+      "spice": ".meas tran t_rise_d1v0 TRIG v(pad_d1v0) VAL=0.33 RISE=1 TARG v(pad_d1v0) VAL=2.97 RISE=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_fall_d1v0",
+      "spice": ".meas tran t_fall_d1v0 TRIG v(pad_d1v0) VAL=2.97 FALL=1 TARG v(pad_d1v0) VAL=0.33 FALL=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_rise_d1v1",
+      "spice": ".meas tran t_rise_d1v1 TRIG v(pad_d1v1) VAL=0.33 RISE=1 TARG v(pad_d1v1) VAL=2.97 RISE=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_fall_d1v1",
+      "spice": ".meas tran t_fall_d1v1 TRIG v(pad_d1v1) VAL=2.97 FALL=1 TARG v(pad_d1v1) VAL=0.33 FALL=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_rise_d1v2",
+      "spice": ".meas tran t_rise_d1v2 TRIG v(pad_d1v2) VAL=0.33 RISE=1 TARG v(pad_d1v2) VAL=2.97 RISE=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_fall_d1v2",
+      "spice": ".meas tran t_fall_d1v2 TRIG v(pad_d1v2) VAL=2.97 FALL=1 TARG v(pad_d1v2) VAL=0.33 FALL=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_rise_d2v0",
+      "spice": ".meas tran t_rise_d2v0 TRIG v(pad_d2v0) VAL=0.363 RISE=1 TARG v(pad_d2v0) VAL=3.267 RISE=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_fall_d2v0",
+      "spice": ".meas tran t_fall_d2v0 TRIG v(pad_d2v0) VAL=3.267 FALL=1 TARG v(pad_d2v0) VAL=0.363 FALL=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_rise_d2v1",
+      "spice": ".meas tran t_rise_d2v1 TRIG v(pad_d2v1) VAL=0.363 RISE=1 TARG v(pad_d2v1) VAL=3.267 RISE=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_fall_d2v1",
+      "spice": ".meas tran t_fall_d2v1 TRIG v(pad_d2v1) VAL=3.267 FALL=1 TARG v(pad_d2v1) VAL=0.363 FALL=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_rise_d2v2",
+      "spice": ".meas tran t_rise_d2v2 TRIG v(pad_d2v2) VAL=0.363 RISE=1 TARG v(pad_d2v2) VAL=3.267 RISE=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    },
+    {
+      "name": "t_fall_d2v2",
+      "spice": ".meas tran t_fall_d2v2 TRIG v(pad_d2v2) VAL=3.267 FALL=1 TARG v(pad_d2v2) VAL=0.363 FALL=1",
+      "unit": "s",
+      "limits": {
+        "max": 8e-09
+      }
+    }
+  ],
+  "options": {
+    "stage_model_inputs": true,
+    "timeout_s": 600
+  }
+}
