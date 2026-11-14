@@ -4,7 +4,7 @@ gf180-io-ring is a 5 V I/O ring with ESD cells on the gf180mcu open PDK, ported 
 [sky130-io-ring](https://github.com/2AMLogic/sky130-io-ring) and verified with
 [klayout-tools](https://github.com/2AMLogic/klayout-tools) (`klt`), xschem and ngspice.
 
-**Status as of 2026-11-13, `main` @ `7cc3fa2`.** Tracker: #5 (gap to T1).
+**Status as of 2026-11-14, `main` @ `cf59481`.** Tracker: #5 (gap to T1).
 `WORK_PLAN.md` is the machine-generated label view; this file is the reasoned plan.
 
 ## Where it stands
@@ -39,45 +39,50 @@ probe gives numeric schematic-vs-extracted deltas of about 1.5 to 1.7 % on the `
 rows with `body_bias` biased (`sim/gpio-pex/records/20261109T2200Z-probe-klt-diode-fix/record.md`).
 A single probe corner is not item-7 evidence.
 
+Delivered on 2026-11-14, closing all three items the previous "Now" section carried
+(measured against `main` @ `cf59481`): the stale README blocker references were corrected
+(#71, PR #77, merged 2026-11-14T04:11:32Z); the per-spec-row report generator landed as
+`sim/characterization/`, aggregating the cited item-5 and item-6 evidence (#72, PR #81,
+merged 2026-11-14T09:41:21Z); and the powered `esd_rail_release` request, `--dry-run`
+validation and a one-corner probe record (`sim/gpio-corners/records/20261114T185642Z/`)
+landed on `main` (#73, PR #83, merged 2026-11-14T19:25:56Z). The 15-corner grid stays
+with #45.
+
 ## Now
 
-No open issue carries a ready label today: every open issue is parked or held (see
-Blocked and waiting). The items below can start today and do not depend on any hold.
+Measured 2026-11-14 (`main` @ `cf59481`): exactly one open issue carries the ready
+label (`loom:issue`) — #75, the item below. Two others are in flight behind open
+reviews (#48 via PR #50, on a ratification decision; #69 via PR #78, in
+changes-requested), six are parked or held (see Blocked and waiting), and four await
+triage (#79, #82, #84, #85). Having a ready label is not the same as nothing else
+moving: the review-bound work above is mid-flight, not startable.
 
-1. **Correct the stale blocker references in the READMEs.** `README.md` still says item 7
-   has "#40 and #53 blocking" (both closed), and the header of `sim/gpio-pex/README.md`
-   names klayout-tools#5178 as the blocker although its own later section records the fix.
-   Done when both files name #61 and the batch runner image as the remaining blocker and
-   `klt signoff --attest 10` still passes. No issue yet (seed 1).
-2. **Characterization report generator for the rows that already have evidence.** Item 8
-   needs one aggregated per-spec-row artifact; items 5 and 6 are on `main`, item 7 is not.
-   Done when a committed script regenerates a report from the cited item-5 and item-6
-   records, byte-identical on a second run, with every row linked to its record and the
-   item-7 column explicitly empty; the manifest does not cite it yet. First slice of #21;
-   no issue yet (seed 2).
-3. **`esd_rail_release` deck, dry-run and one-corner probe.** DR-0003 Amendment 1 records
-   release after the pulse as "Not evaluated". Done when `sim/gpio-corners/gen_requests.py`
-   emits a separate powered `esd_rail_release` request, `run.sh --dry-run` validates it and
-   a `--probe` record reports gate release and `DVDD` recovery at the one local corner.
-   The 15-corner grid stays with #45. No issue yet (seed 3).
+1. **Delete the never-read `ROW` map in `sim/mc/collect.py` (#75).** The map is
+   defined and never consulted — the MC collector emits raw measurement names — and
+   its docstring describes a lookup that does not happen. Done when the dead map and
+   the stale docstring are gone with no behaviour change to the committed item-6
+   record path.
 
 ## Next
 
 - **Item 7 grid run (#20, #61).** `sim/gpio-pex/run.sh` on the batch fleet, 19 requests,
   every extracted leg numeric. Done when a `klt pex` report with deltas explained per row
-  is cited in `manifests/gf180-io-ring.json` and item 7 reads `met`. Blocked on a klt
-  release containing klayout-tools PR #5184 (latest on PyPI as read today is 0.9.1; the
-  working probe used 0.9.2.dev397) and a batch runner image carrying it; then bump
-  `KLT_CLIENT` in `sim/gpio-pex/run.sh` from 0.9.0.
+  is cited in `manifests/gf180-io-ring.json` and item 7 reads `met`. The klt-release half
+  of the blocker is satisfied: 0.9.2 is on PyPI (released 2026-11-14T07:48:37Z) and
+  contains klayout-tools PR #5184 (the fix commit `7a1de82` is an ancestor of the
+  `v0.9.2` tag, verified 2026-11-14). What remains is a batch runner image carrying it —
+  the fleet image still serves klt 0.9.0 (`sim/gpio-pex/run.sh`, measured 2026-11-14);
+  when it exists, bump `KLT_CLIENT` there.
 - **Item 5 to `met` (#48, PR #50).** Unblocked by ratification of the two decision records
   on PR #50. Done when the signoff record shows item 5 `met` with no `declared_gaps`.
 - **Re-attest item 1 (#49).** `klt netlist --check` on six cells, then
   `klt signoff --attest 1`. Unblocked when PR #50 merges, since the `core_pad` resize it
   re-attests exists only on that branch.
 - **Clamp release across corners (#45).** The 15-corner `esd_rail_release` record, after
-  Now item 3 and a confirmed batch submit path.
-- **Item 8 `met` (#21).** Add the item-7 column to the Now item 2 report, wrap it in a
-  generic evidence envelope and cite it. Unblocked when #20 closes.
+  the delivered one-corner probe (#73, PR #83) and a confirmed batch submit path.
+- **Item 8 `met` (#21).** Add the item-7 column to the delivered per-row report
+  (`sim/characterization/`, #72, PR #81), wrap it in a generic evidence envelope and cite
+  it. Unblocked when #20 closes.
 - **Close the tracker (#5).** When `klt signoff` grades the block T1.
 
 ## Later
@@ -104,11 +109,16 @@ Blocked and waiting). The items below can start today and do not depend on any h
   `0005-vdd-dvdd-coupling.md`, while `main` now has `0004-pex-merged-dvss-vss.md`. Git
   reports no conflict, so the two records need renumbering (0005, 0006) and
   `spec/io-ring.md` re-pointed before merge.
-- **#61 and #20 (item 7), on an upstream release and a runner image.** In-repo scope of
-  #61 is delivered (PRs #62, #63); only the batch run remains.
+- **#61 and #20 (item 7), on a batch runner image.** In-repo scope of #61 is delivered
+  (PRs #62, #63); only the batch run remains. The klt-release blocker is gone — 0.9.2 hit
+  PyPI 2026-11-14 with klayout-tools PR #5184 in it — leaving the runner image, which
+  still serves klt 0.9.0.
 - **#49, on PR #50.** The toolchain blocker (xschem 3.4.7) is cleared.
-- **#45, on a confirmed batch submit.** Its park record waits for a human to confirm the
-  submit path works; nothing in the thread confirms it.
+- **#45, parked and waiting on a human.** The batch-credential failure that triggered its
+  first park was reported resolved in the fleet-worker park note of 2026-10-29, but the
+  15-corner `esd_rail_release` record still does not exist on `main` and the issue still
+  carries `loom:blocked` (measured 2026-11-14). Releasing the park is the human's call,
+  not this file's.
 - **#21, on #20.**
 - **#66** is an automated hold digest, not work.
 
