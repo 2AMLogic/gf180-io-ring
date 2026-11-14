@@ -63,8 +63,12 @@ in each cell and in its methodology section.
 rows each envelope is evidence for; `klt signoff` records every item-5 row source as
 `asserted`. This report inherits that assertion. It checks the mapping for consistency
 — a cited row no measurement can supply, an ambiguous join, or a measurement base name
-unknown to `ROWS` all fail the build loudly — but it does not independently prove that
-a given envelope measures the row it is cited for.
+unknown to `ROWS` all fail the build loudly. The ambiguous-join refusal is literal: a
+cited row that no measurement reaches fails the build even when the cited file carries
+unmatched measurements that could be piled onto it, since those would be rendered
+against the orphan row's own limits at exit 0. `selftest.py` pins the refusal for both
+mis-citation shapes and the benign unmatched population beside it — but nothing here
+independently proves that a given envelope measures the row it is cited for.
 
 **Content hashes are not verified here.** The manifest's item-5 `content_hash` is the
 envelope's own `environment.netlist_sha256`, not the sha256 of the cited file, and
