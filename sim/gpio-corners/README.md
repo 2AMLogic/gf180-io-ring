@@ -98,7 +98,12 @@ fleet" below): 135 points per row.
   criterion, and `esd_rail`'s 6 V budget is an assumption about the *unpowered* deck, so
   reusing it here would be inventing a limit. The two decks start from different quiescent
   states and answer different questions - this one is not a second opinion on `esd_rail`'s
-  peak, and its own peak row is context, not a verdict. The series resistance and the window
+  peak, and its own peak row is context, not a verdict. The duty and ceiling question for
+  that peak - which stress events the clamp must handle when the rail is already up, and
+  under what number - is DR-0006 (`spec/decisions/0006-powered-rail-transient-duty.md`,
+  `Status: Proposed`): it proposes the powered-rail transient is outside the ratified
+  clamp duty and that the row stays report-only until the operator ratifies a
+  powered-state stress row and sources a ceiling. The series resistance and the window
   length are declared bench assumptions (`gen_requests.py` documents how each was chosen), not
   spec rows; the current row is the whole rail's current, clamp plus trigger, not the clamp
   FET's drain current. `record.md` lists what a release criterion would have to state as an
