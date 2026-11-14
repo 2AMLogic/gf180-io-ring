@@ -1,0 +1,397 @@
+{
+  "schema_version": 3,
+  "netlist": {
+    "path": "sim/gpio-corners/records/20261114T185642Z/requests/cap_5v.sp",
+    "scope": "repo"
+  },
+  "status": "pass",
+  "corner_count": 1,
+  "passed": 1,
+  "failed": 0,
+  "errored": 0,
+  "inconclusive": 0,
+  "diagnostic_counts": {
+    "by_code": {},
+    "by_severity": {},
+    "corners_with_diagnostics": 0
+  },
+  "metrics": {
+    "sim__corner__count": 1,
+    "sim__corner__passed_count": 1,
+    "sim__corner__failed_count": 0,
+    "sim__corner__errored_count": 0,
+    "sim__corner__inconclusive_count": 0
+  },
+  "environment": {
+    "engine": "ngspice",
+    "engine_version": "47",
+    "ngspice_binary": "/home/ubuntu/.local/bin/ngspice",
+    "engine_build": {
+      "version_banner": "******\n** ngspice-47 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2026, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Fri Nov 13 23:19:32 UTC 2026\n******",
+      "binary_sha256": "39ca1adb826660324c3626f72bd946ec40704f0f3fc8e243c623f76e24b3eee2",
+      "probe": "ok",
+      "reason": null
+    },
+    "models_lib": {
+      "path": null,
+      "scope": "external"
+    },
+    "models_lib_sha256": "6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+    "models_lib_sha256_scope": "local",
+    "netlist_sha256": "7de7bacc864445edb5e63ab20c2d361f6d9d205c375aae08f3569fff54a49fc5",
+    "netlist_closure": [
+      {
+        "path": "sim/gpio-corners/records/20261114T185642Z/requests/cap_5v.sp",
+        "scope": "repo",
+        "sha256": "7de7bacc864445edb5e63ab20c2d361f6d9d205c375aae08f3569fff54a49fc5"
+      },
+      {
+        "path": null,
+        "scope": "external",
+        "sha256": "091cb530bf85160a1f07878fb81f789ca367d018991c8ab41a584cd1a85c6692"
+      },
+      {
+        "path": "sim/gpio-corners/records/20261114T185642Z/requests/gpio.spice",
+        "scope": "repo",
+        "sha256": "238ca88261007cbb21f07d2ff7ee4568ab58661d1102e33bc2adbffd0d814a19"
+      }
+    ],
+    "netlist_identity": "sha256:8104537e5f9eebc6ab88cd57c6fc8883466e20b2f1b9f565b3cf8597d84ef9a7",
+    "engine_host": "local",
+    "backend": {
+      "resolved": "local",
+      "source": "flag",
+      "requested": "local"
+    }
+  },
+  "coverage": {
+    "corners_simulated": 1,
+    "measurements_declared": 9,
+    "measurements_with_limits": 9,
+    "unrecognized_limit_keys": [],
+    "schema_version": 1,
+    "known": true,
+    "checked": [
+      "limit:[0,\"typical/novdd/25C\",\"c_pad_d0v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"c_pad_d0v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"c_pad_d0v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"c_pad_d1v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"c_pad_d1v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"c_pad_d1v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"c_pad_d2v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"c_pad_d2v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"c_pad_d2v2\",\"max\"]"
+    ],
+    "skipped": [],
+    "inapplicable": [],
+    "unknown": [],
+    "nothing_checked": false,
+    "nothing_checked_reasons": []
+  },
+  "provenance": {
+    "klt_version": "0.9.2.dev1029+g76f47afa48f1",
+    "klt_git_commit": "76f47afa48f144640d67a7337e5c01b95bc88c7b",
+    "klt_reinstall_spec": "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@76f47afa48f144640d67a7337e5c01b95bc88c7b",
+    "klayout_version": "0.30.13",
+    "pdk": {
+      "name": "gf180mcuD",
+      "source": "search root: ~/.ciel",
+      "version": "open_pdks f6eeac7dad085ffcc829ccfd721f7b4ce39edcf7",
+      "ambiguous_sources": [
+        "search root: ~/.volare"
+      ],
+      "linked_trees": [
+        {
+          "name": "gf180mcuD",
+          "version": "open_pdks c6d73a35f524070e85faff4a6a9eef49553ebc2b"
+        }
+      ]
+    },
+    "deck": {
+      "name": "sm141064.ngspice",
+      "content_hash": "sha256:6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+      "released": false
+    },
+    "input": {
+      "content_hash": "sha256:7de7bacc864445edb5e63ab20c2d361f6d9d205c375aae08f3569fff54a49fc5",
+      "role": "netlist"
+    }
+  },
+  "measurements": [
+    {
+      "name": "c_pad_d0v0",
+      "unit": "F",
+      "limits": {
+        "max": 3e-12
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.294993e-13,
+        "margin": 2.6705007e-12
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.294993e-13
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.294993e-13
+      }
+    },
+    {
+      "name": "c_pad_d0v1",
+      "unit": "F",
+      "limits": {
+        "max": 3e-12
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.294993e-13,
+        "margin": 2.6705007e-12
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.294993e-13
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.294993e-13
+      }
+    },
+    {
+      "name": "c_pad_d0v2",
+      "unit": "F",
+      "limits": {
+        "max": 3e-12
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.294993e-13,
+        "margin": 2.6705007e-12
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.294993e-13
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.294993e-13
+      }
+    },
+    {
+      "name": "c_pad_d1v0",
+      "unit": "F",
+      "limits": {
+        "max": 3e-12
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.215799e-13,
+        "margin": 2.6784201000000003e-12
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.215799e-13
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.215799e-13
+      }
+    },
+    {
+      "name": "c_pad_d1v1",
+      "unit": "F",
+      "limits": {
+        "max": 3e-12
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.215799e-13,
+        "margin": 2.6784201000000003e-12
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.215799e-13
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.215799e-13
+      }
+    },
+    {
+      "name": "c_pad_d1v2",
+      "unit": "F",
+      "limits": {
+        "max": 3e-12
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.215799e-13,
+        "margin": 2.6784201000000003e-12
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.215799e-13
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.215799e-13
+      }
+    },
+    {
+      "name": "c_pad_d2v0",
+      "unit": "F",
+      "limits": {
+        "max": 3e-12
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.144507e-13,
+        "margin": 2.6855493e-12
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.144507e-13
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.144507e-13
+      }
+    },
+    {
+      "name": "c_pad_d2v1",
+      "unit": "F",
+      "limits": {
+        "max": 3e-12
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.144507e-13,
+        "margin": 2.6855493e-12
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.144507e-13
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.144507e-13
+      }
+    },
+    {
+      "name": "c_pad_d2v2",
+      "unit": "F",
+      "limits": {
+        "max": 3e-12
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.144507e-13,
+        "margin": 2.6855493e-12
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.144507e-13
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 3.144507e-13
+      }
+    }
+  ],
+  "corners": [
+    {
+      "corner_id": "typical/novdd/25C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 0.217,
+      "peak_rss_bytes": 126382080,
+      "engine_exit_code": 0,
+      "engine_killed_by_signal": null,
+      "measurements": [
+        {
+          "name": "c_pad_d0v0",
+          "value": 3.294993e-13,
+          "unit": "F",
+          "status": "pass",
+          "margin": 2.6705007e-12
+        },
+        {
+          "name": "c_pad_d0v1",
+          "value": 3.294993e-13,
+          "unit": "F",
+          "status": "pass",
+          "margin": 2.6705007e-12
+        },
+        {
+          "name": "c_pad_d0v2",
+          "value": 3.294993e-13,
+          "unit": "F",
+          "status": "pass",
+          "margin": 2.6705007e-12
+        },
+        {
+          "name": "c_pad_d1v0",
+          "value": 3.215799e-13,
+          "unit": "F",
+          "status": "pass",
+          "margin": 2.6784201000000003e-12
+        },
+        {
+          "name": "c_pad_d1v1",
+          "value": 3.215799e-13,
+          "unit": "F",
+          "status": "pass",
+          "margin": 2.6784201000000003e-12
+        },
+        {
+          "name": "c_pad_d1v2",
+          "value": 3.215799e-13,
+          "unit": "F",
+          "status": "pass",
+          "margin": 2.6784201000000003e-12
+        },
+        {
+          "name": "c_pad_d2v0",
+          "value": 3.144507e-13,
+          "unit": "F",
+          "status": "pass",
+          "margin": 2.6855493e-12
+        },
+        {
+          "name": "c_pad_d2v1",
+          "value": 3.144507e-13,
+          "unit": "F",
+          "status": "pass",
+          "margin": 2.6855493e-12
+        },
+        {
+          "name": "c_pad_d2v2",
+          "value": 3.144507e-13,
+          "unit": "F",
+          "status": "pass",
+          "margin": 2.6855493e-12
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    }
+  ]
+}

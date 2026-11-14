@@ -45,6 +45,12 @@ PINS = ("a", "oe", "ie", "pu", "pd")
 I_HBM = 1.33
 VF_BUDGET = 3.0
 V_RAIL_BUDGET = 6.0
+# esd_rail_release bench assumptions (declared, not spec rows): the powered rail's series
+# resistance, the window length, and where in it release is read. DR-0003 decision item 1 puts
+# the trigger RC at "of the order of 0.5 us, not a result", so the window is about ten of those.
+R_RAIL_SERIES = 50
+T_REL_STOP = "5u"
+T_REL_MEAS = "4.5u"
 
 
 def lim(lo=None, hi=None):
@@ -214,6 +220,67 @@ def esd_rail_netlist(modeldir):
     return "\n".join(lines) + "\n", {"kind": "tran", "args": "0.1n 130n 0 0.2n"}, meas
 
 
+def esd_rail_release_netlist(modeldir):
+    """DVDD pad cell with the rail POWERED at its nominal 5 V through a series resistance, the
+    same 1.33 A / 10 ns-rise pulse injected, and a window running several trigger RC time
+    constants past the pulse, so the clamp's release is measurable at all. DR-0003 Amendment 1
+    item 3 records release after the pulse and absence of latching as "Not evaluated" precisely
+    because the `esd_rail` deck is unpowered and ends at 130 ns, inside the plateau.
+
+    This is NOT a second opinion on `esd_rail`'s peak. The two decks start from different
+    quiescent states and are different questions: `esd_rail` is the unpowered HBM-like case,
+    this is an ESD-like transient arriving on a rail that is already up.
+
+    Bench assumptions, declared here and repeated in the record; neither is a spec row and
+    neither is derived from the spec, which gives no release criterion:
+
+    - `R_RAIL_SERIES` ohm from the supply to `DVDD`. Measured on the host probe (typical, 25 C),
+      the choice is not load-bearing: over 20 / 50 / 100 ohm the peak moves 8.640 / 8.660 /
+      8.666 V, a 0.3 % span, because the clamp and not the supply carries the pulse at every
+      value. 50 ohm is the pick because the supply then diverts 73 mA of the 1.33 A (5.5 %,
+      against 182 mA / 13.7 % at 20 ohm), while 100 ohm raises an ngspice `nonconvergence`
+      warning ("Dynamic gmin stepping failed") at the operating point that 20 and 50 ohm do not.
+      Quiescent drop is 275 nA x 50 ohm = 14 uV, so recovered `DVDD` is the supply to 5 figures
+      and the recovery tolerance is not set by this resistance.
+    - the window, `T_REL_STOP`, about ten times the "order of 0.5 us" trigger RC design intent of
+      DR-0003 decision item 1, read at `T_REL_MEAS`. On the host probe the gate is already back
+      to 4.7 uV at 1 us, so 4.5 us is ample at typical; a slow corner that has NOT released by
+      then is the result for that corner, not a failure of the bench.
+
+    `Vsense` is a 0 V sense source so the supply branch current has an unambiguous sign:
+    `i(vsense)` is positive when the supply delivers current into `DVDD`. It is the whole rail's
+    current (clamp plus trigger), not the clamp FET's drain current, which would need `@m.`
+    device syntax two subckts deep.
+
+    No measurement carries `limits`. The three release measurements have no criterion in
+    `spec/io-ring.md` to carry one; the two peak measurements are reported because a record that
+    showed only a clean release would be misleading evidence, and the 6 V budget that `esd_rail`
+    carries is an assumption about the UNPOWERED deck, so applying it here would be inventing a
+    limit. Both are open questions for a decision record (see collect.py's record text).
+    """
+    dvdd = MODES["5v"]["dvdd"][1]
+    lines = header("esd_rail_release", "-",
+                   "DVDD-DVSS rail clamp release: powered rail, same pulse, long window",
+                   modeldir, ("dvdd_pad.spice",))
+    # The same option set as esd_rail (DR-0003 Amendment 1 item 4). esd_rail's `Rleak` is not
+    # repeated: the series resistance already gives `dvdd` a DC path to a source, and the host
+    # probe needs no convergence aid at 50 ohm. If a fleet corner misbehaves, `Rleak` is the
+    # knob to reach for first.
+    lines += [".options itl4=1000 gmin=1e-9 reltol=0.01 abstol=1e-10 rshunt=1e12",
+              f"Vsup vsup 0 {dvdd}",
+              f"Rsup vsup vsense {R_RAIL_SERIES}",
+              "Vsense vsense dvdd 0",
+              f"Ipulse 0 dvdd PULSE(0 {I_HBM} 1n 10n 10n 100n 1)",
+              "Xrail dvdd 0 0 0 dvdd_pad"]
+    meas = [mspice("v_gate_rel", f".meas tran v_gate_rel FIND v(xrail.gio) AT={T_REL_MEAS}", "V"),
+            mspice("v_dvdd_rel", f".meas tran v_dvdd_rel FIND v(dvdd) AT={T_REL_MEAS}", "V"),
+            mspice("i_rail_rel", f".meas tran i_rail_rel FIND i(vsense) AT={T_REL_MEAS}", "A"),
+            mspice("v_peak_pwr", ".meas tran v_peak_pwr MAX v(dvdd)", "V"),
+            mspice("v_gate_pk_pwr", ".meas tran v_gate_pk_pwr MAX v(xrail.gio)", "V")]
+    return ("\n".join(lines) + "\n",
+            {"kind": "tran", "args": f"1n {T_REL_STOP} 0 1n"}, meas)
+
+
 def write(out, stem, text, req):
     with open(os.path.join(out, stem + ".sp"), "w") as f:
         f.write(text)
@@ -249,6 +316,12 @@ def main():
     text, analysis, meas = esd_rail_netlist(modeldir)
     write(out, "esd_rail", text, request("esd_rail.sp", modeldir, analysis, meas, cor, 900))
     names.append("esd_rail")
+    # Release after the pulse, the gap DR-0003 Amendment 1 item 3 records as Not evaluated.
+    # Registered here, NOT under `if not probe:`, so --probe generates it too.
+    text, analysis, meas = esd_rail_release_netlist(modeldir)
+    write(out, "esd_rail_release", text,
+          request("esd_rail_release.sp", modeldir, analysis, meas, cor, 1800))
+    names.append("esd_rail_release")
     if not probe:
         for deck in ("pullup", "pulldown"):
             for mode in MODES:

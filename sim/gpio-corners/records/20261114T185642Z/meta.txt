@@ -1,0 +1,8 @@
+- date (UTC): 20261114T185642Z
+- **probe: one corner (typical, 25 C), run locally. NOT the PVT result and not citable evidence.**
+- probe=true
+- open_pdks revision (pinned, sim/toolchain.json): `c6d73a35f524070e85faff4a6a9eef49553ebc2b`, variant `gf180mcuD`
+- ngspice on this host: `ngspice-47` -- the fleet runner image's own is ngspice-46, so this is not the engine a batch record is made with
+- klt client: `klt 0.9.2.dev1029+g76f47afa48f1` (the host klt, NOT the `uvx --from klayout-tools==0.8.0 klt` the fleet runner matches); backend: local
+- repo commit: `046f15e8c00702a35a58dbf729ffa1b22a8e6836`; DUT: `design/gpio.spice`, `design/dvdd_pad.spice`
+- models: read from the host PDK install, NOT staged per job (`stage_model_inputs` is a batch-backend step). Compare each envelope's own `provenance.pdk` and `provenance.deck.content_hash` against a batch record's before reading any number here as comparable.
