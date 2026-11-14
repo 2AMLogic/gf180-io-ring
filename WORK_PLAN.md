@@ -20,6 +20,7 @@ _None._
 
 `loom:important`; taken before unlabelled work.
 
+- **#20**: T1 item 7 (post-layout verification): klt pex delta of the GPIO spec suite against the extracted ring cell
 - **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60)
 
 ## Ready
@@ -69,7 +70,7 @@ _None._
 |------|-------|
 | Operator merge-risk holds | 0 |
 | Very important | 0 |
-| Important | 1 |
+| Important | 2 |
 | Ready (`loom:issue`) | 0 |
 | In Progress (`loom:building`) | 1 |
 | PRs awaiting review | 1 |
