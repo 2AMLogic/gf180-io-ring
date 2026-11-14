@@ -22,7 +22,7 @@ pre-silicon evidence; nothing is ESD-rated.
 | 5 Corner verification | unmet, `partial_coverage` | GPIO rows cited from `sim/gpio-corners/records/20261027T091449Z/`; two declared ESD gaps, #48 / PR #50 |
 | 6 Monte Carlo | met | `sim/mc/records/` (PR #51) |
 | 7 Post-layout | unmet, `no_evidence` | `sim/gpio-pex/` harness and six probe records; no grid run yet, #20 |
-| 8 Characterization report | unmet, `no_evidence` | nothing committed, #21 |
+| 8 Characterization report | unmet, `no_evidence` | report on `main` (`sim/characterization/`), not cited in the manifest; #21 |
 | 9 Testbenches shipped | met | `attest/item9.json`, `manifests/evidence/item9.json` (PR #26) |
 | 10 Repo hygiene | met | `manifests/item10-attestation.json` (PR #25) |
 | 11 Power delivery | met | `manifests/evidence/item11/` (PR #42) |
@@ -50,12 +50,14 @@ with #45.
 
 ## Now
 
-Measured 2026-11-14 (`main` @ `cf59481`): exactly one open issue carries the ready
-label (`loom:issue`) — #75, the item below. Two others are in flight behind open
-reviews (#48 via PR #50, on a ratification decision; #69 via PR #78, in
-changes-requested), six are parked or held (see Blocked and waiting), and four await
-triage (#79, #82, #84, #85). Having a ready label is not the same as nothing else
-moving: the review-bound work above is mid-flight, not startable.
+Measured 2026-11-14 (`main` @ `3b8fece`): no open issue carries the ready label
+(`loom:issue`) right now — #75 and #85, ready at the previous stamp, have both moved to
+`loom:building`. Four items are in flight behind open reviews or builds (#48 via PR #50,
+on a ratification decision; #75 via PR #88, the item below; #82 via PR #89; #85, no PR
+yet), six are parked or held (see Blocked and waiting), and none await triage. The
+previous stamp also carried "#69 via PR #78, in changes-requested"; PR #78 has since
+merged (`3b8fece`). No ready label is not the same as nothing moving: the in-flight work
+above is mid-flight, not startable.
 
 1. **Delete the never-read `ROW` map in `sim/mc/collect.py` (#75).** The map is
    defined and never consulted — the MC collector emits raw measurement names — and
@@ -114,11 +116,13 @@ moving: the review-bound work above is mid-flight, not startable.
   PyPI 2026-11-14 with klayout-tools PR #5184 in it — leaving the runner image, which
   still serves klt 0.9.0.
 - **#49, on PR #50.** The toolchain blocker (xschem 3.4.7) is cleared.
-- **#45, parked and waiting on a human.** The batch-credential failure that triggered its
-  first park was reported resolved in the fleet-worker park note of 2026-10-29, but the
-  15-corner `esd_rail_release` record still does not exist on `main` and the issue still
-  carries `loom:blocked` (measured 2026-11-14). Releasing the park is the human's call,
-  not this file's.
+- **#45, parked and waiting on a human.** Its park record (human, 2026-10-29) waits on
+  the Spot batch credential being valid again — that is the condition the hold waits on,
+  not a report that it was met, and nothing in the thread confirms it (Guide's
+  2026-11-02 note read it as resolved and retracted that on 2026-11-06). The 15-corner
+  `esd_rail_release` record still does not exist on `main` and the issue still carries
+  `loom:blocked` (measured 2026-11-14). Release needs a human to confirm a fleet submit
+  works, then clear the park record.
 - **#21, on #20.**
 - **#66** is an automated hold digest, not work.
 
