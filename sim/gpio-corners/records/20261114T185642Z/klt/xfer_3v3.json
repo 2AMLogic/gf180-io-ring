@@ -1,0 +1,919 @@
+{
+  "schema_version": 3,
+  "netlist": {
+    "path": "sim/gpio-corners/records/20261114T185642Z/requests/xfer_3v3.sp",
+    "scope": "repo"
+  },
+  "status": "pass",
+  "corner_count": 1,
+  "passed": 1,
+  "failed": 0,
+  "errored": 0,
+  "inconclusive": 0,
+  "diagnostic_counts": {
+    "by_code": {},
+    "by_severity": {},
+    "corners_with_diagnostics": 0
+  },
+  "metrics": {
+    "sim__corner__count": 1,
+    "sim__corner__passed_count": 1,
+    "sim__corner__failed_count": 0,
+    "sim__corner__errored_count": 0,
+    "sim__corner__inconclusive_count": 0
+  },
+  "environment": {
+    "engine": "ngspice",
+    "engine_version": "47",
+    "ngspice_binary": "/home/ubuntu/.local/bin/ngspice",
+    "engine_build": {
+      "version_banner": "******\n** ngspice-47 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2026, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Fri Nov 13 23:19:32 UTC 2026\n******",
+      "binary_sha256": "39ca1adb826660324c3626f72bd946ec40704f0f3fc8e243c623f76e24b3eee2",
+      "probe": "ok",
+      "reason": null
+    },
+    "models_lib": {
+      "path": null,
+      "scope": "external"
+    },
+    "models_lib_sha256": "6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+    "models_lib_sha256_scope": "local",
+    "netlist_sha256": "e2eeec9f69262a78fa367660f93be34632c0561fb2bb1546b6daafdbd37372ba",
+    "netlist_closure": [
+      {
+        "path": "sim/gpio-corners/records/20261114T185642Z/requests/xfer_3v3.sp",
+        "scope": "repo",
+        "sha256": "e2eeec9f69262a78fa367660f93be34632c0561fb2bb1546b6daafdbd37372ba"
+      },
+      {
+        "path": null,
+        "scope": "external",
+        "sha256": "091cb530bf85160a1f07878fb81f789ca367d018991c8ab41a584cd1a85c6692"
+      },
+      {
+        "path": "sim/gpio-corners/records/20261114T185642Z/requests/gpio.spice",
+        "scope": "repo",
+        "sha256": "238ca88261007cbb21f07d2ff7ee4568ab58661d1102e33bc2adbffd0d814a19"
+      }
+    ],
+    "netlist_identity": "sha256:757f044c9be83fb87f094944f4efbff06bb890290e71f5957bdc4e6bf1fa4fe7",
+    "engine_host": "local",
+    "backend": {
+      "resolved": "local",
+      "source": "flag",
+      "requested": "local"
+    }
+  },
+  "coverage": {
+    "corners_simulated": 1,
+    "measurements_declared": 27,
+    "measurements_with_limits": 27,
+    "unrecognized_limit_keys": [],
+    "schema_version": 1,
+    "known": true,
+    "checked": [
+      "limit:[0,\"typical/novdd/25C\",\"hyst_d0v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"hyst_d0v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"hyst_d0v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"hyst_d1v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"hyst_d1v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"hyst_d1v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"hyst_d2v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"hyst_d2v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"hyst_d2v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_minus_d0v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_minus_d0v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_minus_d0v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_minus_d1v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_minus_d1v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_minus_d1v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_minus_d2v0\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_minus_d2v1\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_minus_d2v2\",\"min\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_plus_d0v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_plus_d0v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_plus_d0v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_plus_d1v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_plus_d1v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_plus_d1v2\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_plus_d2v0\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_plus_d2v1\",\"max\"]",
+      "limit:[0,\"typical/novdd/25C\",\"vt_plus_d2v2\",\"max\"]"
+    ],
+    "skipped": [],
+    "inapplicable": [],
+    "unknown": [],
+    "nothing_checked": false,
+    "nothing_checked_reasons": []
+  },
+  "provenance": {
+    "klt_version": "0.9.2.dev1029+g76f47afa48f1",
+    "klt_git_commit": "76f47afa48f144640d67a7337e5c01b95bc88c7b",
+    "klt_reinstall_spec": "klayout-tools @ git+https://github.com/2AMLogic/klayout-tools@76f47afa48f144640d67a7337e5c01b95bc88c7b",
+    "klayout_version": "0.30.13",
+    "pdk": {
+      "name": "gf180mcuD",
+      "source": "search root: ~/.ciel",
+      "version": "open_pdks f6eeac7dad085ffcc829ccfd721f7b4ce39edcf7",
+      "ambiguous_sources": [
+        "search root: ~/.volare"
+      ],
+      "linked_trees": [
+        {
+          "name": "gf180mcuD",
+          "version": "open_pdks c6d73a35f524070e85faff4a6a9eef49553ebc2b"
+        }
+      ]
+    },
+    "deck": {
+      "name": "sm141064.ngspice",
+      "content_hash": "sha256:6edba54d23b38a2c60f8ffdbaa3eb75a7568c615e4820808969bd1121b77b1aa",
+      "released": false
+    },
+    "input": {
+      "content_hash": "sha256:e2eeec9f69262a78fa367660f93be34632c0561fb2bb1546b6daafdbd37372ba",
+      "role": "netlist"
+    }
+  },
+  "measurements": [
+    {
+      "name": "vt_plus_d0v0",
+      "unit": "V",
+      "limits": {
+        "max": 2.079
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.67533,
+        "margin": 0.4036700000000002
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.67533
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.67533
+      }
+    },
+    {
+      "name": "vt_minus_d0v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.891
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.12405,
+        "margin": 0.23304999999999998
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.12405
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.12405
+      }
+    },
+    {
+      "name": "hyst_d0v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.55128,
+        "margin": 0.30128
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.55128
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.55128
+      }
+    },
+    {
+      "name": "vt_plus_d0v1",
+      "unit": "V",
+      "limits": {
+        "max": 2.079
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.67533,
+        "margin": 0.4036700000000002
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.67533
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.67533
+      }
+    },
+    {
+      "name": "vt_minus_d0v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.891
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.12405,
+        "margin": 0.23304999999999998
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.12405
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.12405
+      }
+    },
+    {
+      "name": "hyst_d0v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.551272,
+        "margin": 0.301272
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.551272
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.551272
+      }
+    },
+    {
+      "name": "vt_plus_d0v2",
+      "unit": "V",
+      "limits": {
+        "max": 2.079
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.67535,
+        "margin": 0.4036500000000003
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.67535
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.67535
+      }
+    },
+    {
+      "name": "vt_minus_d0v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.891
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.12405,
+        "margin": 0.23304999999999998
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.12405
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.12405
+      }
+    },
+    {
+      "name": "hyst_d0v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.551295,
+        "margin": 0.301295
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.551295
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.551295
+      }
+    },
+    {
+      "name": "vt_plus_d1v0",
+      "unit": "V",
+      "limits": {
+        "max": 2.31
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.82906,
+        "margin": 0.48094000000000015
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.82906
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.82906
+      }
+    },
+    {
+      "name": "vt_minus_d1v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.99
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.26409,
+        "margin": 0.27408999999999994
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.26409
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.26409
+      }
+    },
+    {
+      "name": "hyst_d1v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.564967,
+        "margin": 0.314967
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.564967
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.564967
+      }
+    },
+    {
+      "name": "vt_plus_d1v1",
+      "unit": "V",
+      "limits": {
+        "max": 2.31
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.82906,
+        "margin": 0.48094000000000015
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.82906
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.82906
+      }
+    },
+    {
+      "name": "vt_minus_d1v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.99
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.26408,
+        "margin": 0.2740800000000001
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.26408
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.26408
+      }
+    },
+    {
+      "name": "hyst_d1v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.564973,
+        "margin": 0.31497299999999995
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.564973
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.564973
+      }
+    },
+    {
+      "name": "vt_plus_d1v2",
+      "unit": "V",
+      "limits": {
+        "max": 2.31
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.82905,
+        "margin": 0.48095
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.82905
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.82905
+      }
+    },
+    {
+      "name": "vt_minus_d1v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.99
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.26408,
+        "margin": 0.2740800000000001
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.26408
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.26408
+      }
+    },
+    {
+      "name": "hyst_d1v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.56497,
+        "margin": 0.31496999999999997
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.56497
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.56497
+      }
+    },
+    {
+      "name": "vt_plus_d2v0",
+      "unit": "V",
+      "limits": {
+        "max": 2.541
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.98457,
+        "margin": 0.55643
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.98457
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.98457
+      }
+    },
+    {
+      "name": "vt_minus_d2v0",
+      "unit": "V",
+      "limits": {
+        "min": 1.089
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.40235,
+        "margin": 0.31335
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.40235
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.40235
+      }
+    },
+    {
+      "name": "hyst_d2v0",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.582212,
+        "margin": 0.33221199999999995
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.582212
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.582212
+      }
+    },
+    {
+      "name": "vt_plus_d2v1",
+      "unit": "V",
+      "limits": {
+        "max": 2.541
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.98457,
+        "margin": 0.55643
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.98457
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.98457
+      }
+    },
+    {
+      "name": "vt_minus_d2v1",
+      "unit": "V",
+      "limits": {
+        "min": 1.089
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.40235,
+        "margin": 0.31335
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.40235
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.40235
+      }
+    },
+    {
+      "name": "hyst_d2v1",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.582211,
+        "margin": 0.33221100000000003
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.582211
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.582211
+      }
+    },
+    {
+      "name": "vt_plus_d2v2",
+      "unit": "V",
+      "limits": {
+        "max": 2.541
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.98455,
+        "margin": 0.5564499999999999
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.98455
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.98455
+      }
+    },
+    {
+      "name": "vt_minus_d2v2",
+      "unit": "V",
+      "limits": {
+        "min": 1.089
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.40235,
+        "margin": 0.31335
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.40235
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 1.40235
+      }
+    },
+    {
+      "name": "hyst_d2v2",
+      "unit": "V",
+      "limits": {
+        "min": 0.25
+      },
+      "status": "pass",
+      "worst_case": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.582198,
+        "margin": 0.332198
+      },
+      "min": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.582198
+      },
+      "max": {
+        "corner_id": "typical/novdd/25C",
+        "value": 0.582198
+      }
+    }
+  ],
+  "corners": [
+    {
+      "corner_id": "typical/novdd/25C",
+      "process": "typical",
+      "supply_v": {},
+      "temperature_c": 25,
+      "status": "pass",
+      "runtime_s": 6.804,
+      "peak_rss_bytes": 126148608,
+      "engine_exit_code": 0,
+      "engine_killed_by_signal": null,
+      "measurements": [
+        {
+          "name": "vt_plus_d0v0",
+          "value": 1.67533,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4036700000000002
+        },
+        {
+          "name": "vt_minus_d0v0",
+          "value": 1.12405,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23304999999999998
+        },
+        {
+          "name": "hyst_d0v0",
+          "value": 0.55128,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.30128
+        },
+        {
+          "name": "vt_plus_d0v1",
+          "value": 1.67533,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4036700000000002
+        },
+        {
+          "name": "vt_minus_d0v1",
+          "value": 1.12405,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23304999999999998
+        },
+        {
+          "name": "hyst_d0v1",
+          "value": 0.551272,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.301272
+        },
+        {
+          "name": "vt_plus_d0v2",
+          "value": 1.67535,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.4036500000000003
+        },
+        {
+          "name": "vt_minus_d0v2",
+          "value": 1.12405,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.23304999999999998
+        },
+        {
+          "name": "hyst_d0v2",
+          "value": 0.551295,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.301295
+        },
+        {
+          "name": "vt_plus_d1v0",
+          "value": 1.82906,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.48094000000000015
+        },
+        {
+          "name": "vt_minus_d1v0",
+          "value": 1.26409,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.27408999999999994
+        },
+        {
+          "name": "hyst_d1v0",
+          "value": 0.564967,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.314967
+        },
+        {
+          "name": "vt_plus_d1v1",
+          "value": 1.82906,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.48094000000000015
+        },
+        {
+          "name": "vt_minus_d1v1",
+          "value": 1.26408,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2740800000000001
+        },
+        {
+          "name": "hyst_d1v1",
+          "value": 0.564973,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31497299999999995
+        },
+        {
+          "name": "vt_plus_d1v2",
+          "value": 1.82905,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.48095
+        },
+        {
+          "name": "vt_minus_d1v2",
+          "value": 1.26408,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.2740800000000001
+        },
+        {
+          "name": "hyst_d1v2",
+          "value": 0.56497,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31496999999999997
+        },
+        {
+          "name": "vt_plus_d2v0",
+          "value": 1.98457,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.55643
+        },
+        {
+          "name": "vt_minus_d2v0",
+          "value": 1.40235,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31335
+        },
+        {
+          "name": "hyst_d2v0",
+          "value": 0.582212,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33221199999999995
+        },
+        {
+          "name": "vt_plus_d2v1",
+          "value": 1.98457,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.55643
+        },
+        {
+          "name": "vt_minus_d2v1",
+          "value": 1.40235,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31335
+        },
+        {
+          "name": "hyst_d2v1",
+          "value": 0.582211,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.33221100000000003
+        },
+        {
+          "name": "vt_plus_d2v2",
+          "value": 1.98455,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.5564499999999999
+        },
+        {
+          "name": "vt_minus_d2v2",
+          "value": 1.40235,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.31335
+        },
+        {
+          "name": "hyst_d2v2",
+          "value": 0.582198,
+          "unit": "V",
+          "status": "pass",
+          "margin": 0.332198
+        }
+      ],
+      "diagnostics": [],
+      "artifacts": {
+        "log": null,
+        "raw": null,
+        "waveform": null,
+        "deck": null
+      },
+      "monte_carlo": null
+    }
+  ]
+}

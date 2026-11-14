@@ -8,7 +8,7 @@ spec row is relaxed.
 
 ## Cold start
 
-    sim/gpio-corners/run.sh                    # 19 requests -> `klt sim` batch fleet
+    sim/gpio-corners/run.sh                    # 21 requests -> `klt sim` batch fleet
     sim/gpio-corners/run.sh --dry-run          # generate and validate every request; no simulation
     sim/gpio-corners/run.sh --resume RECORD    # resubmit only the requests without a report
     sim/gpio-corners/run.sh --probe            # local, ONE corner per deck (typical, 25 C): debug only
@@ -23,6 +23,28 @@ errored or non-finite measurement. A row that misses its target does not fail th
 the result, and the request's envelope reads `fail`, which keeps item 5 unmet.
 
 Then regenerate `manifests/gf180-io-ring.signoff.json` (see `manifests/README.md`).
+
+## `--probe` records are not evidence
+
+`--probe` writes a `records/<UTC stamp>/` of the same shape as a batch run -- `meta.txt`,
+`results.tsv`, `rows.json`, `record.md`, the netlists and requests, one `klt/<request>.json`
+each -- so a probe is reproducible and reviewable instead of vanishing into a temp dir. It is
+still **not evidence**, in three ways that `record.md` and `meta.txt` both state outright:
+
+- **One corner.** Typical process, 25 C, with all nine (`DVDD`, `VDD`) instances still present
+  in the gpio decks. No process or temperature spread, which is where this bench's ESD and
+  timing rows are binding.
+- **The host's engine, not the fleet's.** `--probe` runs the host `ngspice` and the host-wide
+  `klt`, where a batch record is made with the runner image's ngspice-46 through the pinned
+  `uvx --from klayout-tools==0.8.0 klt` client. `meta.txt` records both.
+- **Mechanically refused as a citation.** The record carries `result=PROBE` in `record.txt` and
+  `probe=true` in `meta.txt`, and `cite.py` exits on either without touching the manifest. A
+  probe record is structurally citable -- it has the same envelopes -- so this is a check
+  rather than a naming convention.
+
+A probe never fails the pass: a deck that errs locally is the thing being debugged, so
+`record.txt` carries `probe_rc` and `collect_rc` and the run still exits 0. Records are
+append-only like any other: never edit or delete one.
 
 ## What runs
 
@@ -41,6 +63,8 @@ fleet" below): 135 points per row.
 | `pullup_*_nominal`, `pulldown_*_nominal` | op, 1 corner | pull R 25-100 kohm at nominal (typical, 25 C) |
 | `pullup_*`, `pulldown_*` | op | the same over the whole grid, report only |
 | `esd_pad` | op | pad clamp diodes in the cell, forward drop at 1.33 A and 1 mA |
+| `esd_rail` | tran, 130 ns | `DVDD`-`DVSS` rail clamp **unpowered**: peak `DVDD` under the pulse |
+| `esd_rail_release` | tran, 5 us | the same clamp with the rail **powered**: release after the pulse, report only |
 
 ## Conventions and limits
 
@@ -64,6 +88,22 @@ fleet" below): 135 points per row.
   The trigger `cap_nmos_06v0` makes the transient fragile ("timestep too small" at some
   corners), so the request carries `.options itl4=1000 gmin=1e-9 reltol=0.01 abstol=1e-10
   rshunt=1e12`; the earlier tighter sets are kept under the record's `superseded/`.
+- **Rail clamp release, rail powered** (`esd_rail_release`). DR-0003 Amendment 1 item 3 records
+  release after the pulse and absence of latching as **Not evaluated**: `esd_rail` leaves the
+  rail unpowered and stops at 130 ns, inside the 100 ns plateau, so it measures no recovery at
+  all. `esd_rail_release` is the same pad cell and the same 1.33 A / 10 ns-rise pulse with
+  `DVDD` held at its nominal 5 V through a 50 ohm series resistance, over a 5 us window (about
+  ten times DR-0003 decision item 1's "order of 0.5 us" trigger RC design intent), read at
+  4.5 us. **Every row is report-only and carries no limit**: the spec states no release
+  criterion, and `esd_rail`'s 6 V budget is an assumption about the *unpowered* deck, so
+  reusing it here would be inventing a limit. The two decks start from different quiescent
+  states and answer different questions - this one is not a second opinion on `esd_rail`'s
+  peak, and its own peak row is context, not a verdict. The series resistance and the window
+  length are declared bench assumptions (`gen_requests.py` documents how each was chosen), not
+  spec rows; the current row is the whole rail's current, clamp plus trigger, not the clamp
+  FET's drain current. `record.md` lists what a release criterion would have to state as an
+  open question for a decision record. Simulated clamp behaviour only: no cell is ESD-rated or
+  qualified. The 15-corner batch run of this deck is #45.
 
 ## Client and fleet
 
