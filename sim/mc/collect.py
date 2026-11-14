@@ -20,12 +20,14 @@ non-zero because rows must fail (rx, pull) or the zero-variance guard must trip 
 """
 import glob
 import json
-import math
 import os
 import shlex
 import statistics
 import subprocess
 import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+from gpio_common import finite  # noqa: E402
 
 CONTROL = {"xfer": ("rx", "hyst"), "pulldown": ("pull", "r_pulldown")}  # pull-up is nominally failing: no control can show
 ROW = {  # measurement -> spec row id prefix and wording
@@ -38,6 +40,11 @@ ROW = {  # measurement -> spec row id prefix and wording
 
 
 def load(p):
+    """Local on purpose: this collector has NO `_unreadable` branch, so it must see a read
+    failure as an exception. sim/gpio_common.py's `load` returns a `{"_unreadable": ...}`
+    sentinel instead, which here would read as a report with zero corners (or a KeyError on
+    `monte_carlo`) rather than as a corrupt fleet report. Do not swap it for the shared one
+    without adding that check at both call sites below."""
     with open(p) as f:
         return json.load(f)
 
@@ -75,7 +82,7 @@ def check_report(path, expect_n):
             continue
         for m in c.get("measurements", []):
             v = m.get("value")
-            if not isinstance(v, (int, float)) or not math.isfinite(v):
+            if not finite(v):
                 bad.append(f"{c.get('corner_id')}: {m['name']} missing or non-finite ({v!r})")
             else:
                 names.setdefault(m["name"], []).append(v)
