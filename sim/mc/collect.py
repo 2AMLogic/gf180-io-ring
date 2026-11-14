@@ -11,7 +11,7 @@ spread (a zero-variance set means the statistics switches never reached the devi
 refused, never graded). Each report goes through `klt yield` -> yield/<stem>.json; xfer and
 pull decks are re-derived with their seeded known-bad variant (`klt yield-samples`) so the
 envelope carries a `negative_control`, which must read `detected` for the measurement it
-targets (hyst for rx, r_pulldown for pull). record.md gets one row per (spec row, temperature).
+targets (hyst for rx, r_pulldown for pull). Writes results.tsv and table.md, one row per (request, measurement).
 Exit 0: data valid and every row meets its target_yield. Exit 3: data valid, some row misses
 its limit (reported, not hidden). Exit 1: invalid data / harness failure.
 
@@ -28,13 +28,6 @@ import subprocess
 import sys
 
 CONTROL = {"xfer": ("rx", "hyst"), "pulldown": ("pull", "r_pulldown")}  # pull-up is nominally failing: no control can show
-ROW = {  # measurement -> spec row id prefix and wording
-    "vt_plus": ("vih", "VIH as upper trip Vt+ (reads high from 0.7*DVDD)"),
-    "vt_minus": ("vil", "VIL as lower trip Vt- (reads low up to 0.3*DVDD)"),
-    "hyst": ("hyst", "input hysteresis"),
-    "vol": ("vol", "VOL"), "voh_drop": ("voh", "DVDD - VOH"),
-    "r_pullup": ("pullup", "pull-up equivalent R"), "r_pulldown": ("pulldown", "pull-down equivalent R"),
-}
 
 
 def load(p):

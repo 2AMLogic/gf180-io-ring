@@ -101,7 +101,7 @@
         "role": "testbench",
         "path": "sim/mc/collect.py",
         "passed": true,
-        "content_hash": "sha256:c68e00926a647fae7f95e7192ffed7de79f5b11d7c99caf47453d44492f9671c"
+        "content_hash": "sha256:893f500646d605cb2aec800144ba2c15bad4299c704a540c35011edb8e462158"
       },
       {
         "check": "present",
