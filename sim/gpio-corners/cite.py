@@ -73,7 +73,7 @@ def main():
                 ids.append(r)
     m = json.load(open(manifest))
     m["evidence"]["5"] = cites
-    m["spec_rows"] = {"5": [{"id": i} for i in ids] + GAPS}
+    m.setdefault("spec_rows", {})["5"] = [{"id": i} for i in ids] + GAPS
     with open(manifest, "w") as f:
         json.dump(m, f, indent=2)
         f.write("\n")
