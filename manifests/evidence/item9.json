@@ -59,7 +59,7 @@
         "role": "testbench",
         "path": "sim/gpio-bi_t/run.sh",
         "passed": true,
-        "content_hash": "sha256:22540dfdee541418bb87f356d26cef172ec91e0a8b64411d555772c5601b0796"
+        "content_hash": "sha256:9de7d002f652824784ae63cbae19be6f07b01dabd562dc15efd438a44562c76e"
       },
       {
         "check": "present",
