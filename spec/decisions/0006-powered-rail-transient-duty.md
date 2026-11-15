@@ -136,8 +136,9 @@ whether the number exists.
   (item 2). And the manifest cost is real: there is no `esd_rail_release` row id
   in `manifests/gf180-io-ring.json`, and `COVERS` in `sim/gpio-corners/cite.py`
   maps only `esd_pad` and `esd_rail` — a pass/fail row is a new *declared* spec
-  row, which tracker item 5 (klt rule coverage) grades **uncovered** until a
-  15-corner record cites it, against item 5's current `partial_coverage` that
+  row, which tracker item 5 (Full corner verification vs a ratified spec)
+  grades **uncovered** until a 15-corner record cites it, against item 5's
+  current `partial_coverage` that
   #48 / PR #50 is working to clear.
 - **(b) Stay report-only.** (Recommended, and implied by 1(b) + 2(c).) Nobody
   should read `esd_rail_release_peak` as a pass or a failure while this record
