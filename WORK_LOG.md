@@ -5,6 +5,8 @@ triage role. Newest first.
 
 ### 2026-11-14
 
+- **PR #78**: refactor: define the ratified GPIO spec limits once in sim/gpio_common.py
+- **Issue #69** (closed): Share the ratified spec limits via sim/gpio_common.py instead of five literal copies
 - **PR #83**: feat(sim): add a powered-rail esd_rail_release deck and make --probe write a record
 - **Issue #73** (closed): esd_rail_release request: powered deck, dry-run validation and a one-corner probe (first slice of #45)
 - **PR #81**: feat(sim): aggregate cited item-5/item-6 evidence into a per-spec-row report
