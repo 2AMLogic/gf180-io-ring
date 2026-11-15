@@ -249,10 +249,12 @@ def main():
            "therefore reported against no target. Turning them into pass/fail rows needs a decision "
            "record to state the three numbers and the time - that is not this bench's call.",
            "- **Is a transient on a POWERED rail in the clamp's duty at all, and under what budget?** "
-           "The 6 V figure `esd_rail` carries is the `*_06v0` device class applied to the unpowered "
-           "HBM-like case. Whether the same ceiling, a different one, or none applies when the rail is "
-           "already up is undecided, so `esd_rail_release_peak` is reported without one. A decision "
-           "record should settle it before anyone reads that row as a pass or a failure.",
+           "DR-0006 (`spec/decisions/0006-powered-rail-transient-duty.md`, `Status: Proposed`) is the "
+           "record for this question: it proposes that a powered-rail transient is outside the "
+           "ratified clamp duty (the spec's only stress rows, HBM and CDM, are unpowered handling "
+           "events) and that no ceiling applies until the operator ratifies a powered-state stress "
+           "row and sources a number. Until that ruling lands, `esd_rail_release_peak` is reported "
+           "without a limit and is not a pass or a failure.",
            "- **Latch-up is not fully covered by this bench.** A quiescent rail current back at its "
            "pre-pulse value is evidence the clamp released, not proof that no parasitic structure "
            "latched: the pad-side latch-up and guard-ring rules remain a klt deck gap "
