@@ -210,19 +210,17 @@ def measurements_of(repo, relpath, cited_rows, collect):
         else:
             unbound.append((did, base, m))
 
-    # Rows this file is cited for that no measurement reached. One such row plus at
-    # least one homeless measurement is an unambiguous pairing (a newly cited request
-    # whose measurement base maps to a sibling row id); anything else is a real gap in
-    # the join and must be reported, never guessed at.
+    # Rows this file is cited for that no measurement reached. Pairing the homeless
+    # measurements onto such a row would render them against the orphan row's limits
+    # at exit 0 -- one clamp's forward drop reported as another clamp's -- so an
+    # unresolvable join is always refused, never guessed at.
     reached = {row for row, _, _ in placed}
     orphan_rows = [r for r in cited_rows if r not in reached]
     if orphan_rows and unbound:
-        if len(orphan_rows) > 1:
-            fail(f"{relpath}: cited for {orphan_rows} but no measurement resolves to any of "
-                 f"them (unplaced: {[d for d, _, _ in unbound]}); extend ALIAS in "
-                 f"{REPORT_DIR}/build.py so the join is declared, not guessed")
-        for _, base, m in unbound:
-            placed.append((orphan_rows[0], base, m))
+        fail(f"{relpath}: cited for {orphan_rows} but no measurement resolves to any of "
+             f"them (unplaced: {[d for d, _, _ in unbound]}); either extend ALIAS in "
+             f"{REPORT_DIR}/build.py so the join is declared, not guessed, or correct "
+             f"the citation's rows in {MANIFEST}")
     elif orphan_rows:
         fail(f"{relpath}: cited as evidence for {orphan_rows} in {MANIFEST}, but the file "
              f"carries no limited measurement for it")

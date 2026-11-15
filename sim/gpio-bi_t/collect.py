@@ -15,8 +15,9 @@ import os
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-from gpio_common import (DVDD, EDGE_MAX, HYST_MIN, ILOAD, R_PULL, VOH_DROP_MAX,  # noqa: E402
-                         VOL_MAX, dvdd_nominal, finite, fmt, limitation, load, vlabel)
+from gpio_common import (C_PAD_MAX, DVDD, EDGE_MAX, HYST_MIN, ILOAD, R_PULL,  # noqa: E402
+                         VOH_DROP_MAX, VOL_MAX, VT_MINUS_FRAC_MIN, VT_PLUS_FRAC_MAX,
+                         dvdd_nominal, finite, fmt, limitation, load, vlabel)
 
 DECKS = ["vol", "voh", "edges", "pullup", "pulldown", "cap", "xfer_cs0", "xfer_cs1"]
 MODES = ["5v", "3v3"]
@@ -119,12 +120,14 @@ def table(reps):
             x = r[f"xfer_cs{cs}"]
             cid, _, v = worst(x, "vt_minus", key=lambda p: p[2] / p[1], high=False)
             lo = v / dv(x, cid)
-            rows.append((mode, f"VIL as lower trip Vt-, CS={cs}", ">= 0.3*DVDD (reads low up to 0.3*DVDD)",
-                         f"{lo:.3f}*DVDD", "min", cid, lo >= 0.3))
+            rows.append((mode, f"VIL as lower trip Vt-, CS={cs}",
+                         f">= {VT_MINUS_FRAC_MIN:g}*DVDD (reads low up to {VT_MINUS_FRAC_MIN:g}*DVDD)",
+                         f"{lo:.3f}*DVDD", "min", cid, lo >= VT_MINUS_FRAC_MIN))
             cid, _, v = worst(x, "vt_plus", key=lambda p: p[2] / p[1])
             hi = v / dv(x, cid)
-            rows.append((mode, f"VIH as upper trip Vt+, CS={cs}", "<= 0.7*DVDD (reads high from 0.7*DVDD)",
-                         f"{hi:.3f}*DVDD", "max", cid, hi <= 0.7))
+            rows.append((mode, f"VIH as upper trip Vt+, CS={cs}",
+                         f"<= {VT_PLUS_FRAC_MAX:g}*DVDD (reads high from {VT_PLUS_FRAC_MAX:g}*DVDD)",
+                         f"{hi:.3f}*DVDD", "max", cid, hi <= VT_PLUS_FRAC_MAX))
             cid, _, v = worst(x, "hyst", high=False)
             rows.append((mode, f"hysteresis, CS={cs}", f">= {hyst_lim} V", fmt(v, "V"),
                          "min", cid, v >= hyst_lim))
@@ -137,7 +140,8 @@ def table(reps):
                          f"{fmt(nv, 'ohm')} nominal; {fmt(lo[2], 'ohm')} .. {fmt(hi[2], 'ohm')} over the grid",
                          "nominal", ncid, R_PULL[0] <= nv <= R_PULL[1]))
         cid, _, v = worst(r["cap"], "c_pad")
-        rows.append((mode, "PAD capacitance, input mode, 1 MHz", "<= 3 pF", fmt(v, "F"), "max", cid, v <= 3e-12))
+        rows.append((mode, "PAD capacitance, input mode, 1 MHz", f"<= {C_PAD_MAX * 1e12:g} pF",
+                     fmt(v, "F"), "max", cid, v <= C_PAD_MAX))
     return rows
 
 
