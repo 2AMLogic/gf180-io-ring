@@ -3,8 +3,20 @@
 Chronological record of merged PRs and closed issues, maintained by the Guide
 triage role. Newest first.
 
+### 2026-11-15
+
+- **PR #92**: refactor: centralize input-threshold and pad-capacitance spec limits in sim/gpio_common.py
+- **Issue #79** (closed): Share the 3 pF pad-capacitance limit and the 0.3/0.7 input-threshold fractions via sim/gpio_common.py
+- **PR #89**: characterization: refuse an unresolvable citation join instead of pairing onto an orphan row
+- **Issue #82** (closed): sim/characterization: a mis-cited envelope is absorbed by the single-orphan-row join rung instead of failing the build
+- **PR #88**: refactor(sim): drop the never-read ROW map in the MC collector and fix its stale docstring
+- **Issue #75** (closed): Delete the never-read ROW map in sim/mc/collect.py and correct its stale docstring
+- **PR #86**: docs: refresh ROADMAP.md against the 2026-11-14 tracker — all three Now items delivered
+
 ### 2026-11-14
 
+- **PR #78**: refactor: define the ratified GPIO spec limits once in sim/gpio_common.py
+- **Issue #69** (closed): Share the ratified spec limits via sim/gpio_common.py instead of five literal copies
 - **PR #83**: feat(sim): add a powered-rail esd_rail_release deck and make --probe write a record
 - **Issue #73** (closed): esd_rail_release request: powered deck, dry-run validation and a one-corner probe (first slice of #45)
 - **PR #81**: feat(sim): aggregate cited item-5/item-6 evidence into a per-spec-row report
