@@ -35,7 +35,8 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 from gpio_common import (DVDD, HYST_MIN, ILOAD, R_PULL, TEMPS, VOH_DROP_MAX,  # noqa: E402
-                         VOL_MAX, dvdd_nominal, vdd_core_nominal)
+                         VOL_MAX, VT_MINUS_FRAC_MIN, VT_PLUS_FRAC_MAX, dvdd_nominal,
+                         vdd_core_nominal)
 
 MC_N = 300
 MC_SEED = 20261027
@@ -67,9 +68,9 @@ def decks(mode):
             temps=TEMPS, pins={"ie": "{vdd}"},
             extra="Vpad pad 0 PWL(0 0 100u {dvdd} 200u 0)",
             analysis={"kind": "tran", "args": "0.1u 200u 0 0.1u"},
-            meas=[{"name": "vt_plus", "unit": "V", "limits": lim(max=0.7 * dvdd),
+            meas=[{"name": "vt_plus", "unit": "V", "limits": lim(max=VT_PLUS_FRAC_MAX * dvdd),
                    "spice": ".meas tran vt_plus FIND v(pad) WHEN v(y)='0.5*vdd' RISE=1"},
-                  {"name": "vt_minus", "unit": "V", "limits": lim(min=0.3 * dvdd),
+                  {"name": "vt_minus", "unit": "V", "limits": lim(min=VT_MINUS_FRAC_MIN * dvdd),
                    "spice": ".meas tran vt_minus FIND v(pad) WHEN v(y)='0.5*vdd' FALL=1"},
                   {"name": "hyst", "unit": "V", "limits": lim(min=hyst),
                    "spice": ".meas tran hyst PARAM='vt_plus-vt_minus'"}]),

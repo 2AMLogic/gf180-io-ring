@@ -36,10 +36,18 @@ VOL_MAX = 0.4
 VOH_DROP_MAX = {"5v": 0.5, "3v3": 0.4}
 # Rise/fall 10-90 % into 15 pF (spec:78).
 EDGE_MAX = {"5v": 5e-9, "3v3": 8e-9}
+# Input thresholds (spec:79), graded on the Schmitt trip points by the receiver
+# convention: the upper trip Vt+ stays <= this fraction of DVDD and the lower trip Vt-
+# stays >= the other. The spec's VIL/VIH wording states the inverse direction, so these
+# are named for the measured quantity, not the spec text.
+VT_PLUS_FRAC_MAX = 0.7
+VT_MINUS_FRAC_MIN = 0.3
 # Input hysteresis (spec:80).
 HYST_MIN = {"5v": 0.4, "3v3": 0.25}
 # Pull-up / pull-down equivalent R at nominal, (min, max) (spec:81).
 R_PULL = (25e3, 100e3)
+# Pad capacitance added by the pad, input mode (spec:82).
+C_PAD_MAX = 3e-12
 
 
 def dvdd_nominal(mode):

@@ -29,8 +29,9 @@ import shutil
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-from gpio_common import (DVDD, EDGE_MAX, HYST_MIN, ILOAD, R_PULL, TEMPS,  # noqa: E402
-                         VDD_CORE, VOH_DROP_MAX, VOL_MAX, process_axis)
+from gpio_common import (C_PAD_MAX, DVDD, EDGE_MAX, HYST_MIN, ILOAD, R_PULL, TEMPS,  # noqa: E402
+                         VDD_CORE, VOH_DROP_MAX, VOL_MAX, VT_MINUS_FRAC_MIN,
+                         VT_PLUS_FRAC_MAX, process_axis)
 
 # mode -> DVDD (low, nominal, high), load current at the spec VOL/VOH point, VOH drop limit,
 # rise/fall limit, hysteresis limit. Every value is a ratified spec row, defined once in
@@ -100,9 +101,9 @@ def d_xfer(k, dvdd, vdd, M):
     mid = round(0.5 * vdd, 6)
     return ({"ie": vdd}, [f"Vpad{k} pad{k} 0 PWL(0 0 100u {dvdd} 200u 0)"],
             [mspice(f"vt_plus{k}", f".meas tran vt_plus{k} FIND v(pad{k}) WHEN v(y{k})={mid} RISE=1",
-                    "V", lim(hi=round(0.7 * dvdd, 6))),
+                    "V", lim(hi=round(VT_PLUS_FRAC_MAX * dvdd, 6))),
              mspice(f"vt_minus{k}", f".meas tran vt_minus{k} FIND v(pad{k}) WHEN v(y{k})={mid} FALL=1",
-                    "V", lim(lo=round(0.3 * dvdd, 6))),
+                    "V", lim(lo=round(VT_MINUS_FRAC_MIN * dvdd, 6))),
              mspice(f"hyst{k}", f".meas tran hyst{k} PARAM='vt_plus{k}-vt_minus{k}'", "V",
                     lim(lo=M["hyst"]))])
 
@@ -119,7 +120,7 @@ def d_pulldown(k, dvdd, vdd, M):
 
 def d_cap(k, dvdd, vdd, M):
     return ({"ie": vdd}, [f"Vpad{k} pad{k} 0 DC {round(dvdd / 2, 6)} AC 1"],
-            [mexpr(f"c_pad{k}", f"-imag(i(vpad{k}))/(2*3.14159265358979*1e6)", "F", lim(hi=3e-12))])
+            [mexpr(f"c_pad{k}", f"-imag(i(vpad{k}))/(2*3.14159265358979*1e6)", "F", lim(hi=C_PAD_MAX))])
 
 
 DECKS = {
