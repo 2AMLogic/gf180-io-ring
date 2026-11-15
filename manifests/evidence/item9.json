@@ -87,7 +87,7 @@
         "role": "testbench",
         "path": "sim/gpio-corners/run.sh",
         "passed": true,
-        "content_hash": "sha256:c3ac0234e57bde3855e2fbef0b6fb5c76145ec04c8762d81596b285424fd7398"
+        "content_hash": "sha256:e8977f0e13e7bd9eb8176224e7507bb7cbd919fd90ea8f7ebeba49121a7e159d"
       },
       {
         "check": "present",
@@ -115,7 +115,7 @@
         "role": "testbench",
         "path": "sim/mc/run.sh",
         "passed": true,
-        "content_hash": "sha256:806a9c8698487627220bd685295f4f84addc388854c815d89522527f4c8339dd"
+        "content_hash": "sha256:c931963f1c38c777c845bf1f54b2892890cff8c136ccf73eac13b52a9c7f74e8"
       },
       {
         "check": "present",

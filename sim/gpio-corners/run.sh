@@ -91,7 +91,8 @@ SUBRC=0
 while read -r stem; do
   [ -s "$KLTOUT/$stem.json" ] && python3 -I -c "import json,sys; json.load(open(sys.argv[1]))" "$KLTOUT/$stem.json" 2>/dev/null && continue
   # rc 0 pass, 4 = the corner matrix has a failing or errored unit; the envelope is on stdout either way.
-  $KLT_CLIENT sim --backend batch --format json "$REQ/$stem.json" > "$KLTOUT/$stem.json" 2> "$OUT/klt-sim-$stem.stderr"
+  # --wait-for-capacity 600: a launch refused at the fleet's capacity cap waits with backoff inside klt.
+  $KLT_CLIENT sim --backend batch --wait-for-capacity 600 --format json "$REQ/$stem.json" > "$KLTOUT/$stem.json" 2> "$OUT/klt-sim-$stem.stderr"
   RC=$?
   echo "gpio-corners: $stem: klt rc=$RC"
   case "$RC" in 0|3|4) ;; *) SUBRC=1; echo "gpio-corners: submit failed for $stem (see $OUT/klt-sim-$stem.stderr); not falling back to local" >&2 ;; esac

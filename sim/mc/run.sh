@@ -52,17 +52,11 @@ gen() {  # gen DIR [generator flags]: write requests, print the stems
 }
 
 submit() {  # submit REQDIR STEM REPORT: one request to the fleet, report to REPORT
-  local rc try
+  local rc
   [ -s "$3" ] && python3 -I -c "import json,sys; json.load(open(sys.argv[1]))" "$3" 2>/dev/null && return 0
-  # without --wait-for-capacity: a launch refused at the fleet's instance cap
-  # (BATCH_MAX_CONCURRENT_INSTANCES) is retried with a fixed backoff, up to 60 tries; nothing runs locally
-  for try in $(seq 1 60); do
-    (cd "$1" && $KLT_SIM sim "$2.json" --backend batch --format json -o "$OUT/art/$2" > "$3" 2> "${3%.json}.stderr"); rc=$?
-    if [ "$rc" != 0 ] && [ "$rc" != 3 ] && grep -q "exceeds BATCH_MAX_CONCURRENT_INSTANCES" "$3" "${3%.json}.stderr" 2>/dev/null; then
-      sleep 60; continue
-    fi
-    break
-  done
+  # --wait-for-capacity 600: a launch refused at the fleet's capacity cap
+  # (batch_no_capacity / batch_concurrency_cap) waits with backoff inside klt; nothing runs locally
+  (cd "$1" && $KLT_SIM sim "$2.json" --backend batch --wait-for-capacity 600 --format json -o "$OUT/art/$2" > "$3" 2> "${3%.json}.stderr"); rc=$?
   case "$rc" in 0|3) ;; *) echo "mc: batch submit of $2 exited $rc (see ${3%.json}.stderr); not falling back to local" >&2; rm -f "$3"; return 1 ;; esac
 }
 
