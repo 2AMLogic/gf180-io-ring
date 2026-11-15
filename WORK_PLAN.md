@@ -27,31 +27,25 @@ _None._
 
 Human-approved issues ready for implementation (`loom:issue`).
 
-- **#79**: Share the 3 pF pad-capacitance limit and the 0.3/0.7 input-threshold fractions via sim/gpio_common.py
+_None._
 
 ## In Progress
 
 Issues currently being built (`loom:building`).
 
 - **#48**: T1 item 5 (corner verification): close the two declared ESD gaps (core VDD-VSS rail clamp budget, VDD/DVDD coupling DR) holding item 5 at partial_coverage
-- **#75**: Delete the never-read ROW map in sim/mc/collect.py and correct its stale docstring
-- **#76**: Follow-on: Work identified in PR #70
-- **#82**: sim/characterization: a mis-cited envelope is absorbed by the single-orphan-row join rung instead of failing the build
-- **#85**: Decision record needed: is a transient on a POWERED DVDD rail in the clamp's duty, and under what peak budget?
 
 ## PRs Awaiting Review
 
 PRs waiting on Judge (`loom:review-requested`).
 
 - **#50**: feat: simulate the core VDD-VSS clamp against a proposed budget and propose no VDD/DVDD coupling
-- **#86**: docs: refresh ROADMAP.md against the 2026-11-14 tracker — all three Now items delivered
-- **#90**: spec: propose DR-0006 on powered-rail transient duty and peak budget
 
 ## Approved (Awaiting Merge)
 
 PRs that passed review and are queued for Champion auto-merge (`loom:pr`).
 
-- **#89**: characterization: refuse an unresolvable citation join instead of pairing onto an orphan row
+_None._
 
 ## Proposed
 
@@ -61,12 +55,7 @@ Issues carrying `loom:curated`.
 - **#45**: Evaluate DVDD/DVSS rail clamp release after the pulse (no-latch) in the esd_rail bench *(curated)*
 - **#48**: T1 item 5 (corner verification): close the two declared ESD gaps (core VDD-VSS rail clamp budget, VDD/DVDD coupling DR) holding item 5 at partial_coverage *(curated)*
 - **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60) *(curated)*
-- **#75**: Delete the never-read ROW map in sim/mc/collect.py and correct its stale docstring *(curated)*
 - **#76**: Follow-on: Work identified in PR #70 *(curated)*
-- **#79**: Share the 3 pF pad-capacitance limit and the 0.3/0.7 input-threshold fractions via sim/gpio_common.py *(curated)*
-- **#82**: sim/characterization: a mis-cited envelope is absorbed by the single-orphan-row join rung instead of failing the build *(curated)*
-- **#84**: bug: cite.py replaces the whole spec_rows map, silently deleting item 6's declared rows *(curated)*
-- **#85**: Decision record needed: is a transient on a POWERED DVDD rail in the clamp's duty, and under what peak budget? *(curated)*
 
 ## Proposed (Architect / Hermit)
 
@@ -83,11 +72,11 @@ _None._
 | Operator merge-risk holds | 0 |
 | Very important | 0 |
 | Important | 2 |
-| Ready (`loom:issue`) | 1 |
-| In Progress (`loom:building`) | 5 |
-| PRs awaiting review | 3 |
-| Approved PRs awaiting merge | 1 |
-| Curated | 10 |
+| Ready (`loom:issue`) | 0 |
+| In Progress (`loom:building`) | 1 |
+| PRs awaiting review | 1 |
+| Approved PRs awaiting merge | 0 |
+| Curated | 5 |
 | Architect / Hermit proposals | 0 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->

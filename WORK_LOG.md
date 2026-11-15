@@ -5,6 +5,8 @@ triage role. Newest first.
 
 ### 2026-11-15
 
+- **PR #101**: docs: record gpio-bi_t capacity-policy exception at the batch-set call site
+- **Issue #100** (closed): Decide gpio-bi_t's batch capacity policy: --wait-for-capacity 600 alongside --capacity-retries 3, or record the exception
 - **PR #99**: docs: cite tracker item 5 by its real title in DR-0006 item 3(a)
 - **Issue #97** (closed): DR-0006 glosses tracker item 5 as "klt rule coverage"; item 5 is "Full corner verification vs a ratified spec"
 - **PR #95**: fix: write spec_rows per-key in gpio-corners cite.py
