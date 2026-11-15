@@ -5,6 +5,14 @@ triage role. Newest first.
 
 ### 2026-11-15
 
+- **PR #99**: docs: cite tracker item 5 by its real title in DR-0006 item 3(a)
+- **Issue #97** (closed): DR-0006 glosses tracker item 5 as "klt rule coverage"; item 5 is "Full corner verification vs a ratified spec"
+- **PR #95**: fix: write spec_rows per-key in gpio-corners cite.py
+- **Issue #84** (closed): bug: cite.py replaces the whole spec_rows map, silently deleting item 6's declared rows
+- **PR #94**: sim: use klt --wait-for-capacity 600 instead of a hand-rolled retry loop
+- **Issue #93** (closed): Replace hand-rolled batch-capacity retry in sim/mc/run.sh with klt's --wait-for-capacity
+- **PR #90**: spec: propose DR-0006 on powered-rail transient duty and peak budget
+- **Issue #85** (closed): Decision record needed: is a transient on a POWERED DVDD rail in the clamp's duty, and under what peak budget?
 - **PR #92**: refactor: centralize input-threshold and pad-capacitance spec limits in sim/gpio_common.py
 - **Issue #79** (closed): Share the 3 pF pad-capacitance limit and the 0.3/0.7 input-threshold fractions via sim/gpio_common.py
 - **PR #89**: characterization: refuse an unresolvable citation join instead of pairing onto an orphan row
