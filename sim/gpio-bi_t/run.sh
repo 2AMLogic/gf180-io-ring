@@ -80,6 +80,10 @@ if [ "$MODE" = resume ]; then
 fi
 # --batch-set is batch-only by construction: a refused or failed submit is an error entry, never a
 # local re-run. Exit 3/4 (measure failed / request errored) is reported by collect.py below.
+# Capacity policy: --capacity-retries 3 (per-member re-submits with doubling backoff) is this bench's
+# deliberate capacity policy, not --wait-for-capacity 600: at the pinned klt 0.8.0 --batch-set cannot
+# be combined with --wait-for-capacity (klt refuses the combination; the unpinned host klt 0.9.2.dev
+# accepts it — not a licence to add the flag here).
 SUFFIX=""; [ "$MODE" = resume ] && SUFFIX=".resume-$(date -u +%H%M%S)"
 SETRC=0
 if [ "${#FILES[@]}" -gt 0 ]; then
