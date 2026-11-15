@@ -91,3 +91,12 @@ jobs:
       # PDK, no ngspice -- so it costs nothing to run here.
       - name: Check the committed characterization report is fresh
         run: sim/characterization/run.sh --check
+
+      # The report builder resolves a citation's measurements onto the spine by
+      # declared matches only (exact or ALIAS); a cited row no measurement reaches
+      # must fail the build rather than absorb whatever measurements happen to be
+      # unmatched. selftest.py refuses both mis-citation shapes in a symlink-farm
+      # sandbox and asserts the committed manifest still builds. Same cost profile
+      # as the step above: python3 only, writes nothing into the checkout.
+      - name: Check the characterization join refuses an unresolvable citation
+        run: sim/characterization/selftest.py
