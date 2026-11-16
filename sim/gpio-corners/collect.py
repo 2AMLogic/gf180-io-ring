@@ -249,11 +249,11 @@ def main():
            "therefore reported against no target. Turning them into pass/fail rows needs a decision "
            "record to state the three numbers and the time - that is not this bench's call.",
            "- **Is a transient on a POWERED rail in the clamp's duty at all, and under what budget?** "
-           "DR-0006 (`spec/decisions/0006-powered-rail-transient-duty.md`, `Status: Proposed`) is the "
-           "record for this question: it proposes that a powered-rail transient is outside the "
+           "DR-0006 (`spec/decisions/0006-powered-rail-transient-duty.md`, ratified) is the "
+           "record for this question: a powered-rail transient is outside the "
            "ratified clamp duty (the spec's only stress rows, HBM and CDM, are unpowered handling "
-           "events) and that no ceiling applies until the operator ratifies a powered-state stress "
-           "row and sources a number. Until that ruling lands, `esd_rail_release_peak` is reported "
+           "events) and no ceiling applies until the operator ratifies a powered-state stress "
+           "row and sources a number. `esd_rail_release_peak` is reported "
            "without a limit and is not a pass or a failure.",
            "- **Latch-up is not fully covered by this bench.** A quiescent rail current back at its "
            "pre-pulse value is evidence the clamp released, not proof that no parasitic structure "

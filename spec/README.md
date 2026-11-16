@@ -14,7 +14,7 @@ Decision records:
 - [DR-0002](decisions/0002-pvt-corner-set.md): PVT corner set and the thick-oxide corner limitation
 - [DR-0003](decisions/0003-rail-clamp-devices.md): rail-clamp devices for `DVDD`/`DVSS` and the core rails (Amendment 1: transient sizing)
 - [DR-0004](decisions/0004-pex-merged-dvss-vss.md): `DVSS` and `VSS` are one extracted net; pex ties the declared pins
-- [DR-0006](decisions/0006-powered-rail-transient-duty.md): duty and peak budget for a transient on a powered `DVDD` rail (**Proposed**, awaiting operator ruling; DR-0005 is reserved by open PR #50)
+- [DR-0006](decisions/0006-powered-rail-transient-duty.md): duty and peak budget for a transient on a powered `DVDD` rail (DR-0005 is reserved by open PR #50)
 
 Rows marked `pending: sky130-io-ring#2` wait on the origin; when it ratifies, a
 decision record updates them. Spec changes go through a decision record.
