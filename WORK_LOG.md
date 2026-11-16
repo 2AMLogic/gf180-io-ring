@@ -3,6 +3,12 @@
 Chronological record of merged PRs and closed issues, maintained by the Guide
 triage role. Newest first.
 
+### 2026-11-16
+
+- **PR #106**: docs: mark DR-0006 Accepted per operator ruling q107 (1b/2c/3b)
+- **Issue #96** (closed): Operator ruling: DR-0006 powered-rail transient duty and peak budget
+- **PR #104**: chore(loom): resync installed Loom to v0.19.1302
+
 ### 2026-11-15
 
 - **PR #101**: docs: record gpio-bi_t capacity-policy exception at the batch-set call site
