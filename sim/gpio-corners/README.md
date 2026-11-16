@@ -101,9 +101,9 @@ fleet" below): 135 points per row.
   peak, and its own peak row is context, not a verdict. The duty and ceiling question for
   that peak - which stress events the clamp must handle when the rail is already up, and
   under what number - is DR-0006 (`spec/decisions/0006-powered-rail-transient-duty.md`,
-  `Status: Proposed`): it proposes the powered-rail transient is outside the ratified
-  clamp duty and that the row stays report-only until the operator ratifies a
-  powered-state stress row and sources a ceiling. The series resistance and the window
+  ratified): the powered-rail transient is outside the ratified clamp duty and the row
+  stays report-only until the operator ratifies a powered-state stress row and sources a
+  ceiling. The series resistance and the window
   length are declared bench assumptions (`gen_requests.py` documents how each was chosen), not
   spec rows; the current row is the whole rail's current, clamp plus trigger, not the clamp
   FET's drain current. `record.md` lists what a release criterion would have to state as an

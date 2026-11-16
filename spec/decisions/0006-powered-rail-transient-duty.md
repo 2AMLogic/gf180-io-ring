@@ -1,8 +1,8 @@
 # DR-0006: An ESD-like transient on a powered `DVDD` rail — clamp duty and peak budget
 
-**Status: Proposed.** Nothing in this record is ratified. The operator rules by
-letter per decision item, as on DR-0004 (ruling q91, option c) — e.g. "1b, 2c,
-3b". Until a ruling lands, `esd_rail_release_peak` stays report-only, no limit
+**Status: Accepted** (operator ruling on #96, 2026-11-15, round 20261111-r14,
+q107: 1(b)/2(c)/3(b) — ratified as proposed). Under the ruling,
+`esd_rail_release_peak` stays report-only, no limit
 is wired into any deck, and no spec row changes. Numbering note: `main` holds
 DR-0001–DR-0004; open PR #50 proposes two more (its `0004-…` already collides
 with `main`'s DR-0004, and its `0005-vdd-dvdd-coupling.md`), so the next unused
@@ -141,13 +141,13 @@ whether the number exists.
   current `partial_coverage` that
   #48 / PR #50 is working to clear.
 - **(b) Stay report-only.** (Recommended, and implied by 1(b) + 2(c).) Nobody
-  should read `esd_rail_release_peak` as a pass or a failure while this record
-  is `Proposed` — or after a ruling that picks 1(b)/2(c), until the path in
+  should read `esd_rail_release_peak` as a pass or a failure — the ruling
+  picks 1(b)/2(c), so the row stays report-only until the path in
   Consequences below is walked.
 
 ## Consequences
 
-- Until the operator rules (and under the recommended ruling, until the full
+- Under the ruling (1(b)/2(c)/3(b), and until the full
   path below is walked): the powered-deck peak rows stay report-only with no
   target; 8.65956 V at typical/25 °C is context, not a verdict; the release
   itself remains the only thing that record shows.
