@@ -73,7 +73,7 @@
         "role": "testbench",
         "path": "sim/gpio-corners/collect.py",
         "passed": true,
-        "content_hash": "sha256:bc7fbfd6746188e1b29b0e9fb6e3bd02f7ae89777b950534d7d323ef1fbeb769"
+        "content_hash": "sha256:cc8e81545bb55ae365e890ca999a2ede7ee925e6fe9dbc2938fa9a34d66943ac"
       },
       {
         "check": "present",
