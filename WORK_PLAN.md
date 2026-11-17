@@ -8,7 +8,7 @@ region between the markers is machine-generated.
 
 Judge-approved PRs under a hold (`loom:blocked` or `loom:operator`) — only a human merge decision is missing.
 
-- **#109**: chore(loom): resync installed Loom to v0.19.1305
+- **#111**: chore(loom): resync installed Loom to v0.19.1306
 
 ## Very Important
 
@@ -45,7 +45,7 @@ PRs waiting on Judge (`loom:review-requested`).
 
 PRs that passed review and are queued for Champion auto-merge (`loom:pr`).
 
-- **#109**: chore(loom): resync installed Loom to v0.19.1305
+- **#111**: chore(loom): resync installed Loom to v0.19.1306
 
 ## Proposed
 
@@ -59,7 +59,7 @@ Issues carrying `loom:curated`.
 
 ## Proposed (Architect / Hermit)
 
-_None._
+- **#112**: Replace vacuous package.json test/lint/check scripts that always exit 0 *(hermit)*
 
 ## Epics
 
@@ -77,6 +77,6 @@ _None._
 | PRs awaiting review | 1 |
 | Approved PRs awaiting merge | 1 |
 | Curated | 5 |
-| Architect / Hermit proposals | 0 |
+| Architect / Hermit proposals | 1 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->
