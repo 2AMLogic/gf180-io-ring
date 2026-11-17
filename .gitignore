@@ -13,6 +13,10 @@ sim/build/
 flow/build/
 # local klt install, created by the setup script
 .venv/
+# pnpm drops these on every `pnpm test` / `pnpm check:all` (no dependencies);
+# the repo does not commit node state
+node_modules/
+pnpm-lock.yaml
 # >>> loom-managed (do not edit) >>>
 # Loom runtime state (don't commit these)
 .loom-in-use
