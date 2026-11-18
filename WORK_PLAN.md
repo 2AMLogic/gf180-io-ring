@@ -8,7 +8,7 @@ region between the markers is machine-generated.
 
 Judge-approved PRs under a hold (`loom:blocked` or `loom:operator`) — only a human merge decision is missing.
 
-- **#111**: chore(loom): resync installed Loom to v0.19.1306
+_None._
 
 ## Very Important
 
@@ -20,12 +20,12 @@ _None._
 
 `loom:important`; taken before unlabelled work.
 
-- **#20**: T1 item 7 (post-layout verification): klt pex delta of the GPIO spec suite against the extracted ring cell
-- **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60)
+- **#20**: T1 item 7 (post-layout verification): klt pex delta of the GPIO spec suite against the extracted ring cell *(held)*
+- **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60) *(held)*
 
 ## Ready
 
-Human-approved issues ready for implementation (`loom:issue`).
+Human-approved issues (`loom:issue`) ready for implementation — excluding held (`loom:blocked`/`loom:operator`/`loom:frozen`), `loom:building`, and issues closed by an open `loom:pr` PR (listed under Approved).
 
 _None._
 
@@ -45,21 +45,21 @@ PRs waiting on Judge (`loom:review-requested`).
 
 PRs that passed review and are queued for Champion auto-merge (`loom:pr`).
 
-- **#111**: chore(loom): resync installed Loom to v0.19.1306
+_None._
 
 ## Proposed
 
 Issues carrying `loom:curated`.
 
 - **#5**: Track the gap to T1 (klayout-tools design-evidence-tiers.md) *(curated)*
-- **#45**: Evaluate DVDD/DVSS rail clamp release after the pulse (no-latch) in the esd_rail bench *(curated)*
+- **#45**: Evaluate DVDD/DVSS rail clamp release after the pulse (no-latch) in the esd_rail bench *(curated)* *(held)*
 - **#48**: T1 item 5 (corner verification): close the two declared ESD gaps (core VDD-VSS rail clamp budget, VDD/DVDD coupling DR) holding item 5 at partial_coverage *(curated)*
-- **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60) *(curated)*
-- **#76**: Follow-on: Work identified in PR #70 *(curated)*
+- **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60) *(curated)* *(held)*
+- **#76**: Follow-on: Work identified in PR #70 *(curated)* *(held)*
 
 ## Proposed (Architect / Hermit)
 
-- **#112**: Replace vacuous package.json test/lint/check scripts that always exit 0 *(hermit)*
+_None._
 
 ## Epics
 
@@ -69,14 +69,14 @@ _None._
 
 | Bucket | Count |
 |------|-------|
-| Operator merge-risk holds | 1 |
+| Operator merge-risk holds | 0 |
 | Very important | 0 |
 | Important | 2 |
-| Ready (`loom:issue`) | 0 |
+| Ready (`loom:issue`, net of holds/building/merge-pending) | 0 |
 | In Progress (`loom:building`) | 1 |
 | PRs awaiting review | 1 |
-| Approved PRs awaiting merge | 1 |
+| Approved PRs awaiting merge | 0 |
 | Curated | 5 |
-| Architect / Hermit proposals | 1 |
+| Architect / Hermit proposals | 0 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->
