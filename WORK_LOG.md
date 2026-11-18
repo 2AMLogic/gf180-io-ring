@@ -5,6 +5,9 @@ triage role. Newest first.
 
 ### 2026-11-17
 
+- **PR #115**: build: replace always-green package.json stubs with real repo checks
+- **Issue #116** (closed): CI does not run the new pnpm test entry point (join-refusal selftest is agent-only)
+- **Issue #112** (closed): Replace vacuous package.json test/lint/check scripts that always exit 0
 - **PR #111**: chore(loom): resync installed Loom to v0.19.1306
 
 ### 2026-11-16
