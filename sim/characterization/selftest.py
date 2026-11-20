@@ -28,7 +28,6 @@ sandbox it reads from is a symlink farm under one.
 """
 import json
 import os
-import shutil
 import subprocess
 import sys
 import tempfile
@@ -43,27 +42,25 @@ ESD_PAD = ("5", "klt/esd_pad.json")
 ESD_RAIL = ("5", "klt/esd_rail.json")
 
 
-def sandbox(source_manifest):
+def sandbox(tmp):
     """A repo-root lookalike: everything symlinked through except manifests/."""
-    root = tempfile.mkdtemp(prefix="char-selftest-")
+    root = tempfile.mkdtemp(prefix="char-selftest-", dir=tmp)
     for entry in os.listdir(REPO):
         if entry == "manifests":
             continue
         os.symlink(os.path.join(REPO, entry), os.path.join(root, entry))
     os.mkdir(os.path.join(root, "manifests"))
-    with open(source_manifest, encoding="utf-8") as f:
+    with open(os.path.join(REPO, MANIFEST), encoding="utf-8") as f:
         man = json.load(f)
     write_manifest(root, man)
     return root, man
 
 
-def run_build(root):
-    out = tempfile.mkdtemp(prefix="char-selftest-out-")
-    proc = subprocess.run(
+def run_build(root, tmp):
+    out = tempfile.mkdtemp(prefix="char-selftest-out-", dir=tmp)
+    return subprocess.run(
         [sys.executable, "-I", BUILD, root, "--out", out],
         capture_output=True, text=True, check=False)
-    shutil.rmtree(out)
-    return proc
 
 
 def repoint(man, item, suffix, rows):
@@ -105,30 +102,27 @@ def expect_refuse(label, proc, orphan_row, unplaced):
 
 def main():
     with tempfile.TemporaryDirectory() as tmp:
-        src = os.path.join(tmp, "manifest-copy.json")
-        shutil.copy2(os.path.join(REPO, MANIFEST), src)
-
-        root, _ = sandbox(src)
-        proc = run_build(root)
+        root, _ = sandbox(tmp)
+        proc = run_build(root, tmp)
         if proc.returncode != 0:
             print(f"FAIL [unmutated]: rc={proc.returncode} -- the committed manifest "
                   f"must still build\n{proc.stdout}{proc.stderr}")
             return 1
         print("ok [unmutated]: committed manifest builds, rc=0")
 
-        root, man = sandbox(src)
+        root, man = sandbox(tmp)
         drop(man, *ESD_RAIL)
         repoint(man, *ESD_PAD, rows=["esd_rail_clamp"])
         write_manifest(root, man)
-        if not expect_refuse("multi-base", run_build(root), "esd_rail_clamp",
+        if not expect_refuse("multi-base", run_build(root, tmp), "esd_rail_clamp",
                              ["esd_pad_up", "esd_pad_dn"]):
             return 1
 
-        root, man = sandbox(src)
+        root, man = sandbox(tmp)
         drop(man, *ESD_PAD)
         repoint(man, *ESD_RAIL, rows=["esd_pad_clamp"])
         write_manifest(root, man)
-        if not expect_refuse("single-base", run_build(root), "esd_pad_clamp",
+        if not expect_refuse("single-base", run_build(root, tmp), "esd_pad_clamp",
                              ["esd_rail"]):
             return 1
 
