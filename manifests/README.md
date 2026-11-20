@@ -47,7 +47,7 @@ output: the machine-readable gap-to-T1 checklist.
   from the committed envelope.
 - **`design-evidence-tiers.md`**: the T1-T4 checklist the grader parses.
   Vendored **byte-identical** from
-  [`2AMLogic/klayout-tools@31a3e3c41c08bbd58719e0b99a3b6d19beb9be63`](https://github.com/2AMLogic/klayout-tools/blob/31a3e3c41c08bbd58719e0b99a3b6d19beb9be63/docs/design-evidence-tiers.md)
+  [`2AMLogic/klayout-tools@046ba74652fc096bd97071fc3237f7159dd40183`](https://github.com/2AMLogic/klayout-tools/blob/046ba74652fc096bd97071fc3237f7159dd40183/docs/design-evidence-tiers.md)
   `docs/design-evidence-tiers.md` (upstream is MIT-licensed; this repo's
   license does not relicense the vendored copy). When upstream moves,
   re-vendor and regenerate the record in the same PR.
@@ -60,7 +60,7 @@ output: the machine-readable gap-to-T1 checklist.
 ## Regenerate
 
 ```console
-uvx --from "klayout-tools==0.8.0" klt signoff \
+uvx --from "klayout-tools==0.9.2" klt signoff \
     --manifest manifests/gf180-io-ring.json \
     --tiers-doc manifests/design-evidence-tiers.md \
     --format json > manifests/gf180-io-ring.signoff.json
@@ -70,7 +70,7 @@ Attest item 10 (needs klt >= 0.8.0; run this first, then regenerate the record
 above, because the manifest cites the envelope's `content_hash`):
 
 ```console
-uvx --from "klayout-tools==0.8.0" klt signoff --attest 10 \
+uvx --from "klayout-tools==0.9.2" klt signoff --attest 10 \
     --inventory manifests/item10-inventory.json \
     -o manifests/item10-attestation.json
 ```
@@ -92,13 +92,13 @@ pin changes (the item 5 bench `sim/gpio-corners` is listed; the item 6 bench `si
 refresh the `content_hash` cited in the manifest and regenerate the record:
 
 ```console
-uvx --from "klayout-tools==0.8.0" klt signoff --attest 9 \
-    --inventory attest/item9.json -o evidence/item9.json
+uvx --from "klayout-tools==0.9.2" klt signoff --attest 9 \
+    --inventory attest/item9.json -o manifests/evidence/item9.json
 ```
 
 The cold start runs one local ngspice operating point, so attest from a
 host with the pinned PDK (`sim/check_env.sh`). CI runs the same command with
-`--check evidence/item9.json`; it does not run the local-only cold start.
+`--check manifests/evidence/item9.json`; it does not run the local-only cold start.
 
 ## Item 6 citations (Monte Carlo)
 

@@ -125,10 +125,10 @@ sim/gpio-pex/run.sh                   # item 7 bench: 19 requests, each `klt pex
 sim/gpio-pex/run.sh --probe           # one corner of one deck, local, for debugging
 layout/regen.sh                       # regenerate the ring GDS twice, assert equal bytes, rewrite the item-2 envelope
 layout/regen.sh --check               # regenerate and compare to the committed stream
-uvx --from "klayout-tools==0.8.0" klt signoff --attest 10 \
+uvx --from "klayout-tools==0.9.2" klt signoff --attest 10 \
     --inventory manifests/item10-inventory.json \
     -o manifests/item10-attestation.json       # re-attest item 10 first
-uvx --from "klayout-tools==0.8.0" klt signoff \
+uvx --from "klayout-tools==0.9.2" klt signoff \
     --manifest manifests/gf180-io-ring.json \
     --tiers-doc manifests/design-evidence-tiers.md \
     --format json > manifests/gf180-io-ring.signoff.json
