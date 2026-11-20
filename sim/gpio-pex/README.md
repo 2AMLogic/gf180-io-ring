@@ -29,8 +29,8 @@ are citable only from records whose `provenance.pdk.name` is `gf180mcuD`.
 
 klt 0.9.0 (the `run.sh` default) writes diodes with `A=`/`P=`, which ngspice rejects
 (`ngspice_fatal` on every extracted leg). The fix shipped in klt 0.9.2: `klt pex` adapts the diode
-cards before submitting the extracted request, and the standard and heavy fleet runner images now
-pin 0.9.2. The submitting client needs the fix as well as the runner image (#61, comment of
+cards before submitting the extracted request, and the standard and heavy fleet image configurations
+now pin klt 0.9.2 (deployment still pending, #61). The submitting client needs the fix as well as the runner image (#61, comment of
 2026-11-20), so the 0.9.0 default in `run.sh` cannot produce an extracted leg without a
 `KLT_CLIENT` override (`KLT_CLIENT="uvx --from klayout-tools==0.9.2 klt" sim/gpio-pex/run.sh --probe`).
 See `records/20261109T2200Z-probe-klt-diode-fix/record.md`.

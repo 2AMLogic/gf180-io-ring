@@ -171,7 +171,8 @@ def main():
         if proc.returncode == 0 and len(names) != 19:
             problems.append(f"{len(names)} requests, expected 19")
         if problems:
-            return fail("unfamiliar-stem", *problems)
+            fail("unfamiliar-stem", *problems)
+            return 1
         print("ok [unfamiliar-stem]: rail deck under a new name selected against, files removed")
 
         _, proc = run_gen(double, model, fixture="no-xdut")
