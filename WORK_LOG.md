@@ -5,6 +5,8 @@ triage role. Newest first.
 
 ### 2026-11-20
 
+- **PR #136**: ci: pin the signoff grader to klt 0.9.2 and refresh its records
+- **Issue #135** (closed): Bump the klt grading pin 0.8.0 -> 0.9.2 and regenerate the verdict of record before item-7 evidence lands
 - **PR #130**: fix: keep selftest sandboxes and build outputs under the shared temp dir
 - **Issue #128** (closed): Clean up temporary sandboxes after the characterization self-test
 
