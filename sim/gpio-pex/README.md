@@ -11,8 +11,12 @@ sim/gpio-pex/run.sh --probe   # one corner of one deck, local, for debugging
 ```
 
 `gen_requests.py` calls `../gpio-corners/gen_requests.py` (one corner grid, not two) and inlines
-the PDK switch-parameter include, because `klt pex` swaps exactly one `.include`, the DUT. `esd_rail`
-is dropped: its DUT is `dvdd_pad`, not `gpio`. The client is klt 0.9.0, matching the fleet runner image; `--tie-declared-pins` binds the merged `DVSS`/`VSS` net to both declared pins (DR-0004).
+the PDK switch-parameter include, because `klt pex` swaps exactly one `.include`, the DUT. Requests
+are selected by what the deck instantiates, not by name: only a deck carrying the `.include
+gpio.spice` card (the cell the pex run extracts) is kept; a deck for any other DUT (the `dvdd_pad`
+rail clamps `esd_rail` and `esd_rail_release`) is removed from the output directory, `.sp` and
+`.json`, so a new non-GPIO deck in the corner generator cannot silently break pex generation. The
+client default is klt 0.9.0 (`run.sh`); `--tie-declared-pins` binds the merged `DVSS`/`VSS` net to both declared pins (DR-0004).
 The generated schematic-leg `gpio.spice` wraps the design cell in the extracted pin order (`EXTRACTED_PINS` in `gen_requests.py`), so klt's positional `Xdut` line matches on both legs; `design/` is untouched.
 Records under `records/` are append-only. Do not edit the layout or netlists from here.
 
@@ -23,7 +27,10 @@ are citable only from records whose `provenance.pdk.name` is `gf180mcuD`.
 
 ## Extracted-leg diode parameters (#61)
 
-klt 0.9.0 (the pinned client and the fleet runner image) writes diodes with `A=`/`P=`, which ngspice rejects
-(`ngspice_fatal` on every extracted leg). klayout-tools PR #5184 fixes it; with a newer client
-(`KLT_CLIENT="uvx --from klayout-tools klt" sim/gpio-pex/run.sh --probe`) the extracted leg runs.
-See `records/20261109T2200Z-probe-klt-diode-fix/record.md`. The batch run needs a runner image with the fix.
+klt 0.9.0 (the `run.sh` default) writes diodes with `A=`/`P=`, which ngspice rejects
+(`ngspice_fatal` on every extracted leg). The fix shipped in klt 0.9.2: `klt pex` adapts the diode
+cards before submitting the extracted request, and the standard and heavy fleet runner images now
+pin 0.9.2. The submitting client needs the fix as well as the runner image (#61, comment of
+2026-11-20), so the 0.9.0 default in `run.sh` cannot produce an extracted leg without a
+`KLT_CLIENT` override (`KLT_CLIENT="uvx --from klayout-tools==0.9.2 klt" sim/gpio-pex/run.sh --probe`).
+See `records/20261109T2200Z-probe-klt-diode-fix/record.md`.
