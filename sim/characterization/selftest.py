@@ -19,6 +19,10 @@ directory holding a copy of the manifest that may be mutated):
      makes the pile-on look unambiguous, re-pointed at the pad row) is refused
      the same way.
 
+After the citation cases it runs sim/gpio-pex/selftest.py with the current
+interpreter and propagates its exit, so `pnpm test` and the CI step that runs
+this file also guard the pex request generator (issue #134).
+
 Before the single-orphan-row pairing rung was removed, both mis-citations built
 at exit 0 and rendered one clamp's number against the other clamp's limit, so
 assertions 2 and 3 fail on the unfixed builder -- that is the point of the test.
@@ -126,7 +130,16 @@ def main():
                              ["esd_rail"]):
             return 1
 
-    print("selftest: all join-refusal cases pass")
+    pex = subprocess.run(
+        [sys.executable, "-I", os.path.join(REPO, "sim", "gpio-pex", "selftest.py")],
+        capture_output=True, text=True, check=False)
+    sys.stdout.write(pex.stdout)
+    if pex.returncode != 0:
+        print(f"FAIL [gpio-pex]: rc={pex.returncode}\n{pex.stderr}")
+        return 1
+    print("ok [gpio-pex]: request-generator selftest passes")
+
+    print("selftest: all citation-join and pex-generator cases pass")
     return 0
 
 

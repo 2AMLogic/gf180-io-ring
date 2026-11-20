@@ -12,7 +12,11 @@ unchanged: this calls its generator and rewrites each testbench. Two differences
 * The positional `Xdut` line is rewritten to the extracted pin order, and the copied
   `gpio.spice` is replaced (in <outdir> only) by a wrapper `gpio` in that order around the
   unchanged design cell, renamed `gpio_design`. `design/` and the corners generator are untouched.
-* `esd_rail` is dropped: its DUT is `dvdd_pad`, not the `gpio` cell the pex run extracts.
+* Decks are selected by what they instantiate, not by name: a request is kept only when its
+  generated deck carries the `.include gpio.spice` card (the cell the pex run extracts); a deck
+  for any other DUT (the `dvdd_pad` rail clamps `esd_rail` and `esd_rail_release`) is removed
+  from the output directory, `.sp` and `.json`, so a new non-GPIO deck in the corner generator
+  cannot break pex generation. The pin-order check stays strict for every selected deck.
 
 --probe writes the single-corner requests (typical, 25 C) for a local debug run.
 """
@@ -23,7 +27,11 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(os.path.dirname(HERE), "gpio-corners", "gen_requests.py")
-DROP = ("esd_rail",)
+# The DUT include card of a deck this run can extract. The corner generator emits
+# `.include gpio.spice` for GPIO decks and `.include dvdd_pad.spice` for the rail
+# clamps, while every deck's header COMMENT mentions `design/gpio.spice` -- so the
+# selection matches the directive itself, never a mere mention of the cell.
+DUT_INCLUDE = re.compile(r"^\.include\s+gpio\.spice\s*$", re.M)
 
 # Pin order of the extracted `.SUBCKT gpio`, as `klt pex --tie-declared-pins` (klt 0.9.0) emits it:
 # records/20261105T0900Z-probe/extracted-gpio.spice:21. klt reuses the testbench's positional
@@ -78,12 +86,13 @@ def main():
         sys.exit(r.stderr)
     write_wrapper(out, designdir)
     for stem in r.stdout.split():
-        if stem in DROP:
+        sp = os.path.join(out, stem + ".sp")
+        text = open(sp).read()
+        if not DUT_INCLUDE.search(text):
             for ext in (".sp", ".json"):
                 os.remove(os.path.join(out, stem + ext))
             continue
-        sp = os.path.join(out, stem + ".sp")
-        text = reorder_xdut(inline_params(open(sp).read(), modeldir))
+        text = reorder_xdut(inline_params(text, modeldir))
         open(sp, "w").write(text)
         print(stem)
 
