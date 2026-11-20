@@ -3,6 +3,12 @@
 Chronological record of merged PRs and closed issues, maintained by the Guide
 triage role. Newest first.
 
+### 2026-11-20
+
+- **PR #130**: fix: keep selftest sandboxes and build outputs under the shared temp dir
+- **Issue #128** (closed): Clean up temporary sandboxes after the characterization self-test
+- **PR #127**: docs: update the item 7 post-layout verification blockers
+
 ### 2026-11-18
 
 - **PR #120**: ci: add merge_group trigger to the signoff workflow
