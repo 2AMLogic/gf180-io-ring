@@ -5,6 +5,8 @@ triage role. Newest first.
 
 ### 2026-11-20
 
+- **PR #138**: fix: select gpio-pex requests by the deck's DUT include card, not by name
+- **Issue #134** (closed): gpio-pex: request generation exits 1 on esd_rail_release ("no Xdut line to reorder"); select GPIO decks by their DUT include
 - **PR #136**: ci: pin the signoff grader to klt 0.9.2 and refresh its records
 - **Issue #135** (closed): Bump the klt grading pin 0.8.0 -> 0.9.2 and regenerate the verdict of record before item-7 evidence lands
 - **PR #130**: fix: keep selftest sandboxes and build outputs under the shared temp dir
