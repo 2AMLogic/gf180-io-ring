@@ -27,13 +27,13 @@ _None._
 
 Human-approved issues ready for implementation (`loom:issue`).
 
-_None._
+- **#125**: Require wiring when placing devices in the ring layout generator
 
 ## In Progress
 
 Issues currently being built (`loom:building`).
 
-- **#48**: T1 item 5 (corner verification): close the two declared ESD gaps (core VDD-VSS rail clamp budget, VDD/DVDD coupling DR) holding item 5 at partial_coverage
+_None._
 
 ## PRs Awaiting Review
 
@@ -56,10 +56,11 @@ Issues carrying `loom:curated`.
 - **#48**: T1 item 5 (corner verification): close the two declared ESD gaps (core VDD-VSS rail clamp budget, VDD/DVDD coupling DR) holding item 5 at partial_coverage *(curated)*
 - **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60) *(curated)*
 - **#76**: Follow-on: Work identified in PR #70 *(curated)*
+- **#125**: Require wiring when placing devices in the ring layout generator *(curated)*
 
 ## Proposed (Architect / Hermit)
 
-- **#125**: Require wiring when placing devices in the ring layout generator *(hermit)*
+_None._
 
 ## Epics
 
@@ -72,11 +73,11 @@ _None._
 | Operator merge-risk holds | 0 |
 | Very important | 0 |
 | Important | 2 |
-| Ready (`loom:issue`) | 0 |
-| In Progress (`loom:building`) | 1 |
+| Ready (`loom:issue`) | 1 |
+| In Progress (`loom:building`) | 0 |
 | PRs awaiting review | 1 |
 | Approved PRs awaiting merge | 0 |
-| Curated | 5 |
-| Architect / Hermit proposals | 1 |
+| Curated | 6 |
+| Architect / Hermit proposals | 0 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->
