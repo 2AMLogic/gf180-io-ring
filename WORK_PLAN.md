@@ -27,19 +27,20 @@ _None._
 
 Human-approved issues ready for implementation (`loom:issue`).
 
-- **#125**: Require wiring when placing devices in the ring layout generator
+_None._
 
 ## In Progress
 
 Issues currently being built (`loom:building`).
 
-_None._
+- **#125**: Require wiring when placing devices in the ring layout generator
 
 ## PRs Awaiting Review
 
 PRs waiting on Judge (`loom:review-requested`).
 
 - **#50**: feat: simulate the core VDD-VSS clamp against a proposed budget and propose no VDD/DVDD coupling
+- **#143**: refactor: require the wiring argument in gen_ring device helpers
 
 ## Approved (Awaiting Merge)
 
@@ -73,9 +74,9 @@ _None._
 | Operator merge-risk holds | 0 |
 | Very important | 0 |
 | Important | 2 |
-| Ready (`loom:issue`) | 1 |
-| In Progress (`loom:building`) | 0 |
-| PRs awaiting review | 1 |
+| Ready (`loom:issue`) | 0 |
+| In Progress (`loom:building`) | 1 |
+| PRs awaiting review | 2 |
 | Approved PRs awaiting merge | 0 |
 | Curated | 6 |
 | Architect / Hermit proposals | 0 |
