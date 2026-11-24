@@ -27,7 +27,7 @@ _None._
 
 Human-approved issues ready for implementation (`loom:issue`).
 
-- **#125**: Require wiring when placing devices in the ring layout generator
+_None._
 
 ## In Progress
 
@@ -40,7 +40,6 @@ _None._
 PRs waiting on Judge (`loom:review-requested`).
 
 - **#50**: feat: simulate the core VDD-VSS clamp against a proposed budget and propose no VDD/DVDD coupling
-- **#143**: refactor: require the wiring argument in gen_ring device helpers
 
 ## Approved (Awaiting Merge)
 
@@ -57,7 +56,6 @@ Issues carrying `loom:curated`.
 - **#48**: T1 item 5 (corner verification): close the two declared ESD gaps (core VDD-VSS rail clamp budget, VDD/DVDD coupling DR) holding item 5 at partial_coverage *(curated)*
 - **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60) *(curated)*
 - **#76**: Follow-on: Work identified in PR #70 *(curated)*
-- **#125**: Require wiring when placing devices in the ring layout generator *(curated)*
 
 ## Proposed (Architect / Hermit)
 
@@ -74,11 +72,11 @@ _None._
 | Operator merge-risk holds | 0 |
 | Very important | 0 |
 | Important | 2 |
-| Ready (`loom:issue`) | 1 |
+| Ready (`loom:issue`) | 0 |
 | In Progress (`loom:building`) | 0 |
-| PRs awaiting review | 2 |
+| PRs awaiting review | 1 |
 | Approved PRs awaiting merge | 0 |
-| Curated | 6 |
+| Curated | 5 |
 | Architect / Hermit proposals | 0 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->

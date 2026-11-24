@@ -3,6 +3,11 @@
 Chronological record of merged PRs and closed issues, maintained by the Guide
 triage role. Newest first.
 
+### 2026-11-24
+
+- **PR #143**: refactor: require the wiring argument in gen_ring device helpers
+- **Issue #125** (closed): Require wiring when placing devices in the ring layout generator
+
 ### 2026-11-20
 
 - **PR #138**: fix: select gpio-pex requests by the deck's DUT include card, not by name
