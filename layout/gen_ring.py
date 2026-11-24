@@ -374,9 +374,9 @@ def contacts(cell, x0, y0, x1, y1, enc=0.12):
         y += CT + 0.25
 
 
-def mos(cell, x, y, kind, w, l, nf, thick, rows=1, nets=None, wr=None):
+def mos(cell, x, y, kind, w, l, nf, thick, rows, nets, wr):
     """nf-finger MOS, W total split over fingers (and `rows` stacked blocks).
-    nets = (drain, gate, source); with `wr` the S/D columns get Metal2 straps
+    nets = (drain, gate, source); the S/D columns get Metal2 straps
     (source = even columns at the top, drain = odd columns at the bottom) and
     the gates a poly bar with one contact. Returns (x1, y1) of the drawn extent
     (COMP + poly, before implant)."""
@@ -403,18 +403,17 @@ def mos(cell, x, y, kind, w, l, nf, thick, rows=1, nets=None, wr=None):
         box(cell, imp, x - IMP_ENC, y0 - IMP_ENC, x + width + IMP_ENC, y1 + IMP_ENC)
         dg_y0 = y0 if dg_y0 is None else dg_y0
         dg_y1 = y1
-        if wr:
-            drain, gate, source = nets
-            for par, net, yv in ((0, source, y1 - 0.37), (1, drain, y0 + 0.37)):
-                cols = [x + i * pitch + SD / 2 for i in range(par, per_row + 1, 2)]
-                for xc in cols:
-                    wr.via1(net, xc, yv)
-                if len(cols) > 1:
-                    wr.m2rect(net, cols[0] - VPAD / 2, yv - VPAD / 2, cols[-1] + VPAD / 2, yv + VPAD / 2)
-                wr.terminal(net, cols[0], yv)
-            g0, g1 = x + SD, x + SD + (per_row - 1) * pitch + l
-            box(cell, "POLY", g0, y1 + 0.25, g1, y1 + 0.95)
-            wr.poly_contact(gate, g0 + min(l, 1.0) / 2, y1 + 0.6)
+        drain, gate, source = nets
+        for par, net, yv in ((0, source, y1 - 0.37), (1, drain, y0 + 0.37)):
+            cols = [x + i * pitch + SD / 2 for i in range(par, per_row + 1, 2)]
+            for xc in cols:
+                wr.via1(net, xc, yv)
+            if len(cols) > 1:
+                wr.m2rect(net, cols[0] - VPAD / 2, yv - VPAD / 2, cols[-1] + VPAD / 2, yv + VPAD / 2)
+            wr.terminal(net, cols[0], yv)
+        g0, g1 = x + SD, x + SD + (per_row - 1) * pitch + l
+        box(cell, "POLY", g0, y1 + 0.25, g1, y1 + 0.95)
+        wr.poly_contact(gate, g0 + min(l, 1.0) / 2, y1 + 0.6)
         ytop = y1 + 1.4
     if thick:
         # one marker over all stacked rows, so no sub-minimum gap between rows
@@ -422,7 +421,7 @@ def mos(cell, x, y, kind, w, l, nf, thick, rows=1, nets=None, wr=None):
     return x + width, ytop - 0.4
 
 
-def ring(cell, x0, y0, x1, y1, kind, net, wr=None):
+def ring(cell, x0, y0, x1, y1, kind, net, wr):
     """Non-broken tap ring around (x0,y0)-(x1,y1): P+ tap for 'p' substrate
     (tied DVSS/VSS), N+ tap inside an Nwell for 'n' well (tied DVDD/VDD)."""
     o = RING_W
@@ -437,9 +436,8 @@ def ring(cell, x0, y0, x1, y1, kind, net, wr=None):
     if kind == "n":
         box(cell, "NWELL", ox0 - 0.6, oy0 - 0.6, ox1 + 0.6, oy1 + 0.6)
     label(cell, "M1_LBL", net, ox0 + 0.5, oy0 + 0.5)
-    if wr:
-        wr.via1(net, ox0 + 0.5, (y0 + y1) / 2)
-        wr.terminal(net, ox0 + 0.5, (y0 + y1) / 2)
+    wr.via1(net, ox0 + 0.5, (y0 + y1) / 2)
+    wr.terminal(net, ox0 + 0.5, (y0 + y1) / 2)
     return ox0, oy0, ox1, oy1
 
 
@@ -475,7 +473,7 @@ def classify(d):
 MAXW = 67.5
 
 
-def place_group(cell, devs, y, kind, thick, net, wr=None):
+def place_group(cell, devs, y, kind, thick, net, wr):
     """Pack single/multi-finger devices of one flavour into rows inside a tap
     ring tied to `net`. Returns the y above the group's outer ring."""
     x0 = RING_W + 1.5 + 1.0
@@ -538,7 +536,7 @@ def place_clamp_array(cell, d, y, net, wr):
     return gy1 + RING_W + 1.5
 
 
-def diode(cell, x, y, kind, area_w, area_h, net=None, wr=None):
+def diode(cell, x, y, kind, area_w, area_h, net, wr):
     """diode_nd2ps_06v0 (N+/Psub) or diode_pd2nw_06v0 (P+/Nwell), 10 x 17.8."""
     box(cell, "COMP", x, y, x + area_w, y + area_h)
     box(cell, "DIODE_MK", x, y, x + area_w, y + area_h)
@@ -550,27 +548,25 @@ def diode(cell, x, y, kind, area_w, area_h, net=None, wr=None):
         box(cell, "NWELL", x - 1.0, y - 1.0, x + area_w + 1.0, y + area_h + 1.0)
     contacts(cell, x, y, x + area_w, y + area_h, enc=0.3)
     box(cell, "M1", x + 0.2, y + 0.2, x + area_w - 0.2, y + area_h - 0.2)
-    if wr:
-        wr.via1(net, x + area_w / 2, y + area_h / 2)
-        wr.terminal(net, x + area_w / 2, y + area_h / 2)
+    wr.via1(net, x + area_w / 2, y + area_h / 2)
+    wr.terminal(net, x + area_w / 2, y + area_h / 2)
 
 
-def mos_cap(cell, x, y, w, h, thick, gate=None, body=None, wr=None):
+def mos_cap(cell, x, y, w, h, thick, gate, body, wr):
     box(cell, "COMP", x, y, x + w, y + h)
     box(cell, "MOS_CAP_MK", x, y, x + w, y + h)
     box(cell, "POLY", x + 1.0, y - 0.3, x + w - 1.0, y + h + 0.3)
     box(cell, "NPLUS", x - IMP_ENC, y - IMP_ENC, x + w + IMP_ENC, y + h + IMP_ENC)
     if thick:
         box(cell, "DUALGATE", x - 0.5, y - 0.5, x + w + 0.5, y + h + 0.5)
-    if wr:
-        # gate: poly lead above the plate; body: both diffusion strips beside the poly
-        box(cell, "POLY", x + 1.0, y + h, x + 2.2, y + h + 1.15)
-        wr.poly_contact(gate, x + 1.6, y + h + 0.8)
-        for sx in (x + 0.2, x + w - 0.8):
-            contacts(cell, sx, y + 0.3, sx + 0.6, y + h - 0.3, enc=0.19)
-            box(cell, "M1", sx, y + 0.3, sx + 0.6, y + h - 0.3)
-            wr.via1(body, sx + 0.3, y + h / 2)
-            wr.terminal(body, sx + 0.3, y + h / 2)
+    # gate: poly lead above the plate; body: both diffusion strips beside the poly
+    box(cell, "POLY", x + 1.0, y + h, x + 2.2, y + h + 1.15)
+    wr.poly_contact(gate, x + 1.6, y + h + 0.8)
+    for sx in (x + 0.2, x + w - 0.8):
+        contacts(cell, sx, y + 0.3, sx + 0.6, y + h - 0.3, enc=0.19)
+        box(cell, "M1", sx, y + 0.3, sx + 0.6, y + h - 0.3)
+        wr.via1(body, sx + 0.3, y + h / 2)
+        wr.terminal(body, sx + 0.3, y + h / 2)
 
 
 # --- cells --------------------------------------------------------------------
