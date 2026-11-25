@@ -18,11 +18,11 @@ corner, fillers), with the DRC, LVS and ERC evidence under `manifests/evidence/`
   and the `VDD`/`DVDD` cross-domain coupling (not drawn yet), both tracked in #48. The rail clamp
   release after the pulse (#45) is a related open evaluation, not a declared gap.
 - **Item 7, post-layout verification: `no_evidence`.** A local probe produced numeric GPIO
-  deltas at one corner. Generating the full request set now stops before submission because
-  the GPIO PEX adapter also tries to process the `esd_rail_release` supply-pad deck (#20).
-  The batch run also needs a client and runner carrying the diode `area=`/`pj=` fix (#61).
-  The fleet image configuration pins klt 0.9.2. Deployment and a numeric extracted GPIO
-  result on that image are tracked in [the fleet issue](https://github.com/2AMLogic/2am/issues/7873).
+  deltas at one corner. The PEX generator produces all 19 GPIO grid requests and excludes
+  the supply-pad decks. The grid run (#20) still needs a submitting client and a deployed
+  runner with the diode `area=`/`pj=` fix (#61). The client defaults to klt 0.9.0 and the
+  fleet image configuration pins 0.9.2. [The fleet issue](https://github.com/2AMLogic/2am/issues/7873)
+  tracks deployment and a numeric extracted GPIO result on that image.
 - **Item 8, characterization report: `no_evidence`.** Tracked in #21.
 
 The upper tiers (T2 to T4) are not supported by this build. ESD robustness is not claimed:
