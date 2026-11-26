@@ -152,19 +152,23 @@ def cmd_derive(a):
     reports = {"fwd": load_report(a.fwd), "leak": load_report(a.leak), "cap": load_report(a.cap)}
     report = reports["fwd"]
     g = json.load(open(a.grid))
-    rows = {k: corner_rows(r) for k, r in reports.items()}
     areas = g["areas_m2"]
     problems = []
     need = {"fwd": [(p, t, None) for p, _ in g["process"] for t in g["temps_c"]],
             "leak": [(p, t, None) for p, _ in g["process"] for t in g["temps_c"]],
             "cap": [(p, t, float(v)) for p, _ in g["process"] for t in g["temps_c"] for v in (0, g["v_rev"])]}
+    validated = {k: {} for k in need}
     for k, keys in need.items():
+        rows = corner_rows(reports[k])
         for c in keys:
-            hit = next((x for x in rows[k] if x[:2] == c[:2] and (c[2] is None or (x[2] is not None and abs(x[2] - c[2]) < 1e-9))), None)
-            if hit is None:
+            row = next((r for x, r in rows.items() if x[:2] == c[:2] and
+                        (c[2] is None or (x[2] is not None and abs(x[2] - c[2]) < 1e-9))), None)
+            if row is None:
                 problems.append("%s: missing corner %s" % (k, c))
-            elif rows[k][hit]["_status"] != "pass":
-                problems.append("%s: corner %s status %r" % (k, c, rows[k][hit]["_status"]))
+            elif row["_status"] != "pass":
+                problems.append("%s: corner %s status %r" % (k, c, row["_status"]))
+            else:
+                validated[k][c] = row
     if problems:
         print("derive: FAIL: " + "; ".join(problems), file=sys.stderr)
         return 1
@@ -174,14 +178,13 @@ def cmd_derive(a):
         return v if isinstance(v, (int, float)) and math.isfinite(v) else None
 
     def val(c, name):
-        return finite(next(r for x, r in rows["fwd"].items() if x[:2] == c).get(name))
+        return finite(validated["fwd"][(*c, None)].get(name))
 
     def mval(c, step, name):
         if step == "leak":
-            return finite(next(r for x, r in rows["leak"].items() if x[:2] == c).get(name))
+            return finite(validated["leak"][(*c, None)].get(name))
         vr = 0.0 if step == "c0" else float(g["v_rev"])
-        r = next(r for x, r in rows["cap"].items() if x[:2] == c and abs((x[2] or 0) - vr) < 1e-9)
-        v = finite(r.get(name))
+        v = finite(validated["cap"][(*c, vr)].get(name))
         return None if v is None else -v / (2 * math.pi * g["f_ac_hz"])  # 1 ohm sense: C = -Im V / w
 
     j_h = g["currents_a"].index(g["i_hbm_a"])
