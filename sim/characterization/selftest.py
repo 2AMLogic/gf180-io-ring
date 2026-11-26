@@ -21,7 +21,10 @@ directory holding a copy of the manifest that may be mutated):
 
 After the citation cases it runs sim/gpio-pex/selftest.py with the current
 interpreter and propagates its exit, so `pnpm test` and the CI step that runs
-this file also guard the pex request generator (issue #134).
+this file also guard the pex request generator (issue #134). It then runs
+sim/gpio-bi_t/selftest.py the same way (issue #151): the foundry comparison's
+trip-point rows are replayed from the archived klt sim reports, so a collector
+change that moves a published ratio fails here.
 
 Before the single-orphan-row pairing rung was removed, both mis-citations built
 at exit 0 and rendered one clamp's number against the other clamp's limit, so
@@ -139,7 +142,16 @@ def main():
         return 1
     print("ok [gpio-pex]: request-generator selftest passes")
 
-    print("selftest: all citation-join and pex-generator cases pass")
+    bi_t = subprocess.run(
+        [sys.executable, "-I", os.path.join(REPO, "sim", "gpio-bi_t", "selftest.py")],
+        capture_output=True, text=True, check=False)
+    sys.stdout.write(bi_t.stdout)
+    if bi_t.returncode != 0:
+        print(f"FAIL [gpio-bi_t]: rc={bi_t.returncode}\n{bi_t.stderr}")
+        return 1
+    print("ok [gpio-bi_t]: collector replay selftest passes")
+
+    print("selftest: all citation-join, pex-generator and bi_t-replay cases pass")
     return 0
 
 

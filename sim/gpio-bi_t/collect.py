@@ -118,13 +118,13 @@ def table(reps):
                      "max", cid, v <= rise_lim))
         for cs in (0, 1):
             x = r[f"xfer_cs{cs}"]
-            cid, _, v = worst(x, "vt_minus", key=lambda p: p[2] / p[1], high=False)
-            lo = v / dv(x, cid)
+            cid, dvdd, v = worst(x, "vt_minus", key=lambda p: p[2] / p[1], high=False)
+            lo = v / dvdd
             rows.append((mode, f"VIL as lower trip Vt-, CS={cs}",
                          f">= {VT_MINUS_FRAC_MIN:g}*DVDD (reads low up to {VT_MINUS_FRAC_MIN:g}*DVDD)",
                          f"{lo:.3f}*DVDD", "min", cid, lo >= VT_MINUS_FRAC_MIN))
-            cid, _, v = worst(x, "vt_plus", key=lambda p: p[2] / p[1])
-            hi = v / dv(x, cid)
+            cid, dvdd, v = worst(x, "vt_plus", key=lambda p: p[2] / p[1])
+            hi = v / dvdd
             rows.append((mode, f"VIH as upper trip Vt+, CS={cs}",
                          f"<= {VT_PLUS_FRAC_MAX:g}*DVDD (reads high from {VT_PLUS_FRAC_MAX:g}*DVDD)",
                          f"{hi:.3f}*DVDD", "max", cid, hi <= VT_PLUS_FRAC_MAX))
@@ -143,13 +143,6 @@ def table(reps):
         rows.append((mode, "PAD capacitance, input mode, 1 MHz", f"<= {C_PAD_MAX * 1e12:g} pF",
                      fmt(v, "F"), "max", cid, v <= C_PAD_MAX))
     return rows
-
-
-def dv(rep, cid):
-    for c in rep["corners"]:
-        if c["corner_id"] == cid:
-            return c["params"]["dvdd"]
-    raise KeyError(cid)
 
 
 def probe(path):
