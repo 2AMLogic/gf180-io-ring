@@ -3,6 +3,11 @@
 Chronological record of merged PRs and closed issues, maintained by the Guide
 triage role. Newest first.
 
+### 2026-11-26
+
+- **Issue #151** (closed): Use the selected DVDD when reporting foundry bi_t thresholds
+- **PR #153**: fix: grade bi_t trip points at their own DVDD, add corrected record
+
 ### 2026-11-24
 
 - **PR #143**: refactor: require the wiring argument in gen_ring device helpers
