@@ -36,7 +36,7 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 from gpio_common import (DVDD, HYST_MIN, ILOAD, R_PULL, TEMPS, VOH_DROP_MAX,  # noqa: E402
                          VOL_MAX, VT_MINUS_FRAC_MIN, VT_PLUS_FRAC_MAX, dvdd_nominal,
-                         vdd_core_nominal)
+                         process_axis, vdd_core_nominal)
 
 MC_N = 300
 MC_SEED = 20261027
@@ -48,10 +48,10 @@ MODES = {m: (dvdd_nominal(m), ILOAD[m], HYST_MIN[m], VOH_DROP_MAX[m]) for m in D
 VDD_CORE = vdd_core_nominal()  # scalar: the campaign holds core VDD at its nominal point
 TARGET_YIELD = 0.98
 
-# gf180mcu has no all-device corner section: a bundle loads the MOS section plus the diode
-# (pad clamps), resistor and MOS-capacitor sections, all typical.
-PROCESS = {"name": "typical",
-           "sections": ["typical", "diode_typical", "res_typical", "moscap_typical"]}
+# The campaign runs the typical process only (README.md "Campaign"): that entry of the
+# shared process axis, taken by name so the corner sweep and this campaign cannot load
+# different model sections for one corner.
+PROCESS = next(p for p in process_axis() if p["name"] == "typical")
 
 BASE = {"a": "0", "oe": "0", "ie": "0", "pu": "0", "pd": "0"}
 
