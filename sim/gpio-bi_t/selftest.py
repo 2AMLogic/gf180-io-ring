@@ -11,18 +11,22 @@ corner ID instead (issue #151): a lower trip selected at 3.63 V was published ag
 2.97 V, and the 3.3 V, CS=0 VIL row read 0.325 (a pass) where the measurement gives
 0.266 (a miss).
 
-The case runs the production collector over the archived `klt sim` reports of
+The cases run the production collector over the archived `klt sim` reports of
 `records/20261023T173526Z` into a temporary directory -- no PDK, no ngspice, nothing
-written into the repository -- and checks what it writes against what is committed:
+written into the repository -- and check what it writes against what is committed:
 
   1. replay of the characterization run: results.tsv comes back byte for byte, and the
      comparison table differs from the committed one in exactly the four "VIL as lower
      trip" rows. They read 0.242 / 0.205 at 5 V and 0.266 / 0.230 at 3.3 V (CS=0 / CS=1)
      at their unchanged binding corners, and all four miss the 0.3*DVDD target; the
-     upper trip and every other row are unchanged.
+     upper trip and every other row are unchanged;
+  2. `records/20261126T170416Z`, the committed correction (the same reports re-collected
+     with the fixed collector, no simulation), regenerates byte for byte from its own
+     meta.txt and links the record it corrects.
 
-The replay case fails on the collector before the fix (lower-trip rows 0.296 / 0.251 /
-0.325 / 0.281, the third one a pass); that is the point of the test.
+Case 1 fails on the collector before the fix (lower-trip rows 0.296 / 0.251 /
+0.325 / 0.281, the third one a pass); that is the point of the test. Case 2 keeps
+the committed correction from going stale if the collector moves again.
 """
 import os
 import subprocess
@@ -34,9 +38,9 @@ REPO = os.path.dirname(os.path.dirname(HERE))
 COLLECT = os.path.join(HERE, "collect.py")
 RECORDS = os.path.join(HERE, "records")
 ARCHIVE = "20261023T173526Z"
+CORRECTED = "20261126T170416Z"
 SPEC = os.path.join(REPO, "spec", "io-ring.md")
 LOWER = "VIL as lower trip Vt-"
-#: (mode, parameter) -> published ratio of the lower trip at the selected point's own DVDD
 EXPECTED = {("5v", f"{LOWER}, CS=0"): "0.242*DVDD", ("5v", f"{LOWER}, CS=1"): "0.205*DVDD",
             ("3v3", f"{LOWER}, CS=0"): "0.266*DVDD", ("3v3", f"{LOWER}, CS=1"): "0.230*DVDD"}
 
@@ -114,9 +118,26 @@ def case_replay(tmp):
                         f"0.242 / 0.205 / 0.266 / 0.230*DVDD and miss, {len(got) - len(EXPECTED)} others unchanged")
 
 
+def case_corrected(tmp):
+    rec = os.path.join(RECORDS, CORRECTED)
+    out, proc = collect(tmp, os.path.join(rec, "meta.txt"))
+    if proc.returncode != 0:
+        return fail("corrected", f"collect.py rc={proc.returncode}", proc.stderr.strip())
+    problems = [f"{name} does not regenerate from the archived reports"
+                for name in ("record.md", "results.tsv")
+                if not same_bytes(os.path.join(out, name), os.path.join(rec, name))]
+    with open(os.path.join(rec, "record.md"), encoding="utf-8") as f:
+        if f"records/{ARCHIVE}/record.md" not in f.read():
+            problems.append("record.md does not link the record it corrects")
+    if problems:
+        return fail("corrected", *problems)
+    return ok("corrected", f"records/{CORRECTED} regenerates byte for byte from records/{ARCHIVE} and links it")
+
+
 def main():
     with tempfile.TemporaryDirectory() as tmp:
-        if not case_replay(tmp):
+        replay, corrected = case_replay(tmp), case_corrected(tmp)
+        if not (replay and corrected):
             return 1
     print("selftest: all bi_t collector cases pass")
     return 0

@@ -1,0 +1,12 @@
+- date (UTC): 20261126T170416Z (re-collection: no simulation was run for this record. Its table is `collect.py` over the archived `klt sim` reports of `records/20261023T173526Z`; the reports, requests, netlist and set reports of that run stay there and are not copied)
+- corrects: the four "VIL as lower trip Vt-" rows of [records/20261023T173526Z/record.md](../20261023T173526Z/record.md#comparison). That record is kept unedited (records are append-only). Every other row, `results.tsv` and the job list below are unchanged from it.
+- cause: the collector selected a trip point on Vt / DVDD, then divided the selected point by the DVDD of the first request carrying the corner ID, which is always the lowest supply (4.5 V in 5 V mode, 2.97 V in 3.3 V mode). The selected lower trip is at the highest supply.
+- effect: all four lower-trip ratios were overstated (0.296, 0.251, 0.325 and 0.281 were published). Only the 3.3 V, CS=0 row changes verdict (yes to NO). The upper-trip rows do not move: their selected point is at the lowest supply.
+- collector: `collect.py` at repo commit `0ac1a3297d48c503ffb37c33304e2cab7a143eea`, sha256 `43a17749ef288e92349304543ff4e11ea11a5463faf41f88015426f09cc5bfb0` (the content hash the T1 item 9 attestation pins for it), run as `python3 -I sim/gpio-bi_t/collect.py <this directory> records/20261023T173526Z/klt spec/io-ring.md <this directory>/meta.txt`. `sim/gpio-bi_t/selftest.py` replays this record on every run. Fix for #151.
+- provenance of the measurements, carried from the original record:
+  - open_pdks revision (pinned, sim/toolchain.json): `c6d73a35f524070e85faff4a6a9eef49553ebc2b`, variant `gf180mcuD`
+  - ngspice on the submitting host: `ngspice-46` (the fleet's own is per job below)
+  - klt: `klt 0.7.1.dev2517+g6bb7cf233677`; backend: batch (`klt sim --batch-set`)
+  - original run: `records/20261023T173526Z`, completed by --resume, at repo commit `9d1fc2542af5509a09616829b5953c2c362ff7f1`
+  - cell netlist: `bi_t.sp` in the original record, translated from the pinned CDL by cdl2ngspice.py and cross-checked device by device against the PDK's own spice netlist
+  - models staged with each job (`stage_model_inputs`): the pinned revision's sm141064.ngspice
