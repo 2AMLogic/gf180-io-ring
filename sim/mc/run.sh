@@ -127,8 +127,15 @@ echo "mc: repeat run of pulldown_5v_25C: $REPRO"
   echo "- repeat run of \`pulldown_5v_25C\` (same request, resubmitted): $REPRO"; } > "$OUT/meta.txt"
 
 python3 -I "$HERE/collect.py" "$OUT" --yield-cmd "$KLT_YIELD"; CRC=$?
+RESULT=INVALID; RC=1
+if [ "$SUBMITRC" = 0 ] && [ "$REPRO" = identical ]; then
+  case "$CRC" in 0) RESULT=PASS; RC=0 ;; 3) RESULT=ROWS_FAIL; RC=3 ;; esac
+fi
 { echo "date_utc=$STAMP"; echo "open_pdks=$OPEN_PDKS"; echo "variant=$VARIANT"; echo "submit_rc=$SUBMITRC"; echo "repeat=$REPRO"
-  echo "result=$([ "$CRC" = 0 ] && [ "$SUBMITRC" = 0 ] && [ "$REPRO" = identical ] && echo PASS || { [ "$CRC" = 3 ] && echo ROWS_FAIL || echo INVALID; })"; } > "$OUT/record.txt"
-if [ "$SUBMITRC" -ne 0 ] || [ "$CRC" = 1 ] || [ "$REPRO" != identical ]; then echo "mc: INVALID (record kept: $OUT)" >&2; exit 1; fi
-echo "record: $OUT"; [ "$CRC" = 3 ] && { echo "mc: data valid, some rows miss their target yield"; exit 3; }
-echo "mc: PASS"
+  echo "result=$RESULT"; } > "$OUT/record.txt"
+case "$RESULT" in
+  PASS) echo "record: $OUT"; echo "mc: PASS" ;;
+  ROWS_FAIL) echo "record: $OUT"; echo "mc: data valid, some rows miss their target yield" ;;
+  *) echo "mc: INVALID (record kept: $OUT)" >&2 ;;
+esac
+exit "$RC"

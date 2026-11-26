@@ -58,6 +58,12 @@ Exit 0: all rows meet their target yield. Exit 3: data valid but a row misses it
 record says which; the spec is not relaxed). Exit 1: invalid data or a harness failure.
 Records under `records/<UTC stamp>/` are append-only.
 
+    python3 -I sim/mc/selftest.py            # no PDK, no fleet: the campaign verdict
+
+`selftest.py` cold-starts a copy of `run.sh` with a stand-in for everything it calls and checks
+that `record.txt`, the terminal message and the exit status give the same verdict for every
+combination of submission status, repeat run and collector status; `pnpm test` and CI run it.
+
 ### Tool constraints met while building this
 
 - **Two klt installs.** The Spot fleet runner image is klt 0.8.0 and refuses a different client

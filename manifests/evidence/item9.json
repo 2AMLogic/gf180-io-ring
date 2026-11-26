@@ -115,7 +115,7 @@
         "role": "testbench",
         "path": "sim/mc/run.sh",
         "passed": true,
-        "content_hash": "sha256:c931963f1c38c777c845bf1f54b2892890cff8c136ccf73eac13b52a9c7f74e8"
+        "content_hash": "sha256:4300312eb2c2a0b6ddc0056c5371f9073f50d61fc4ac4669c4c6619c9cf4ed33"
       },
       {
         "check": "present",
