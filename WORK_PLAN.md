@@ -56,6 +56,7 @@ Issues carrying `loom:curated`.
 - **#48**: T1 item 5 (corner verification): close the two declared ESD gaps (core VDD-VSS rail clamp budget, VDD/DVDD coupling DR) holding item 5 at partial_coverage *(curated)*
 - **#61**: gpio-pex: extracted leg errors ngspice_fatal on diode model diode_nd2ps_06v0 (follow-on from PR #60) *(curated)*
 - **#76**: Follow-on: Work identified in PR #70 *(curated)*
+- **#158**: create-pr.sh exits 126 when the private config defaults tier exceeds the 128 KiB argument limit *(curated)*
 
 ## Proposed (Architect / Hermit)
 
@@ -77,7 +78,7 @@ _None._
 | In Progress (`loom:building`) | 0 |
 | PRs awaiting review | 1 |
 | Approved PRs awaiting merge | 0 |
-| Curated | 5 |
+| Curated | 6 |
 | Architect / Hermit proposals | 2 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->

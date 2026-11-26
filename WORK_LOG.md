@@ -5,6 +5,8 @@ triage role. Newest first.
 
 ### 2026-11-26
 
+- **Issue #152** (closed): gpio-bi_t: results.tsv does not record each point's DVDD
+- **PR #157**: fix: record each bi_t results.tsv point's DVDD in a dvdd column
 - **Issue #151** (closed): Use the selected DVDD when reporting foundry bi_t thresholds
 - **PR #153**: fix: grade bi_t trip points at their own DVDD, add corrected record
 
