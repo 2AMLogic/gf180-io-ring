@@ -33,14 +33,13 @@ _None._
 
 Issues currently being built (`loom:building`).
 
-- **#151**: Use the selected DVDD when reporting foundry bi_t thresholds
+_None._
 
 ## PRs Awaiting Review
 
 PRs waiting on Judge (`loom:review-requested`).
 
 - **#50**: feat: simulate the core VDD-VSS clamp against a proposed budget and propose no VDD/DVDD coupling
-- **#153**: fix: grade bi_t trip points at their own DVDD, add corrected record
 
 ## Approved (Awaiting Merge)
 
@@ -75,8 +74,8 @@ _None._
 | Very important | 0 |
 | Important | 2 |
 | Ready (`loom:issue`) | 0 |
-| In Progress (`loom:building`) | 1 |
-| PRs awaiting review | 2 |
+| In Progress (`loom:building`) | 0 |
+| PRs awaiting review | 1 |
 | Approved PRs awaiting merge | 0 |
 | Curated | 5 |
 | Architect / Hermit proposals | 2 |
