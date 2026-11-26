@@ -24,7 +24,7 @@
         "role": "testbench",
         "path": "sim/esd_clamp/esd_clamp.py",
         "passed": true,
-        "content_hash": "sha256:10af86ef635d8911918a720c5f992ff00ca3d4282e36771b0859f232757f4035"
+        "content_hash": "sha256:ce5be6e7fa0bc2a1fa9c39a0ed1a82740929e4f022f106963d73b58fbc3d8983"
       },
       {
         "check": "present",
