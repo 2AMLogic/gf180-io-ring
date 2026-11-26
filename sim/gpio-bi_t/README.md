@@ -53,8 +53,9 @@ temporary directory and checks the tables of both records below; `pnpm test` and
   predates that axis (`params_unsupported_worker`).
 - A VIL/VIH row is ranked on Vt / DVDD and its published ratio is taken at the selected
   point's own `DVDD`. The corner ID repeats across the three `DVDD` requests of a mode and
-  the `Corner` column names no supply, so the binding supply is only in the per-request
-  report under `klt/`.
+  the `Corner` column names no supply. Every `results.tsv` row states its own supply in the
+  `dvdd` column (volts); both committed records predate that column, and there the binding
+  supply is only in the per-request report under `klt/`.
 - The VIL/VIH rows use the receiver convention stated in the record; the spec does not state one.
 
 ## Records
