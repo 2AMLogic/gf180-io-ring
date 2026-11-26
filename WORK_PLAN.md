@@ -59,7 +59,7 @@ Issues carrying `loom:curated`.
 
 ## Proposed (Architect / Hermit)
 
-_None._
+- **#149**: Drop the discarded diode-name list from the layout netlist parser *(hermit)*
 
 ## Epics
 
@@ -77,6 +77,6 @@ _None._
 | PRs awaiting review | 1 |
 | Approved PRs awaiting merge | 0 |
 | Curated | 5 |
-| Architect / Hermit proposals | 0 |
+| Architect / Hermit proposals | 1 |
 | Active epics | 0 |
 <!-- guide:plan-body:end -->
