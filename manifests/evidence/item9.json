@@ -45,7 +45,7 @@
         "role": "testbench",
         "path": "sim/gpio-bi_t/collect.py",
         "passed": true,
-        "content_hash": "sha256:43a17749ef288e92349304543ff4e11ea11a5463faf41f88015426f09cc5bfb0"
+        "content_hash": "sha256:9507cc98fac1668231df00d9ab22a7837b6d501888a0ab0272218f8ae9aa8675"
       },
       {
         "check": "present",

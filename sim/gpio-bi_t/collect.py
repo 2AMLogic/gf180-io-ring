@@ -174,11 +174,12 @@ def main():
         sys.exit(1)
 
     with open(os.path.join(out, "results.tsv"), "w") as f:
-        f.write("deck\tmode\tcorner_id\tmeasurement\tvalue\tunit\n")
+        f.write("deck\tmode\tcorner_id\tmeasurement\tvalue\tunit\tdvdd\n")
         for (d, m), rep in reps.items():
             for c in rep["corners"]:
                 for ms in c["measurements"]:
-                    f.write(f"{d}\t{m}\t{c['corner_id']}\t{ms['name']}\t{ms['value']!r}\t{ms.get('unit', '')}\n")
+                    f.write(f"{d}\t{m}\t{c['corner_id']}\t{ms['name']}\t{ms['value']!r}\t"
+                            f"{ms.get('unit', '')}\t{c['params']['dvdd']!r}\n")
     n_points = sum(len(r["corners"]) for r in reps.values())
 
     rows = table(reps)
@@ -210,7 +211,10 @@ def main():
            "crossing of Y = DVDD/2, Vt- at the falling one). The rows use the receiver convention "
            "(reads low up to 0.3*DVDD means Vt- >= 0.3*DVDD; reads high from 0.7*DVDD means "
            "Vt+ <= 0.7*DVDD). The spec text does not state the convention; the raw Vt+/Vt- are in "
-           "results.tsv. Hysteresis is compared in the Schmitt setting (CS=1); CS=0 is listed as measured.",
+           "results.tsv. The corner ID repeats across the three DVDD requests of a deck and mode, so "
+           "every `results.tsv` row carries its supply: the `dvdd` column is the DVDD in volts for "
+           "that measurement. Hysteresis is compared in the Schmitt setting (CS=1); CS=0 is listed as "
+           "measured.",
            "", "## Jobs", ""] + envs
     open(os.path.join(out, "record.md"), "w").write("\n".join(md) + "\n")
     print(f"collect: {len(reps) * 3} requests, {n_points} points, all finite; {sum(1 for r in rows if not r[-1])}"
