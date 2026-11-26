@@ -16,6 +16,11 @@ one). It exits non-zero if the env check fails (`sim/check_env.sh`), the cell tr
 does not match the PDK's own spice netlist, a batch submit fails (there is **no local
 fallback**), or any PVT point has a missing, failed or non-finite measurement.
 
+    python3 -I sim/gpio-bi_t/selftest.py         # no PDK, no fleet: replay the committed records
+
+`selftest.py` runs `collect.py` over the archived reports of `records/20261023T173526Z` into a
+temporary directory and checks the tables of both records below; `pnpm test` and CI run it.
+
 ## What runs
 
 - `cdl2ngspice.py` — translates `gf180mcu_fd_io__bi_t` out of the pinned PDK's CDL
@@ -46,4 +51,20 @@ fallback**), or any PVT point has a missing, failed or non-finite measurement.
 - Pins: `PDRV0=PDRV1=0`, `SL=0`; `CS` is 0 or 1 only in the transfer decks.
 - **`DVDD` is split across requests**, not a `corners.params` axis: the fleet worker image
   predates that axis (`params_unsupported_worker`).
+- A VIL/VIH row is ranked on Vt / DVDD and its published ratio is taken at the selected
+  point's own `DVDD`. The corner ID repeats across the three `DVDD` requests of a mode and
+  the `Corner` column names no supply, so the binding supply is only in the per-request
+  report under `klt/`.
 - The VIL/VIH rows use the receiver convention stated in the record; the spec does not state one.
+
+## Records
+
+- `records/20261126T170416Z/` is the comparison of record: the same `klt sim` reports as the
+  run below, re-collected with the corrected `collect.py` (no simulation). Its `meta.txt` says
+  what it corrects and links the run.
+- `records/20261023T173526Z/` is the characterization run (48 requests, 720 PVT points,
+  completed by `--resume`). Its measurements, jobs and every row but the four VIL rows stand.
+  Its VIL rows are superseded: the collector divided the selected lower trip by the lowest
+  supply of the mode instead of by the selected point's own `DVDD`, publishing 0.296 /
+  0.251 / 0.325 / 0.281 for 0.242 / 0.205 / 0.266 / 0.230 (5 V CS=0 / CS=1, then 3.3 V
+  CS=0 / CS=1). The 3.3 V, CS=0 pass was a miss.
