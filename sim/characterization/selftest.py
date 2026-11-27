@@ -24,7 +24,11 @@ interpreter and propagates its exit, so `pnpm test` and the CI step that runs
 this file also guard the pex request generator (issue #134). It then runs
 sim/gpio-bi_t/selftest.py the same way (issue #151): the foundry comparison's
 trip-point rows are replayed from the archived klt sim reports, so a collector
-change that moves a published ratio fails here.
+change that moves a published ratio fails here. It then runs
+sim/mc/selftest.py the same way (issue #165): the Monte Carlo harness is
+cold-started from a byte copy of its run.sh with a double for everything it
+calls, so the recorded result, the terminal message and the exit status
+cannot decide a campaign's verdict three ways again.
 
 Before the single-orphan-row pairing rung was removed, both mis-citations built
 at exit 0 and rendered one clamp's number against the other clamp's limit, so
@@ -151,7 +155,16 @@ def main():
         return 1
     print("ok [gpio-bi_t]: collector replay selftest passes")
 
-    print("selftest: all citation-join, pex-generator and bi_t-replay cases pass")
+    mc = subprocess.run(
+        [sys.executable, "-I", os.path.join(REPO, "sim", "mc", "selftest.py")],
+        capture_output=True, text=True, check=False)
+    sys.stdout.write(mc.stdout)
+    if mc.returncode != 0:
+        print(f"FAIL [mc]: rc={mc.returncode}\n{mc.stderr}")
+        return 1
+    print("ok [mc]: campaign-verdict selftest passes")
+
+    print("selftest: all citation-join, pex-generator, bi_t-replay and mc-verdict cases pass")
     return 0
 
 
