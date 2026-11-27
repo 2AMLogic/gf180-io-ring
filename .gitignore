@@ -98,6 +98,11 @@ pnpm-lock.yaml
 /.loom-local/
 # <<< loom-managed <<<
 
+# loom-daemon's per-provider account ranking cache: live runtime state the
+# daemon rewrites on its own schedule (never builder output). Kept outside the
+# managed block above so a resync preserves the rule (#166).
+/.loom/account-ranking.*
+
 # Repo Skills machine-local install metadata (absolute source path + timestamp)
 .claude/skills/repo/.install-local.json
 !sim/smoke/records/**/*.log
