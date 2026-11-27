@@ -3,8 +3,17 @@
 Chronological record of merged PRs and closed issues, maintained by the Guide
 triage role. Newest first.
 
+### 2026-11-27
+
+- **PR #168**: chore: ignore loom-daemon's account-ranking cache under .loom/
+- **Issue #166** (closed): chore: check-main-clean.sh exits 3 on loom-daemon's untracked account-ranking cache
+- **PR #167**: fix: decide the Monte Carlo campaign verdict once in run.sh
+- **Issue #165** (closed): Compute the Monte Carlo campaign verdict once
+
 ### 2026-11-26
 
+- **PR #164**: refactor: select the Monte Carlo typical corner from the shared axis
+- **Issue #162** (closed): Use the shared GPIO typical process corner in the Monte Carlo generator
 - **Issue #159** (closed): Reuse the validated ESD clamp corner when deriving capacitance
 - **PR #161**: fix: read ESD clamp measurements from validated corner rows
 - **Issue #152** (closed): gpio-bi_t: results.tsv does not record each point's DVDD
