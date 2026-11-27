@@ -110,7 +110,8 @@ def write(path, text, executable=False):
 def sandbox(tmp):
     """A repository lookalike for one campaign: the production run.sh copied byte for byte to
     sim/mc/, a stand-in design/gpio.spice and the doubles. Returns its root."""
-    root = tempfile.mkdtemp(prefix="mc-selftest-", dir=tmp)
+    # Exercise command lookup in a sandbox path containing a space.
+    root = tempfile.mkdtemp(prefix="mc selftest-", dir=tmp)
     for rel in ("design", "sim", "sim/mc", "bin"):
         os.makedirs(os.path.join(root, rel))
     write(os.path.join(root, "design", "gpio.spice"), "* stand-in for design/gpio.spice\n")
@@ -126,9 +127,9 @@ def campaign(root, case):
     """Cold-start the copied run.sh with the doubles set to the three statuses of a case;
     returns the finished process."""
     submission, repeat, collector = case
-    klt = os.path.join(root, "bin", "klt")
-    env = dict(os.environ, KLT_SIM=klt, KLT_YIELD=klt, MC_SELFTEST_COLLECT_RC=str(collector),
-               MC_SELFTEST_REPEAT=repeat)
+    path = os.pathsep.join([os.path.join(root, "bin"), *os.get_exec_path()])
+    env = dict(os.environ, PATH=path, KLT_SIM="klt", KLT_YIELD="klt",
+               MC_SELFTEST_COLLECT_RC=str(collector), MC_SELFTEST_REPEAT=repeat)
     if submission:
         env["MC_SELFTEST_FAIL"] = FAILED_REQUEST
     return subprocess.run(["bash", os.path.join(root, "sim", "mc", "run.sh")], cwd=root, env=env,
