@@ -344,9 +344,14 @@ def mc_cell(repo, citations, collect):
     return cells
 
 
-def build(repo):
-    """Assemble report.json: the single object both report forms are rendered from."""
-    collect = load_collect(repo)
+def build(repo, collect=None):
+    """Assemble report.json: the single object both report forms are rendered from.
+
+    `collect` is the module load_collect() returns. main() passes the one it already
+    loaded, so collect.py executes once per invocation; a bare build(repo) loads it here.
+    """
+    if collect is None:
+        collect = load_collect(repo)
     manifest = read_json(repo, MANIFEST)
     for key in ("spec_rows", "evidence"):
         if key not in manifest:
@@ -660,7 +665,7 @@ def main():
     here = os.path.dirname(os.path.abspath(__file__))
     committed = os.path.abspath(args.out) if args.out else here
     collect = load_collect(repo)
-    report = build(repo)
+    report = build(repo, collect)
 
     if not args.check:
         for p in write(committed, report, collect.fmt):
