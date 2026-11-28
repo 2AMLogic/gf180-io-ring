@@ -3,6 +3,13 @@
 Chronological record of merged PRs and closed issues, maintained by the Guide
 triage role. Newest first.
 
+### 2026-11-28
+
+- **PR #174**: refactor: share one GPIO core pin table between the gpio cell and the ring
+- **Issue #171** (closed): Define the GPIO core pin positions once in the layout generator
+- **PR #173**: refactor: load gpio-corners collect.py once per invocation
+- **Issue #172** (closed): Load sim/gpio-corners/collect.py once in sim/characterization/build.py
+
 ### 2026-11-27
 
 - **PR #168**: chore: ignore loom-daemon's account-ranking cache under .loom/
