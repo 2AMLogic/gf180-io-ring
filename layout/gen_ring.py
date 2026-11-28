@@ -608,6 +608,11 @@ def pick(devs, kind, thick, bulk, names=None, skip=()):
     return out
 
 
+# gpio: core-side pins on Metal2 along the top edge, port order of gpio.spice
+GPIO_CORE_PINS = [(n, 12.0 + i * 10.0, 347.5)
+                  for i, n in enumerate(("A", "OE", "IE", "PU", "PD", "Y"))]
+
+
 def build_gpio():
     c, wr = new_cell("gpio")
     pad_landing(c, wr)
@@ -641,9 +646,8 @@ def build_gpio():
         yc = place_group(c, g, yc, kind, False, bulk, wr)
     assert placed == len(devs), (placed, len(devs))
     assert yc < 346, "gpio overflows the cell: %s" % yc
-    # core-side pins on Metal2 along the top edge, port order of gpio.spice
-    for i, n in enumerate(("A", "OE", "IE", "PU", "PD", "Y")):
-        pin(c, n, 12.0 + i * 10.0, 347.5, wr)
+    for n, px, py in GPIO_CORE_PINS:
+        pin(c, n, px, py, wr)
     assert not wr.route(), wr.unrouted
     wr.close_gaps()
     return c
@@ -777,9 +781,8 @@ def build_ring():
                 lbl = "PAD%d" % gp
                 p = tr * pya.Point(um(37.5), um(32.0))
                 ring_c.shapes(LI["M5_LBL"]).insert(pya.Text(lbl, p.x, p.y))
-                for pn, px in zip(("A", "OE", "IE", "PU", "PD", "Y"),
-                                  [12.0 + i * 10.0 for i in range(6)]):
-                    q = tr * pya.Point(um(px), um(347.5))
+                for pn, px, py in GPIO_CORE_PINS:
+                    q = tr * pya.Point(um(px), um(py))
                     ring_c.shapes(LI["M2_LBL"]).insert(
                         pya.Text(pn + str(gp), q.x, q.y))
                 gp += 1
