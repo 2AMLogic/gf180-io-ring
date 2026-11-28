@@ -3,9 +3,9 @@
 
     python3 -I sim/characterization/selftest.py
 
-Three assertions, each pointing build.py at a sandboxed copy of the repository
-(every top-level entry symlinked through except manifests/, which is a real
-directory holding a copy of the manifest that may be mutated):
+Four assertions, the first three pointing build.py at a sandboxed copy of the
+repository (every top-level entry symlinked through except manifests/, which is a
+real directory holding a copy of the manifest that may be mutated):
 
   1. the committed manifest still builds (rc=0) -- guards against the refusal
      becoming over-eager on the benign unmatched population (the six
@@ -17,7 +17,13 @@ directory holding a copy of the manifest that may be mutated):
      measurements and both remedies;
   3. the single-base shape (the rail envelope, whose one limited measurement
      makes the pile-on look unambiguous, re-pointed at the pad row) is refused
-     the same way.
+     the same way;
+  4. sim/gpio-corners/collect.py is loaded exactly once per invocation (issue
+     #172): build.py's main() is run in-process under --check with load_collect
+     counted. Before main() handed the module it had loaded to build(), build()
+     loaded it a second time -- executing collect.py again, whose top-level
+     sys.path.insert then prepended sim/ twice -- so this assertion fails on the
+     unfixed builder.
 
 After the citation cases it runs sim/gpio-pex/selftest.py with the current
 interpreter and propagates its exit, so `pnpm test` and the CI step that runs
@@ -37,6 +43,7 @@ assertions 2 and 3 fail on the unfixed builder -- that is the point of the test.
 Writes nothing into the repository: outputs go to a temp directory, and the
 sandbox it reads from is a symlink farm under one.
 """
+import importlib.util
 import json
 import os
 import subprocess
@@ -96,6 +103,34 @@ def write_manifest(root, man):
         f.write("\n")
 
 
+def count_load_collect():
+    """Run build.py's main() in-process under --check with load_collect counted.
+
+    --check builds into a temporary directory only, so nothing is written into
+    the repository. Returns (number of load_collect calls, exit status).
+    """
+    spec = importlib.util.spec_from_file_location("characterization_build", BUILD)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    calls = []
+    real = mod.load_collect
+
+    def counting(repo):
+        calls.append(repo)
+        return real(repo)
+
+    mod.load_collect = counting
+    argv, sys.argv = sys.argv, ["build.py", REPO, "--check"]
+    try:
+        try:
+            rc = mod.main()
+        except SystemExit as e:
+            rc = e.code
+    finally:
+        sys.argv = argv
+    return len(calls), rc
+
+
 def expect_refuse(label, proc, orphan_row, unplaced):
     problems = []
     if proc.returncode == 0:
@@ -137,6 +172,13 @@ def main():
                              ["esd_rail"]):
             return 1
 
+    calls, rc = count_load_collect()
+    if calls != 1 or rc != 0:
+        print(f"FAIL [single-load]: load_collect ran {calls} time(s), rc={rc} -- "
+              f"main() must load sim/gpio-corners/collect.py exactly once")
+        return 1
+    print("ok [single-load]: one load_collect call per invocation, rc=0")
+
     pex = subprocess.run(
         [sys.executable, "-I", os.path.join(REPO, "sim", "gpio-pex", "selftest.py")],
         capture_output=True, text=True, check=False)
@@ -164,7 +206,8 @@ def main():
         return 1
     print("ok [mc]: campaign-verdict selftest passes")
 
-    print("selftest: all citation-join, pex-generator, bi_t-replay and mc-verdict cases pass")
+    print("selftest: all citation-join, single-load, pex-generator, bi_t-replay and "
+          "mc-verdict cases pass")
     return 0
 
 
